@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  SongtaoGui&#39;s Blog  ]]>
+    </title>
+    <link> https://songtaogui.github.io/ </link>
+    <description>
+      <![CDATA[  SongtaoGui&#39;s Blog using Franklin  ]]>
+    </description>
+    <atom:link
+      href="https://songtaogui.github.io/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  HyperGraphs<em>in</em>julia  ]]>
+  </title>
+  <link> https://songtaogui.github.io/drafts/HyperGraphs_in_julia/index.html </link>
+  <guid> https://songtaogui.github.io/drafts/HyperGraphs_in_julia/index.html </guid>
+  <description>
+    <![CDATA[  HyperGraphs and related algorithms in julia&#33;  ]]>
+  </description>  
+    
+  <pubDate>Fri, 19 Aug 2022 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Songtao Gui</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>

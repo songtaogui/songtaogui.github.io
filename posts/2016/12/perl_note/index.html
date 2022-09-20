@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Songtao Gui">
+  <meta name="description" content="Head of Research">
+  <meta name="theme-color" content="#2962ff">
+  <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+  
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <link
+  rel=preconnect
+  href="https://fonts.gstatic.com"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+  crossorigin=anonymous>
+
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel=stylesheet href="/css/codeset.css">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" 
+  integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+   <title>perl_note</title>  
+
+
+</head>
+
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+   <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+  <div class=container>
+    <!-- Main name -->
+    <div class="d-none d-lg-inline-flex">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Button for narrow mode -->
+    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Main name for mobile mode -->
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Menu items -->
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+      <ul class="navbar-nav d-md-inline-flex">
+        <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
+        <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+        <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
+        <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+        <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
+
+
+        <!-- 
+        <li class=nav-item><a class=nav-link ><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></a></li>
+        <li class=nav-item>
+          <a class=nav-link>
+            <span>
+              <script src="/libs/lunr/lunr.js"></script>
+              <script src="lunr.stemmer.support.js"></script>
+              <script src="/libs/lunr/lunr.zh.js"></script>
+              <script src="/libs/lunr/lunr_index.js"></script>
+              <script src="/libs/lunr/lunrclient.min.js"></script>
+              <form id="lunrSearchForm" name="lunrSearchForm">
+                <input class="search-input" name="q" placeholder="Enter search term" type="text">
+                <input type="submit" value="Search" formaction="/search/index.html">
+              </form>
+            </span>
+          </a>
+        </li>
+        -->
+
+      </ul>
+    </div>
+    <div class="nav-icon d-none d-lg-inline-flex">
+      <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img" src="/assets/img/notebook.svg"></span></a>
+      <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img" src="/assets/img/giant.svg"></span></a>
+      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
+    </div>
+    <div class="nav-icon">
+      <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img" src="/assets/img/rss.svg"></span></a>
+    </div>
+    
+  </div>
+</nav>
+ 
+
+  <span class="js-widget-page d-none"></span>
+  
+  
+    <article class=article>
+      <div class="article-container pt-3">
+        <h1>perl_note</h1>
+      </div>
+      
+      <div class="article-container">
+        <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+        <!-- <div class="gst-style"> -->
+        <div class="layout-main">
+        <!-- <div class="article-style"> -->
+  
+<div class="franklin-content"><p> <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/perl/">perl</a>, <a href="/tag/programming/">programming</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div></p>
+<h2 id="perl-one-liner"><a href="#perl-one-liner" class="header-anchor">Perl-One-Liner</a></h2>
+<h3 id="perl-one-liner参数和perl特殊变量"><a href="#perl-one-liner参数和perl特殊变量" class="header-anchor"><ol>
+<li><p>Perl-One-Liner参数和perl特殊变量:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-julia">-e:表示后接指令 &#39;&#39;
+-n:逐行读取文件
+-l:先chomp,输出时再加换行
+-p:逐行读取并逐行输出
+-a:按照-F进行split,结果存储在@F中 若要重新指定-F，要先声明-F 再声明-a： perl -F&quot;\t&quot; -lane &#39;...&#39;
+-i:原文件编辑 -i.bak 创建&quot;.bak&quot;备份 eg: perl -pi.bak -e &#39;s/you/me/g&#39; file；
+等同于脚本里编辑 &#36;^I变量（只适用于&lt;&gt;）
+----------------------------------------------------
+&#36;_ 当前变量
+&#36;. 行号
+&#36;/ 输入分隔符eg: open XX; &#36;/&#61;&quot;&gt;&quot;;while&#40;&lt;&gt;&#41;&#123;...&#125; #按fas格式逐条读取
+&#36;\ 输出分隔符:perl -e &#39;&#36;\ &#61; &quot;. &quot;; print &quot;hello&quot;; print &quot;world&quot;&#39; 结果是 &quot;hello. world.&quot;
+&#36;1, &#36;2, &#36;3 模式匹配
+&#36;, 输出多个变量时每个变量间的分隔符
+&#36;&quot; 在引号间输出多个变量时的分隔符 &quot; 
+&#36;&amp; 用来存放匹配中的值
+&#36;&#96; 用来存放匹配中之前所有字符
+&#36;&#39; 用来存放匹配中之后所有字符</code></pre>
+<h3 id="ol_start2_统计匹配到的次数linux下grep_-c使用tr或者sg"><a href="#ol_start2_统计匹配到的次数linux下grep_-c使用tr或者sg" class="header-anchor"><ol start="2">
+<li><p>统计匹配到的次数（linux下grep -c），使用tr///;或者s///g:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">&#36;count&#61;&#36;temp&#61;~tr/A//; #要区分大小写
+&#36;count&#61;&#36;temp&#61;~s/&#40;A&#41;/&#36;1/g; #可以通过i参数设定不区分大小写</code></pre>
+<h3 id="ol_start3_合并a列相同的b列数据判断hash_keys出现次数"><a href="#ol_start3_合并a列相同的b列数据判断hash_keys出现次数" class="header-anchor"><ol start="3">
+<li><p>合并A列相同的B列数据,判断hash_keys出现次数</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">&#36; cat data |sort -k 1|perl -ane &#39;chomp;if&#40; &#36;a&#123;&#36;F&#91;0&#93;&#125;&#43;&#43;&#41;&#123;&#36;a&#61;&quot;&#36;F&#91;1&#93; &quot;&#125;else&#123;&#36;a &#61; &quot;\n&#36;_ &quot;&#125;;print &quot;&#36;a&quot;;&#39;</code></pre>
+<h3 id="ol_start4_查找重复行"><a href="#ol_start4_查找重复行" class="header-anchor"><ol start="4">
+<li><p>查找重复行:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;print if &#36;a&#123;&#36;_&#125;&#43;&#43;&#39; file</code></pre>
+<h3 id="ol_start5_在双引号中执行命令"><a href="#ol_start5_在双引号中执行命令" class="header-anchor"><ol start="5">
+<li><p>@&#123;&#91; ... &#93;&#125;: 在双引号中执行命令</p>
+</li>
+</ol>
+</a></h3>
+<p><strong>原理:</strong> &#91;...&#93;看作引用, 引用中可以执行命令,然后立刻解引用@&#123;&#125;</p>
+<pre><code class="language-sh">print qq&#123; @&#123;&#91; join &quot;-&quot;,1..10&#93;&#125; &#125; 得到1_2_3_4_5_6_7_8_9_10
+print qq&#123;join &quot;_&quot;,1..10&#125; 得到join &quot;_&quot;,1..10</code></pre>
+<h3 id="ol_start6_大小写转换_u大l小"><a href="#ol_start6_大小写转换_u大l小" class="header-anchor"><ol start="6">
+<li><p>大小写转换, u大l小</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">print uc 等同于 print &quot;\U&#36;_\E&quot; #\E可省,全大写
+print lc 等同于 print &quot;\L&#36;_\E&quot; #\E可省,全小写
+print ucfirst lc &#61; print &quot;\u\L&#36;_&quot; #先全变小写再首字母大写</code></pre>
+<h3 id="ol_start7_语句1_语句2"><a href="#ol_start7_语句1_语句2" class="header-anchor"><ol start="7">
+<li><p>语句1 &amp;&amp; 语句2 :</p>
+</li>
+</ol>
+</a></h3>
+<p>等同于 if&#40;语句1&#41;&#123;语句2&#125;</p>
+<h3 id="ol_start8_反向输出行列"><a href="#ol_start8_反向输出行列" class="header-anchor"><ol start="8">
+<li><p>反向输出行/列:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">行: perl -lne &#39;print scalar reverse&#39; 
+perl -lpe &#39;&#36;_ &#61; reverse&#39;
+列: perl -F&quot;\t&quot; -alne &#39;print &quot;@&#123;&#91;reverse @F&#93;&#125;&quot;&#39; #-F指定分隔符 -F和分隔符之间不加空格&#33;&#33;</code></pre>
+<h3 id="ol_start9_输出后10行_tail_-10"><a href="#ol_start9_输出后10行_tail_-10" class="header-anchor"><ol start="9">
+<li><p>输出后10行 &#40;tail -10&#41;:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;push @a, &#36;_; @a &#61; @a&#91;@a-10..&#36;#a&#93; if @a&gt;10; END &#123; print @a &#125;&#39; file
+perl -ne &#39;push @a, &#36;_; shift @a if @a&gt;10; END &#123; print @a &#125;&#39; file</code></pre>
+<h3 id="10输出不匹配的行"><a href="#10输出不匹配的行" class="header-anchor">10.输出不匹配的行:</a></h3>
+<pre><code class="language-sh">perl -ne &#39;&#33;/regex/ &amp;&amp; print&#39;
+perl -ne &#39;print if &#33;/regex/&#39;
+perl -ne &#39;print unless /regex/&#39;
+perl -ne &#39;/regex/ || print&#39;</code></pre>
+<h3 id="ol_start11_grep_-b_1"><a href="#ol_start11_grep_-b_1" class="header-anchor"><ol start="11">
+<li><p>grep -B 1 :</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;/regex/ &amp;&amp; &#36;last &amp;&amp; print &#36;last; &#36;last &#61; &#36;_&#39;
+grep -A 1 :
+perl -ne &#39;if &#40;&#36;p&#41; &#123; print; &#36;p &#61; 0 &#125; &#36;p&#43;&#43; if /regex/&#39; 
+perl -ne &#39;&#36;p &amp;&amp; print; &#36;p &#61; /regex/&#39;</code></pre>
+<h3 id="ol_start12_输出指定行"><a href="#ol_start12_输出指定行" class="header-anchor"><ol start="12">
+<li><p>输出指定行:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;&#36;. &#61;&#61; 13 &amp;&amp; print &amp;&amp; exit&#39;
+perl -ne &#39;&#36;. &#33;&#61; 27 &amp;&amp; print&#39;
+perl -ne &#39;@lines &#61; &#40;13, 19, 88, 290, 999, 1400, 2000&#41;;print if grep &#123; &#36;_ &#61;&#61; &#36;. &#125; @lines&#39; 
+perl -ne &#39;print if 17..30&#39; # ..操作符用在数字中时,将在&#36;.中检测</code></pre>
+<h3 id="ol_start13_输出指定两个表达式之间的所有行"><a href="#ol_start13_输出指定两个表达式之间的所有行" class="header-anchor"><ol start="13">
+<li><p>输出指定两个表达式之间的所有行:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;print if /regex1/../regex2/&#39; 
+# .. 操作符用在RE中时,将在&#36;_中检测,检测到regex1前,返回FALSE,检测到regex1后,
+# 一直返回TURE,直到检测到regex2后返回最后一个TURE,之后再一直返回FALSE.</code></pre>
+<h3 id="ol_start14_输出最长行"><a href="#ol_start14_输出最长行" class="header-anchor"><ol start="14">
+<li><p>输出最长行:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39;&#36;l &#61; &#36;_ if length&#40;&#36;_&#41; &gt; length&#40;&#36;l&#41;;END &#123; print &#36;l &#125;&#39;</code></pre>
+<h3 id="ol_start15_输出最短行"><a href="#ol_start15_输出最短行" class="header-anchor"><ol start="15">
+<li><p>输出最短行:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -ne &#39; &#36;s &#61; &#36;_ if &#36;. &#61;&#61; 1; &#36;s &#61; &#36;_ if length&#40;&#36;_&#41; &lt; length&#40;&#36;s&#41;; END &#123; print &#36;s &#125; &#39; #输出最短行时要先定义&#36;s,不然默认0一直最小</code></pre>
+<h3 id="ol_start16_行去重只输出重复行"><a href="#ol_start16_行去重只输出重复行" class="header-anchor"><ol start="16">
+<li><p>行去重/只输出重复行:</p>
+</li>
+</ol>
+</a></h3>
+<p>行去重:</p>
+<pre><code class="language-sh">perl -ne &#39;print if &#43;&#43;&#36;a&#123;&#36;_&#125; &#61;&#61; 2&#39;</code></pre>
+<p>只输出重复行:</p>
+<pre><code class="language-sh">perl -ne &#39;print unless &#36;a&#123;&#36;_&#125;&#43;&#43;&#39;</code></pre>
+<h3 id="ol_start17_-"><a href="#ol_start17_-" class="header-anchor"><ol start="17">
+<li><p>/&#91; -~&#93;/</p>
+</li>
+</ol>
+</a></h3>
+<p>匹配所有可打印字符,在ASCII中所有可打印字符的顺序,以空格&quot; &quot;开始,以&quot;~&quot;结束, 所以<a href="类似&#91;A-Z&#93;"> -~</a>包含所有可打印字符</p>
+<h2 id="nomal_perl"><a href="#nomal_perl" class="header-anchor">Nomal Perl</a></h2>
+<h3 id="输出匹配字符串的位置pos函数_返回匹配后的末尾位置"><a href="#输出匹配字符串的位置pos函数_返回匹配后的末尾位置" class="header-anchor"><ol>
+<li><p>输出匹配字符串的位置&#40;pos函数 返回匹配后的末尾位置&#41;:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">while &#40;&#36;seq &#61;~ /&#40;n&#43;&#41;/ig&#41;&#123;
+my &#36;len &#61; length &#36;1; 
+my &#36;end &#61; pos &#36;seq;
+my &#36;start &#61; &#36;end-&#36;len&#43;1; 
+my &#36;name &#61;&quot;N_&#36;len&quot;;
+print OUT &quot;&#36;id\t&#36;start\t&#36;end\t&#36;name\t&#36;score\t&#36;strand\n&quot;;</code></pre>
+<h3 id="ol_start2_cpan安装模块"><a href="#ol_start2_cpan安装模块" class="header-anchor"><ol start="2">
+<li><p>cpan安装模块：</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">perl -MCPAN -e shell #进入cpan
+install XXX::XX #安装模块</code></pre>
+<h3 id="3perl_的智能匹配操作符"><a href="#3perl_的智能匹配操作符" class="header-anchor">3.perl 的智能匹配操作符</a></h3>
+<pre><code class="language-julia">Perl5.018以上版本建议不用 ~~ 了，所以使用&#96;~~&#96;时会有警告。如果不想要警告，加入以下代码：
+? &#96;no if &#36;&#93; &gt;&#61; 5.018, warnings &#61;&gt; &quot;experimental::smartmatch&quot;;&#96;</code></pre>
+<pre><code class="language-sh">perl5.010版本以上支持的智能匹配操作符，可以极大效率的提高我们的代码简洁度。
+&#37;a ~~ &#37;b 哈希的键是否一致 
+&#37;a ~~ @b 至少 &#37;a 中的一个键在列表@b中 
+&#37;a ~~ /Fred/ 至少一个键匹配给定的模式 
+&#37;a ~~ &#39;Fred&#39; 哈希中某一指定键&#36;a&#123;Fred&#125;是否存在 &#36;a&#123;Fred&#125; 
+@a ~~ @b 数组是否相同 
+@a ~~ /Fred/ 有一个元素匹配给定的模式 
+@a ~~ 123 至少有一个元素转化为数字后是123 
+@a ~~ &#39;Fred&#39; 至少有一个元素转化为字符串后是&#39;Fred&#39; 
+&#36;name ~~ undef &#36;name确实尚未定义 
+&#36;name ~~ /Fred/ 模式匹配 
+123 ~~ &#39;123.0&#39; 数字和字符串是否相等 
+&#39;Fred&#39; ~~ &#39;Fred&#39; 字符串是否相同 
+123 ~~ 456 数字是否相等
+智能匹配可以取代复杂的循环。</code></pre>
+<h3 id="ol_start4_编写可用于管道和shell批量输入参数的perl脚本"><a href="#ol_start4_编写可用于管道和shell批量输入参数的perl脚本" class="header-anchor"><ol start="4">
+<li><p>编写可用于管道和shell批量输入参数的perl脚本：</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-sh">#&#33;/usr/bin/env perl
+@ARGV &#61; &#40;&#39;-&#39;&#41; unless @ARGV; 
+while &#40;my &#36;ARGV &#61; shift&#41; &#123;...&#125;</code></pre>
+<h3 id="ol_start5_perl_hash和数组指针的使用实现类似r中merge的功能"><a href="#ol_start5_perl_hash和数组指针的使用实现类似r中merge的功能" class="header-anchor"><ol start="5">
+<li><p>perl hash和数组指针的使用,实现类似R中merge的功能:</p>
+</li>
+</ol>
+</a></h3>
+<pre><code class="language-perl">my &#36;list &#61; shift;
+my &#36;another_list &#61; shift;
+my &#37;list;
+open IN,&quot;&#36;list&quot; || die &#36;&#33;;
+while&#40;&lt;IN&gt;&#41;&#123;
+    chomp;
+    s/\r&#36;//;
+    my @t &#61; split /\t/;
+    &#36;list&#123;&#36;t&#91;0&#93;&#125; &#61; &#91;&#93;; # &#91;&#93; is array reference
+&#125;
+close IN;
+open IN,&quot;&#36;another_list&quot; || die &#36;&#33;;
+while&#40;&lt;IN&gt;&#41;&#123;
+chomp;
+    s/\r&#36;//;
+    my @t &#61; split /\t/;
+    if&#40;exists &#36;list&#123;&#36;t&#91;0&#93;&#125;&#41;&#123;
+        push @&#123;&#36;list&#123;&#36;t&#91;0&#93;&#125;&#125;,@t;
+    &#125;
+&#125;
+close IN;</code></pre>
+<h3 id="6_print_技巧"><a href="#6_print_技巧" class="header-anchor">6 Print 技巧</a></h3>
+<pre><code class="language-julia">print join&#40;&quot;\t&quot;,@XXX&#41;,&quot;\n&quot;; #用join控制数组的间隔</code></pre>
+
+</div> 
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+  <footer class="site-footer">
+    <p class="powered-by">
+      Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+      Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+      The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+      The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 13, 2022. 
+
+      <!-- <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span> -->
+
+    </p>
+  </footer>
+</div>
+</div>
+  </div> <!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+    
+     <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+    
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+  
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+  
+  <script src="/libs/academic/academic.min.js"></script>
+  <script src="/libs/pure/ui.js"></script>
+  
+  </body>
+
+
+   <a class="js-back-to-top back-to-top-button" href="#">
+  <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+  $(function() {
+    var $win = $(window);
+    var $backToTop = $('.js-back-to-top');
+    // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+    $win.scroll(function() {
+      if ($win.scrollTop() > 100) {
+        $backToTop.show();
+      } else {
+        $backToTop.hide();
+      }
+    });
+    // 当用户点击按钮时，通过动画效果返回头部
+    $backToTop.click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 200);
+    });
+  });
+</script>
+<style>
+  /* back to top button */
+  .back-to-top-button {
+      display: none;
+      position: fixed;
+      width: 50px;
+      bottom: 3%;
+      right: 3%;
+      z-index: 99;
+      font-size: 15px;
+      border: 0px solid #696969;
+      background-color: #fff;
+      color: #222222;
+      outline: none;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 40px;
+  }
+  .back-to-top-button:hover {
+      background-color: #c0dbf5;
+      color: #fff;
+  }
+</style>
+ 
+  
+
+  <!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>

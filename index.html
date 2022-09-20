@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Songtao Gui">
+  <meta name="description" content="Head of Research">
+  <meta name="theme-color" content="#2962ff">
+  <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+  
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <link
+  rel=preconnect
+  href="https://fonts.gstatic.com"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+  crossorigin=anonymous>
+
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel=stylesheet href="/css/codeset.css">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" 
+  integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+   <title>Songtao Gui's Blog</title>  
+
+
+</head>
+
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+   <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+  <div class=container>
+    <!-- Main name -->
+    <div class="d-none d-lg-inline-flex">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Button for narrow mode -->
+    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Main name for mobile mode -->
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Menu items -->
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+      <ul class="navbar-nav d-md-inline-flex">
+        <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
+        <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+        <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
+        <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+        <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
+
+
+        <!-- 
+        <li class=nav-item><a class=nav-link ><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></a></li>
+        <li class=nav-item>
+          <a class=nav-link>
+            <span>
+              <script src="/libs/lunr/lunr.js"></script>
+              <script src="lunr.stemmer.support.js"></script>
+              <script src="/libs/lunr/lunr.zh.js"></script>
+              <script src="/libs/lunr/lunr_index.js"></script>
+              <script src="/libs/lunr/lunrclient.min.js"></script>
+              <form id="lunrSearchForm" name="lunrSearchForm">
+                <input class="search-input" name="q" placeholder="Enter search term" type="text">
+                <input type="submit" value="Search" formaction="/search/index.html">
+              </form>
+            </span>
+          </a>
+        </li>
+        -->
+
+      </ul>
+    </div>
+    <div class="nav-icon d-none d-lg-inline-flex">
+      <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img" src="/assets/img/notebook.svg"></span></a>
+      <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img" src="/assets/img/giant.svg"></span></a>
+      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
+    </div>
+    <div class="nav-icon">
+      <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img" src="/assets/img/rss.svg"></span></a>
+    </div>
+    
+  </div>
+</nav>
+ 
+
+  <span class="js-widget-page d-none"></span>
+  
+  
+<div class="franklin-content">
+<section id="about" class="home-section wg-about">
+  <div class="container">
+    <div class="row "></p>
+<div class="col-12 col-lg-4 profile"><img class="avatar avatar-circle" src="/assets/img/person.jpg" alt="Songtao Gui"> <div class=portrait-title><h2>Songtao Gui<br>桂松涛</h2><h3>Researcher & Developer</h3><span style="color:#9558B2">Being different at all cost.</span><br><br><ul class=network-icon aria-hidden=true><li><a href="https://scholar.google.co.uk/citations?user=1LAvdloAAAAJ" target=_blank rel=noopener><img class="mpg-icon" src="/assets/img/googlescholar.svg"></a></li><li><a href="https://github.com/songtaogui" target=_blank rel=noopener><img class="mpg-icon" src="/assets/img/github.svg"></a></li><li><a href="https://songtaogui.github.io/" target=_blank rel=noopener><img class="mpg-icon" src="/assets/img/homepage.svg"></a></li><li><a href="http://orcid.org/0000-0001-6718-982X" target=_blank rel=noopener><img class="mpg-icon" src="/assets/img/orcid.svg"></a></li><li><a href="https://twitter.com/GuiSongtao" target=_blank rel=noopener><img class="mpg-icon" src="/assets/img/twitter.svg"></a></li></ul><br><br><span class="cv-contact"> <img class="cv-img" src="/assets/img/location-indicator.svg"> <a style="color:#878787">Wuhan, China, 430070</a></span></div></div>
+<div class="col-12 col-lg-8"><h1>Biography</h1></p>
+<p>Hi there, I am a postdoc of crop genetics and breeding at the National Key Laboratory of Crop Genetic Improvement, Huazhong Agricultural University. My research interests includes:</p>
+<ul>
+<li><p>Population genomics and genetics</p>
+</li>
+<li><p>Graphic genomics</p>
+</li>
+<li><p>Multi-omics integration</p>
+</li>
+</ul>
+<p>I am also the co-builder of the <a href="http://www.zeamap.com">ZEAMAP</a> database v1.0, which collected multi-omics data in <em>Zea</em> populations. </br><p><i class="fa fa-chevron-circle-right"> </i> Learn more about me from <a href="/cv" target=_blank>my resume</a>.</p>
+<div class=row><div class=col-md-5><h3>Interests</h3><ul class=ul-interests><li>Population genetics</li><li>Graph genomics</li><li>Cool codes in julia</li><li>Ping-Pong</li><li>Cat</li></ul></div><div class=col-md-7><h3>Education</h3><ul class="ul-edu fa-ul"><li><i class="fa-li fas fa-graduation-cap"></i>
+  <div class=description>
+    <p class=course>PostDoc in Crop Breeding, 2018-Now</p>
+    <p class=institution>Huazhong Agricultural University</p>
+  </div>
+</li>
+<li><i class="fa-li fas fa-graduation-cap"></i>
+  <div class=description>
+    <p class=course>PhD in Genetics, 2012-2017</p>
+    <p class=institution>Wuhan University</p>
+  </div>
+</li>
+<li><i class="fa-li fas fa-graduation-cap"></i>
+  <div class=description>
+    <p class=course>BSc in Biological Science, 2008-2012</p>
+    <p class=institution>Shandong Normal University</p>
+  </div>
+</li>
+</ul></div></div></div>
+<p>    </div>
+  </div>
+</section>
+<hr />
+<section id="skills" class="home-section wg-featurette">
+  <div class="container">
+    <div class="row featurette"></p>
+<div class="col-md-12 section-heading"><h1>Skills</h1></div>
+
+<p><div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="/assets/img/bash.svg">  </div>
+  <h3>Linux/Bash</h3>
+  <p>90%</p>
+</div> <div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="/assets/img/perl.svg">  </div>
+  <h3>Perl</h3>
+  <p>80%</p>
+</div> <div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="assets/img/r.svg">  </div>
+  <h3>R</h3>
+  <p>80%</p>
+</div> <div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="/assets/img/juliarocker.gif">  </div>
+  <h3>Julia</h3>
+  <p>70%</p>
+</div> <div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="/assets/img/mathematics.svg">  </div>
+  <h3>BioMath</h3>
+  <p>10%</p>
+</div> <div class="col-12 col-sm-4">
+  <div class=featurette-icon style="text-align:center;">
+  <img style="display:inline-block; width:56px;" src="assets/img/statistic.svg">  </div>
+  <h3>BioStatistic</h3>
+  <p>20%</p>
+</div></p>
+<p>    </div>
+  </div>
+</section>
+<hr />
+<section id="experience" class="home-section wg-experience">
+  <div class="container">
+    <div class="row "></p>
+<div class="col-12 col-lg-4 section-heading"><h1>Experience</h1></div>
+
+<div class="col-12 col-lg-8"><p><div class="row experience">
+  <div class="col-auto text-center flex-column d-none d-sm-flex">
+    <!--
+      Element next to the card (pill) with a full/empty circle
+      to give a visual idea of the timeline
+    -->
+    <div class="row h-50">
+  <div class=col>&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div><div class=m-2><span class="badge badge-pill border exp-fill">&nbsp;</span></div><div class="row h-50">
+  <div class="col border-right">&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div>
+  </div>
+
+  <!--
+    Card and text
+  -->
+  <div class="col py-2">
+    <div class=card>
+      <div class=card-body>
+        <h4 class="card-title exp-title text-muted mt-0 mb-1">PostDoc</h4>
+        <h4 class="card-title exp-company text-muted my-0">HZAU</h4>
+        <div class="text-muted exp-meta">Jan 2018 – Present
+          <span class=middot-divider></span><span>Wuhan</span>
+        </div>
+        <div class=card-text>Responsibilities include:</p>
+<ul>
+<li><p>Study the genomics and genetic variations in <em>Zea</em></p>
+</li>
+<li><p>Study the pan-genomics of <em>Zea</em></p>
+</li>
+<li><p>Construct and maintain the <em>Zea</em> multi-omics database <a href="http://www.zeamap.com">Zeamap</a></p>
+</li>
+</ul>
+<p>        </div>
+      </div>
+    </div>
+  </div>
+</div> <div class="row experience">
+  <div class="col-auto text-center flex-column d-none d-sm-flex">
+    <!--
+      Element next to the card (pill) with a full/empty circle
+      to give a visual idea of the timeline
+    -->
+    <div class="row h-50">
+  <div class="col border-right">&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div><div class=m-2><span class="badge badge-pill border ">&nbsp;</span></div><div class="row h-50">
+  <div class="col border-right">&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div>
+  </div>
+
+  <!--
+    Card and text
+  -->
+  <div class="col py-2">
+    <div class=card>
+      <div class=card-body>
+        <h4 class="card-title exp-title text-muted mt-0 mb-1">Developer</h4>
+        <h4 class="card-title exp-company text-muted my-0">BGI</h4>
+        <div class="text-muted exp-meta">Dec 2018 – Dec 2019
+          <span class=middot-divider></span><span>Shenzhen</span>
+        </div>
+        <div class=card-text>Cooperate with/Lead a development team of 5 members to develop the multi-omics database ZEAMAP.         </div>
+      </div>
+    </div>
+  </div>
+</div> <div class="row experience">
+  <div class="col-auto text-center flex-column d-none d-sm-flex">
+    <!--
+      Element next to the card (pill) with a full/empty circle
+      to give a visual idea of the timeline
+    -->
+    <div class="row h-50">
+  <div class="col border-right">&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div><div class=m-2><span class="badge badge-pill border ">&nbsp;</span></div><div class="row h-50">
+  <div class=col>&nbsp;</div>
+  <div class=col>&nbsp;</div>
+</div>
+  </div>
+
+  <!--
+    Card and text
+  -->
+  <div class="col py-2">
+    <div class=card>
+      <div class=card-body>
+        <h4 class="card-title exp-title text-muted mt-0 mb-1">PhD candidate</h4>
+        <h4 class="card-title exp-company text-muted my-0">WHU</h4>
+        <div class="text-muted exp-meta">Sep 2012 – Dec 2017
+          <span class=middot-divider></span><span>Wuhan</span>
+        </div>
+        <div class=card-text>Responsibilities include:</p>
+<ul>
+<li><p>Construct the genetic linkage map of <em>Nelumbo nucifera</em></p>
+</li>
+<li><p>Study the organelle genomes of <em>Nelumbo nucifera</em></p>
+</li>
+<li><p>Study the CenH3 and centromere of <em>Nelumbo nucifera</em></p>
+</li>
+<li><p>Identify DNA fingerprints for Rice germplasms</p>
+</li>
+</ul>
+<p>        </div>
+      </div>
+    </div>
+  </div>
+</div></p></div>
+<p>    </div>
+  </div>
+</section>
+<hr>
+<section id="posts" class="home-section wg-pages">
+  <div class="container">
+    <div class="row "></p>
+<div class="col-12 col-lg-4 section-heading"><h1>Recent Posts</h1></div>
+
+<div class="col-12 col-lg-8"><div class="media stream-item">
+  <div class=media-body>
+    <h3 class="article-title mb-0 mt-0"><a href="/posts\2022\09\filepaths_in_julia_with_FilePathsBase">filepaths_in_julia_with_FilePathsBase</a></h3>
+    <a href="/posts\2022\09\filepaths_in_julia_with_FilePathsBase" class=summary-link>
+      <div class=article-style>Dealing with file paths in julia, using FilePathsBase.jl
+</div>
+    </a>
+    <div class="stream-meta article-metadata">
+      <div class=article-metadata><span class=article-date>Published on Sep 16, 2022.</span>
+      </div>
+    </div>
+  </div>
+  <div class=ml-3>
+  
+  </div>
+</div><div class="media stream-item">
+  <div class=media-body>
+    <h3 class="article-title mb-0 mt-0"><a href="/posts\2022\09\make_my_own_parser">Make my own bioinformatics parser with Automa.jl</a></h3>
+    <a href="/posts\2022\09\make_my_own_parser" class=summary-link>
+      <div class=article-style>Parse WGA chain file into dict of IntervalCollections
+</div>
+    </a>
+    <div class="stream-meta article-metadata">
+      <div class=article-metadata><span class=article-date>Published on Sep 16, 2022.</span>
+      </div>
+    </div>
+  </div>
+  <div class=ml-3>
+  
+  </div>
+</div><div class="media stream-item">
+  <div class=media-body>
+    <h3 class="article-title mb-0 mt-0"><a href="/posts\2022\09\automa_basic_usage">automa_basic_usage</a></h3>
+    <a href="/posts\2022\09\automa_basic_usage" class=summary-link>
+      <div class=article-style>Learn how to write parser using automa!
+</div>
+    </a>
+    <div class="stream-meta article-metadata">
+      <div class=article-metadata><span class=article-date>Published on Sep 14, 2022.</span>
+      </div>
+    </div>
+  </div>
+  <div class=ml-3>
+  
+  </div>
+</div></div>
+<p>    </div>
+  </div>
+</section>
+<hr>
+
+
+
+
+<div class="container">
+  <footer class="site-footer">
+    <p class="powered-by">
+      Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+      Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+      The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+      The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 19, 2022. 
+
+      <!-- <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span> -->
+
+    </p>
+  </footer>
+</div>
+</div>
+
+<!-- CONTENT ENDS HERE -->
+    
+    
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+    
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+  
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+  
+  <script src="/libs/academic/academic.min.js"></script>
+  <script src="/libs/pure/ui.js"></script>
+  
+  </body>
+
+
+   <a class="js-back-to-top back-to-top-button" href="#">
+  <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+  $(function() {
+    var $win = $(window);
+    var $backToTop = $('.js-back-to-top');
+    // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+    $win.scroll(function() {
+      if ($win.scrollTop() > 100) {
+        $backToTop.show();
+      } else {
+        $backToTop.hide();
+      }
+    });
+    // 当用户点击按钮时，通过动画效果返回头部
+    $backToTop.click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 200);
+    });
+  });
+</script>
+<style>
+  /* back to top button */
+  .back-to-top-button {
+      display: none;
+      position: fixed;
+      width: 50px;
+      bottom: 3%;
+      right: 3%;
+      z-index: 99;
+      font-size: 15px;
+      border: 0px solid #696969;
+      background-color: #fff;
+      color: #222222;
+      outline: none;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 40px;
+  }
+  .back-to-top-button:hover {
+      background-color: #c0dbf5;
+      color: #fff;
+  }
+</style>
+ 
+  
+
+  <!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>

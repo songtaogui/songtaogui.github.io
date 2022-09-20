@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Songtao Gui">
+  <meta name="description" content="Head of Research">
+  <meta name="theme-color" content="#2962ff">
+  <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+  
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+  <link
+  rel=preconnect
+  href="https://fonts.gstatic.com"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+  crossorigin=anonymous>
+
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel=stylesheet href="/css/codeset.css">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" 
+  integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+   <title>Julia流程搭建工具Pipeline</title>  
+
+
+</head>
+
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+   <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+  <div class=container>
+    <!-- Main name -->
+    <div class="d-none d-lg-inline-flex">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Button for narrow mode -->
+    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Main name for mobile mode -->
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class=navbar-brand href="/">Songtao Gui</a>
+    </div>
+    <!-- Menu items -->
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+      <ul class="navbar-nav d-md-inline-flex">
+        <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
+        <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+        <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
+        <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+        <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+        <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
+
+
+        <!-- 
+        <li class=nav-item><a class=nav-link ><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></a></li>
+        <li class=nav-item>
+          <a class=nav-link>
+            <span>
+              <script src="/libs/lunr/lunr.js"></script>
+              <script src="lunr.stemmer.support.js"></script>
+              <script src="/libs/lunr/lunr.zh.js"></script>
+              <script src="/libs/lunr/lunr_index.js"></script>
+              <script src="/libs/lunr/lunrclient.min.js"></script>
+              <form id="lunrSearchForm" name="lunrSearchForm">
+                <input class="search-input" name="q" placeholder="Enter search term" type="text">
+                <input type="submit" value="Search" formaction="/search/index.html">
+              </form>
+            </span>
+          </a>
+        </li>
+        -->
+
+      </ul>
+    </div>
+    <div class="nav-icon d-none d-lg-inline-flex">
+      <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img" src="/assets/img/notebook.svg"></span></a>
+      <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img" src="/assets/img/giant.svg"></span></a>
+      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
+    </div>
+    <div class="nav-icon">
+      <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img" src="/assets/img/rss.svg"></span></a>
+    </div>
+    
+  </div>
+</nav>
+ 
+
+  <span class="js-widget-page d-none"></span>
+  
+  
+    <article class=article>
+      <div class="article-container pt-3">
+        <h1>Julia流程搭建工具Pipeline</h1>
+      </div>
+      
+      <div class="article-container">
+        <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+        <!-- <div class="gst-style"> -->
+        <div class="layout-main">
+        <!-- <div class="article-style"> -->
+  
+<div class="franklin-content">
+<div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/julia/">julia</a>, <a href="/tag/pipeline/">pipeline</a>, <a href="/tag/programming/">programming</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#快速开始">快速开始</a><ol><li><a href="#类型">类型</a></li><li><a href="#cmdprogram">CmdProgram</a></li><li><a href="#julia_program">Julia Program</a></li><li><a href="#cmddependency">CmdDependency</a></li><li><a href="#misc">MISC</a></li></ol></li></ol></div>
+<blockquote>
+<p>本文是对<a href="https://cihga39871.github.io/Pipelines.jl/stable/">Pipeline.jl文档</a>的低配翻译</p>
+</blockquote>
+<h2 id="快速开始"><a href="#快速开始" class="header-anchor">快速开始</a></h2>
+<h3 id="类型"><a href="#类型" class="header-anchor">类型</a></h3>
+<p><code>CmdProgram</code>和<code>JuliaProgram</code></p>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">using Pipelines
+
+Program
+    CmdProgram      # 命令行工具模版和输入输出参数, 传参用cmd::AbstractCmd
+    JuliaProgram    # Julia代码的参数模版, 与CmdProgram的区别是JuliaProgram传参用的是main::Expr</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<h3 id="cmdprogram"><a href="#cmdprogram" class="header-anchor">CmdProgram</a></h3>
+<h4 id="快速开始__2"><a href="#快速开始__2" class="header-anchor">快速开始</a></h4>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">using Pipelines
+echo &#61; CmdProgram&#40;
+    inputs &#61; &#91;
+        &quot;REQUIRED&quot;,         # 无默认值, any类型
+        &quot;TYPED&quot; &#61;&gt; String,  # 我默认值, 指定String类型
+        &quot;OPTIONAL&quot; &#61;&gt; 4,    # 默认值4, any类型
+        &quot;FULL&quot; &#61;&gt; String &#61;&gt; &quot;abc&quot; # 有默认值, 并指定类型
+    &#93;,
+    cmd &#61; \&#96;echo REQUIRED TYPED OPTINAL FULL\&#96;
+&#41;</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+
+  <fieldset class="tip"><legend class="tip-legend"> 🍏 贴士</legend>
+  </p>
+<ul>
+<li><p>用<code>run</code>运行命令,记得区分位置参数和关键字参数&#40;<code>;</code>&#41;: <code>run&#40;echo; REQUIRED&#61;&quot;Pipelines&quot;, TYPED &#61; &quot;are&quot;&#41;</code>;</p>
+</li>
+<li><p>程序会<strong>自动记录<code>run_id</code></strong>, 如果重复提交, 不会重复运行,而是给出warn;</p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+<h4 id="具体用法"><a href="#具体用法" class="header-anchor">具体用法</a></h4>
+<ul>
+<li><p><code>name</code>: 定义CmdProgram的名字;</p>
+</li>
+<li><p><code>id_file</code>: 作业UID的前缀, 如<code>id_file&#61;&quot;.bwt&quot;</code>会生成<code>.bwt.xxxxx</code>的UID;</p>
+</li>
+<li><p><code>inputs</code>: <code>&#91;&#93;</code>列表, 可以用<code>&#61;&gt;</code>添加默认值和类型;</p>
+</li>
+</ul>
+
+  <fieldset class="tip"><legend class="tip-legend"> 🍏 输入参数用`String`还是`Symbol`?</legend>
+      大部分情况下,用String, 只有当参数的改变不会影响结果时, 用Symbol。 比如如果重复提交同一个任务, 只有cpu数目&#40;NTHREADS参数&#41;改变了, 如果想让流程知道这是一个已经跑过的任务, 就要用Symbol的形式传递NTHREADS参数:<code>:NTHREADS &#61;&gt; Int &#61;&gt; 8</code>, Symbol类型的参数不会用于生成UID。 
+  </fieldset>
+  
+<ul>
+<li><p><code>outputs &amp; infer_outputs</code>: 动态生成输出, 用法如下</p>
+<p>\julia&#123;   infer<em>outputs &#61; quote       Dict&#40;           &quot;OUTPUT</em>FILE&quot; &#61;&gt; joinpath&#40;               pwd&#40;&#41;, string&#40;&quot;out_&quot;, INPUT1, &quot;.txt&quot;&#41;           &#41;       &#41;    end   &#125;</p>
+<ul>
+<li><p>注意: 输出必须是outputs变量为key的字典</p>
+</li>
+<li><p>几个辅助函数: <code>replaceext</code>, <code>removeext</code>, <code>to_str</code>, <code>to_cmd</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>validate_inputs</code>: 检查输入依赖</p>
+<p>\julia&#123;   validate<em>inputs &#61; quote       check</em>dependency<em>file&#40;IN1&#41; &amp;&amp; check</em>dependency_file&#40;IN2&#41;   end   &#125;</p>
+</li>
+</ul>
+
+  <fieldset class="hack"><legend class="hack-legend"> 💻 个人感叹:</legend>
+      有类型标注就是好啊, 检查输入只用检查文件存在就行了, 在shell里还得自己判断是不是数字等等。 
+  </fieldset>
+  
+<ul>
+<li><p><code>prerequisites</code>: 在运行主程序前预先执行一些操作, 比如创建输出目录等</p>
+<p>\julia&#123;   prerequisites &#61; quote       mkpath&#40;dirname&#40;BAM&#41;&#41;   end   &#125;</p>
+</li>
+<li><p><code>validate_outputs</code>: 检查输出结果</p>
+<p>\julia&#123;   validate<em>outputs &#61; quote       check</em>dependency_file&#40;BAM&#41;   end   &#125;</p>
+</li>
+<li><p><code>wrap_up</code>: 打包操作, 如清理临时文件等等</p>
+<p>\julia&#123;   wrap_up &#61; quote       run&#40;&#96;samtools index BAM&#96;&#41;   end   &#125;</p>
+</li>
+</ul>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">CmdProgram&#40;;
+    name::String                            &#61; &quot;Command Program&quot;,
+    id_file::String                         &#61; &quot;&quot;,
+    info_before::String                     &#61; &quot;auto&quot;,
+    info_after::String                      &#61; &quot;auto&quot;,
+    cmd_dependencies::Vector&#123;CmdDependency&#125; &#61; Vector&#123;CmdDependency&#125;&#40;&#41;,
+    inputs                                  &#61; Vector&#123;String&#125;&#40;&#41;,
+    validate_inputs::Expr                   &#61; do_nothing,  # vars of inputs
+    infer_outputs::Expr                     &#61; do_nothing,  # vars of inputs
+    prerequisites::Expr                     &#61; do_nothing,  # vars of inputs and outputs
+    cmd::Base.AbstractCmd                   &#61; \&#96;\&#96;,
+    outputs                                 &#61; Vector&#123;String&#125;&#40;&#41;,
+    validate_outputs::Expr                  &#61; do_nothing,  # vars of outputs
+    wrap_up::Expr                           &#61; do_nothing,   # vars of inputs and outputs
+    mod::Module                             &#61; Pipelines    # please change to @__MODULE__
+&#41; -&gt; CmdProgram</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<h4 id="运行"><a href="#运行" class="header-anchor">运行</a></h4>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">success, outputs &#61; run&#40;
+    p::Program;
+    program_kwargs...,
+    dir::AbstractString&#61;&quot;&quot;,
+    check_dependencies::Bool&#61;true,
+    skip_when_done::Bool&#61;true,
+    touch_run_id_file::Bool&#61;true,
+    verbose&#61;true,
+    retry::Int&#61;0,
+    dry_run::Bool&#61;false,
+    stdout&#61;nothing,
+    stderr&#61;nothing,
+    stdlog&#61;nothing,
+    append::Bool&#61;false
+&#41; -&gt; &#40;success::Bool, outputs::Dict&#123;String&#125;&#41;</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<ul>
+<li><p><strong>verbose:</strong> <code>true/:all</code>输出所有log;<code>:min</code>输出最小info和error; <code>:none/false</code>只输出error</p>
+</li>
+<li><p><strong>retry</strong>: 尝试N次重跑</p>
+</li>
+<li><p><strong>dry_run</strong>: 不真跑, 输出运行命令</p>
+</li>
+<li><p>stdout/err/log/append: 重定向输出, <code>stdlog</code>是julia中<code>@info, @warn, @error</code>等日志的io</p>
+</li>
+</ul>
+
+  <fieldset class="warn"><legend class="warn-legend"> 🍇 重定向可能多核不安全</legend>
+      julia中的重定向不是多线程安全的, 所以多tasks或多线程任务时候建议不用重定向。 
+  </fieldset>
+  
+<p>运行的内在过程:</p>
+<ol>
+<li><p>进入工作目录, 建立重定向&#40;如果有&#41;;</p>
+</li>
+<li><p>检查工作流程和输入输出的兼容性, 合法性;</p>
+</li>
+<li><p>检查工作流是否跑过了;</p>
+</li>
+<li><p>检查依赖;</p>
+</li>
+<li><p>验证输入;</p>
+</li>
+<li><p>生成可执行的命令;</p>
+</li>
+<li><p>预操作&#40;prerequisites&#41;;</p>
+</li>
+<li><p>执行命令;</p>
+</li>
+<li><p>验证输出;</p>
+</li>
+<li><p>打包wrap_up;</p>
+</li>
+<li><p>成功完事, 生成run_id, 返回&#40;bool, outputs&#41;</p>
+</li>
+</ol>
+<h4 id="作业管理"><a href="#作业管理" class="header-anchor">作业管理</a></h4>
+<p>同一作者开发的类似PBS的作业管理工具包: <a href="https://github.com/cihga39871/JobSchedulers.jl">JobSchedulers.jl</a>, 和Pipelines完全兼容, 可以用<code>Job&#40;&#41;</code>指令代替<code>run&#40;&#41;</code>指令, 用submit&#33;&#40;::Job&#41;提交作业。<span style="display:inline-block;color:#FF7F00;background:#FBF3E7">TODO: 挖个坑, 先不学这个了</span></p>
+<h3 id="julia_program"><a href="#julia_program" class="header-anchor">Julia Program</a></h3>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">JuliaProgram &lt;: Program
+
+JuliaProgram&#40;;
+    name::String                            &#61; &quot;Julia Program&quot;,
+    id_file::String                         &#61; &quot;&quot;,
+    info_before::String                     &#61; &quot;auto&quot;,
+    info_after::String                      &#61; &quot;auto&quot;,
+    cmd_dependencies::Vector&#123;CmdDependency&#125; &#61; Vector&#123;CmdDependency&#125;&#40;&#41;,
+    inputs                                  &#61; Vector&#123;String&#125;&#40;&#41;,
+    validate_inputs::Expr                   &#61; do_nothing,  # vars of inputs
+    infer_outputs::Expr                     &#61; do_nothing,  # vars of inputs
+    prerequisites::Expr                     &#61; do_nothing,  # vars of inputs and outputs
+    main::Expr                              &#61; do_nothing,  # vars of inputs and outputs
+    outputs                                 &#61; Vector&#123;String&#125;&#40;&#41;,
+    validate_outputs::Expr                  &#61; do_nothing,  # vars of outputs
+    wrap_up::Expr                           &#61; do_nothing   # vars of inputs and outputs
+&#41; -&gt; JuliaProgram</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<p>大部分JuliaProgram的内容跟CmdProgram类似, 一些区别如下: </p>
+
+  <fieldset class="note"><legend class="note-legend"> 📘 JuliaProgram vs CmdProgram</legend>
+  </p>
+<ul>
+<li><p>jp有主代码:jp.main, 可以<code>quote..end</code>定义;</p>
+</li>
+<li><p>如果jp.main是表达式&#40;Expr&#41;, run的时候是替换表达式中的变量为 <code>inputs&#91;&quot;VAR&quot;&#93;</code>; 如果jp.main是函数, 则直接调用main&#40;inputs,outputs&#41;.</p>
+</li>
+<li><p>如果jp.main返回一个Dict, 在validate_outputs的时候可能会覆盖outputs&#40;不太明白, 基本不会遇到这种情况吧&#41;</p>
+</li>
+<li><p>jp在dry run的时候返回的是推测的outputs类型;</p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+<h3 id="cmddependency"><a href="#cmddependency" class="header-anchor">CmdDependency</a></h3>
+<p>依赖的软件是否存在或者是否是合适的版本</p>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">CmdDependency&#40;;
+    exec::Base.AbstractCmd&#61;&#39;&#39;,           # 执行的软件, 如gcc
+    test_args::Base.AbstractCmd&#61;&#39;&#39;,      # 判断的参数, 如--version
+    validate_success::Bool&#61;false,        # 是否判断退出码
+    validate_stdout::Function&#61;do_nothing,# 对命令的stdout执行函数
+    validate_stderr::Function&#61;do_nothing,# 对命令的stderr执行函数
+    exit_when_fail::Bool&#61;true            # 判断失败后是否退出并抛出异常
+&#41;</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<p>例如:</p>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">julia &#61; CmdDependency&#40;
+    exec &#61; &quot;julia&quot;,
+    test_args &#61; &quot;--version&quot;,
+    validate_success &#61; true,
+    validate_stdout &#61; x -&gt; occursin&#40;r&quot;^julia version&quot;, x&#41;,
+    validate_stderr &#61; do_nothing,
+    exit_when_fail &#61; true
+&#41;</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<p>通常如果在<code>CmdProgram</code>中定义了<code>CmdDependency</code>, 会自动检查的, 但也可以通过<code>check_dependency&#40;&#41;</code>手动检查。</p>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">dep1 &#61; CmdDependency&#40;...&#41;
+dep2 &#61; CmdDependency&#40;...&#41;
+
+prog &#61; CmdProgram&#40;
+    cmd_dependencies &#61; &#91;dep1, dep2&#93;,
+    cmd &#61; &quot;&#36;dep1 --args&quot; &amp; &quot;&#36;dep2 --args&quot;
+&#41;
+
+run&#40;prog, inputs; check_dependencies &#61; true&#41;</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+<h3 id="misc"><a href="#misc" class="header-anchor">MISC</a></h3>
+<ul>
+<li><p><code>Program</code>抽象类型是<code>CmdProgram</code>和<code>JuliaProgram</code>的父类型;</p>
+</li>
+<li><p>一些有用的小函数:</p>
+</li>
+</ul>
+
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
+</p>
+<pre><code class="language-julia">replaceext&#40;path, replacement&#41;
+removeext&#40;path&#41;
+split&#40;c::Cmd&#41; &#61; c.exec :: Vector&#123;String&#125;
+to_str&#40;x&#41;, str&#40;x&#41; # Cmd to String
+to_cmd&#40;x&#41; # string to cmd
+do_noting&#40;x...&#41; &#61; nothing
+isok&#40;x&#41; # return true, 除非x为 n, no, null, f, false, 0</code></pre>
+<p>
+<div class="code-lag">julia</div></fieldset>
+
+
+</div> 
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+  <footer class="site-footer">
+    <p class="powered-by">
+      Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+      Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+      The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+      The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 19, 2022. 
+
+      <!-- <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span> -->
+
+    </p>
+  </footer>
+</div>
+</div>
+  </div> <!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+    
+     <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+    
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+  
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+  
+  <script src="/libs/academic/academic.min.js"></script>
+  <script src="/libs/pure/ui.js"></script>
+  
+  </body>
+
+
+   <a class="js-back-to-top back-to-top-button" href="#">
+  <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+  $(function() {
+    var $win = $(window);
+    var $backToTop = $('.js-back-to-top');
+    // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+    $win.scroll(function() {
+      if ($win.scrollTop() > 100) {
+        $backToTop.show();
+      } else {
+        $backToTop.hide();
+      }
+    });
+    // 当用户点击按钮时，通过动画效果返回头部
+    $backToTop.click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 200);
+    });
+  });
+</script>
+<style>
+  /* back to top button */
+  .back-to-top-button {
+      display: none;
+      position: fixed;
+      width: 50px;
+      bottom: 3%;
+      right: 3%;
+      z-index: 99;
+      font-size: 15px;
+      border: 0px solid #696969;
+      background-color: #fff;
+      color: #222222;
+      outline: none;
+      cursor: pointer;
+      padding: 7px;
+      border-radius: 40px;
+  }
+  .back-to-top-button:hover {
+      background-color: #c0dbf5;
+      color: #fff;
+  }
+</style>
+ 
+  
+
+  <!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
