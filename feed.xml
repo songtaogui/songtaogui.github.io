@@ -58,42 +58,4 @@
   </atom:author>
         
 </item>
-
-<item>
-  <title>
-    <![CDATA[  ZMP<em>All</em>Expression-同时鉴定TE和基因表达的流程  ]]>
-  </title>
-  <link> https://songtaogui.github.io/drafts/ZMP_All_Expression-同时鉴定TE和基因表达的流程/index.html </link>
-  <guid> https://songtaogui.github.io/drafts/ZMP_All_Expression-同时鉴定TE和基因表达的流程/index.html </guid>
-  <description>
-    <![CDATA[  Normal Gene expression use the primary alignments only, which are not be valid for TE expressons, this pipeline would get all alignments for each reads, and count them for both gene and te regions, then call expression for both gene and te.  ]]>
-  </description>  
-    
-  <pubDate>Fri, 19 Aug 2022 00:00:00 +0000</pubDate>  
-  
-  
-  <atom:author>
-    <atom:name>Songtao Gui</atom:name>
-  </atom:author>
-        
-</item>
-
-<item>
-  <title>
-    <![CDATA[  HyperGraphs<em>in</em>julia  ]]>
-  </title>
-  <link> https://songtaogui.github.io/drafts/HyperGraphs_in_julia/index.html </link>
-  <guid> https://songtaogui.github.io/drafts/HyperGraphs_in_julia/index.html </guid>
-  <description>
-    <![CDATA[  HyperGraphs and related algorithms in julia&#33;  ]]>
-  </description>  
-    
-  <pubDate>Fri, 19 Aug 2022 00:00:00 +0000</pubDate>  
-  
-  
-  <atom:author>
-    <atom:name>Songtao Gui</atom:name>
-  </atom:author>
-        
-</item>
 </channel></rss>

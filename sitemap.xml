@@ -9,7 +9,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Latex%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -27,37 +27,25 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\Zh\index.html</loc>
-    <lastmod>2022-09-08</lastmod>
+    <lastmod>2022-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\%E6%88%91%E7%9A%84fzf%E9%85%8D%E7%BD%AE\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia_v1.8_%E6%96%B0%E7%89%B9%E6%80%A7\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/drafts\ZMP_All_Expression-%E5%90%8C%E6%97%B6%E9%89%B4%E5%AE%9ATE%E5%92%8C%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E7%9A%84%E6%B5%81%E7%A8%8B\index.html</loc>
-    <lastmod>2022-08-19</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\add_visitor_stat_to_my_blog\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/drafts\HyperGraphs_in_julia\index.html</loc>
-    <lastmod>2022-08-19</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -75,7 +63,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\index.html</loc>
-    <lastmod>2022-09-17</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -87,7 +75,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia%E6%B5%81%E7%A8%8B%E6%90%AD%E5%BB%BA%E5%B7%A5%E5%85%B7Pipeline\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -123,19 +111,13 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\filepaths_in_julia_with_FilePathsBase\index.html</loc>
-    <lastmod>2022-09-17</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/index.html</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/drafts\zeamap_homepage_design\index.html</loc>
-    <lastmod>2022-08-30</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -159,7 +141,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\notes_on_franklin_gramma\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -171,19 +153,19 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\docker%E5%92%8Csingularity%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\intervaltrees_and_genomicfeatures_usage\index.html</loc>
-    <lastmod>2022-09-14</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\make_my_own_parser\index.html</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2022-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -195,7 +177,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
-    <lastmod>2022-09-08</lastmod>
+    <lastmod>2022-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -207,7 +189,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\odgi-%E6%B3%9B%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7%E5%8C%85\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -219,19 +201,13 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\automa_basic_usage\index.html</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2022-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2016\12\misa_primer3_pipeline\index.html</loc>
     <lastmod>2022-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/drafts\73d4ca8da65c04c4f7dcd32f533c0e95\index.html</loc>
-    <lastmod>2022-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -255,7 +231,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2022-09-12</lastmod>
+    <lastmod>2022-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -273,7 +249,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/musics\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -303,7 +279,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Use%20nutshell%20in%20my%20Franklin%20blog\index.html</loc>
-    <lastmod>2022-09-16</lastmod>
+    <lastmod>2022-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
