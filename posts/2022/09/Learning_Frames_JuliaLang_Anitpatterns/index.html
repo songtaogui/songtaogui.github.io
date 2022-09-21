@@ -142,8 +142,7 @@
 <p>原文链接: https://www.oxinabox.net/2020/04/19/Julia-Antipatterns.html</p>
 </blockquote>
 
-  <fieldset class="admon admon-cm-diff">
-  <legend class="admon-legend admon-legend-cm-diff"> 🛈  什么是"反模式"</legend>
+  <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 什么是"反模式"</legend>
       &quot;反模式&quot;是随着&quot;设计模式&quot;的概念而出现的词, 指<span class="cadmon sadmon-warn">在实践中明显出现, 但低效或有待优化的设计模式, 是用来解决问题的带有共性的不良方法</span>&#40;参考<a href="https://zh.m.wikipedia.org/zh-hans/&#37;E5&#37;8F&#37;8D&#37;E9&#37;9D&#37;A2&#37;E6&#37;A8&#37;A1&#37;E5&#37;BC&#37;8F">WIKI</a>定义&#41;。 
   </fieldset>
   
@@ -325,97 +324,29 @@ little_dict &#61; LittleDict&#40;dict&#41;
    </p>
 <h2 id="过度类型标注"><a href="#过度类型标注" class="header-anchor">过度类型标注</a></h2>
 
-  <fieldset class="admon admon-cm-diff">
-  <legend class="admon-legend admon-legend-cm-diff"> 🛈  Frames大佬声明:</legend>
+  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Frames大佬声明:</legend>
       Julia中的类型标注<strong>只是</strong>用来做<span class="cadmon sadmon-error">派发&#40;dispatch&#41;</span>用的, 如果一个函数没有多种方法, 根本不需要写类型标注&#33; 如果一定要写类型标注, 写的越抽象越好。</p>
 <p><span class="cadmon sadmon-note">NOTE:</span> 这并不是说类型标注不能用于其他场景, 通常它可以在其他场景被很好地应用。但这不改变它被发明的初衷就是用来做派发的事实。 
   </fieldset>
   
 <p>过度类型标注往往来自于以下几个误解:</p>
 
-  <fieldset class="admon admon-cm-diff">
-  <legend class="admon-legend admon-legend-cm-diff"> 🛈  误解1: 可以让代码更快</legend>
+  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解1: 可以让代码更快</legend>
       wrong 
   </fieldset>
   
 
-  <fieldset class="admon admon-cm-diff">
-  <legend class="admon-legend admon-legend-cm-diff"> 🛈  误解2: 让代码更安全</legend>
+  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解2: 让代码更安全</legend>
   </p>
 <p>
   </fieldset>
   
 
-  <fieldset class="admon admon-cm-diff">
-  <legend class="admon-legend admon-legend-cm-diff"> 🛈  误解3: 让代码更易读(实际上是对的,但...)</legend>
+  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解3: 让代码更易读(实际上是对的,但...)</legend>
   </p>
 <p>
   </fieldset>
   
-<p>
-  <fieldset class="admon admon-note">
-  <legend class="admon-legend admon-legend-note"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-info">
-  <legend class="admon-legend admon-legend-info"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-tip">
-  <legend class="admon-legend admon-legend-tip"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-error">
-  <legend class="admon-legend admon-legend-error"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-todo">
-  <legend class="admon-legend admon-legend-todo"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="admon admon-hack">
-  <legend class="admon-legend admon-legend-hack"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> abcd</legend>
-      1234 
-  </fieldset>
-   
-  <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> abcd</legend>
-      1234 
-  </fieldset>
-  </p>
 
 </div> 
 <!-- article style -->
