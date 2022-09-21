@@ -24,9 +24,200 @@
     --code-javascript-color-light: #f9fff6;
     --code-css-color-dark        : #DADAEB;
     --code-css-color-light       : #f9f9ff;
-
+    /* COLOR PALETTE */
+    --col-cream: #fffefc;
+    --col-chalk: #c6cbd3;
+    --col-xlight: #e7eaf6;
+    --col-light: #a2a8d3;
+    --col-dark: #38598b;
+    --col-xdark: #113f67;
+    --col-gray: gray;
+    --col-black: #000;
+    --col-blue: #118cfd;
+    --col-graphite: #4f5a66;
+    --col-green: #12ca93;
+    --col-ivory: #f0f0f0;
+    --col-lgray: #f8f8f8;
+    --col-purple: #8470be;
+    --col-red: #e95f6a;
+    --col-shale: #939eae;
+    --col-slate: #384248;
+    --col-yellow: #f7c543;
+    --col-brown: #7a461c;
+    --col-coral: #ff758c;
+    --col-fuchsia: #cf66c3;
+    --col-gold: #9d8714;
+    --col-indigo: #6b7ede;
+    --col-lavender: #abc3ff;
+    --col-lime: #9ace5a;
+    --col-olive: #837400;
+    --col-orange: #fe8e4f;
+    --col-pink: #e15ca5;
+    --col-teal: #00b6e6;
+    --col-tiffany: #00beaa;
+    --col-bluePastel: #a8edff;
+    --col-greenPastel: #9bfff6;
+    --col-orangePastel: #f5bc90;
+    --col-purplePastel: #e8d0ff;
+    --col-redPastel: #ffc4c9;
+    --col-yellowPastel: #ffffa7;
+    --col-lblue: #03a7dd;
 }
 
+
+
+/*
+SHOW MD
+*/
+
+.md-input {
+    border-width: 0;
+    border-radius: 7px;
+    margin-bottom: 1em;
+    background-color: var(--block-background);
+    font-size: var(--text-sm);
+    line-height: 1.2em;
+}
+
+.md-input-legend {
+    background-color: var(--col-cream);
+    font-size: var(--text-sm);
+    font-variant: small-caps;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-bottom: .1em;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+}
+
+.md-input .hljs {
+    background-color: transparent;
+}
+
+.md-input pre {
+    margin: 0;
+}
+
+.md-input code {
+    padding: 0;
+    padding-top: 5px;
+}
+
+.md-result {
+    border-radius: 7px;
+    background-color: #e3edf2;
+    border: 1px solid #5bc0de;
+    margin-left: 1.5%;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    padding-left: 1.5em;
+    font-size: var(--text-sm);
+    margin-bottom: 2em;
+    width: 89.5%;
+}
+
+.md-result img {
+    width: 40%;
+    padding-left: 1em;
+}
+
+.md-result-legend {
+    background-color: var(--col-cream);
+    border-radius: 5px;
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-bottom: .1em;
+    font-variant: small-caps;
+    font-size: var(--text-sm);
+    color: navy;
+    border: 1px solid #5bc0de;
+}
+
+.md-result pre {
+    margin: 0;
+}
+
+.md-result pre {
+    max-width: 100%;
+}
+
+.md-result .code-output pre {
+    max-width: 100%;
+}
+
+
+.md-result h1 {
+    padding: 0;
+}
+
+.md-result h2 {
+    padding: 0;
+}
+
+.md-result h3 {
+    padding: 0;
+}
+
+.md-result h1 a {
+    color: black;
+}
+
+.md-result h2 a {
+    color: black;
+}
+
+.md-result h3 a {
+    color: black;
+}
+
+.md-result blockquote {
+    background-color: var(--col-xlight);
+    padding: 0.5em 1em;
+    border-left: 5px solid var(--col-xdark);
+}
+
+.md-result ul ul {
+    padding-left: 1.5em;
+}
+
+.md-result ol ul {
+    padding-left: 1.5em;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.center img {
+    width: 75%;
+    min-width: 300px;
+}
+
+.code-output {
+    margin-top: 1em;
+    margin-left: 1em;
+    border: 1px solid var(--col-coral);
+}
+
+.code-output .code-figure {
+    padding-top: 1em;
+    padding-bottom: .75em;
+}
+
+.trim {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.trim .md-result {
+    margin-bottom: 1.5em;
+}
+
+
+/* ################CODE BLOCK#################### */
 .code-lag {
     max-width: 100%;
     padding: 0%;

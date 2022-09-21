@@ -36,10 +36,11 @@
 
 <!-- locally served -->
 <link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel="stylesheet" href="/css/layout.css">
 <link rel="stylesheet" href="/css/extra.css">
-<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -144,22 +145,16 @@
 <h2 id="快速开始"><a href="#快速开始" class="header-anchor">快速开始</a></h2>
 <h3 id="类型"><a href="#类型" class="header-anchor">类型</a></h3>
 <p><code>CmdProgram</code>和<code>JuliaProgram</code></p>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">using Pipelines
 
 Program
     CmdProgram      # 命令行工具模版和输入输出参数, 传参用cmd::AbstractCmd
     JuliaProgram    # Julia代码的参数模版, 与CmdProgram的区别是JuliaProgram传参用的是main::Expr</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <h3 id="cmdprogram"><a href="#cmdprogram" class="header-anchor">CmdProgram</a></h3>
 <h4 id="快速开始__2"><a href="#快速开始__2" class="header-anchor">快速开始</a></h4>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">using Pipelines
 echo &#61; CmdProgram&#40;
     inputs &#61; &#91;
@@ -170,11 +165,10 @@ echo &#61; CmdProgram&#40;
     &#93;,
     cmd &#61; \&#96;echo REQUIRED TYPED OPTINAL FULL\&#96;
 &#41;</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
+<p><div class="code-lag">julia</div></fieldset>
 
-
-  <fieldset class="tip"><legend class="tip-legend"> 🍏 贴士</legend>
+  <fieldset class="admon admon-tip">
+  <legend class="admon-legend admon-legend-tip"> 🍏 贴士</legend>
   </p>
 <ul>
 <li><p>用<code>run</code>运行命令,记得区分位置参数和关键字参数&#40;<code>;</code>&#41;: <code>run&#40;echo; REQUIRED&#61;&quot;Pipelines&quot;, TYPED &#61; &quot;are&quot;&#41;</code>;</p>
@@ -195,7 +189,8 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="tip"><legend class="tip-legend"> 🍏 输入参数用`String`还是`Symbol`?</legend>
+  <fieldset class="admon admon-tip">
+  <legend class="admon-legend admon-legend-tip"> 🍏 输入参数用`String`还是`Symbol`?</legend>
       大部分情况下,用String, 只有当参数的改变不会影响结果时, 用Symbol。 比如如果重复提交同一个任务, 只有cpu数目&#40;NTHREADS参数&#41;改变了, 如果想让流程知道这是一个已经跑过的任务, 就要用Symbol的形式传递NTHREADS参数:<code>:NTHREADS &#61;&gt; Int &#61;&gt; 8</code>, Symbol类型的参数不会用于生成UID。 
   </fieldset>
   
@@ -214,7 +209,8 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="hack"><legend class="hack-legend"> 💻 个人感叹:</legend>
+  <fieldset class="admon admon-hack">
+  <legend class="admon-legend admon-legend-hack"> 💻 个人感叹:</legend>
       有类型标注就是好啊, 检查输入只用检查文件存在就行了, 在shell里还得自己判断是不是数字等等。 
   </fieldset>
   
@@ -229,9 +225,7 @@ echo &#61; CmdProgram&#40;
 <p>\julia&#123;   wrap_up &#61; quote       run&#40;&#96;samtools index BAM&#96;&#41;   end   &#125;</p>
 </li>
 </ul>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">CmdProgram&#40;;
     name::String                            &#61; &quot;Command Program&quot;,
     id_file::String                         &#61; &quot;&quot;,
@@ -248,13 +242,9 @@ echo &#61; CmdProgram&#40;
     wrap_up::Expr                           &#61; do_nothing,   # vars of inputs and outputs
     mod::Module                             &#61; Pipelines    # please change to @__MODULE__
 &#41; -&gt; CmdProgram</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <h4 id="运行"><a href="#运行" class="header-anchor">运行</a></h4>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">success, outputs &#61; run&#40;
     p::Program;
     program_kwargs...,
@@ -270,9 +260,7 @@ echo &#61; CmdProgram&#40;
     stdlog&#61;nothing,
     append::Bool&#61;false
 &#41; -&gt; &#40;success::Bool, outputs::Dict&#123;String&#125;&#41;</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <ul>
 <li><p><strong>verbose:</strong> <code>true/:all</code>输出所有log;<code>:min</code>输出最小info和error; <code>:none/false</code>只输出error</p>
 </li>
@@ -284,7 +272,8 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="warn"><legend class="warn-legend"> 🍇 重定向可能多核不安全</legend>
+  <fieldset class="admon admon-warn">
+  <legend class="admon-legend admon-legend-warn"> 🍇 重定向可能多核不安全</legend>
       julia中的重定向不是多线程安全的, 所以多tasks或多线程任务时候建议不用重定向。 
   </fieldset>
   
@@ -314,11 +303,9 @@ echo &#61; CmdProgram&#40;
 </li>
 </ol>
 <h4 id="作业管理"><a href="#作业管理" class="header-anchor">作业管理</a></h4>
-<p>同一作者开发的类似PBS的作业管理工具包: <a href="https://github.com/cihga39871/JobSchedulers.jl">JobSchedulers.jl</a>, 和Pipelines完全兼容, 可以用<code>Job&#40;&#41;</code>指令代替<code>run&#40;&#41;</code>指令, 用submit&#33;&#40;::Job&#41;提交作业。<span style="display:inline-block;color:#FF7F00;background:#FBF3E7">TODO: 挖个坑, 先不学这个了</span></p>
+<p>同一作者开发的类似PBS的作业管理工具包: <a href="https://github.com/cihga39871/JobSchedulers.jl">JobSchedulers.jl</a>, 和Pipelines完全兼容, 可以用<code>Job&#40;&#41;</code>指令代替<code>run&#40;&#41;</code>指令, 用submit&#33;&#40;::Job&#41;提交作业。<span class="sadmon sadmon-todo">TODO: 挖个坑, 先不学这个了</span></p>
 <h3 id="julia_program"><a href="#julia_program" class="header-anchor">Julia Program</a></h3>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">JuliaProgram &lt;: Program
 
 JuliaProgram&#40;;
@@ -336,12 +323,11 @@ JuliaProgram&#40;;
     validate_outputs::Expr                  &#61; do_nothing,  # vars of outputs
     wrap_up::Expr                           &#61; do_nothing   # vars of inputs and outputs
 &#41; -&gt; JuliaProgram</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <p>大部分JuliaProgram的内容跟CmdProgram类似, 一些区别如下: </p>
 
-  <fieldset class="note"><legend class="note-legend"> 📘 JuliaProgram vs CmdProgram</legend>
+  <fieldset class="admon admon-note">
+  <legend class="admon-legend admon-legend-note"> 📘 JuliaProgram vs CmdProgram</legend>
   </p>
 <ul>
 <li><p>jp有主代码:jp.main, 可以<code>quote..end</code>定义;</p>
@@ -358,9 +344,7 @@ JuliaProgram&#40;;
   
 <h3 id="cmddependency"><a href="#cmddependency" class="header-anchor">CmdDependency</a></h3>
 <p>依赖的软件是否存在或者是否是合适的版本</p>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">CmdDependency&#40;;
     exec::Base.AbstractCmd&#61;&#39;&#39;,           # 执行的软件, 如gcc
     test_args::Base.AbstractCmd&#61;&#39;&#39;,      # 判断的参数, 如--version
@@ -369,13 +353,9 @@ JuliaProgram&#40;;
     validate_stderr::Function&#61;do_nothing,# 对命令的stderr执行函数
     exit_when_fail::Bool&#61;true            # 判断失败后是否退出并抛出异常
 &#41;</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <p>例如:</p>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">julia &#61; CmdDependency&#40;
     exec &#61; &quot;julia&quot;,
     test_args &#61; &quot;--version&quot;,
@@ -384,13 +364,9 @@ JuliaProgram&#40;;
     validate_stderr &#61; do_nothing,
     exit_when_fail &#61; true
 &#41;</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <p>通常如果在<code>CmdProgram</code>中定义了<code>CmdDependency</code>, 会自动检查的, 但也可以通过<code>check_dependency&#40;&#41;</code>手动检查。</p>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">dep1 &#61; CmdDependency&#40;...&#41;
 dep2 &#61; CmdDependency&#40;...&#41;
 
@@ -400,9 +376,7 @@ prog &#61; CmdProgram&#40;
 &#41;
 
 run&#40;prog, inputs; check_dependencies &#61; true&#41;</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 <h3 id="misc"><a href="#misc" class="header-anchor">MISC</a></h3>
 <ul>
 <li><p><code>Program</code>抽象类型是<code>CmdProgram</code>和<code>JuliaProgram</code>的父类型;</p>
@@ -410,9 +384,7 @@ run&#40;prog, inputs; check_dependencies &#61; true&#41;</code></pre>
 <li><p>一些有用的小函数:</p>
 </li>
 </ul>
-
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend>
-</p>
+<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
 <pre><code class="language-julia">replaceext&#40;path, replacement&#41;
 removeext&#40;path&#41;
 split&#40;c::Cmd&#41; &#61; c.exec :: Vector&#123;String&#125;
@@ -420,9 +392,7 @@ to_str&#40;x&#41;, str&#40;x&#41; # Cmd to String
 to_cmd&#40;x&#41; # string to cmd
 do_noting&#40;x...&#41; &#61; nothing
 isok&#40;x&#41; # return true, 除非x为 n, no, null, f, false, 0</code></pre>
-<p>
-<div class="code-lag">julia</div></fieldset>
-
+<p><div class="code-lag">julia</div></fieldset>
 
 </div> 
 <!-- article style -->

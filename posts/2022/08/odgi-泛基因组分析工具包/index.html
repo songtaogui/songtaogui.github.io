@@ -36,10 +36,11 @@
 
 <!-- locally served -->
 <link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel="stylesheet" href="/css/layout.css">
 <link rel="stylesheet" href="/css/extra.css">
-<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -155,10 +156,9 @@
 <h3 id="extract"><a href="#extract" class="header-anchor">extract</a></h3>
 <h3 id="flatten"><a href="#flatten" class="header-anchor">flatten</a></h3>
 
-  <fieldset class="hack"><legend class="hack-legend"> 💻 图基因组的线性表示</legend>
-   
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend>
-</p>
+  <fieldset class="admon admon-hack">
+  <legend class="admon-legend admon-legend-hack"> 💻 图基因组的线性表示</legend>
+   <fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
 <pre><code class="language-bash">odgi flatten &#91;-i, --idx&#61;FILE&#93; &#91;OPTION&#93;…
 
 # MANDATORY OPTIONS
@@ -173,13 +173,12 @@
 -t, --threads&#61;N
 -P, --progress
 -h, --help</code></pre>
-<p>
-<div class="code-lag">bash</div></fieldset>
- 
+<p><div class="code-lag">bash</div></fieldset> 
   </fieldset>
   
 
-  <fieldset class="todo"><legend class="todo-legend"> 🍊 思考:</legend>
+  <fieldset class="admon admon-todo">
+  <legend class="admon-legend admon-legend-todo"> 🍊 思考:</legend>
   </p>
 <ul>
 <li><p>生成的线性fasta有实际意义么? SNP怎么处理的?</p>
@@ -205,11 +204,10 @@
 <h3 id="pathindex"><a href="#pathindex" class="header-anchor">pathindex</a></h3>
 <h3 id="pav"><a href="#pav" class="header-anchor">pav</a></h3>
 
-  <fieldset class="hack"><legend class="hack-legend"> 💻 基本参数</legend>
+  <fieldset class="admon admon-hack">
+  <legend class="admon-legend admon-legend-hack"> 💻 基本参数</legend>
       <strong>输入pan-region, 输出每个region的pav ratio</strong></p>
-<p>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend>
-</p>
+<p><fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
 <pre><code class="language-bash">odgi pav &#91;-i, --idx&#61;FILE&#93; &#91;-b, –bed-file&#61;FILE&#93; &#91;OPTION&#93;…
 
 # 必须参数: IO
@@ -224,16 +222,15 @@
 -M, --matrix-output # 生成pav矩阵的格式, 列: regions, 行: paths/groups
 
 # 性能参数
--t, --threads&#61;N 
+-t, --threads&#61;N
 -P, --progress  # 进度条
 -h, --help</code></pre>
-<p>
-<div class="code-lag">bash</div></fieldset>
- 
+<p><div class="code-lag">bash</div></fieldset> 
   </fieldset>
   
 
-  <fieldset class="warn"><legend class="warn-legend"> 🍇 用法示例</legend>
+  <fieldset class="admon admon-warn">
+  <legend class="admon-legend admon-legend-warn"> 🍇 用法示例</legend>
   </p>
 <blockquote>
 <p>参考<a href="https://odgi.readthedocs.io/en/latest/rst/tutorials/presence_absence_variants.html">这里</a></p>
@@ -250,25 +247,22 @@
 </ul>
 \[ ratio = \dfrac{\sum len(N_{ovlp})}{\sum len(N_{all})} \]
 <ul>
-<li><p><code>-p</code><strong>非常有用&#33;&#33;&#33;</strong>, 如果不加分组信息, 会对每个path都输出一个pav结果, 文件大小轻松上TB级别&#33;&#33;&#33;</p>
+<li><p><code>-p</code>&nbsp;<strong>非常有用&#33;&#33;&#33;</strong>, 如果不加分组信息, 会对每个path都输出一个pav结果, 文件大小轻松上TB级别&#33;&#33;&#33;</p>
 </li>
-<li><p><code>-M</code>输出pav矩阵, 跟<code>-B</code>一起用, 很方便得到PAV的0/1矩阵</p>
+<li><p><code>-M</code>&nbsp;输出pav矩阵, 跟<code>-B</code>一起用, 很方便得到PAV的0/1矩阵</p>
 </li>
 <li><p>可以不局限于一个ref的path, 可以对所有的path都鉴定PAV:</p>
 </li>
 </ul>
-
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend>
-</p>
+<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
 <pre><code class="language-bash">odgi paths -i ref.og -L &gt; all.paths.txt # 输出所有path
 odgi untangle -i ref.og -R all.paths.txt | sed &#39;1d&#39; |\
     cut -f 4,5,6 | sort | uniq  &gt; all.paths.bed # 输出所有path的区间信息
 odgi pav -i ref.og -b all.paths.bed -M &gt; all.paths.pav.matrix # 鉴定pav</code></pre>
-<p>
-<div class="code-lag">bash</div></fieldset>
+<p><div class="code-lag">bash</div></fieldset>
 
-
-  <fieldset class="todo"><legend class="todo-legend"> 🍊 思考:</legend>
+  <fieldset class="admon admon-todo">
+  <legend class="admon-legend admon-legend-todo"> 🍊 思考:</legend>
   </p>
 <ul>
 <li><p>如何去除冗余?</p>
@@ -323,7 +317,7 @@ odgi pav -i ref.og -b all.paths.bed -M &gt; all.paths.pav.matrix # 鉴定pav</co
       Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
       The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
       The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-      <strong>&copy; Songtao Gui</strong>. Last modified: September 19, 2022. 
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 20, 2022. 
 
       <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">

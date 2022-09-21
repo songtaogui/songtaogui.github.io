@@ -1,0 +1,192 @@
+:root {
+    /* -------------
+    FONT VARIABLES
+    -------------- */
+    --text-sm: 0.95em;
+    --text-lg: 1.2em;
+    --text-xl: 1.4em;
+    --text-h4: 1.2em;
+    --text-h3: 1.5em;
+    --text-h2: 2em;
+    --text-h1: 3em;
+    --text-col: hsl(0, 0%, 20%);
+    --text-font: system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans",
+        "Liberation Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --text-line-height: 1.5;
+       
+    --admon-body-boder-thickness: 1.5px;
+    --admon-body-boder-radius   : 7px;
+    --admon-background-color    : transparent;
+    --admon-note-color-dark     : #4b5d97;
+    --admon-note-color-light    : #eef1fa;
+    --admon-info-color-dark     : #809d9e;
+    --admon-info-color-light    : #edf3f3;
+    --admon-tip-color-dark      : #86b37e;
+    --admon-tip-color-light     : #f0f8f2;
+    --admon-warn-color-dark     : #ac8bbb;
+    --admon-warn-color-light    : #f5f1f7;
+    --admon-error-color-dark    : #bb4840;
+    --admon-error-color-light   : #fae7e8;
+    --admon-todo-color-dark     : #da9754;
+    --admon-todo-color-light    : #fdf8f1;
+    --admon-hack-color-dark     : #4D4D4D;
+    --admon-hack-color-light    : #f1f1f1;
+}
+
+
+
+fieldset {
+    padding: .35em .75em .625em;
+    width: 92%;
+    margin-left: 0.5%;
+}
+
+legend {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+
+/* ============ normal admonitions and badmonitions ================= */
+.admon {
+    margin-top: 1.25em;
+    margin-bottom: 2em;
+    /* background-color: #eef1fa; */
+    border: 0px;
+    border-radius: 7px;
+    font-size: var(--text-sm);
+}
+
+.admon-legend {
+    color: white;
+    /* background-color: #4b5d97; */
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-bottom: .1em;
+    border-radius: 5px;
+    font-variant: small-caps;
+    font-size: var(--text-sm);
+}
+
+/* ====== Highligh admonitions========== */
+.hadmon {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 2px dashed #303030;
+    background-color: transparent !important;
+    border-radius: 7px;
+    font-size: var(--text-sm);
+}
+
+.hadmon-legend {
+    color: white;
+    /* background-color: #cb4452; */
+    padding-left: .5em;
+    padding-right: .5em;
+    padding-bottom: .1em;
+    border-radius: 5px;
+    font-variant: small-caps;
+    font-size: var(--text-sm);
+}
+
+/* ======aadmonitions========== */
+.aadmon {
+    color: var(--admon-hack-color-dark);
+    padding: .35em .625em .625em;
+    width: 92%;
+    margin-left: 0.5%;
+    margin-right: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    background-color: #bbbbbb;
+    border-left: 0.3 em solid #b62d2d;
+}
+
+/* ======[Ss]admonitions========== */
+.sadmon {
+    /* color:var(--admon-hack-color-dark) !important; */
+    /* background:#d4e0ff; */
+    border-radius: 7px;
+    margin-left:   0.1em;
+    margin-right:  0.1em;
+    padding-left:  0.1em;
+    padding-right: 0.2em;
+    font-style: italic;
+    font-size: var(--text-sm);
+}
+.Sadmon {
+    /* color:#FFFFFF !important; */
+    /* background:#d4e0ff; */
+    border-radius: 7px;
+    margin-left:   0.1em;
+    margin-right:  0.1em;
+    padding-left:  0.1em;
+    padding-right: 0.2em;
+    font-style: italic;
+    font-size: var(--text-sm);
+}
+
+/* ======[Cc]admonitions========== */
+.cadmon {
+    /* color:var(--admon-hack-color-dark) !important; */
+    background: transparent !important;
+    display:inline-block;
+    font-style: italic;
+    font-size: var(--text-sm);
+}
+.Cadmon {
+    /* color:#FFFFFF !important; */
+    /* background: var(--admon-hack-color-dark) !important; */
+    display:inline-block;
+    font-style: italic;
+    font-size: var(--text-sm);
+}
+
+/* colors */
+.admon-note  { background-color: var(--admon-note-color-light);}
+.admon-info  { background-color: var(--admon-info-color-light);}
+.admon-tip   { background-color: var(--admon-tip-color-light);}
+.admon-warn  { background-color: var(--admon-warn-color-light);}
+.admon-error { background-color: var(--admon-error-color-light);}
+.admon-todo  { background-color: var(--admon-todo-color-light);}
+.admon-hack  { background-color: var(--admon-hack-color-light);}
+
+.admon-legend-note { background-color: var(--admon-note-color-dark) ;}
+.admon-legend-info { background-color: var(--admon-info-color-dark) ;}
+.admon-legend-tip  { background-color: var(--admon-tip-color-dark)  ;}
+.admon-legend-warn { background-color: var(--admon-warn-color-dark) ;}
+.admon-legend-error{ background-color: var(--admon-error-color-dark);}
+.admon-legend-todo { background-color: var(--admon-todo-color-dark) ;}
+.admon-legend-hack { background-color: var(--admon-hack-color-dark) ;}
+
+.sadmon-note  { background-color: var(--admon-note-color-light) ; color: var(--admon-note-color-dark) ;}
+.sadmon-info  { background-color: var(--admon-info-color-light) ; color: var(--admon-info-color-dark) ;}
+.sadmon-tip   { background-color: var(--admon-tip-color-light)  ; color: var(--admon-tip-color-dark)  ;}
+.sadmon-warn  { background-color: var(--admon-warn-color-light) ; color: var(--admon-warn-color-dark) ;}
+.sadmon-error { background-color: var(--admon-error-color-light); color: var(--admon-error-color-dark);}
+.sadmon-todo  { background-color: var(--admon-todo-color-light) ; color: var(--admon-todo-color-dark) ;}
+.sadmon-hack  { background-color: var(--admon-hack-color-light) ; color: var(--admon-hack-color-dark) ;}
+
+.Sadmon-note { background-color: var(--admon-note-color-dark) ; color: var(--admon-note-color-light) ;}
+.Sadmon-info { background-color: var(--admon-info-color-dark) ; color: var(--admon-info-color-light) ;}
+.Sadmon-tip  { background-color: var(--admon-tip-color-dark)  ; color: var(--admon-tip-color-light)  ;}
+.Sadmon-warn { background-color: var(--admon-warn-color-dark) ; color: var(--admon-warn-color-light) ;}
+.Sadmon-error{ background-color: var(--admon-error-color-dark); color: var(--admon-error-color-light);}
+.Sadmon-todo { background-color: var(--admon-todo-color-dark) ; color: var(--admon-todo-color-light) ;}
+.Sadmon-hack { background-color: var(--admon-hack-color-dark) ; color: var(--admon-hack-color-light) ;}
+
+.aadmon-note  { color: var(--admon-note-color-dark) ;background-color: var(--admon-note-color-light) ;border-left: 0.35em solid var(--admon-note-color-dark) ;}
+.aadmon-info  { color: var(--admon-info-color-dark) ;background-color: var(--admon-info-color-light) ;border-left: 0.35em solid var(--admon-info-color-dark) ;}
+.aadmon-tip   { color: var(--admon-tip-color-dark)  ;background-color: var(--admon-tip-color-light)  ;border-left: 0.35em solid var(--admon-tip-color-dark)  ;}
+.aadmon-warn  { color: var(--admon-warn-color-dark) ;background-color: var(--admon-warn-color-light) ;border-left: 0.35em solid var(--admon-warn-color-dark) ;}
+.aadmon-error { color: var(--admon-error-color-dark);background-color: var(--admon-error-color-light);border-left: 0.35em solid var(--admon-error-color-dark);}
+.aadmon-todo  { color: var(--admon-todo-color-dark) ;background-color: var(--admon-todo-color-light) ;border-left: 0.35em solid var(--admon-todo-color-dark) ;}
+.aadmon-hack  { color: var(--admon-hack-color-dark) ;background-color: var(--admon-hack-color-light) ;border-left: 0.35em solid var(--admon-hack-color-dark) ;}
