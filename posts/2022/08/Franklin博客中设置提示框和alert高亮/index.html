@@ -185,8 +185,37 @@
       I am some hack 
   </fieldset>
   </p>
+<p>
+  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> blahblah</legend>
+      I am some note 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> blahblah</legend>
+      I am some warn 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> blahblah</legend>
+      I am some error 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> blahblah</legend>
+      I am some tip 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> blahblah</legend>
+      I am some info 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> blahblah</legend>
+      I am some todo 
+  </fieldset>
+   
+  <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> blahblah</legend>
+      I am some hack 
+  </fieldset>
+  </p>
 <h3 id="各种alert信息"><a href="#各种alert信息" class="header-anchor">各种alert信息</a></h3>
-<p><div class="aadmon aadmon-note"> note</div> <div class="aadmon aadmon-warn"> warn</div> <div class="aadmon aadmon-error"> error</div> <div class="aadmon aadmon-tip"> tip</div> <div class="aadmon aadmon-info"> info</div> <div class="aadmon aadmon-todo"> todo</div> <div class="aadmon aadmon-hack"> hack</div></p>
+<p><div class="aadmon aadmon-note"> note</div> <div class="aadmon aadmon-warn"> warn</div> <div class="aadmon aadmon-error"> error</div> <div class="aadmon aadmon-tip"> tip</div> <div class="aadmon aadmon-info"> info</div> <div class="aadmon aadmon-todo"> todo</div> <div class="aadmon aadmon-hack"> hack</div> <div class="aadmon aadmon-info"> Alert-TXT</div> </p>
 <h3 id="各种inline高亮"><a href="#各种inline高亮" class="header-anchor">各种inline高亮</a></h3>
 <p>I contain inline <span class="sadmon sadmon-note">note</span><span class="sadmon sadmon-warn">warn</span><span class="sadmon sadmon-error">error</span><span class="sadmon sadmon-tip">tip</span><span class="sadmon sadmon-info">info</span><span class="sadmon sadmon-todo">todo</span><span class="sadmon sadmon-hack">hack</span> and normal texts.</p>
 <p>I contain inline <span class="Sadmon Sadmon-note">note</span><span class="Sadmon Sadmon-warn">warn</span><span class="Sadmon Sadmon-error">error</span><span class="Sadmon Sadmon-tip">tip</span><span class="Sadmon Sadmon-info">info</span><span class="Sadmon Sadmon-todo">todo</span><span class="Sadmon Sadmon-hack">hack</span> and normal texts.</p>
@@ -197,7 +226,8 @@
 <li><p>在<code>config.md</code>中定义如下函数:</p>
 </li>
 </ol>
-<pre><code class="language-julia">&lt;&#33;-- Colorful NoteBoxes: note, info, warn, error, tip, todo, hack --&gt;
+<fieldset class="code code-markdown"><legend class="code-legend code-legend-markdown">markdown</legend></p>
+<pre><code class="language-markdown">&lt;&#33;-- Colorful NoteBoxes: note, info, warn, error, tip, todo, hack --&gt;
 \newcommand&#123;\bnote&#125;&#91;2&#93;&#123; @@box-note  @@title 📘 #1@@ @@content #2 @@ @@&#125;
 \newcommand&#123;\binfo&#125;&#91;2&#93;&#123; @@box-info  @@title 🥑 #1@@ @@content #2 @@ @@&#125;
 \newcommand&#123;\btip&#125;&#91;2&#93;&#123;  @@box-tip   @@title 🍏 #1@@ @@content #2 @@ @@&#125;
@@ -241,11 +271,13 @@
 \newcommand&#123;\cerror&#125;&#91;1&#93;&#123;\span&#123;color:#CB3C33&#125;&#123;&#33;#1&#125;&#125;
 \newcommand&#123;\ctodo&#125;&#91;1&#93;&#123; \span&#123;color:#FF7F00&#125;&#123;&#33;#1&#125;&#125;
 \newcommand&#123;\chack&#125;&#91;1&#93;&#123; \span&#123;color:#4D4D4D&#125;&#123;&#33;#1&#125;&#125;</code></pre>
-<ol start="2">
+<p><div class="code-lag">markdown</div></fieldset>
+<ol>
 <li><p>配置对应的css信息:</p>
 </li>
 </ol>
-<pre><code class="language-julia">/* &#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
+<fieldset class="code code-css"><legend class="code-legend code-legend-css">css</legend></p>
+<pre><code class="language-css">/* &#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;
 Colorful NoteBox: note, info, warn, error, tip, todo, hack
 &#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61;&#61; */
 
@@ -528,10 +560,8 @@ Colorful Alert NoteBox: note, info, warn, error, tip, todo, hack
 .alert-hack .alert-link &#123;
     color: #040505
 &#125;</code></pre>
-<ol start="3">
-<li><p>可以愉快地使用了, Franklin赛高&#33;</p>
-</li>
-</ol>
+<p><div class="code-lag">css</div></fieldset>
+<p>可以愉快地使用了, Franklin赛高&#33;</p>
 
 </div> 
 <!-- article style -->

@@ -158,7 +158,7 @@
 
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 图基因组的线性表示</legend>
-   <fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+   <fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash">odgi flatten &#91;-i, --idx&#61;FILE&#93; &#91;OPTION&#93;…
 
 # MANDATORY OPTIONS
@@ -207,7 +207,7 @@
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 基本参数</legend>
       <strong>输入pan-region, 输出每个region的pav ratio</strong></p>
-<p><fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<p><fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash">odgi pav &#91;-i, --idx&#61;FILE&#93; &#91;-b, –bed-file&#61;FILE&#93; &#91;OPTION&#93;…
 
 # 必须参数: IO
@@ -254,7 +254,7 @@
 <li><p>可以不局限于一个ref的path, 可以对所有的path都鉴定PAV:</p>
 </li>
 </ul>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash">odgi paths -i ref.og -L &gt; all.paths.txt # 输出所有path
 odgi untangle -i ref.og -R all.paths.txt | sed &#39;1d&#39; |\
     cut -f 4,5,6 | sort | uniq  &gt; all.paths.bed # 输出所有path的区间信息

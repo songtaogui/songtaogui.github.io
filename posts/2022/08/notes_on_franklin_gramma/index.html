@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="songtaogui">
+  <meta name="author" content="Songtao Gui">
   <meta name="description" content="Head of Research">
   <meta name="theme-color" content="#2962ff">
   <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
@@ -157,7 +157,7 @@
   <fieldset class="admon admon-todo">
   <legend class="admon-legend admon-legend-todo"> 🍊 Expreimenting</legend>
       using <code>fd2html</code> in julia REPL to see how md was converted to html in Franklin:</p>
-<p><fieldset class="code-html"><legend class="code-html-legend">html</legend></p>
+<p><fieldset class="code code-html"><legend class="code-legend code-legend-html">html</legend></p>
 <pre><code class="language-html">&quot;&quot;&quot;Set &#96;x&#96; to 1, see &#91;the docs&#93;&#40;http://example.com&#41;.&quot;&quot;&quot; |&gt; fd2html
 &lt;p&gt;Set &lt;code&gt;x&lt;/code&gt; to 1, see &lt;a href&#61;&quot;http://example.com&quot;&gt;the docs&lt;/a&gt;.&lt;/p&gt;\n</code></pre>
 <p><div class="code-lag">html</div></fieldset> 
@@ -185,7 +185,7 @@
 
   <fieldset class="admon admon-warn">
   <legend class="admon-legend admon-legend-warn"> 🍇 Sth diff from normal markdown</legend>
-  
+  </p>
 <ul>
 <li><p>using HTML comments</p>
 </li>
@@ -197,17 +197,14 @@
 </li>
 <li><p><code>~~~ &lt;some html things&gt; ~~~</code> for insert raw html</p>
 </li>
-</ul>
-<p>Break me here -&gt; <br/> &lt;- here</p>
-<ul>
 <li><p><code>\toc</code> or <code>\tableofcontents</code> for TOC &#61;&gt; in a <code>franklin-toc</code> div block, modify <code>.franklin-toc ol</code> or <code>.franklin-toc li</code> in CSS for styling, set <code>@def mintoclevel&#61;1</code> and <code>@def maxtoclevel&#61;3</code> to control the header levels</p>
 </li>
-<li><p>both single and double back-ticks represent inline code &#40;double back-ticks are useful when code contain <code>&#96;</code>&#41;: <code>&quot;&#96;&quot;</code>; 
-  </fieldset>
-  </p>
+<li><p>both single and double back-ticks represent inline code &#40;double back-ticks are useful when code contain <code>&#96;</code>&#41;: <code>&quot;&#96;&quot;</code>;</p>
 </li>
 </ul>
-
+<p>
+  </fieldset>
+  
 
   <fieldset class="admon admon-error">
   <legend class="admon-legend admon-legend-error"> 🐞 Some md things unsupported by Franklin</legend>
@@ -241,7 +238,7 @@
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 example</legend>
       by this:</p>
-<p><fieldset class="code-plain"><legend class="code-plain-legend">plain</legend></p>
+<p><fieldset class="code code-plain"><legend class="code-legend code-legend-plain">plain</legend></p>
 <pre><code class="language-plaintext">In the text, you may refer to \citep&#123;noether15, bezanson17&#125; while in a bibliography section you would have
 
 * \biblabel&#123;noether15&#125;&#123;Noether &#40;1915&#41;&#125; **Noether**, Korper und Systeme rationaler Funktionen, 1915.
@@ -273,15 +270,36 @@
 </ul>
 
 <h3 id="page_variables"><a href="#page_variables" class="header-anchor">Page variables</a></h3>
-<p>&#125;</p>
-<h1 id="if_text_are_multi-lines_they_must_be_indented"><a href="#if_text_are_multi-lines_they_must_be_indented" class="header-anchor">if text are multi-lines, they MUST be indented</a></h1>
-<p>&#125;</p>
+
+  <fieldset class="admon admon-note">
+  <legend class="admon-legend admon-legend-note"> 📘 Page variables</legend>
+      define them with <code>@def</code>:</p>
+<fieldset class="code code-markdown"><legend class="code-legend code-legend-markdown">markdown</legend></p>
+<pre><code class="language-markdown">@def author &#61; &quot;songtaogui&quot;
+
+ &lt;&#33;-- if text are multi-lines, they MUST be indented --&gt;
+@def some_str &#61; &quot;&quot;&quot;
+    abc
+    def
+    &quot;&quot;&quot;</code></pre>
+<p><div class="code-lag">markdown</div></fieldset>
 <p>or define them within <code>&#43;&#43;&#43;</code> block, the content between <code>&#43;&#43;&#43;</code> will be evaluated as julia code, all variables will be consided as page variables.</p>
 <p>using <code>&#123;&#123;fill var&#125;&#125;</code> function to retrieve the page variables: <code>&#123;&#123;fill author&#125;&#125;</code></p>
+<p>
+  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Updated: 20220921</legend>
+      The latest version of Franklin &#40;Xranklin.jl&#41; deprecates the using of <code>@def</code>, so here we recommend the use of toml inside <code>&#43;&#43;&#43;</code> for var definition. 
+  </fieldset>
+   
+  </fieldset>
+  
 <h3 id="html_functions"><a href="#html_functions" class="header-anchor">HTML functions</a></h3>
 <p>list of buildin Franklin HTML functions:</p>
 <table><tr><th align="left">Format</th><th align="left">Role</th></tr><tr><td align="left"><code>&#123;&#123;fill var&#125;&#125;</code> or <code>&#123;&#123;var&#125;&#125;</code></td><td align="left">retrieve the values from <code>var</code> page variables</td></tr><tr><td align="left"><code>&#123;&#123;fill vname rpath&#125;&#125;</code></td><td align="left">place the value of page variable vname defined at <code>rpath</code> where <code>rpath</code> is a relative path like <code>blog/pg1</code></td></tr><tr><td align="left"><code>&#123;&#123;redirect /some/other/addr.html&#125;&#125;</code></td><td align="left">adds a redirect page: when a user goes to <code>&#40;baseurl&#41;/some/other/addr.html</code>, they will be redirected to the current page</td></tr><tr><td align="left"><code>&#123;&#123;insert fpath&#125;&#125;</code></td><td align="left">insert the content of the file at <code>fpath</code> where fpath is taken relative to the <code>_layout</code> folder</td></tr><tr><td align="left"><code>&#123;&#123;if var&#125;&#125; ... &#123;&#123;elseif var2&#125;&#125; ... &#123;&#123;else&#125;&#125; ... &#123;&#123;end&#125;&#125;</code></td><td align="left">Conditional blocks</td></tr><tr><td align="left"><code>&#123;&#123;ispage path&#125;&#125;</code>,<code>&#123;&#123;isnotpage path&#125;&#125;</code>, <code>&#123;&#123;is&#40;not&#41;def var&#125;&#125;</code>, <code>&#123;&#123;is&#40;not&#41;empty var&#125;&#125;</code></td><td align="left">dedicated conditional blocks</td></tr><tr><td align="left"><code>&#123;&#123;for &#40;x,y&#41; in var&#125;&#125; ... &#123;&#123;fill x&#125;&#125; ...&#123;&#123;fill y&#125;&#125; ... &#123;&#123;end&#125;&#125;</code></td><td align="left">For loops, with eg.: var &#61; &#91;&#40;1,2&#41;,&#40;3,4&#41;&#93;</td></tr></table>
 <h3 id="global_page_variables"><a href="#global_page_variables" class="header-anchor">Global page variables</a></h3>
+
+  <fieldset class="admon admon-info">
+  <legend class="admon-legend admon-legend-info"> 🥑 Global page var</legend>
+  </p>
 <ul>
 <li><p><code>author</code></p>
 </li>
@@ -300,7 +318,12 @@
 <li><p><code>automath</code></p>
 </li>
 </ul>
+<blockquote>
 <p>Refer to other buildin variables <a href="https://franklinjl.org/syntax/page-variables/">here</a>.</p>
+</blockquote>
+<p>
+  </fieldset>
+  
 
 </div> 
 <!-- article style -->
@@ -326,7 +349,7 @@
       Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
       The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
       The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-      <strong>&copy; songtaogui</strong>. Last modified: September 19, 2022. 
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 21, 2022. 
 
       <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">

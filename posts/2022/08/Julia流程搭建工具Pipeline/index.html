@@ -145,7 +145,7 @@
 <h2 id="快速开始"><a href="#快速开始" class="header-anchor">快速开始</a></h2>
 <h3 id="类型"><a href="#类型" class="header-anchor">类型</a></h3>
 <p><code>CmdProgram</code>和<code>JuliaProgram</code></p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using Pipelines
 
 Program
@@ -154,7 +154,7 @@ Program
 <p><div class="code-lag">julia</div></fieldset>
 <h3 id="cmdprogram"><a href="#cmdprogram" class="header-anchor">CmdProgram</a></h3>
 <h4 id="快速开始__2"><a href="#快速开始__2" class="header-anchor">快速开始</a></h4>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using Pipelines
 echo &#61; CmdProgram&#40;
     inputs &#61; &#91;
@@ -225,7 +225,7 @@ echo &#61; CmdProgram&#40;
 <p>\julia&#123;   wrap_up &#61; quote       run&#40;&#96;samtools index BAM&#96;&#41;   end   &#125;</p>
 </li>
 </ul>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">CmdProgram&#40;;
     name::String                            &#61; &quot;Command Program&quot;,
     id_file::String                         &#61; &quot;&quot;,
@@ -244,7 +244,7 @@ echo &#61; CmdProgram&#40;
 &#41; -&gt; CmdProgram</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <h4 id="运行"><a href="#运行" class="header-anchor">运行</a></h4>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">success, outputs &#61; run&#40;
     p::Program;
     program_kwargs...,
@@ -305,7 +305,7 @@ echo &#61; CmdProgram&#40;
 <h4 id="作业管理"><a href="#作业管理" class="header-anchor">作业管理</a></h4>
 <p>同一作者开发的类似PBS的作业管理工具包: <a href="https://github.com/cihga39871/JobSchedulers.jl">JobSchedulers.jl</a>, 和Pipelines完全兼容, 可以用<code>Job&#40;&#41;</code>指令代替<code>run&#40;&#41;</code>指令, 用submit&#33;&#40;::Job&#41;提交作业。<span class="sadmon sadmon-todo">TODO: 挖个坑, 先不学这个了</span></p>
 <h3 id="julia_program"><a href="#julia_program" class="header-anchor">Julia Program</a></h3>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">JuliaProgram &lt;: Program
 
 JuliaProgram&#40;;
@@ -344,7 +344,7 @@ JuliaProgram&#40;;
   
 <h3 id="cmddependency"><a href="#cmddependency" class="header-anchor">CmdDependency</a></h3>
 <p>依赖的软件是否存在或者是否是合适的版本</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">CmdDependency&#40;;
     exec::Base.AbstractCmd&#61;&#39;&#39;,           # 执行的软件, 如gcc
     test_args::Base.AbstractCmd&#61;&#39;&#39;,      # 判断的参数, 如--version
@@ -355,7 +355,7 @@ JuliaProgram&#40;;
 &#41;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <p>例如:</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">julia &#61; CmdDependency&#40;
     exec &#61; &quot;julia&quot;,
     test_args &#61; &quot;--version&quot;,
@@ -366,7 +366,7 @@ JuliaProgram&#40;;
 &#41;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <p>通常如果在<code>CmdProgram</code>中定义了<code>CmdDependency</code>, 会自动检查的, 但也可以通过<code>check_dependency&#40;&#41;</code>手动检查。</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">dep1 &#61; CmdDependency&#40;...&#41;
 dep2 &#61; CmdDependency&#40;...&#41;
 
@@ -384,7 +384,7 @@ run&#40;prog, inputs; check_dependencies &#61; true&#41;</code></pre>
 <li><p>一些有用的小函数:</p>
 </li>
 </ul>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">replaceext&#40;path, replacement&#41;
 removeext&#40;path&#41;
 split&#40;c::Cmd&#41; &#61; c.exec :: Vector&#123;String&#125;

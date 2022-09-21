@@ -151,12 +151,12 @@
 <p>接下来将一一介绍。</p>
 <h2 id="未实现异常notimplemented_exceptions"><a href="#未实现异常notimplemented_exceptions" class="header-anchor">未实现异常&#40;NotImplemented Exceptions&#41;</a></h2>
 <p>在julia中, 如果用一个未定义某函数方法的类去调用该函数, 会抛出未实现的错误:</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function foo&#40;x::Int&#41; return x &#43; 1 end
 foo&#40;&quot;abc&quot;&#41; #This caused a methodError, since String is not a type implementing the function foo</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <p>通常这可以提供非常有用而且明确的信息, 但有时候也会给用户debug带来问题, 考虑以下例子:</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">abstract type AbstractModel end
 
 &quot;&quot;&quot;
@@ -188,7 +188,7 @@ probability_estimate&#40;GuessingModel&#40;&#41;, &#91;1,2,3&#93;&#41;
 
   <fieldset class="admon admon-info">
   <legend class="admon-legend admon-legend-info"> 🥑 如何避免出现错误的未定义报错?</legend>
-      最直接的, 不要引入不必要的类型标注, 但是很多时候是需要详细的类型标注的. 这时, 我们可以预先定义一个没有任何行为的泛型函数, 然后再通过多重分派定义新的方法: <fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+      最直接的, 不要引入不必要的类型标注, 但是很多时候是需要详细的类型标注的. 这时, 我们可以预先定义一个没有任何行为的泛型函数, 然后再通过多重分派定义新的方法: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">&quot;&quot;&quot;
     probability_estimate2&#40;model, observation::Vector&#41;::Real
 
@@ -250,7 +250,7 @@ No alternative candidates found</code></pre>
 </li>
 </ul>
 <p>举个栗子:</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using BenchmarkTools
 
 # performance using function
@@ -303,7 +303,7 @@ end
   <fieldset class="admon admon-todo">
   <legend class="admon-legend admon-legend-todo"> 🍊 2. 性能变差</legend>
       用Dict虽然可以在<code>O&#40;1&#41;</code>的常量时间尺度下赋值和取值, 但这个常量时间通常也不会很短, Dict需要计算Hash, <code>Symbol</code>类型的Hash过程很快, 但<code>String</code>类型的会慢一些, 如果存储更复杂的结构, hash有可能很慢:</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">dict &#61; Dict&#40;&#91;:a&#61;&gt;1, :b&#61;&gt;2, :c&#61;&gt;3, :d&#61;&gt;4, :e&#61;&gt;5&#93;&#41;
 @btime &#36;&#40;dict&#41;&#91;:d&#93;; # 5ns
 
@@ -311,12 +311,12 @@ str_dict &#61; Dict&#40;string&#40;k&#41;&#61;&gt; v for &#40;k,v&#41; in dict&#
 @btime &#36;&#40;str_dict&#41;&#91;&quot;d&quot;&#93;; # 21ns</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <p>一个可行的替代方案是<span class="cadmon sadmon-todo">OrderedCollection包中的LittleDict</span>, 该结构类似Dict, 但是不会构建hash, 所以比Dict更适用于小集合的存储。</p>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using OrderedCollections
 little_dict &#61; LittleDict&#40;dict&#41;
 @btime &#36;&#40;little_dict&#41;&#91;:d&#93;; # 8ns</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
-<p>还可以用<code>freeze</code>方法转成不可变类型: <fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<p>还可以用<code>freeze</code>方法转成不可变类型: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">frozen_little_dict &#61; freeze&#40;LittleDict&#40;dict&#41;&#41;
 @btime &#36;&#40;frozen_little_dict&#41;&#91;:d&#93;; # 4ns</code></pre>
 <p><div class="code-lag">julia</div></fieldset> 
@@ -331,20 +331,37 @@ little_dict &#61; LittleDict&#40;dict&#41;
   
 <p>过度类型标注往往来自于以下几个误解:</p>
 
-  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解1: 可以让代码更快</legend>
-      wrong 
+  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解1: 可以让代码更快</legend>
+      Julia的<span class="Sadmon Sadmon-note">JIT</span>编译器在优化绝大部分代码的时候是不需要类型限制的, 会根据输入参数对应的具体类型, 优化对应的方法&#40;即针对不同的输入类型生成不同的机器码&#41;, 所以不会因为预先标注了类型, 就会有更好的性能优化。而对于非<span class="Sadmon Sadmon-note">JIT</span>的高级语言&#40;比如Cython&#41;, 预先标注类型可以让其在编译层面作出针对性的优化。</p>
+<p><span class="sadmon sadmon-note">总之, 由于JIT, julia中真正执行的指令总是针对输入的参数类型优化过的, &#40;这可能也是为啥Julia做静态编译库很困难的主要原因吧&#41;</span> 
   </fieldset>
   
 
-  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解2: 让代码更安全</legend>
-  </p>
+  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解2: 让代码更安全</legend>
+      对静态语言来说, 类型标注毫无疑问是<span class="Sadmon Sadmon-note">类型安全</span>的保障&#40;所有可能的问题都在编译期暴露出来&#41;。Julia不是静态类型语言, 也不是预编译语言, 很多bug会在 <span class="sadmon sadmon-note">执行到具体命令的时候</span>才报出来。所以添加类型标注并不会让代码更安全。</p>
 <p>
+  <fieldset class="admon admon-info">
+  <legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
+      我认为, 这也许是julia相对于其他语言的一个不足, 但无伤大雅, 因为bug总会暴露出来, 牺牲了在编译期Debug的优势, 换来的是超强的表现力和扩展性, 稳赚好么。Rust的编译器教做人的痛苦, 谁用谁知道。 
+  </fieldset>
+   
   </fieldset>
   
 
-  <fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 误解3: 让代码更易读(实际上是对的,但...)</legend>
-  </p>
+  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解3: 让代码更易读(实际上是对的,但...)</legend>
+      添加类型标注确实可以让代码更易读, 确实是的。但我们也可以通过其他方法让代码更已读:</p>
+<ul>
+<li><p>写详细的文档: Julia的documentation有多强大, 用过的都知道;</p>
+</li>
+<li><p>写好注释: 众所周知, 写代码最多时候都是在写注释;</p>
+</li>
+</ul>
 <p>
+  <fieldset class="admon admon-info">
+  <legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
+      最开始学Julia的时候, 我恨不得每个变量都加上类型标注, 反而不易读了, 通篇很多<code>:</code>,<code>&#123;&#125;</code>,<code>&#40;&#41;</code>,<code>&lt;:</code>, 跟Perl一样让人眼花。 
+  </fieldset>
+   
   </fieldset>
   
 

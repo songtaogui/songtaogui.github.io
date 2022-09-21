@@ -144,7 +144,7 @@
 <p>https://www.runoob.com/docker/docker-command-manual.html</p>
 </blockquote>
 <h3 id="hello_world"><a href="#hello_world" class="header-anchor">Hello World</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># docker run &#91;image_name&#93; &#91;cmd&#93;
 docker run ubuntu:15.10 /bin/echo &quot;Hello World&quot;
 
@@ -173,7 +173,7 @@ docker logs &#91;container_ID&#93;
 docker stop &#91;container_ID&#93;</code></pre>
 <p><div class="code-lag">bash</div></fieldset>
 <h3 id="容器"><a href="#容器" class="header-anchor">容器</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># 获取镜像:
 docker pull xxxx
 
@@ -216,7 +216,7 @@ docker top xxxx
 docker inspect xxxx</code></pre>
 <p><div class="code-lag">bash</div></fieldset>
 <h3 id="镜像"><a href="#镜像" class="header-anchor">镜像</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># list local images
 docker images
 
@@ -254,14 +254,14 @@ docker build -t runoob/centos:6.7 .
 # docker tag -&gt; add tag to image</code></pre>
 <p><div class="code-lag">bash</div></fieldset>
 <h3 id="容器连接"><a href="#容器连接" class="header-anchor">容器连接</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># 指定网络地址&#40;tcp&#41;
 docker run -d -p 127.0.0.1:5001:5000 training/webapp python app.py
 
 #其他的内容暂时用不上: https://www.runoob.com/docker/docker-container-connection.html</code></pre>
 <p><div class="code-lag">bash</div></fieldset>
 <h3 id="仓储"><a href="#仓储" class="header-anchor">仓储</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># 在 https://hub.docker.com 免费注册一个 Docker 账号。
 docker login
 docker logout
@@ -284,7 +284,7 @@ docker push</code></pre>
 </li>
 </ul>
 <h3 id="构建容器"><a href="#构建容器" class="header-anchor">构建容器</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash">## pull from singularity hub
 singularity pull hello.sif
 
@@ -311,7 +311,7 @@ singularity build xxx.sif xxx.def</code></pre>
 <table><tr><th align="right">Agents</th><th align="right">Desc</th></tr><tr><td align="right">library</td><td align="right">images on Container Lib</td></tr><tr><td align="right">docker</td><td align="right">images on docker hub</td></tr><tr><td align="right">shub</td><td align="right">images  on Sinngularity Hub</td></tr><tr><td align="right">oras</td><td align="right">images from support OCI registries</td></tr><tr><td align="right">scratch</td><td align="right">container from scratch</td></tr><tr><td align="right">localimage</td><td align="right">images saved on local machine</td></tr><tr><td align="right">yum</td><td align="right">yum based systems</td></tr><tr><td align="right">debootstraap</td><td align="right">apt based systems</td></tr><tr><td align="right">oci</td><td align="right"></td></tr><tr><td align="right">oci-archive</td><td align="right"></td></tr><tr><td align="right">docker-daemon</td><td align="right"></td></tr><tr><td align="right">docker-archive</td><td align="right">archived docker images</td></tr><tr><td align="right">arch</td><td align="right">Arch Linux</td></tr><tr><td align="right">busybox</td><td align="right"></td></tr><tr><td align="right">zypper</td><td align="right"></td></tr></table>
 <h4 id="sections"><a href="#sections" class="header-anchor">Sections</a></h4>
 <h3 id="容器操作"><a href="#容器操作" class="header-anchor">容器操作</a></h3>
-<fieldset class="code-bash"><legend class="code-bash-legend">bash</legend></p>
+<fieldset class="code code-bash"><legend class="code-legend code-legend-bash">bash</legend></p>
 <pre><code class="language-bash"># exec
 singularity exec xxx.sif &#91;cmd&#93; &#91;opt&#93;
 

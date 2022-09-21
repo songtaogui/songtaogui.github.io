@@ -159,7 +159,7 @@
 </li>
 </ul>
 <h3 id="creating"><a href="#creating" class="header-anchor">Creating</a></h3>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># creat empty interval trees
 xs &#61; IntervalTree&#123;Int, Interval&#123;Int&#125;&#125;&#40;&#41;
 # push&#33;
@@ -178,7 +178,7 @@ xs&#91;&#40;101,1000&#41;&#93; &#61; &quot;Medium&quot;
 xs&#91;&#40;1001, 10000&#41;&#93; &#61; &quot;High&quot;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <h3 id="operations"><a href="#operations" class="header-anchor">Operations</a></h3>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># All standard dict operations could be used to IntervalTree:
 
 # key &#61;&gt; value:
@@ -237,7 +237,7 @@ hasintersection&#40;T, position&#41;</code></pre>
 
   <fieldset class="admon admon-note">
   <legend class="admon-legend admon-legend-note"> 📘 `Interval{T} <: IntervalTrees.AstractInterval{Int64}`</legend>
-   <fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+   <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">seqname::String
 first::Int64
 last::Int64
@@ -246,7 +246,7 @@ metadata::T</code></pre>
 <p><div class="code-lag">julia</div></fieldset></p>
 <p>Strand:</p>
 <table><tr><th align="right">Symbol</th><th align="right">ConstranT</th><th align="right">Meaning</th></tr><tr><td align="right">&#39;?&#39;</td><td align="right">STRAND_NA</td><td align="right">strand unknown</td></tr><tr><td align="right">&#39;&#43;&#39;</td><td align="right">STRAND_POS</td><td align="right">positive strand</td></tr><tr><td align="right">&#39;-&#39;</td><td align="right">STRAND_NEG</td><td align="right">negative strand</td></tr><tr><td align="right">&#39;.&#39;</td><td align="right">STRAND_BOTH</td><td align="right">non-strand-specific feature</td></tr></table>
-<p><fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># To define an Interval: 
 Interval&#40;&quot;chr1&quot;, 1, 100&#41;
 Interval&#40;&quot;chr1&quot;, 1, 100, &#39;&#43;&#39;&#41;
@@ -265,7 +265,7 @@ metadata&#40;i&#41;       # i.metadata</code></pre>
   <fieldset class="admon admon-tip">
   <legend class="admon-legend admon-legend-tip"> 🍏 `intervalCollection`: collection of intervals</legend>
    <span class="Sadmon Sadmon-tip">The most important structure in the package.</span></p>
-<p><fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># structure
 trees::Dict
 length::Int64

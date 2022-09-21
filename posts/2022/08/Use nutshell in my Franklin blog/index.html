@@ -167,7 +167,7 @@
 </blockquote>
 <p><span class="Sadmon Sadmon-error">Updated 2022-09-16</span>:</p>
 <p>It turns out it is these css rules that caused the incompat:</p>
-<fieldset class="code-html"><legend class="code-html-legend">html</legend></p>
+<fieldset class="code code-html"><legend class="code-legend code-legend-html">html</legend></p>
 <pre><code class="language-html">.article-style img,
 .article-style video &#123;
     margin-left: auto;
@@ -181,12 +181,14 @@
   </fieldset>
   
 <p>What&#39;s more, I found that on some header, a nutshell hinter pops up when hover, which is not what I want. So, I need a rule to turn on the nutshell functions page by page:</p>
-<p>
+
   <fieldset class="admon admon-tip">
   <legend class="admon-legend admon-legend-tip"> 🍏 Set a `hasnutshell` var based nutshell function switch:</legend>
-      In the header of every markdown, there should be a keyword assign of <code>hasnutshell &#61; false</code> to turn off nutshell functions by default. Change that to <code>hasnutshell &#61; true</code> if you want to use nutshell functions in the specific markdown file. This was made happen by modifying the <code>stylesheets.html</code> to add a line of: 
+      In the header of every markdown, there should be a keyword assign of <code>hasnutshell &#61; false</code> to turn off nutshell functions by default. Change that to <code>hasnutshell &#61; true</code> if you want to use nutshell functions in the specific markdown file. This was made happen by modifying the <code>stylesheets.html</code> to add a line of:</p>
+<pre><code class="language-plain">&#123;&#123;if hasnutshell&#125;&#125;&lt;script src&#61;&quot;/libs/nutshell/nutshell.js&quot;&gt;&lt;/script&gt;&#123;&#123;end&#125;&#125;</code></pre>
+<p>
   </fieldset>
-   &lt;script src&#61;&quot;/libs/nutshell/nutshell.js&quot;&gt;&lt;/script&gt; &#125; &#125;</p>
+  
 <p>Now, everything just works fine for me 😄.</p>
 <h2 id="test_normal_nutshell_functions"><a href="#test_normal_nutshell_functions" class="header-anchor">Test normal nutshell functions</a></h2>
 <p>The nutshell-contained below was generated with: &#125;</p>
@@ -198,7 +200,7 @@
   <legend class="admon-legend admon-legend-hack"> 💻 test</legend>
       test hack info 
   </fieldset>
-   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hacklogging"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
+   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
 <h3 id="normal_hd"><a href="#normal_hd" class="header-anchor">normal hd</a></h3>
 <p>text that refers <a href="#InvisibleHd1">:hd1</a> and <a href="#VisibleHd2">:hd2</a> and plain text.</p>
 <p>&#125;</p>
@@ -211,7 +213,7 @@
   <legend class="admon-legend admon-legend-hack"> 💻 test</legend>
       test hack info 
   </fieldset>
-   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hacklogging"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
+   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
 <h3 id="normal_hd__2"><a href="#normal_hd__2" class="header-anchor">normal hd</a></h3>
 <p>text that refers <a href="#InvisibleHd1">:hd1</a> and <a href="#VisibleHd2">:hd2</a> and plain text.</p>
 
@@ -241,7 +243,7 @@
   <fieldset class="admon admon-error">
   <legend class="admon-legend admon-legend-error"> 🐞 the highlight is a nightmare!</legend>
       Compare to:</p>
-<p><fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function abc&#40;&#41;
     println&#40;&quot;abc&quot;&#41;
 end</code></pre>
@@ -249,7 +251,7 @@ end</code></pre>
   </fieldset>
   
 <h1 id="x_test-code-blocks"><a href="#x_test-code-blocks" class="header-anchor">:x test-code-blocks</a></h1>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function abc&#40;&#41;
     println&#40;&quot;abc&quot;&#41;
 end</code></pre>
@@ -338,7 +340,7 @@ end</code></pre>
       Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
       The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
       The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-      <strong>&copy; Songtao Gui</strong>. Last modified: September 19, 2022. 
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 21, 2022. 
 
       <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">

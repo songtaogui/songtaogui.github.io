@@ -141,7 +141,7 @@
 
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 1. Add script source to `stylesheets.html`:</legend>
-   <fieldset class="code-html"><legend class="code-html-legend">html</legend></p>
+   <fieldset class="code code-html"><legend class="code-legend code-legend-html">html</legend></p>
 <pre><code class="language-html">&lt;&#33;-- busuanzi --&gt;
 &lt;script async src&#61;&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p><div class="code-lag">html</div></fieldset> 
@@ -150,7 +150,7 @@
 
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 2. Add whole site stats to `page_foot.html`:</legend>
-   <fieldset class="code-html"><legend class="code-html-legend">html</legend></p>
+   <fieldset class="code code-html"><legend class="code-legend code-legend-html">html</legend></p>
 <pre><code class="language-html">&lt;div class&#61;&quot;container&quot;&gt;
   &lt;footer class&#61;&quot;site-footer&quot;&gt;
     &lt;p class&#61;&quot;powered-by&quot;&gt;
@@ -168,7 +168,7 @@
 
   <fieldset class="admon admon-hack">
   <legend class="admon-legend admon-legend-hack"> 💻 3. Add each post stats to the tag div through `utils.jl`</legend>
-   <fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+   <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">@delay function hfun_page_tags&#40;&#41;
     pagetags &#61; globvar&#40;&quot;fd_page_tags&quot;&#41;
     pagetags &#61;&#61;&#61; nothing &amp;&amp; return &quot;&quot;

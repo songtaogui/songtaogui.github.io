@@ -143,7 +143,7 @@
 <p>今晚不想干活, 翻译一下julia 1.8更新内容, 权当娱乐了, 原文<a href="https://julialang.org/blog/2022/08/julia-1.8-highlights/">请戳我</a></p>
 </blockquote>
 <h2 id="const可以用在可变复合类型的字段上了"><a href="#const可以用在可变复合类型的字段上了" class="header-anchor"><code>const</code>可以用在可变复合类型的字段上了</a></h2>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">mutable struct T
     x::Int
     const y::Float64
@@ -154,7 +154,7 @@ end</code></pre>
 <p>之前的<code>@inline</code>只能在方法定义的时候添加, 每次调用都会以inline的方式. 现在可以在某个具体的调用时再用inline了:<code>@inline f&#40;x&#41;</code>.</p>
 <span class="sadmon sadmon-hack">平时不太涉及性能优化, 还没用过@inline, 捂脸&#33;</span>
 <h3 id="全局变量可以加类型标注了"><a href="#全局变量可以加类型标注了" class="header-anchor">全局变量可以加类型标注了</a></h3>
-<fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">x::Int &#61; 0
 # &gt; 0
 
@@ -167,7 +167,7 @@ x &#61; &quot;string&quot;
 <p>可我还没用过<code>@threads</code>&#33;</p>
 </blockquote>
 <p>早期的julia对<code>@threads</code>是用的静态调度, <code>iteration &#61;&gt; task &#61;&gt; thread</code> 之间的分派关系是预先定义好的: 每个task分配给一个thread. 现在的<code>:dynamic</code>可以动态地调度task, 按照每个迭代的工作量一样的前提假设去调度.</p>
-<p>举了个栗子: <fieldset class="code-julia"><legend class="code-julia-legend">julia</legend></p>
+<p>举了个栗子: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># 一个loop, 指定的时间后终止
 julia&gt; function busywait&#40;seconds&#41;
             tstart &#61; time_ns&#40;&#41;
