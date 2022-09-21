@@ -609,9 +609,9 @@ a.pure-button-selected {
     border-color: #129fea
 }
 
-input[type=checkbox]:focus,
-input[type=file]:focus,
-input[type=radio]:focus {
+.pure-form input[type=checkbox]:focus,
+.pure-form input[type=file]:focus,
+.pure-form input[type=radio]:focus {
     outline: thin solid #129FEA;
     outline: 1px auto #129FEA
 }

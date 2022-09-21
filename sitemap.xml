@@ -38,20 +38,20 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\09\Learning_Frames_JuliaLang_Anitpatterns\index.html</loc>
+    <loc>https://songtaogui.github.io/posts\2022\09\JuliaLang_Anitpatterns\index.html</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia_v1.8_%E6%96%B0%E7%89%B9%E6%80%A7\index.html</loc>
-    <lastmod>2022-09-19</lastmod>
+    <lastmod>2022-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\add_visitor_stat_to_my_blog\index.html</loc>
-    <lastmod>2022-09-19</lastmod>
+    <lastmod>2022-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -135,7 +135,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\index.html</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -153,7 +153,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\docker%E5%92%8Csingularity%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B\index.html</loc>
-    <lastmod>2022-09-19</lastmod>
+    <lastmod>2022-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
