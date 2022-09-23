@@ -95,7 +95,7 @@ h6 {
 
 p {
     margin-top: 0;
-    margin-bottom: 0rem
+    margin-bottom: 1rem
 }
 
 abbr[title],
@@ -117,7 +117,7 @@ ol,
 ul,
 dl {
     margin-top: 0;
-    margin-bottom: 0rem;
+    margin-bottom: 1rem
 }
 
 ol ol,
@@ -10878,6 +10878,18 @@ figure img {
 
 .center-text {
     text-align: center
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem
+}
+
+ul,
+ol,
+dl {
+    margin-top: 0;
+    margin-bottom: 1rem
 }
 
 li>p {

@@ -61,6 +61,8 @@ legend {
     /* background-color: #eef1fa; */
     border: 0px;
     border-radius: 7px;
+    text-align: left;
+    padding-left: 1em;
     font-size: var(--text-sm);
 }
 
@@ -82,13 +84,15 @@ legend {
     border: 2px dashed #303030;
     background-color: transparent !important;
     border-radius: 7px;
+    text-align: left;
+    padding-left: 1em;
     font-size: var(--text-sm);
 }
 
 .hadmon-legend {
     color: white;
     /* background-color: #cb4452; */
-    padding-left: .5em;
+    padding-left: .5em !important; 
     padding-right: .5em;
     padding-bottom: .1em;
     border-radius: 5px;
