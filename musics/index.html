@@ -125,7 +125,7 @@
   
     <article class=article>
       <div class="article-container pt-3">
-        <h1>My Musics</h1>
+        
       </div>
       
       <div class="article-container">
@@ -136,6 +136,7 @@
   
 
 <div class="franklin-content">
+<hr />
 <blockquote>
 <p>Find the playlist <a href="https://music.163.com/playlist?id&#61;7627064833&amp;userid&#61;134399768">HERE</a></p>
 </blockquote>
@@ -231,7 +232,7 @@
     transition-property: background-color, border-color, border-radius, padding, margin, color, opacity;
     overflow: auto;
     margin: 0px;
-    /* min-height: 1000px; */
+    max-width: 900px;
     padding: 0px;
     list-style-type: none;
     list-style-image: none;
@@ -254,6 +255,38 @@ left: 0 !important;
  
 
 
+<!--看板 白猫-->
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <script>
+      L2Dwidget.init({
+        "model": {
+          jsonPath: "https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json", <!--这里改模型，前面后面都要改-->
+          "scale": 1
+        },
+        "display": {
+          "position": "left", <!--设置看板娘的上下左右位置-->
+          "width": 100,
+          "height": 200,
+          "hOffset": 0,
+          "vOffset": 0
+        },
+        "mobile": {
+          "show": true,
+          "scale": 0.5
+        },
+        "react": {
+          "opacityDefault": 0.9, <!--设置透明度-->
+          "opacityOnHover": 0.5
+        }
+      });
+      window.onload = function() {
+        $("#live2dcanvas").attr("style", "position: fixed; opacity: 0.9;right: 0%;bottom:1%;z-index: 1;pointer-events: none;margin-top:0%;")
+      }
+    </script>
+
+
+
+
 </div> 
 <!-- article style -->
 
@@ -272,13 +305,14 @@ left: 0 !important;
 <hr> 
 
 <div class="container">
+  
   <footer class="site-footer">
     <p class="powered-by">
       Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
       Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
       The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
       The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-      <strong>&copy; Songtao Gui</strong>. Last modified: September 19, 2022. 
+      <strong>&copy; Songtao Gui</strong>. Last modified: September 24, 2022. 
 
       <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
@@ -290,6 +324,7 @@ left: 0 !important;
 
     </p>
   </footer>
+  
 </div>
 
 </div>

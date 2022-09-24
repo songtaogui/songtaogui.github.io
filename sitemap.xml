@@ -63,7 +63,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\index.html</loc>
-    <lastmod>2022-08-24</lastmod>
+    <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -134,8 +134,14 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/courses\slides\HZAU-JC\index.html</loc>
+    <lastmod>2022-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\index.html</loc>
-    <lastmod>2022-09-21</lastmod>
+    <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -194,12 +200,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/slides\HZAU-JC\index.html</loc>
-    <lastmod>2022-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\08\odgi-%E6%B3%9B%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7%E5%8C%85\index.html</loc>
     <lastmod>2022-09-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -249,7 +249,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2022-09-21</lastmod>
+    <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
