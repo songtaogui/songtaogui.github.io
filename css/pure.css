@@ -1100,7 +1100,8 @@ a.pure-button-selected {
 }
 
 .pure-table td {
-    background-color: transparent
+    background-color: transparent;
+    vertical-align: top
 }
 
 .pure-table-odd td {

@@ -133,8 +133,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal img,
 .reveal video,
 .reveal iframe {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 95%;
+  max-height: 95%;
 }
 
 .reveal strong,
@@ -255,7 +255,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal table td {
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
+  vertical-align: top
 }
 
 .reveal table th[align=center],
