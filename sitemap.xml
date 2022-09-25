@@ -86,12 +86,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\biology_and_graph\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2017\04\window_UAC\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -124,12 +118,6 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2017\03\sicer-usage\index.html</loc>
     <lastmod>2022-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\slides\ttt\index.html</loc>
-    <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -183,7 +171,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\make_my_own_parser\index.html</loc>
-    <lastmod>2022-09-21</lastmod>
+    <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -243,7 +231,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/TODO\index.html</loc>
-    <lastmod>2022-09-21</lastmod>
+    <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -296,14 +284,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\statistical_rethinking\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\08\Use%20nutshell%20in%20my%20Franklin%20blog\index.html</loc>
-    <lastmod>2022-09-21</lastmod>
+    <lastmod>2022-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
