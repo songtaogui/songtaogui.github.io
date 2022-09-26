@@ -32,6 +32,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/posts\2022\09\Reveal%20met%20Franklin\index.html</loc>
+    <lastmod>2022-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\%E6%88%91%E7%9A%84fzf%E9%85%8D%E7%BD%AE\index.html</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,7 +135,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\slides\HZAU-JC\index.html</loc>
-    <lastmod>2022-09-24</lastmod>
+    <lastmod>2022-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -238,6 +244,12 @@
 <url>
     <loc>https://songtaogui.github.io/tag\index.html</loc>
     <lastmod>2022-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/courses\slides\demo\index.html</loc>
+    <lastmod>2022-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>

@@ -35,24 +35,27 @@
 
 <!-- locally served -->
 <link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel="stylesheet" href="/css/layout.css">
 <link rel="stylesheet" href="/css/extra.css">
-<link rel=stylesheet href="/libs/academic/academic.min.css">
 <link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!-- nutshell + highlight + katex + plotly -->
-
-
-
+<script src="/libs/nutshell/nutshell.js"></script>
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+ <link rel="stylesheet" href="/libs/katex/katex.min.css">
+ 
 
 
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
 
-   <title>test</title>  
+   <title>When Reveal.js meets Franklin.js</title>  
 
 </head>
 
@@ -109,10 +112,10 @@
     <div class="nav-icon d-none d-lg-inline-flex">
       <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img" src="/assets/img/notebook.svg"></span></a>
       <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img" src="/assets/img/giant.svg"></span></a>
-      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
-    </div>
-    <div class="nav-icon">
       <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img" src="/assets/img/rss.svg"></span></a>
+    </div>
+    <div class="nav-icon ">
+      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
     </div>
     
   </div>
@@ -133,7 +136,9 @@
   
 
 
-<ul><li><a href="/drafts\test/">test</a></li></ul>
+<ul><li><a href="/posts\2022\09\Reveal met Franklin/">When Reveal.js meets Franklin.js</a></li></ul>
+
+
 
 
   </div> <!--article container -->
@@ -141,8 +146,27 @@
 
 
 <!-- CONTENT ENDS HERE -->
-    
-    
+     <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+<script>
+    const options = {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+        {left: "\\begin{align}", right: "\\end{align}", display: true},
+        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+        {left: "\\(", right: "\\)", display: false},
+        {left: "\\[", right: "\\]", display: true}
+      ]
+    };
+    renderMathInElement(document.body, options);
+</script>     
+     <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
     <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
     
   <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
@@ -224,5 +248,7 @@
       ]
     })
   </script> -->
+  
+  </html>
+  
 
-</html>
