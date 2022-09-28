@@ -11230,10 +11230,16 @@ a.badge:hover {
 
 .tag-link {
 font-size: 120%;
+margin: 0;
+padding: 0;
+border-bottom: 0.1em dashed #ffffff;
 }
 
 a.tag-link:hover {
-color: #f93
+/* color: #f93 */
+/* font-size: 140%; */
+text-decoration:none;
+border-bottom: 0.1em dashed #909090;
 }
 
 .tag-count {
@@ -11243,7 +11249,8 @@ padding-right: 1.5em;
 
 
 .tagslist {
-line-height: 2.25em;
+/* line-height: 2.25em; */
+line-height: auto;
 max-width: 90%;
 }
 
