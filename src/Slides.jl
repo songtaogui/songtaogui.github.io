@@ -37,8 +37,5 @@ In toml grammar, parsed from  the start of the doc, wrapped between `+++`
     - eg: `<!-- | opt1:abcd, opt2:efgh | -->`
     - if opt comment comes after a md txt (item), the opt is assigned specifically to the item;
     - if opt comment comes from a new line, the opts is assigned to the smallest item the last non-comment sentence belongs to;
-5. 
+5.
 """
-module Keynotes
-
-end
