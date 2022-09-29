@@ -323,7 +323,7 @@ end # func hfun_citebiblist</code></pre>
 <p>By the implementation above, I could insert <code>citation&#40;s&#41;</code> through <code>&#123;&#123;citebib CiteKey1 CiteKey2 ...&#125;&#125;</code>, and add a <code>&#123;&#123;citebiblist&#125;&#125;</code> to the end of the file, then everything will work smoothly&#33;</p>
 
   <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> DEMO-CODE</legend>
-      By writing Franklin markdown lile this:</p>
+      By writing Franklin markdown like this:</p>
 <pre><code class="language-markdown">... has been well discussed in Pandey&#39;s work on evolution of unilateral incompatibility in flowering plants and Pla&#39;s work on ABA cis-regulators &#123;&#123;citebib 1981-Pandey-Evolution-NP 1993-Pla-Cisregulatory-PMB&#125;&#125;.
 
 ... Please refer to Les Donald&#39;s work on the evolution history of aquatic angiosperms &#123;&#123;citebib 1991-Les-Molecular-PNASUSA&#125;&#125;.
@@ -369,9 +369,9 @@ end # func hfun_citebiblist</code></pre>
 <li><p>The <em>in situ</em> indexes are not checked to make sure they are unique:</p>
 </li>
 </ul>
-<div class="indent-block" style="margin-left: 2em !important"> <div class="aadmon aadmon-warn"> say if you insert two articles published on 2022 by <code>Wang Dabao</code> and <code>Wang Erbao</code> respectively, the indexes would both be <code>Wang 2022</code>, which should be <code>Wang 2022a</code> and <code>Wang 2022b</code>, but the links are correct, so I&#39;ll live with it <span class="cadmon sadmon-todo">&#40;after all, it&#39;s a blog, not a journal&#41;</span>.</div> </div>
+<div class="indent-block" style="margin-left: 2em !important"> <div class="aadmon aadmon-info"> say if you insert two articles published on 2022 by <code>Wang Dabao</code> and <code>Wang Erbao</code> respectively, the indexes would both be <code>Wang 2022</code>, which should be <code>Wang 2022a</code> and <code>Wang 2022b</code>, but the links are correct, so I&#39;ll live with it <span class="cadmon sadmon-todo">&#40;after all, it&#39;s a blog, not a journal&#41;</span>.</div> </div>
 <h3 id="thats_it_for_now"><a href="#thats_it_for_now" class="header-anchor">That&#39;s It&#33; For now&#33;</a></h3>
-<div class="aadmon aadmon-tip"> Feel free to use mine implementation on your blogs&#33;<br> And let me know if there are &#40;there sure will be or already been&#41; better solutions&#33;</div>
+<div class="aadmon aadmon-warn"> Feel free to use mine implementation on your blogs&#33;<br> And let me know if there are &#40;there sure will be or already been&#41; better solutions&#33;</div>
 
 
 </div> 
