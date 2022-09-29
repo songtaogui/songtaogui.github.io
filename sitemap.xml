@@ -38,12 +38,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\09\test\index.html</loc>
-    <lastmod>2022-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\08\%E6%88%91%E7%9A%84fzf%E9%85%8D%E7%BD%AE\index.html</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -238,6 +232,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Franklin%E5%8D%9A%E5%AE%A2%E4%B8%AD%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E6%A1%86%E5%92%8Calert%E9%AB%98%E4%BA%AE\index.html</loc>
     <lastmod>2022-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/posts\2022\09\CitationsInFranklin\index.html</loc>
+    <lastmod>2022-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>

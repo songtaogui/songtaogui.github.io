@@ -8,9 +8,8 @@ Make Citation smoothly in My Franklin Blog
 1. parse all local bib, with citekey as key
 2. get only first three authors
 3. add urls to title
-4. parse page var of nutshellcitation for output nutshellcitation
-5. use (author et al., year[a-z]) format citeindex
-6. sort bibliography alphabetically
+4. use (author et al., year) format citeindex
+5. sort bibliography alphabetically
 =#
 
 function loadbib(db::String)
@@ -19,7 +18,7 @@ function loadbib(db::String)
 end
 
 # const CITEDB = loadbib(CITEDBFILE)
-const CITEDB = loadbib("_assets/citedb/test.bib")
+const CITEDB = loadbib("_assets/citedb/ref.bib")
 
 function fmtidx(idx::String, name::String; format="normal")
     if !haskey(CITEDB, idx)
@@ -71,7 +70,12 @@ function fmtreflist(idx::String)
         curbib_first_three_authors = f3a_str * etal
         curbib_pubinfo = join(filter(!isempty,["<span style=\"color:#9970AB\"><i>" * curbib.in.journal * "</i></span>", curbib.in.pages, curbib.in.volume]),", ")
         curbib_title = replace(curbib.title, r"[\{\}]" => "")
-        curbib_title = """<a href="#$(idx)"><strong>$(curbib_title)</strong></a>"""
+        if !isempty(curbib.access.doi)
+            url = startswith(curbib.access.doi, r"http(s)?://(dx\.)?doi.org/") ? curbib.access.doi : "https://doi.org/" * curbib.access.doi
+            curbib_title = """<a href="$(url)" target="_blank">$(curbib_title)</a>"""
+        else
+            curbib_title = """<a><span style="color:#08519C">$(curbib_title)</span></a>"""
+        end
         refstr = """
             <span>$(curbib_first_three_authors) ($(curbib_year)). $(curbib_title). $(curbib_pubinfo)</span>
             """
