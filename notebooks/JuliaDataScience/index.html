@@ -134,8 +134,13 @@
                 
                 
                 <div class="franklin-content">
+<div class="franklin-toc"><ol><li><a href="#dataframesjl">DataFrames.jl</a><ol><li><a href="#快速开始">快速开始</a></li><li><a href="#取子集">取子集</a></li><li><a href="#数据统计_describe和combine">数据统计: <code>describe</code>和<code>combine</code></a></li><li><a href="#数据替换">数据替换</a></li><li><a href="#输入输出">输入输出</a></li><li><a href="#join操作"><code>Join</code>操作</a></li><li><a href="#split-apply-combine数据操作策略"><code>Split-Apply-Combine</code>数据操作策略</a></li><li><a href="#reshaping和pivoting_长宽表转换"><code>Reshaping</code>和<code>Pivoting</code>: 长宽表转换</a></li><li><a href="#排序">排序</a></li><li><a href="#分组数据">分组数据</a></li><li><a href="#缺失值_missing">缺失值: Missing</a></li></ol></li><li><a href="#扩展包">扩展包</a><ol><li><a href="#dataframesmetajl">DataFramesMeta.jl</a></li></ol></li></ol></div>
 <h2 id="dataframesjl"><a href="#dataframesjl" class="header-anchor">DataFrames.jl</a></h2>
-<h3 id="构建"><a href="#构建" class="header-anchor">构建</a></h3>
+<blockquote>
+<p><a href="https://dataframes.juliadata.org/stable/">官方Document</a></p>
+</blockquote>
+<h3 id="快速开始"><a href="#快速开始" class="header-anchor">快速开始</a></h3>
+<h4 id="构建"><a href="#构建" class="header-anchor">构建</a></h4>
 <p><code>DataFrame</code>类型</p>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># 手动构造: 单个元素的列会广播
@@ -151,6 +156,20 @@ DataFrame&#40;&quot;customer age&quot; &#61;&gt; &#91;15, 20, 25&#93;,
 # 从矩阵构造DF:
 DataFrame&#40;matrix, names&#41; # names 可以设成&#96;:auto&#96;, 则自动分配列名x1, x2 ..., 或者设成与数据列数相同的数组。
 
+# 按列构造:
+df &#61; DataFrame&#40;&#41;
+df.A &#61; 1:8
+df.B &#61; &#91;&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;&#93;
+
+# 按行构造:
+df &#61; DataFrame&#40;A&#61;Int&#91;&#93;, B&#61;String&#91;&#93;&#41;
+push&#33;&#40;df, &#40;1, &quot;M&quot;&#41;&#41;
+push&#33;&#40;df, &#40;2, &quot;N&quot;&#41;&#41;
+
+# 从其他&#96;Table.jl&#96;的具象格式中转成DF:
+df &#61; sqltable |&gt; DataFrame
+df &#61; &#91;&#40;a&#61;1, b&#61;2&#41;, &#40;a&#61;3, b&#61;4&#41;&#93; |&gt; DataFrame
+
 # 从CSV文件中读取DF:
 using CSV
 data &#61; CSV.read&#40;path, DataFrame&#41;
@@ -158,7 +177,7 @@ data &#61; CSV.read&#40;path, DataFrame&#41;
 # copy
 data2 &#61; copy&#40;data1&#41;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
-<h3 id="基本操作"><a href="#基本操作" class="header-anchor">基本操作</a></h3>
+<h4 id="基本操作"><a href="#基本操作" class="header-anchor">基本操作</a></h4>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># 列
 german.Sex
@@ -186,13 +205,594 @@ mapcols&#40;id -&gt; id .^ 2, german&#41;
 
 first&#40;df, n&#41;, last&#40;df, n&#41; # n默认是1</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
-<h3 id="基本操作__2"><a href="#基本操作__2" class="header-anchor">基本操作</a></h3>
+<h3 id="取子集"><a href="#取子集" class="header-anchor">取子集</a></h3>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
-<pre><code class="language-julia"># DF索引&#40;类似矩阵&#41;, 同上, 略
-df&#91;&#33;, &#91;:col1&#93;&#93;
-df&#91;:, &#91;:col1&#93;&#93;
-&#96;&#33;&#96;</code></pre>
+<pre><code class="language-julia">df&#91;1:3, :&#93;
+df&#91;:, &#91;:A, :B&#93;&#93;
+df&#91;&#33;, &#91;:A&#93;&#93; # 返回一个df
+df&#91;&#33;, :A&#93; # 返回一个Vector
+
+# 正则; Not; Between; All; Cols
+df&#91;&#33;, r&quot;x&quot;&#93; # 取出列名包含x的列
+df&#91;&#33;, Not&#40;:x1&#41;&#93; # 取出除了&#96;x1&#96;之外的列
+df&#91;&#33;, Between&#40;:x1, :x4&#41;&#93;
+df&#91;:, All&#40;&#41;&#93;
+df&#91;:, Cols&#40;x -&gt; startswith&#40;x, &quot;x&quot;&#41;&#41;&#93;
+# Cols 还可用于给列重排序:
+df&#91;:, Cols&#40;r&quot;x&quot;, :&#41;&#93; # 把所有包含x的列排在前面, 其他列排在后边
+df&#91;:, Cols&#40;Not&#40;r&quot;x&quot;&#41;, :&#41;&#93; # 把所有包含x的列排在后面, 其他列排在前边
+
+# 按照数值过滤
+df&#91;df.A .&gt; 500, :&#93; #取出所有A列数值大于 500 的行
+df&#91;&#40;df.A .&gt; 500&#41; .&amp; &#40;300 .&lt; df.C .&lt; 400&#41;, :&#93;
+df&#91;in.&#40;df.A, Ref&#40;&#91;1, 5, 601&#93;&#41;&#41;, :&#93;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
+<h4 id="subset和subset_操作行"><a href="#subset和subset_操作行" class="header-anchor"><code>subset</code>和<code>subset&#33;</code>: 操作行</a></h4>
+<pre><code class="language-julia">subset&#40;df::AbstractDataFrame, args...; skipmissing::Bool&#61;false, view::Bool&#61;false&#41;
+subset&#40;gdf::GroupedDataFrame, args...; skipmissing::Bool&#61;false, view::Bool&#61;false,
+       ungroup::Bool&#61;true&#41;</code></pre>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">subset&#40;df, :A &#61;&gt; a -&gt; a .&lt; 10, :C &#61;&gt; c -&gt; isodd.&#40;c&#41;&#41;
+
+# 用coalesce函数跳过包含missing的行
+# coalesce&#40;x...&#41; 返回第一个非missing的值
+subset&#40;df, :x &#61;&gt; x -&gt; coalesce.&#40;iseven.&#40;x&#41;, false&#41;&#41; # 如果是missing, 过滤条件就返回false
+# 等价于
+subset&#40;df, :x &#61;&gt; x -&gt; iseven.&#40;x&#41;, skipmissing&#61;true&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h4 id="selectselect和transformtransform_操作列"><a href="#selectselect和transformtransform_操作列" class="header-anchor"><code>select/select&#33;</code>和<code>transform/transform&#33;</code>: 操作列</a></h4>
+<ul>
+<li><p>复杂的按列过滤函数</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">select&#40;df, Not&#40;:x1&#41;&#41;
+select&#40;df, r&quot;x&quot;&#41;
+select&#40;df, :x1 &#61;&gt; :a1, :x2 &#61;&gt; :a2&#41; # 重命名列
+select&#40;df, :x1, :x2 &#61;&gt; &#40;x -&gt; x .- minimum&#40;x&#41;&#41; &#61;&gt; :x2&#41; # 更改x2的数值
+select&#40;df, :x2, :x2 &#61;&gt; ByRow&#40;sqrt&#41;&#41; # 生成新的名为:x2_sqrt的列, 存放x2列的开平方值
+select&#40;df, AsTable&#40;:&#41; &#61;&gt; ByRow&#40;extrema&#41; &#61;&gt;  &#91;:lo, :hi&#93;&#41; # 逐行计算所有列的极值, 存到:lo :hi两列中</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p>永远返回DataFrame</p>
+</li>
+<li><p>默认会从原始df中拷贝一份选择的列, 可以用<code>copycols&#61;false</code>参数关闭copy</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important">    df2 &#61; select&#40;df, :x1&#41; df2.x1 &#61;&#61;&#61; df.x1 # false, 默认是copy了一份新的 df2 &#61; select&#40;df, :x1, copycols&#61;false&#41; df2.x1 &#61;&#61;&#61; df.x1 # true </div>
+<h4 id="transform和transform"><a href="#transform和transform" class="header-anchor"><code>transform</code>和<code>transform&#33;</code></a></h4>
+<p>和<code>select</code>的用法基本一样, 唯一区别是<span class="cadmon sadmon-note"><code>transform/transform&#33;</code>会同时返回原始df中的所有列</span>。</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; df &#61; DataFrame&#40;x1&#61;&#91;1, 2&#93;, x2&#61;&#91;3, 4&#93;, y&#61;&#91;5, 6&#93;&#41;
+2×3 DataFrame
+ Row │ x1     x2     y
+     │ Int64  Int64  Int64
+─────┼─────────────────────
+   1 │     1      3      5
+   2 │     2      4      6
+
+julia&gt; transform&#40;df, All&#40;&#41; &#61;&gt; &#43;&#41;
+2×4 DataFrame
+ Row │ x1     x2     y      x1_x2_y_&#43;
+     │ Int64  Int64  Int64  Int64
+─────┼────────────────────────────────
+   1 │     1      3      5          9
+   2 │     2      4      6         12</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>一个复杂的例子, 按行计算<code>sum</code>, <code>num of elements</code>, <code>mean</code>, 同时忽略<code>missing</code>.</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; using Statistics
+
+julia&gt; df &#61; DataFrame&#40;x&#61;&#91;1, 2, missing&#93;, y&#61;&#91;1, missing, missing&#93;&#41;
+3×2 DataFrame
+ Row │ x        y
+     │ Int64    Int64 
+─────┼──────────────────
+   1 │       1        1
+   2 │       2  missing
+   3 │ missing  missing
+
+julia&gt; transform&#40;df, AsTable&#40;:&#41; .&#61;&gt;
+                    ByRow.&#40;&#91;sum∘skipmissing,
+                            x -&gt; count&#40;&#33;ismissing, x&#41;,
+                            mean∘skipmissing&#93;&#41; .&#61;&gt;
+                    &#91;:sum, :n, :mean&#93;&#41;
+3×5 DataFrame
+ Row │ x        y        sum    n      mean
+     │ Int64    Int64    Int64  Int64  Float64
+─────┼─────────────────────────────────────────
+   1 │       1        1      2      2      1.0
+   2 │       2  missing      2      1      2.0
+   3 │ missing  missing      0      0      NaN</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+  <fieldset class="admon admon-todo">
+  <legend class="admon-legend admon-legend-todo"> Todo</legend>
+      <a href="https://juliadata.github.io/DataFramesMeta.jl/stable/">DataFramesMeta.jl</a> 模块中有更多好用的数据处理工具, 需要一起记录。 
+  </fieldset>
+  
+<h3 id="数据统计_describe和combine"><a href="#数据统计_describe和combine" class="header-anchor">数据统计: <code>describe</code>和<code>combine</code></a></h3>
+<ul>
+<li><p><code>describe</code>: 返回一个df, 记录表格每列基本统计信息<code>mean, min, median, max, nmissing, eltype</code></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">describe&#40;df&#41;
+describe&#40;df&#91;&#33;, &#91;:A&#93;&#93;&#41; # 只对特定列统计</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p><code>combine</code>: 应用统计函数</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">combine&#40;df, names&#40;df&#41; .&#61;&gt; sum&#41;
+combine&#40;df, names&#40;df&#41; .&#61;&gt; sum, names&#40;df&#41; .&#61;&gt; prod&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<h3 id="数据替换"><a href="#数据替换" class="header-anchor">数据替换</a></h3>
+<ul>
+<li><p><code>replace&#33;</code>: 对单列进行替换</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; df &#61; DataFrame&#40;a&#61;&#91;&quot;a&quot;, &quot;None&quot;, &quot;b&quot;, &quot;None&quot;&#93;, b&#61;1:4,
+                      c&#61;&#91;&quot;None&quot;, &quot;j&quot;, &quot;k&quot;, &quot;h&quot;&#93;, d&#61;&#91;&quot;x&quot;, &quot;y&quot;, &quot;None&quot;, &quot;z&quot;&#93;&#41;
+4×4 DataFrame
+ Row │ a       b      c       d
+     │ String  Int64  String  String
+─────┼───────────────────────────────
+   1 │ a           1  None    x
+   2 │ None        2  j       y
+   3 │ b           3  k       None
+   4 │ None        4  h       z
+
+julia&gt; replace&#33;&#40;df.a, &quot;None&quot; &#61;&gt; &quot;c&quot;&#41;
+4-element Vector&#123;String&#125;:
+ &quot;a&quot;
+ &quot;c&quot;
+ &quot;b&quot;
+ &quot;c&quot;
+
+julia&gt; df
+4×4 DataFrame
+ Row │ a       b      c       d
+     │ String  Int64  String  String
+─────┼───────────────────────────────
+   1 │ a           1  None    x
+   2 │ c           2  j       y
+   3 │ b           3  k       None
+   4 │ c           4  h       z</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>以上操作等价于<code>df.a &#61; replace&#40;df.a, &quot;None&quot; &#61;&gt; &quot;c&quot;&#41;</code>, 但是是<code>in-place</code>的操作, 不需要重新分配内存。</p>
+<p>如果需要对多列进行<code>in-place</code>的替换操作, 则可以用<code>广播</code>来实现:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># replacement on a subset of columns &#91;:c, :d&#93;
+julia&gt; df&#91;:, &#91;:c, :d&#93;&#93; .&#61; ifelse.&#40;df&#91;&#33;, &#91;:c, :d&#93;&#93; .&#61;&#61; &quot;None&quot;, &quot;c&quot;, df&#91;&#33;, &#91;:c, :d&#93;&#93;&#41;;
+
+julia&gt; df
+4×4 DataFrame
+ Row │ a       b      c       d
+     │ String  Int64  String  String
+─────┼───────────────────────────────
+   1 │ a           1  c       x
+   2 │ c           2  j       y
+   3 │ b           3  k       c
+   4 │ c           4  h       z
+
+julia&gt; df .&#61; ifelse.&#40;df .&#61;&#61; &quot;c&quot;, &quot;None&quot;, df&#41; # replacement on entire data frame
+4×4 DataFrame
+ Row │ a       b      c       d
+     │ String  Int64  String  String
+─────┼───────────────────────────────
+   1 │ a           1  None    x
+   2 │ None        2  j       y
+   3 │ b           3  k       None
+   4 │ None        4  h       z</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>最后一句如果把<code>.&#61;</code>换成<code>&#61;</code>, 则不会执行<code>in-place</code>操作, 会额外分配内存: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; @time dfx &#61; ifelse.&#40;df&#91;&#33;, &#91;:c, :d&#93;&#93; .&#61;&#61; &quot;NA&quot;, &quot;c&quot;, df&#91;&#33;, &#91;:c, :d&#93;&#93;&#41;;
+  0.000104 seconds &#40;92 allocations: 6.781 KiB&#41;
+
+julia&gt; @time dfx .&#61; ifelse.&#40;df&#91;&#33;, &#91;:c, :d&#93;&#93; .&#61;&#61; &quot;NA&quot;, &quot;c&quot;, df&#91;&#33;, &#91;:c, :d&#93;&#93;&#41;;
+  0.000073 seconds &#40;81 allocations: 5.484 KiB&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>
+  <fieldset class="admon admon-warn">
+  <legend class="admon-legend admon-legend-warn"> Warn</legend>
+      如果原本的列格式并不支持<code>missing</code>, 然后需要把某些值替换成<code>missing</code>, 这种情况下<code>in-place</code>操作是不支持的。要么用<code>&#61;</code>, 要么就提前执行<code>allowmissing&#33;</code>:</p>
+<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; df2 &#61; ifelse.&#40;df .&#61;&#61; &quot;None&quot;, missing, df&#41; # 注意这里的df是不支持missing的, 所以用.&#61;会报错, 只能用&#61;
+4×4 DataFrame
+ Row │ a        b      c        d
+     │ String?  Int64  String?  String?
+─────┼──────────────────────────────────
+   1 │ a            1  missing  x
+   2 │ missing      2  j        y
+   3 │ b            3  k        missing
+   4 │ missing      4  h        z
+
+julia&gt; allowmissing&#33;&#40;df&#41; # 或者提前把df转成支持missing的
+4×4 DataFrame
+ Row │ a        b       c        d
+     │ String?  Int64?  String?  String?
+─────┼───────────────────────────────────
+   1 │ a             1  None     x
+   2 │ None          2  j        y
+   3 │ b             3  k        None
+   4 │ None          4  h        z
+
+julia&gt; df .&#61; ifelse.&#40;df .&#61;&#61; &quot;None&quot;, missing, df&#41;
+4×4 DataFrame
+ Row │ a        b       c        d
+     │ String?  Int64?  String?  String?
+─────┼───────────────────────────────────
+   1 │ a             1  missing  x
+   2 │ missing       2  j        y
+   3 │ b             3  k        missing
+   4 │ missing       4  h        z</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 
+  </fieldset>
+   </div>
+<h3 id="输入输出"><a href="#输入输出" class="header-anchor">输入输出</a></h3>
+<ul>
+<li><p>用<a href="https://github.com/JuliaData/CSV.jl">CSV.jl</a>读写各种分隔文本格式: <code>CSV.File</code>, <code>CSV.read</code>, <code>CSV.write</code></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CSV
+
+df &#61; DataFrame&#40;CSV.File&#40;&quot;input.csv&quot;&#41;&#41; # 读
+CSV.write&#40;&quot;output.csv&quot;, df&#41; # 写</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p>Julia标准库中的<code>DelimitedFiles</code>也可以用来读写DataFrame:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using DelimitedFiles, DataFrames
+
+data, header &#61; readdlm&#40;&quot;in.csv&quot;, &#39;,&#39;, header&#61;true&#41;;
+df_raw &#61; DataFrame&#40;data, vec&#40;header&#41;&#41;
+df &#61; identity.&#40;df_raw&#41;
+#写:
+writedlm&#40;&quot;test.csv&quot;, Iterators.flatten&#40;&#40;&#91;names&#40;df&#41;&#93;, eachrow&#40;df&#41;&#41;&#41;, &#39;,&#39;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+
+  <fieldset class="admon admon-note">
+  <legend class="admon-legend admon-legend-note"> Note</legend>
+  </p>
+<ul>
+<li><p>header 是一个一维矩阵Matrix, 需要转成Vector;</p>
+</li>
+<li><p>df_raw中每列的类型都是<code>Any</code>, 用identity缩小每列的类型, 这是因为<code>data</code>是一个<code>Matrix</code>, 内部元素应该是同一种类型&#40;在这个例子中是<code>Any</code>&#41;, 所以转成的DF类型是<code>Any</code>;</p>
+</li>
+<li><p>以上这些操作, 在<code>CSV.jl</code>中都是自动执行的, 所以<span class="sadmon sadmon-tip">还是用<code>CSV.jl</code>方便啊</span>;</p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+<p>
+  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 疑问</legend>
+      所以<code>DataFrame</code>的广播操作是按列的咯? 
+  </fieldset>
+   </div>
+<ul>
+<li><p>用<code>JSONTables.jl</code>读写JSON</p>
+</li>
+<li><p>用<code>XLSX.jl</code>读写XLSX</p>
+</li>
+<li><p>其他格式平时不常用, 就不列举了, 用时自搜</p>
+</li>
+</ul>
+<h3 id="join操作"><a href="#join操作" class="header-anchor"><code>Join</code>操作</a></h3>
+<blockquote>
+<p>功能与<a href="https://en.wikipedia.org/wiki/Join_&#40;SQL&#41;">SQL Join</a>类似</p>
+</blockquote>
+<ul>
+<li><p><code>innerjoin</code></p>
+</li>
+<li><p><code>leftjoin</code></p>
+</li>
+<li><p><code>rightjoin</code></p>
+</li>
+<li><p><code>outerjoin</code></p>
+</li>
+<li><p><code>semijoin</code>: 类似<code>innerjoin</code>, 但是输出是以第一个df为参照</p>
+</li>
+<li><p><code>antijoin</code>: 输出第一个df有,第二个df中没有的</p>
+</li>
+<li><p><code>crossjoin</code>: 输出是所有df的列的笛卡尔积</p>
+</li>
+</ul>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">innerjoin&#40;df1, df2, on &#61; :ID&#41; # 大部分join都用同一种语法
+innerjoin&#40;df1, df2, on &#61; :ID_df1 &#61;&gt; :ID_df2&#41; # 如果要合并的列名字不一样, 用&#96;&#61;&gt;&#96;指示对应关系
+crossjoin&#40;df1, df2, makeunique &#61; true&#41; # crossjoin不使用&#96;on&#96;关键词</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+  <fieldset class="admon admon-note">
+  <legend class="admon-legend admon-legend-note"> Note</legend>
+  </p>
+<ul>
+<li><p>如果参考列有重复值, <code>inner|outer|left|right</code>会把所有排列组合都输出;</p>
+</li>
+<li><p>可以用<code>validate&#61;&#40;true,true&#41;</code>来指示对哪些参考列对进行检查, 如果这些列对有重复值, 会报错;</p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+<ul>
+<li><p><code>source</code>关键词可以用来指示参考列在两个输入df中是不是共有的:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; outerjoin&#40;df1, df2, on&#61;:ID, validate&#61;&#40;true, true&#41;, source&#61;:source&#41;
+3×4 DataFrame
+ Row │ ID     Name     Job      source
+     │ Int64  String?  String?  String
+─────┼─────────────────────────────────────
+   1 │    20  John     Lawyer   both
+   2 │    40  Jane     missing  left_only
+   3 │    60  missing  Doctor   right_only</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<h3 id="split-apply-combine数据操作策略"><a href="#split-apply-combine数据操作策略" class="header-anchor"><code>Split-Apply-Combine</code>数据操作策略</a></h3>
+<p>
+  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> `Split-Apply-Combine`</legend>
+      数据分析中的经典策略:</p>
+<ol>
+<li><p>把数据集拆分成不同的分组;</p>
+</li>
+<li><p>对某些分组应用特定的方法;</p>
+</li>
+<li><p>合并结果成新的数据集;
+  </fieldset>
+  </p>
+</li>
+</ol>
+
+<p>DataFrame中实现的方式是利用<code>groupby</code>创建<code>GroupedDataFrame</code>数据类型, 然后结合<code>combine</code>, <code>select</code>, <code>transform</code>等操作对齐进行数据处理。</p>
+<ul>
+<li><p><code>groupby</code>: 对DataFrame进行分组</p>
+</li>
+<li><p><code>combine</code>: 不限制返回行数, 行的顺序取决于group的顺序, 很适合分组计算统计信息</p>
+</li>
+<li><p><code>select</code>: 返回跟原始df一样的行数和顺序的新列</p>
+</li>
+<li><p><code>transform</code>: 返回原始df以及追加的新的列</p>
+</li>
+</ul>
+<p>支持的处理函数可以是:</p>
+<ol>
+<li><p>标准的列指示信息: <code>Integers</code>, <code>Symbols</code>, <code>Vector&#123;Integers|Symbols&#125;</code>,<code>Strings</code>, <code>All</code>, <code>Cols</code>, <code>:</code>, <code>Between</code>, <code>Not</code>, Regex</p>
+</li>
+<li><p><code>cols &#61;&gt; function</code>键值对: 这种方法调用时, 会<span class="cadmon sadmon-warn">自动生成结果列的名字</span>:默认是拼接输入列的名字和函数的名字, <code>function</code>需要返回一个值或者一个向量</p>
+</li>
+<li><p><code>cols &#61;&gt; function &#61;&gt; target_cols</code>方式: 显式地声明输出列的名字, 可以是单个值, 向量, 或者是<code>AsTable</code>, 也可以是一个<span class="cadmon sadmon-warn">以<code>cols</code>中的名字为参数, 返回目标列名字的<strong>函数</strong></span></p>
+</li>
+<li><p><code>cols &#61;&gt; target_cols</code>方式: 重命名</p>
+</li>
+<li><p><code>nrow</code>或<code>nrow &#61;&gt; target_cols</code>: 快速统计行数, 不显式声明名字的话, 输出名字默认是<code>:nrow</code></p>
+</li>
+<li><p><span class="Sadmon Sadmon-note">2</span>和<span class="Sadmon Sadmon-note">5</span>中键值对组成的向量或矩阵</p>
+</li>
+<li><p><code>SubDataFrame</code>类型支持的函数: 不太推荐, 因为表现力不行</p>
+</li>
+</ol>
+
+  <fieldset class="admon admon-note">
+  <legend class="admon-legend admon-legend-note"> Note</legend>
+  </p>
+<ul>
+<li><p>当出现<code>x &#61;&gt; y</code>这种用法时, 会先检查是不是<code>nrow &#61;&gt; target_cols</code>, 如果不是, 则一律按照<code>cols &#61;&gt; function</code>的逻辑去处理</p>
+</li>
+<li><p>如果<code>cols</code>或者<code>target_cols</code>中是<code>All</code>, <code>Cols</code>, <code>Between</code> 或者 <code>Not</code>这几个特定方法时, 可以用<code>.&#61;&gt;</code>进行<strong>广播</strong>, 等同于广播<code>names&#40;df, cols&#41;</code>或者<code>names&#40;df, cols&#41;</code> <span class="Sadmon Sadmon-todo">这解答了我之前的疑惑: 就是按列广播, 实际上是按列名广播</span></p>
+</li>
+<li><p><code>cols &#61;&gt; function &#91;&#61;&gt; target_cols&#93;</code>这种用法中, 如果<code>cols</code>是<code>AsTable</code>对象, 则会把一个由<code>cols</code>当名字的具名元组传递给<code>function</code></p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+
+  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> function的返回值</legend>
+  </p>
+<ol>
+<li><p>如果<code>cols</code>和<code>target_cols</code>都没有指定, 只传递了<code>function</code>, 则应该返回<code>DataFrame, Matrix, NamedTuple, DataFrameRow</code>中的一种, 返回其他类型都只会存成一列</p>
+</li>
+<li><p>如果<code>target_cols</code>是<code>Symbol</code>或<code>String</code>, <code>function</code>应该只返回一列, 这时返回<code>DataFrame, Matrix, NamedTuple, DataFrameRow</code>的函数会报错</p>
+</li>
+<li><p>如果<code>target_cols</code>是<code>Vector&#123;Symbol&#125;</code>或<code>Vector&#123;String&#125;</code>或<code>AsTable</code>, <code>function</code>应该返回多列, 如果<code>function</code>返回值是<code>AbstractVector</code>, 则其每个元素都得支持<code>keys</code>方法, 而且<code>keys</code>方法必须得返回<code>Symbol, String, Integer</code>, 如果返回<code>Integer</code>, 则输出列名默认是<code>x</code>开头&#40;<code>x1, x2 ...</code>&#41;</p>
+</li>
+<li><p>如果<code>function</code>的返回值是其他类型, 会被认为是<code>Table.jl</code>支持的表格类型, 然后尝试利用<code>Tables.columntable</code>方法获取其名字</p>
+</li>
+<li><p><code>function</code>的返回值中, 如果是<code>Ref</code>或者零维向量&#40;<span class="cadmon sadmon-todo">就是空向量?</span>&#41;会被当作是单独的一行</p>
+</li>
+</ol>
+<p>
+  </fieldset>
+  
+<p>当julia多核启动时, 对DataFrame调用转换函数, 会自动对每个转换事件进行并行&#40;除非一些专门优化过的计算, 比如<code>sum</code>, 会把所有分组的计算单线程串行&#41;, 因此调用的函数应该是<code>干净的</code>&#40;即不能修改全局变量&#41;, 或者用进程锁&#40;太高端了暂时用不上&#41;</p>
+<p>可以用<code>ByRow</code>结构表明函数是按行执行, 而不是按列执行。</p>
+
+  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 一些关键词</legend>
+  </p>
+<ul>
+<li><p><code>keepkeys</code>: 分组的列是否要在结果DF中保留</p>
+</li>
+<li><p><code>ungroup</code>: 输出<code>DataFrame</code>还是<code>GroupedDataFrame</code></p>
+</li>
+<li><p><code>copycols</code>: 原始DF中没被操作的列, 是否要copy</p>
+</li>
+<li><p><code>renamecols</code>: <code>cols &#61;&gt; functions</code>形式中,自动生成的结果列名字是否要加上原始列的名字</p>
+</li>
+</ul>
+<p>
+  </fieldset>
+  
+<p>例子: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using DataFras, CSV, Statistics
+
+fpath &#61; joinpath&#40;dirname&#40;pathof&#40;DataFrames&#41;&#41;, &quot;..&quot;, &quot;docs&quot;, &quot;src&quot;, &quot;assets&quot;, &quot;iris.csv&quot;&#41;;
+iris &#61; CSV.read&#40;fpath, DataFrame&#41;
+gdf &#61; groupby&#40;iris, :Species&#41;
+
+combine&#40;gdf, :PetalLength &#61;&gt; mean&#41;
+combine&#40;gdf, nrow&#41;
+combine&#40;gdf, nrow, :PetalLength &#61;&gt; mean &#61;&gt; :mean&#41;
+combine&#40;gdf, &#91;:PetalLength, :SepalLength&#93; &#61;&gt; &#40;&#40;p, s&#41; -&gt; &#40;a&#61;mean&#40;p&#41;/mean&#40;s&#41;, b&#61;sum&#40;p&#41;&#41;&#41;,
+        AsTable&#41;
+combine&#40;gdf, AsTable&#40;&#91;:PetalLength, :SepalLength&#93;&#41; &#61;&gt;
+        x -&gt; std&#40;x.PetalLength&#41;/std&#40;x.SepalLength&#41;&#41;
+combine&#40;x -&gt; std&#40;x.PetalLength&#41; / std&#40;x.SepalLength&#41;, gdf&#41;
+combine&#40;gdf, 1:2 &#61;&gt; cor, nrow&#41;
+combine&#40;gdf, :PetalLength &#61;&gt; &#40;x -&gt; &#91;extrema&#40;x&#41;&#93;&#41; &#61;&gt; &#91;:min, :max&#93;&#41;
+
+select&#40;gdf, 1:2 &#61;&gt; cor&#41;
+transform&#40;gdf, :Species &#61;&gt; x -&gt; chop.&#40;x, head&#61;5, tail&#61;0&#41;&#41;
+
+# do block is supported, but sould be avoided because it is slow:
+combine&#40;gdf&#41; do df
+   &#40;m &#61; mean&#40;df.PetalLength&#41;, s² &#61; var&#40;df.PetalLength&#41;&#41;
+end
+
+for subdf in groupby&#40;iris, :Species&#41;
+    println&#40;size&#40;subdf, 1&#41;&#41;
+end
+
+for &#40;key, subdf&#41; in pairs&#40;groupby&#40;iris, :Species&#41;&#41;
+    println&#40;&quot;Number of data points for &#36;&#40;key.Species&#41;: &#36;&#40;nrow&#40;subdf&#41;&#41;&quot;&#41;
+end</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<ul>
+<li><p>groupby结果的key是<code>DataFrames.GroupKey</code>类型, 可以当作是一种<code>NamedTuple</code></p>
+</li>
+<li><p>groupby可以当作对DataFrame添加了查找索引, 可以通过<code>Tuple</code>或者<code>NamedTuple</code>来快速跳到指定索引:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">df &#61; DataFrame&#40;g&#61;repeat&#40;1:1000, inner&#61;5&#41;, x&#61;1:5000&#41;;
+gdf &#61; groupby&#40;df, :g&#41;
+gdf&#91;&#40;g&#61;500,&#41;&#93; # 用一个元素的NamedTuple, 获取分组是500的行
+gdf&#91;&#91;&#40;500,&#41;, &#40;501,&#41;&#93;&#93; # 用Vector&#123;NamedTuple&#125;, 获取两个分组</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p>用<code>valuecols</code>获取所有没分组的列:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">combine&#40;gdf, valuecols&#40;gdf&#41; .&#61;&gt; mean&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p><code>GroupedDataFrame</code>不是copy, 而是view, 所以其父DF的对应列不能改变, 也不能改变行数, 否则调用子gdf时会报错</p>
+</li>
+<li><p>如果想父DF的改动不影响子GDF, 则要用父df的view创建gdf:<code>gdf &#61; groupby&#40;view&#40;df, :, :&#41;, :id&#41;</code></p>
+</li>
+<li><p><code>SubDataFrames</code>类型可以让我们快速获得df的子集, 实现类似SQL的<code>where</code>功能:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">df &#61; DataFrame&#40;a&#61;1:5&#41;
+sdf &#61; @view df&#91;2:3, :&#93; # SubDataFrame type
+transform&#40;sdf, :a &#61;&gt; ByRow&#40;string&#41;&#41; # 创建新的DataFrame
+transform&#33;&#40;sdf, :a &#61;&gt; ByRow&#40;string&#41;&#41; # 本地更改sdf, 类型还是SubDataFrame
+df # 更改SubDataFrame, 会对父df也一样更改, 这里df中没操作的行, 对应列填充missing
+select&#33;&#40;sdf, :a &#61;&gt; -, renamecols&#61;false&#41; # 再操作, 这里原地操作
+df</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 也可以对sdf进行分组。 </div>
+<h3 id="reshaping和pivoting_长宽表转换"><a href="#reshaping和pivoting_长宽表转换" class="header-anchor"><code>Reshaping</code>和<code>Pivoting</code>: 长宽表转换</a></h3>
+<ul>
+<li><p><code>stack</code>: 宽表变长表, 会自动进行类型提升</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">stack&#40;iris, 1:4&#41; # 把1-4列当成variable
+stack&#40;iris, &#91;:SepalLength, :SepalWidth, :PetalLength, :PetalWidth&#93;&#41;
+stack&#40;iris, Not&#40;:Species&#41;&#41;
+# stack的第三个参数指定需要重复的列&#40;指示列&#41;
+stack&#40;iris, &#91;:SepalLength, :SepalWidth&#93;, :Species&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p><code>unstack</code>: 长表转宽表</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important">
+<pre><code class="language-julia">unstack&#40;df::AbstractDataFrame, rowkeys, colkey, value; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;
+unstack&#40;df::AbstractDataFrame, colkey, value; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;
+unstack&#40;df::AbstractDataFrame; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;</code></pre>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">iris.id &#61; 1:size&#40;iris, 1&#41;
+longdf &#61; stack&#40;iris, Not&#40;&#91;:Species, :id&#93;&#41;&#41;
+unstack&#40;longdf, :id, :variable, :value&#41;
+# 如果剩下的col是unique的, 可以不提供id variable:
+unstack&#40;longdf, :variable, :value&#41;
+# 甚至可以不提供variable和value:
+unstack&#40;longdf&#41;
+# 添加view&#61;true, 不copy新数据, 而是创建原数据的view, 会节省内存
+stack&#40;iris, view&#61;true&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<ul>
+<li><p><code>view&#61;true</code>时, 会创建几个向量: <code>EachRepeatedVector</code>对应<code>:variable</code>; <code>StackedVector</code>对应<code>:value</code>; <code>Repeatedvector</code> 对应<code>ID cols</code> </div></p>
+</li>
+</ul>
+
+<ul>
+<li><p><code>permnutedims</code>: 反转df <code>permutedims&#40;df, 1&#41;</code></p>
+</li>
+</ul>
+<h3 id="排序"><a href="#排序" class="header-anchor">排序</a></h3>
+<p>直接调用<code>sort/sort&#33;</code>, 可配合<code>ref</code>,<code>by</code>关键词和<code>order</code>方法使用</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">sort&#33;&#40;iris&#41; # 每列都逐级参与排序
+sort&#33;&#40;iris, rev &#61; true&#41;
+sort&#33;&#40;iris, &#91;:Species, :SepalWidth&#93;&#41; # 指定排序的列
+sort&#33;&#40;iris, &#91;order&#40;:Species, by&#61;length&#41;, order&#40;:SepalLength, rev&#61;true&#41;&#93;&#41; # 指定排序方式
+sort&#33;&#40;iris, &#91;:Species, :PetalLength&#93;, rev&#61;&#91;true, false&#93;&#41; # 另一种指定排序方式的语法</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h3 id="分组数据"><a href="#分组数据" class="header-anchor">分组数据</a></h3>
+
+  <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 分组数据的存储</legend>
+      在数据分析中, 我们经常会需要对某列数据进行分组, 分组数据通常是一些字符串, 分组数目通常不会太多 这种时候, 我们可以对分组数据进行重新编码&#40;把string替换成一堆level&#41;, 这样的好处是<strong>减少内存</strong>且 <strong>更容易用<code>groupby</code>操作</strong>, 目前有两种类型帮助实现:</p>
+<ul>
+<li><p>来自PooledArrays.jl包中的<code>PooledVector</code>, 只是用来减少存储</p>
+</li>
+<li><p>来自CategoricalArrays.jl包中的<code>CategoricalVector</code>, 还提供函数取回分组顺序, 在分析和画图中很有用 <span class="cadmon sadmon-tip">这个更活跃一点, 应用范围也更广</span></p>
+</li>
+</ul>
+<p>
+  <fieldset class="admon admon-todo">
+  <legend class="admon-legend admon-legend-todo"> Todo</legend>
+      拓展学习<a href="https://categoricalarrays.juliadata.org/stable/">CategoricalArrays.jl</a> 
+  </fieldset>
+   
+  </fieldset>
+  
+<h3 id="缺失值_missing"><a href="#缺失值_missing" class="header-anchor">缺失值: Missing</a></h3>
+<ul>
+<li><p><code>Missing</code>类型的唯一实例是<code>missing</code></p>
+</li>
+<li><p><code>skipmissing&#40;x&#41;</code>方法可以过滤掉x中missing的值, 返回的是一个迭代器</p>
+</li>
+<li><p><code>coalesce</code>可以用来替换missing为其他值: <code>coalesce.&#40;x, 0&#41;</code>, 该方法是针对指定值的, 所以对向量要广播</p>
+</li>
+<li><p><code>dropmissing/dropmissing&#33;</code>: 去掉df中有missing的行, <code>dropmissing&#40;df, :x&#41;</code>指定行, 设置<code>disallowmissing&#61;true</code>参数让输出的df不支持missing</p>
+</li>
+<li><p><code>allowmissing&#91;&#33;&#93;</code>和<code>disallowmissing&#91;&#33;&#93;</code>: 把指定df&#40;的指定列&#41;改成支持/不支持<code>missing</code></p>
+</li>
+<li><p><strong>Missings.jl</strong>包提供了一堆专门处理缺失值的函数, 其中一个<code>passmissing&#40;func&#41;</code>可以跳过用missing执行<code>func</code>, 还有<code>Missing.replace</code>, <code>nonmissingtype</code>, <code>missings&#40;N&#41;</code>等, 这里不展开了</p>
+</li>
+</ul>
+<h2 id="扩展包"><a href="#扩展包" class="header-anchor">扩展包</a></h2>
+<h3 id="dataframesmetajl"><a href="#dataframesmetajl" class="header-anchor">DataFramesMeta.jl</a></h3>
+
+  <fieldset class="admon admon-todo">
+  <legend class="admon-legend admon-legend-todo"> Todo</legend>
+      TBC... 
+  </fieldset>
+  
 
 
 </div>
@@ -221,7 +821,7 @@ df&#91;:, &#91;:col1&#93;&#93;
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: September 30, 2022.
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 02, 2022.
 
             <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
