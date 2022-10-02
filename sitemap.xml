@@ -188,6 +188,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\index.html</loc>
+    <lastmod>2022-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2016\12\photoshop_gif_wechat\index.html</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>

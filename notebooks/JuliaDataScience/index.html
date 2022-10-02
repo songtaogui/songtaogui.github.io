@@ -1,14 +1,26 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Songtao Gui">
-    <meta name="description" content="Julia 代码规范 Blue">
 
-    <link rel="icon" href="/assets/favicon.png">
+    
+    <meta name="description" content="Some Data Science related things in julia.
+">
+    
 
+    
+    
+    <meta name="keywords" content="Julia Data Science">
+    <title>Julia Data Science</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     crossorigin=anonymous>
@@ -36,18 +48,13 @@
 
 
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
         integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
-
-     <title>Julia 代码规范 Blue</title> 
-
 </head>
-
 
 <body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
 
-    <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
         <div class="d-none d-lg-inline-flex">
@@ -109,24 +116,126 @@
         </div>
 
     </div>
-</nav>
+</nav> 
 
     <span class="js-widget-page d-none"></span>
 
     
     <article class=article>
         <div class="article-container pt-3">
-            <h3>Tag List:</h3>
+             <h1>Julia Data Science</h1> 
         </div>
         
-
         <div class="article-container">
-            <div class="article-style">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
                 
-
-                <ul><li><a href="/posts\2022\09\Reveal met Franklin/">When Reveal.js meets Franklin.jl</a></li><li><a href="/posts\2022\09\JuliaLang_Anitpatterns/">Julia中的反模式</a></li><li><a href="/posts\2022\08\Julia_v1.8_新特性/">Julia v1.8 新特性</a></li><li><a href="/posts\2022\08\Julia流程搭建工具Pipeline/">Julia流程搭建工具Pipeline</a></li><li><a href="/notebooks\JuliaBlueStyleZh/">Julia 代码规范 Blue</a></li><li><a href="/posts\2022\09\filepaths_in_julia_with_FilePathsBase/">Filepaths in julia with FilePathsBase</a></li><li><a href="/posts\2022\08\notes_on_franklin_gramma/">Notes on franklin's gramma</a></li><li><a href="/posts\2022\09\intervaltrees_and_genomicfeatures_usage/">IntervalTrees and GenomicFeatures usage</a></li><li><a href="/posts\2022\09\make_my_own_parser/">Make my own bioinformatics parser with Automa.jl</a></li><li><a href="/posts\2022\09\automa_basic_usage/">Automa.jl basic usage</a></li><li><a href="/posts\2022\08\Franklin博客中设置提示框和alert高亮/">Franklin博客中设置提示框和alert高亮</a></li><li><a href="/posts\2022\09\CitationsInFranklin/">Easily insert citations in my Franklin Blog</a></li><li><a href="/posts\2022\08\Franklin静态博客配置记录/">Franklin静态博客配置记录</a></li></ul>
-
                 
+                <div class="franklin-content">
+<h2 id="dataframesjl"><a href="#dataframesjl" class="header-anchor">DataFrames.jl</a></h2>
+<h3 id="构建"><a href="#构建" class="header-anchor">构建</a></h3>
+<p><code>DataFrame</code>类型</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 手动构造: 单个元素的列会广播
+DataFrame&#40;A&#61;1:3, B&#61;5:7, fied&#61;1&#41;
+# 用 &#61;&gt; 进行复杂列名DF的构造:
+DataFrame&#40;&quot;customer age&quot; &#61;&gt; &#91;15, 20, 25&#93;,
+          &quot;first name&quot; &#61;&gt; &#91;&quot;A&quot;, &quot;B&quot;, &quot;C&quot;&#93;&#41;
+
+# 也可从&quot;列名&quot;&#61;&gt;&quot;列值&quot;字典/具名元组中构造DF
+
+# 当列名时, Symbols 快过 Strings
+
+# 从矩阵构造DF:
+DataFrame&#40;matrix, names&#41; # names 可以设成&#96;:auto&#96;, 则自动分配列名x1, x2 ..., 或者设成与数据列数相同的数组。
+
+# 从CSV文件中读取DF:
+using CSV
+data &#61; CSV.read&#40;path, DataFrame&#41;
+
+# copy
+data2 &#61; copy&#40;data1&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h3 id="基本操作"><a href="#基本操作" class="header-anchor">基本操作</a></h3>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 列
+german.Sex
+german.&quot;Sex&quot;
+german&#91;&#33;, :Sex&#93;
+german&#91;&#33;, &quot;Sex&quot;&#93;
+name&#40;german&#41;
+name&#40;german, AbstractString&#41; # 获取指定类型列的名字
+propertynames&#40;german&#41; # 获取Symbols格式的名字
+eachcol&#40;german&#41; # 按列迭代
+empty, empty&#33;   # 删除行, 但保留列数&#40;维度&#41;
+
+# DataFrame基本信息
+size&#40;df&#41;   # &#40;行, 列&#41;
+size&#40;df,1&#41; # 第一维的大小&#40;行数&#41;
+size&#40;df,2&#41; # 第二维的大小&#40;列数&#41;
+nrow&#40;df&#41;, ncol&#40;df&#41;
+describe&#40;df&#41; # 基本统计信息mean, min, max, median, nmissing, elementType
+describe&#40;df, cols&#61;1:3&#41; # 只统计前三列
+show&#40;df, allcols&#61;true&#41;
+show&#40;df, allrows&#61;true&#41;
+
+mapcols&#40;func, df&#41; # 按列应用func, 返回新df
+mapcols&#40;id -&gt; id .^ 2, german&#41;
+
+first&#40;df, n&#41;, last&#40;df, n&#41; # n默认是1</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h3 id="基本操作__2"><a href="#基本操作__2" class="header-anchor">基本操作</a></h3>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># DF索引&#40;类似矩阵&#41;, 同上, 略
+df&#91;&#33;, &#91;:col1&#93;&#93;
+df&#91;:, &#91;:col1&#93;&#93;
+&#96;&#33;&#96;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: September 30, 2022.
+
+            <!-- <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span> -->
+
+        </p>
+    </footer>
+    
+</div>
+</div>
 
 
 </div>

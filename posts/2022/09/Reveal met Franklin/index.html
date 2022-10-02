@@ -1,39 +1,36 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Songtao Gui">
-  <meta name="description" content="Head of Research">
-  <meta name="theme-color" content="#2962ff">
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
     
+    <meta name="description" content="Setup my Franklin.js functions to better work
+with Reveal.js.
+">
+    
+
+    
+    
+    <meta name="keywords" content="When Reveal.js meets Franklin.jl">
+    <title>When Reveal.js meets Franklin.jl</title>
+    
+
     <link rel="icon" href="/assets/favicon.svg">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-    <link
-  rel=preconnect
-  href="https://fonts.gstatic.com"
-  crossorigin=anonymous>
-
-<link
-  rel=stylesheet
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
-
-<link
-  rel=stylesheet
-  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
-  crossorigin=anonymous>
-
-<link
-  rel=stylesheet
-  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
-  crossorigin=anonymous>
-
-<link
-  rel=stylesheet
-  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
-  crossorigin=anonymous>
+    <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
 
 <!-- locally served -->
 <link rel="stylesheet" href="/css/pure.css">
@@ -53,41 +50,40 @@
  
 
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" 
-    integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
-     <title>When Reveal.js meets Franklin.jl</title>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
 </head>
 
 <body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
 
-   <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
-  <div class=container>
-    <!-- Main name -->
-    <div class="d-none d-lg-inline-flex">
-      <a class=navbar-brand href="/">Songtao Gui</a>
-    </div>
-    <!-- Button for narrow mode -->
-    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
-      <span><i class="fas fa-bars"></i></span>
-    </button>
-    <!-- Main name for mobile mode -->
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class=navbar-brand href="/">Songtao Gui</a>
-    </div>
-    <!-- Menu items -->
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
-      <ul class="navbar-nav d-md-inline-flex">
-        <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
-        <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
-        <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
-        <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
-        <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
-        <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
-        <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+                <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
 
 
-        <!-- 
+                <!-- 
         <li class=nav-item><a class=nav-link ><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></a></li>
         <li class=nav-item>
           <a class=nav-link>
@@ -106,37 +102,40 @@
         </li>
         -->
 
-      </ul>
+            </ul>
+        </div>
+        <div class="nav-icon d-none d-lg-inline-flex">
+            <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/notebook.svg"></span></a>
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+        </div>
+        <div class="nav-icon ">
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
     </div>
-    <div class="nav-icon d-none d-lg-inline-flex">
-      <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img" src="/assets/img/notebook.svg"></span></a>
-      <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img" src="/assets/img/giant.svg"></span></a>
-      <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img" src="/assets/img/rss.svg"></span></a>
-    </div>
-    <div class="nav-icon ">
-      <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img" src="/assets/img/music.svg"></span></a>
-    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
     
-  </div>
-</nav>
- 
-
-  <span class="js-widget-page d-none"></span>
-  
-  
     <article class=article>
-      <div class="article-container pt-3">
-         <h1>When Reveal.js meets Franklin.jl</h1> 
-      </div>
-      
-      <div class="article-container">
-        <!-- 关闭article-style, 不然跟nutshell不兼容 -->
-        <!-- <div class="gst-style"> -->
-        <div class="layout-main">
-        <!-- <div class="article-style"> -->
-  
-
-<div class="franklin-content">
+        <div class="article-container pt-3">
+             <h1>When Reveal.js meets Franklin.jl</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
 <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/hacks/">hacks</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
 
   <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Reveal.js: A powerful Slide generator</legend>
@@ -518,7 +517,7 @@ revealtheme&#61;&quot;simple&quot;
 ~~~</code></pre>
 
 
-</div> 
+</div>
 <!-- article style -->
 
 
@@ -536,16 +535,17 @@ revealtheme&#61;&quot;simple&quot;
 <hr> 
 
 <div class="container">
-  
-  <footer class="site-footer">
-    <p class="powered-by">
-      Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
-      Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
-      The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
-      The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-      <strong>&copy; Songtao Gui</strong>. Last modified: September 26, 2022. 
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: September 26, 2022.
 
-      <!-- <span class="float-right" aria-hidden="true">
+            <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
           <span class="button_icon">
             <i class="fas fa-chevron-up fa-2x"></i>
@@ -553,106 +553,110 @@ revealtheme&#61;&quot;simple&quot;
         </a>
       </span> -->
 
-    </p>
-  </footer>
-  
+        </p>
+    </footer>
+    
+</div>
 </div>
 
+
 </div>
-
-
-  </div> <!--article container -->
+<!--article container -->
 </article>
 
 
 <!-- CONTENT ENDS HERE -->
-     <script src="/libs/katex/katex.min.js"></script>
+ <script src="/libs/katex/katex.min.js"></script>
 <script src="/libs/katex/auto-render.min.js"></script>
 <script>renderMathInElement(document.body)</script>
 <script>
     const options = {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\begin{equation}", right: "\\end{equation}", display: true},
-        {left: "\\begin{align}", right: "\\end{align}", display: true},
-        {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
-        {left: "\\begin{gather}", right: "\\end{gather}", display: true},
-        {left: "\\(", right: "\\)", display: false},
-        {left: "\\[", right: "\\]", display: true}
-      ]
+        delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+            { left: "\\begin{align}", right: "\\end{align}", display: true },
+            { left: "\\begin{alignat}", right: "\\end{alignat}", display: true },
+            { left: "\\begin{gather}", right: "\\end{gather}", display: true },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
+        ]
     };
     renderMathInElement(document.body, options);
-</script>     
-     <script src="/libs/highlight/highlight.min.js"></script>
+</script> 
+ <script src="/libs/highlight/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
  
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
-    
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
 
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
-  
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
-  
-  <script src="/libs/academic/academic.min.js"></script>
-  <script src="/libs/pure/ui.js"></script>
-  
-  </body>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
 
 
-   <a class="js-back-to-top back-to-top-button" href="#">
-  <img src="/assets/img/up.svg" style="width: 100px;">
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
 </a>
 <!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
 <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
 <script>
-  $(function() {
-    var $win = $(window);
-    var $backToTop = $('.js-back-to-top');
-    // 当用户滚动到离顶部100像素时，展示回到顶部按钮
-    $win.scroll(function() {
-      if ($win.scrollTop() > 100) {
-        $backToTop.show();
-      } else {
-        $backToTop.hide();
-      }
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
     });
-    // 当用户点击按钮时，通过动画效果返回头部
-    $backToTop.click(function() {
-      $('html, body').animate({
-        scrollTop: 0
-      }, 200);
-    });
-  });
 </script>
 <style>
-  /* back to top button */
-  .back-to-top-button {
-      display: none;
-      position: fixed;
-      width: 50px;
-      bottom: 3%;
-      right: 3%;
-      z-index: 99;
-      font-size: 15px;
-      border: 0px solid #696969;
-      background-color: #fff;
-      color: #222222;
-      outline: none;
-      cursor: pointer;
-      padding: 7px;
-      border-radius: 40px;
-  }
-  .back-to-top-button:hover {
-      background-color: #c0dbf5;
-      color: #fff;
-  }
-</style>
- 
-  
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
 
-  <!-- PJAX配置: 先不搞了! -->
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
 <!--   
   <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
   
@@ -668,7 +672,7 @@ revealtheme&#61;&quot;simple&quot;
       ]
     })
   </script> -->
-  
-  </html>
-  
+
+</html>
+
 
