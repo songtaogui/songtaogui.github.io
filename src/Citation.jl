@@ -33,16 +33,22 @@ function hfun_citebib(ks)
     rpath = Franklin.FD_ENV[:CUR_PATH]
     idxpath = replace(rpath, r"\.md$" => ".citedb")
     indexes = Vector{Any}()
+    if isfile(idxpath)
+        indexes = unique(readlines(idxpath))
+    end
     open(idxpath, "a") do io
         for k in ks
+            # @info "Parse citation $k for $rpath ..."
             curbib = CITEDB[k]
             curbib_year = curbib.date.year
             curbib_first_author = curbib.authors |> first
             curbib_etal = length(curbib.authors) > 1 ? " et al. " : " "
             outname = curbib_first_author.last * curbib_etal * curbib_year
-            write(io, "$(k)\n")
-            curidx = fmtidx(k, outname)
-            push!(indexes, curidx)
+            if !(k in indexes)
+                write(io, "$(k)\n")
+                curidx = fmtidx(k, outname)
+                push!(indexes, curidx)
+            end
         end
     end
     final_index = join(indexes, ", ")
@@ -107,3 +113,4 @@ function hfun_citebiblist()
 
     return reflist
 end # func hfun_citebiblist
+a = ["a", "b", "c"]
