@@ -13,6 +13,10 @@
     <link rel="icon" href="/assets/favicon-bright.svg">
     <link rel="stylesheet" href="/libs/reveal/dist/reset.css">
     <link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+    <link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
     
     <link rel="stylesheet" href="/libs/reveal/dist/theme/simple.css">
     <!-- Theme used for syntax highlighted code -->
@@ -80,11 +84,11 @@
  <span class="Sadmon Sadmon-warn">The limitations of single reference genome</span></p>
 <img src="/assets/slides/HZAU-JC/limit-of-one-genome.png">
 <p>
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> 🍇 Limitations of one ref</legend>
-      1: Alignment bias: variant calling bias <br> 2: Missing info of <strong>NON REF</strong> seqs 
-  </fieldset>
-   
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> 🍇 Limitations of one ref</legend>
+  1: Alignment bias: variant calling bias <br> 2: Missing info of <strong>NON REF</strong> seqs 
+</fieldset>
+ 
 </section data-transition="none" data-transition-speed="fast">
 
 </p>
@@ -145,8 +149,8 @@
 <p>
 <section data-transition="none" data-transition-speed="fast">
  <br><br><br> 
-  <fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> What I got during PhD</legend>
-  </p>
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> What I got during PhD</legend>
+</p>
 <ul>
 <li><p>Get familiar with bioinformatics, genomics, pop-genetics</p>
 </li>
@@ -156,8 +160,8 @@
 </li>
 </ul>
 <p>
-  </fieldset>
-   
+</fieldset>
+ 
 </section>
 
 </p>
@@ -371,10 +375,10 @@
 
 <h2 id="span_classcadmon_sadmon-notethank_you"><a href="#span_classcadmon_sadmon-notethank_you" class="header-anchor"><span class="cadmon sadmon-note">Thank You&#33;</span></a></h2>
 <p><div class="indent-block" style="margin-left: 2em !important"> <br> 
-  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Follow ME</legend>
-   <br><br> <span class="Sadmon Sadmon-hack">My GitHub</span>: <a href="https://github.com/SongtaoGui">https://github.com/SongtaoGui</a> <br><br> <span class="Sadmon Sadmon-note">My Blog</span>: <a href="https://songtaogui.github.io/">https://songtaogui.github.io/</a> <br><br> 
-  </fieldset>
-   </div> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Follow ME</legend>
+ <br><br> <span class="Sadmon Sadmon-hack">My GitHub</span>: <a href="https://github.com/SongtaoGui">https://github.com/SongtaoGui</a> <br><br> <span class="Sadmon Sadmon-note">My Blog</span>: <a href="https://songtaogui.github.io/">https://songtaogui.github.io/</a> <br><br> 
+</fieldset>
+ </div> 
 </section>
 </p>
 
@@ -389,6 +393,13 @@
 <script src="/libs/reveal/plugin/highlight/highlight.js"></script>
 <script src="/libs/reveal/plugin/search/search.js"></script>
 <script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<script src="/libs/reveal/plugin/reveald3/plugin.js"></script>
 <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -412,9 +423,76 @@
             RevealNotes,
             RevealMath.KaTeX,
             RevealSearch,
-            // RevealChalkboard, 
-            // RevealCustomControls //did not work, don't know why
-        ]
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
     });
 </script>
 </body>

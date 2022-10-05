@@ -48,6 +48,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
         integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
 </head>
@@ -139,10 +140,10 @@
 <p>原文地址: <a href="https://www.oxinabox.net/2020/04/19/Julia-Antipatterns.html">HERE</a></p>
 </blockquote>
 
-  <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 什么是"反模式"</legend>
-      &quot;反模式&quot;是随着&quot;设计模式&quot;的概念而出现的词, 指<span class="cadmon sadmon-warn">在实践中明显出现, 但低效或有待优化的设计模式, 是用来解决问题的带有共性的不良方法</span>&#40;参考<a href="https://zh.m.wikipedia.org/zh-hans/&#37;E5&#37;8F&#37;8D&#37;E9&#37;9D&#37;A2&#37;E6&#37;A8&#37;A1&#37;E5&#37;BC&#37;8F">WIKI</a>定义&#41;。 
-  </fieldset>
-  
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 什么是"反模式"</legend>
+  &quot;反模式&quot;是随着&quot;设计模式&quot;的概念而出现的词, 指<span class="cadmon sadmon-warn">在实践中明显出现, 但低效或有待优化的设计模式, 是用来解决问题的带有共性的不良方法</span>&#40;参考<a href="https://zh.m.wikipedia.org/zh-hans/&#37;E5&#37;8F&#37;8D&#37;E9&#37;9D&#37;A2&#37;E6&#37;A8&#37;A1&#37;E5&#37;BC&#37;8F">WIKI</a>定义&#41;。 
+</fieldset>
+
 <p>这篇博文中, 作者主要列举了Julia中四大反模式:<sup id="fnref:1"><a href="#fndef:1" class="fnref">[1]</a></sup></p>
 <div class="franklin-toc"><ol><li><a href="#未实现异常notimplemented_exceptions">未实现异常&#40;NotImplemented Exceptions&#41;</a></li><li><a href="#宏编程的滥用">宏编程的滥用</a></li><li><a href="#哈希字典的误用">哈希/字典的误用</a></li><li><a href="#过度类型标注">过度类型标注</a></li></ol></div>
 <p>接下来将一一介绍。</p>
@@ -183,9 +184,9 @@ probability_estimate&#40;GuessingModel&#40;&#41;, &#91;1,2,3&#93;&#41;
 <p><div class="code-lag">julia</div></fieldset>
 <p>很奇怪吧, 明明定义了<code>GuessingModel</code>对应的函数方法, 为啥会报这个错误? 细心的读者可能早发现了, 原因是定义<code>GuessingModel</code>对应的<code>probability_estimate</code>方法时, 传入的第二个参数是<code>AbstractMatrix</code>, 但是在调用时, 第二个参数是<code>Vector</code>类型, 所以实际上调用的最开始适用于<code>AbstractModel</code>的方法。但是这个报错对解决这个BUG基本上没有帮助&#40;反而还会误导&#41;。</p>
 
-  <fieldset class="admon admon-info">
-  <legend class="admon-legend admon-legend-info"> 🥑 如何避免出现错误的未定义报错?</legend>
-      最直接的, 不要引入不必要的类型标注, 但是很多时候是需要详细的类型标注的. 这时, 我们可以预先定义一个没有任何行为的泛型函数, 然后再通过多重分派定义新的方法: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<fieldset class="admon admon-info">
+<legend class="admon-legend admon-legend-info"> 🥑 如何避免出现错误的未定义报错?</legend>
+  最直接的, 不要引入不必要的类型标注, 但是很多时候是需要详细的类型标注的. 这时, 我们可以预先定义一个没有任何行为的泛型函数, 然后再通过多重分派定义新的方法: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">&quot;&quot;&quot;
     probability_estimate2&#40;model, observation::Vector&#41;::Real
 
@@ -195,26 +196,26 @@ function probability_estimate2 end
 
 probability_estimate2&#40;guesser::GuessingModel, observation::AbstractMatrix&#41; &#61; rand&#40;&#41;</code></pre>
 <p><div class="code-lag">julia</div></fieldset> 这时再调用<code>probability_estimate2&#40;GuessingModel&#40;&#41;, &#91;1,2,3&#93;&#41;</code>, 报错就会更加清晰: 
-  <fieldset class="admon admon-error">
-  <legend class="admon-legend admon-legend-error"> Error</legend>
-  </p>
+<fieldset class="admon admon-error">
+<legend class="admon-legend admon-legend-error"> Error</legend>
+</p>
 <pre><code class="language-plaintext">No method matching &#96;probability_estimate2&#96; with arguments types: 
    &#40;1&#41; ::GuessingModel                                           
    &#40;2&#41; ::Vector                                                  
                                                                  
 No alternative candidates found</code></pre>
 <p>
-  </fieldset>
-   
-  </fieldset>
-  
+</fieldset>
+ 
+</fieldset>
+
 <h2 id="宏编程的滥用"><a href="#宏编程的滥用" class="header-anchor">宏编程的滥用</a></h2>
 
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> Warn</legend>
-      这里的反模式并不适用于<code>@inbounds</code>, <code>@simd</code>, <code>@fastmath</code>等底层的性能宏, 而是针对能写成函数的情况下, 自己编写的宏。 
-  </fieldset>
-  
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> Warn</legend>
+  这里的反模式并不适用于<code>@inbounds</code>, <code>@simd</code>, <code>@fastmath</code>等底层的性能宏, 而是针对能写成函数的情况下, 自己编写的宏。 
+</fieldset>
+
 <p>Julia中宏编程的初衷并不是性能提升, 而是语法转换: <code>@view xs&#91;4:end&#93;</code>会被转成<code>view&#40;xs, 4:lastindex&#40;xs&#41;&#41;</code>, 这种对<code>end</code>的转换在<code>function</code>中是无法实现的。</p>
 <p>但是, 现在很多人认为写宏会比写函数更快。&#40;作者认为这很可能是由于90年代C语言的影响造成的, 彼时是通过宏进行inline操作, 从而在编译时可获得更好的性能提升&#41;</p>
 <p>2019年的Julia大会上, Steven G. Johnson教授在关于&quot;<a href="https://www.youtube.com/watch?v&#61;mSgXWpvQEHE">Adventures in Code Generation</a>&quot;的演讲上的说法就很有参考意义:</p>
@@ -222,9 +223,9 @@ No alternative candidates found</code></pre>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mSgXWpvQEHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-  <fieldset class="admon admon-note">
-  <legend class="admon-legend admon-legend-note"> 📘 函数相比于宏的优势</legend>
-  </p>
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> 📘 函数相比于宏的优势</legend>
+</p>
 <ol>
 <li><p><strong>更熟悉更易读</strong>: 大部分用户更熟悉函数;</p>
 </li>
@@ -234,12 +235,12 @@ No alternative candidates found</code></pre>
 </li>
 </ol>
 <p>
-  </fieldset>
-  
+</fieldset>
 
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> 🍇 例外情况</legend>
-      有时候不得不使用宏:</p>
+
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> 🍇 例外情况</legend>
+  有时候不得不使用宏:</p>
 <ul>
 <li><p>性能非常重要;</p>
 </li>
@@ -280,14 +281,14 @@ end
 <p><div class="code-lag">julia</div></fieldset>
 <p>宏为啥这么写我暂时还看不太明白, 只需要知道它快就好了:</p>
 <p>在我的笔记本上, 函数版用时<code>~70ns</code> 宏版用时<code>1.5ns</code>; 
-  </fieldset>
-  
+</fieldset>
+
 <h2 id="哈希字典的误用"><a href="#哈希字典的误用" class="header-anchor">哈希/字典的误用</a></h2>
 <p>作者表示经常看到有人用字典<code>Dict&#123;Symbol&#125;</code>或<code>Dict&#123;String&#125;</code>只是用来存储固定的变量&#40;他们想把这些变量打包在一起, 比如配置参数, 模型超参数等&#41;。在Julia 0.7版之前, 这甚至是被提倡的&#40;如果不构建<code>struct</code>的话&#41;。这实际上会引发至少两个问题:</p>
 <p>
-  <fieldset class="admon admon-todo">
-  <legend class="admon-legend admon-legend-todo"> 🍊 1. 引入可变状态(mutable state)</legend>
-  </p>
+<fieldset class="admon admon-todo">
+<legend class="admon-legend admon-legend-todo"> 🍊 1. 引入可变状态(mutable state)</legend>
+</p>
 <ul>
 <li><p>编写代码的时候, 必须时刻保证所有的操作都不会改变存在Dict中的值;</p>
 </li>
@@ -295,11 +296,11 @@ end
 </li>
 </ul>
 <p>用<strong>不可变的数据结构</strong>. 
-  </fieldset>
-   
-  <fieldset class="admon admon-todo">
-  <legend class="admon-legend admon-legend-todo"> 🍊 2. 性能变差</legend>
-      用Dict虽然可以在<code>O&#40;1&#41;</code>的常量时间尺度下赋值和取值, 但这个常量时间通常也不会很短, Dict需要计算Hash, <code>Symbol</code>类型的Hash过程很快, 但<code>String</code>类型的会慢一些, 如果存储更复杂的结构, hash有可能很慢:</p>
+</fieldset>
+ 
+<fieldset class="admon admon-todo">
+<legend class="admon-legend admon-legend-todo"> 🍊 2. 性能变差</legend>
+  用Dict虽然可以在<code>O&#40;1&#41;</code>的常量时间尺度下赋值和取值, 但这个常量时间通常也不会很短, Dict需要计算Hash, <code>Symbol</code>类型的Hash过程很快, 但<code>String</code>类型的会慢一些, 如果存储更复杂的结构, hash有可能很慢:</p>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">dict &#61; Dict&#40;&#91;:a&#61;&gt;1, :b&#61;&gt;2, :c&#61;&gt;3, :d&#61;&gt;4, :e&#61;&gt;5&#93;&#41;
 @btime &#36;&#40;dict&#41;&#91;:d&#93;; # 5ns
@@ -317,36 +318,36 @@ little_dict &#61; LittleDict&#40;dict&#41;
 <pre><code class="language-julia">frozen_little_dict &#61; freeze&#40;LittleDict&#40;dict&#41;&#41;
 @btime &#36;&#40;frozen_little_dict&#41;&#91;:d&#93;; # 4ns</code></pre>
 <p><div class="code-lag">julia</div></fieldset> 
-  </fieldset>
-   </p>
+</fieldset>
+ </p>
 <h2 id="过度类型标注"><a href="#过度类型标注" class="header-anchor">过度类型标注</a></h2>
 
-  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Frames大佬声明:</legend>
-      Julia中的类型标注<strong>只是</strong>用来做<span class="cadmon sadmon-error">派发&#40;dispatch&#41;</span>用的, 如果一个函数没有多种方法, 根本不需要写类型标注&#33; 如果一定要写类型标注, 写的越抽象越好。</p>
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Frames大佬声明:</legend>
+  Julia中的类型标注<strong>只是</strong>用来做<span class="cadmon sadmon-error">派发&#40;dispatch&#41;</span>用的, 如果一个函数没有多种方法, 根本不需要写类型标注&#33; 如果一定要写类型标注, 写的越抽象越好。</p>
 <p><span class="cadmon sadmon-note">NOTE:</span> 这并不是说类型标注不能用于其他场景, 通常它可以在其他场景被很好地应用。但这不改变它被发明的初衷就是用来做派发的事实。 
-  </fieldset>
-  
+</fieldset>
+
 <p>过度类型标注往往来自于以下几个误解:</p>
 
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解1: 可以让代码更快</legend>
-      Julia的<span class="Sadmon Sadmon-warn">JIT</span>编译器在优化绝大部分代码的时候是不需要类型限制的, 会根据输入参数对应的具体类型, 优化对应的方法&#40;即针对不同的输入类型生成不同的机器码&#41;, 所以不会因为预先标注了类型, 就会有更好的性能优化。而对于非<span class="Sadmon Sadmon-warn">JIT</span>的高级语言&#40;比如Cython&#41;, 预先标注类型可以让其在编译层面作出针对性的优化。</p>
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解1: 可以让代码更快</legend>
+  Julia的<span class="Sadmon Sadmon-warn">JIT</span>编译器在优化绝大部分代码的时候是不需要类型限制的, 会根据输入参数对应的具体类型, 优化对应的方法&#40;即针对不同的输入类型生成不同的机器码&#41;, 所以不会因为预先标注了类型, 就会有更好的性能优化。而对于非<span class="Sadmon Sadmon-warn">JIT</span>的高级语言&#40;比如Cython&#41;, 预先标注类型可以让其在编译层面作出针对性的优化。</p>
 <p><span class="sadmon sadmon-note">总之, 由于JIT, julia中真正执行的指令总是针对输入的参数类型优化过的, &#40;这可能也是为啥Julia做静态编译库很困难的主要原因吧&#41;</span> 
-  </fieldset>
-  
+</fieldset>
 
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解2: 让代码更安全</legend>
-      对静态语言来说, 类型标注毫无疑问是<span class="Sadmon Sadmon-warn">类型安全</span>的保障&#40;所有可能的问题都在编译期暴露出来&#41;。Julia不是静态类型语言, 也不是预编译语言, 很多bug会在 <span class="sadmon sadmon-note">执行到具体命令的时候</span>才报出来。所以添加类型标注并不会让代码更安全。</p>
+
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解2: 让代码更安全</legend>
+  对静态语言来说, 类型标注毫无疑问是<span class="Sadmon Sadmon-warn">类型安全</span>的保障&#40;所有可能的问题都在编译期暴露出来&#41;。Julia不是静态类型语言, 也不是预编译语言, 很多bug会在 <span class="sadmon sadmon-note">执行到具体命令的时候</span>才报出来。所以添加类型标注并不会让代码更安全。</p>
 <p>
-  <fieldset class="admon admon-info">
-  <legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
-      我认为, 这也许是julia相对于其他语言的一个不足, 但无伤大雅, 因为bug总会暴露出来, 牺牲了在编译期Debug的优势, 换来的是超强的表现力和扩展性, 稳赚好么。Rust的编译器教做人的痛苦, 谁用谁知道。 
-  </fieldset>
-   
-  </fieldset>
-  
+<fieldset class="admon admon-info">
+<legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
+  我认为, 这也许是julia相对于其他语言的一个不足, 但无伤大雅, 因为bug总会暴露出来, 牺牲了在编译期Debug的优势, 换来的是超强的表现力和扩展性, 稳赚好么。Rust的编译器教做人的痛苦, 谁用谁知道。 
+</fieldset>
+ 
+</fieldset>
 
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解3: 让代码更易读(实际上是对的,但...)</legend>
-      添加类型标注确实可以让代码更易读, 确实是的。但我们也可以通过其他方法让代码更已读:</p>
+
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 误解3: 让代码更易读(实际上是对的,但...)</legend>
+  添加类型标注确实可以让代码更易读, 确实是的。但我们也可以通过其他方法让代码更已读:</p>
 <ul>
 <li><p>写详细的文档: Julia的documentation有多强大, 用过的都知道;</p>
 </li>
@@ -354,17 +355,17 @@ little_dict &#61; LittleDict&#40;dict&#41;
 </li>
 </ul>
 <p>
-  <fieldset class="admon admon-info">
-  <legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
-      最开始学Julia的时候, 我恨不得每个变量都加上类型标注, 反而不易读了, 通篇很多<code>:</code>,<code>&#123;&#125;</code>,<code>&#40;&#41;</code>,<code>&lt;:</code>, 跟Perl一样让人眼花。 
-  </fieldset>
-   
-  </fieldset>
-  
+<fieldset class="admon admon-info">
+<legend class="admon-legend admon-legend-info"> 🥑 个人想法</legend>
+  最开始学Julia的时候, 我恨不得每个变量都加上类型标注, 反而不易读了, 通篇很多<code>:</code>,<code>&#123;&#125;</code>,<code>&#40;&#41;</code>,<code>&lt;:</code>, 跟Perl一样让人眼花。 
+</fieldset>
+ 
+</fieldset>
+
 <p>最后, 作者举了几个例子直观表示类型标注有可能带来的问题:</p>
 
-  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例1: 约束了AbstractVector, 实际上更想要的是iterator</legend>
-   <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例1: 约束了AbstractVector, 实际上更想要的是iterator</legend>
+ <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function my_average&#40;xs::AbstractVector&#41;
     len &#61; 0
     total &#61; zero&#40;eltype&#40;xs&#41;&#41;
@@ -384,11 +385,11 @@ nmdata &#61; skipmissing&#40;data&#41; # typeof&#40;nmdata&#41; &#61; Base.SkipM
 my_average&#40;nmdata&#41; # type error</code></pre>
 <p><div class="code-lag">julia</div></fieldset></p>
 <p>在这个例子中, 指定了<code>my_average</code>函数适用于<code>AbstractVector</code>类型, 但是实际上, 有很多可以迭代的类型是不属于<code>AbstractVector</code>的, 如果用collect&#40;itr&#41;把他们转成<code>AbstractVector</code>又会增加不必要的内存分配, 降低代码性能。 
-  </fieldset>
-  
+</fieldset>
 
-  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例2: 用`AbstractVector{<:Real}`而不是`AbstractVector`进行多重派发</legend>
-   <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例2: 用`AbstractVector{<:Real}`而不是`AbstractVector`进行多重派发</legend>
+ <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using BenchmarkTools
 function indmin&#40;x::AbstractVector&#123;&lt;:Real&#125;&#41;
     ind&#61;1
@@ -405,28 +406,28 @@ indmin&#40;1:10&#41;
 # but mine correctly returned 1</code></pre>
 <p><div class="code-lag">julia</div></fieldset></p>
 
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 作者说这里会报错, 而我的并不会</legend>
-      可能是在当时的Julia版本&#40;<span class="sadmon sadmon-hack">&lt; V1.6 ?</span>&#41;中, UnitRange&#123;Int64&#125; 并不属于AbstractVector, 但现在属于了吧。 <span class="cadmon sadmon-todo">有待验证</span>。 
-  </fieldset>
-  
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 作者说这里会报错, 而我的并不会</legend>
+  可能是在当时的Julia版本&#40;<span class="sadmon sadmon-hack">&lt; V1.6 ?</span>&#41;中, UnitRange&#123;Int64&#125; 并不属于AbstractVector, 但现在属于了吧。 <span class="cadmon sadmon-todo">有待验证</span>。 
+</fieldset>
+
 <p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">data &#61; &#91;1, 2, 3, missing&#93;
 indmin&#40;@view&#40;data&#91;1:3&#93;&#41;&#41;
 
 # error: @view&#40;data&#91;1:3&#93;&#41;返回的数组类型也是Union&#123;Missing, Int64&#125;</code></pre>
 <p><div class="code-lag">julia</div></fieldset> 
-  </fieldset>
-  
+</fieldset>
 
-  <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例3: 函数类型的分派</legend>
-   <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 示例3: 函数类型的分派</legend>
+ <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">apply_inner&#40;func::Function, xss&#41; &#61; &#91;&#91;func&#40;x&#41; for x in xs&#93; for xs in xss&#93;
 apply_inner&#40;round, &#91;&#91;0.2, 0.9&#93;, &#91;1.2, 1.3, 1.6&#93;&#93;&#41; # works fine
 apply_inner&#40;Float32, &#91;&#91;0.2, 0.9&#93;, &#91;1.2, 1.3, 1.6&#93;&#93;&#41; # ERROR: Float32 is not a Function</code></pre>
 <p><div class="code-lag">julia</div></fieldset></p>
 <p>为了拓展适用性, 可以把参数类型改成<code>Base.Callable</code>, 等同于<code>Union&#123;Type, Function&#125;</code>。但这也不是万全之策, 有些可执行的对象也不属于这两类, 如<code>DiffEqBase.ODESolution</code>和<code>Flux.chain</code>。 
-  </fieldset>
-  
+</fieldset>
+
 <h1 id="总结"><a href="#总结" class="header-anchor">总结</a></h1>
 <p>最后, 作者推荐一些julia高性能的参考资料:</p>
 <ul>

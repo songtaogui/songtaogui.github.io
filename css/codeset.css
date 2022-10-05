@@ -65,7 +65,7 @@
 .code-lag {
     max-width: 100%;
     padding: 0%;
-    position: relative;
+    /* position: relative; */
     float: right;
     margin-right: 0.5em;
     margin-bottom: -0.8em;

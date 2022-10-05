@@ -48,6 +48,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
         integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
 </head>
@@ -164,9 +165,9 @@ echo &#61; CmdProgram&#40;
 &#41;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 
-  <fieldset class="admon admon-tip">
-  <legend class="admon-legend admon-legend-tip"> 🍏 贴士</legend>
-  </p>
+<fieldset class="admon admon-tip">
+<legend class="admon-legend admon-legend-tip"> 🍏 贴士</legend>
+</p>
 <ul>
 <li><p>用<code>run</code>运行命令,记得区分位置参数和关键字参数&#40;<code>;</code>&#41;: <code>run&#40;echo; REQUIRED&#61;&quot;Pipelines&quot;, TYPED &#61; &quot;are&quot;&#41;</code>;</p>
 </li>
@@ -174,8 +175,8 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 <p>
-  </fieldset>
-  
+</fieldset>
+
 <h4 id="具体用法"><a href="#具体用法" class="header-anchor">具体用法</a></h4>
 <ul>
 <li><p><code>name</code>: 定义CmdProgram的名字;</p>
@@ -186,11 +187,11 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="admon admon-tip">
-  <legend class="admon-legend admon-legend-tip"> 🍏 输入参数用`String`还是`Symbol`?</legend>
-      大部分情况下,用String, 只有当参数的改变不会影响结果时, 用Symbol。 比如如果重复提交同一个任务, 只有cpu数目&#40;NTHREADS参数&#41;改变了, 如果想让流程知道这是一个已经跑过的任务, 就要用Symbol的形式传递NTHREADS参数:<code>:NTHREADS &#61;&gt; Int &#61;&gt; 8</code>, Symbol类型的参数不会用于生成UID。 
-  </fieldset>
-  
+<fieldset class="admon admon-tip">
+<legend class="admon-legend admon-legend-tip"> 🍏 输入参数用`String`还是`Symbol`?</legend>
+  大部分情况下,用String, 只有当参数的改变不会影响结果时, 用Symbol。 比如如果重复提交同一个任务, 只有cpu数目&#40;NTHREADS参数&#41;改变了, 如果想让流程知道这是一个已经跑过的任务, 就要用Symbol的形式传递NTHREADS参数:<code>:NTHREADS &#61;&gt; Int &#61;&gt; 8</code>, Symbol类型的参数不会用于生成UID。 
+</fieldset>
+
 <ul>
 <li><p><code>outputs &amp; infer_outputs</code>: 动态生成输出, 用法如下</p>
 <p>\julia&#123;   infer<em>outputs &#61; quote       Dict&#40;           &quot;OUTPUT</em>FILE&quot; &#61;&gt; joinpath&#40;               pwd&#40;&#41;, string&#40;&quot;out_&quot;, INPUT1, &quot;.txt&quot;&#41;           &#41;       &#41;    end   &#125;</p>
@@ -206,11 +207,11 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="admon admon-hack">
-  <legend class="admon-legend admon-legend-hack"> 💻 个人感叹:</legend>
-      有类型标注就是好啊, 检查输入只用检查文件存在就行了, 在shell里还得自己判断是不是数字等等。 
-  </fieldset>
-  
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 个人感叹:</legend>
+  有类型标注就是好啊, 检查输入只用检查文件存在就行了, 在shell里还得自己判断是不是数字等等。 
+</fieldset>
+
 <ul>
 <li><p><code>prerequisites</code>: 在运行主程序前预先执行一些操作, 比如创建输出目录等</p>
 <p>\julia&#123;   prerequisites &#61; quote       mkpath&#40;dirname&#40;BAM&#41;&#41;   end   &#125;</p>
@@ -269,11 +270,11 @@ echo &#61; CmdProgram&#40;
 </li>
 </ul>
 
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> 🍇 重定向可能多核不安全</legend>
-      julia中的重定向不是多线程安全的, 所以多tasks或多线程任务时候建议不用重定向。 
-  </fieldset>
-  
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> 🍇 重定向可能多核不安全</legend>
+  julia中的重定向不是多线程安全的, 所以多tasks或多线程任务时候建议不用重定向。 
+</fieldset>
+
 <p>运行的内在过程:</p>
 <ol>
 <li><p>进入工作目录, 建立重定向&#40;如果有&#41;;</p>
@@ -323,9 +324,9 @@ JuliaProgram&#40;;
 <p><div class="code-lag">julia</div></fieldset>
 <p>大部分JuliaProgram的内容跟CmdProgram类似, 一些区别如下: </p>
 
-  <fieldset class="admon admon-note">
-  <legend class="admon-legend admon-legend-note"> 📘 JuliaProgram vs CmdProgram</legend>
-  </p>
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> 📘 JuliaProgram vs CmdProgram</legend>
+</p>
 <ul>
 <li><p>jp有主代码:jp.main, 可以<code>quote..end</code>定义;</p>
 </li>
@@ -337,8 +338,8 @@ JuliaProgram&#40;;
 </li>
 </ul>
 <p>
-  </fieldset>
-  
+</fieldset>
+
 <h3 id="cmddependency"><a href="#cmddependency" class="header-anchor">CmdDependency</a></h3>
 <p>依赖的软件是否存在或者是否是合适的版本</p>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>

@@ -48,6 +48,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
         integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
 </head>
@@ -138,27 +139,27 @@
 <hr />
 <div class="franklin-toc"><ol><li><a href="#setup_nutshell_in_my_franklin_blog">Setup nutshell in my Franklin Blog</a></li><li><a href="#test_normal_nutshell_functions">Test normal nutshell functions</a><ol><li><a href="#x_invisible_hd1">:x invisible hd1</a></li><li><a href="#visible_hd2">: visible hd2</a></li><li><a href="#normal_hd">normal hd</a></li><li><a href="#x_invisible_hd1__2">:x invisible hd1</a></li><li><a href="#visible_hd2__2">: visible hd2</a></li><li><a href="#normal_hd__2">normal hd</a></li><li><a href="#test_code_blocks">test code blocks</a></li></ol></li><li><a href="#test_use_nutshell_offical_tests">test use nutshell offical tests</a><ol><li><a href="#to_write_a_section">To write a section,</a></li><li><a href="#to_embed_a_section">To embed a section,</a></li><li><a href="#details_about_linking_to_stuff">Details about linking to stuff</a></li><li><a href="#other_fun_stuff">Other Fun Stuff</a></li></ol></li></ol></div>
 
-  <fieldset class="admon admon-hack">
-  <legend class="admon-legend admon-legend-hack"> 💻 Nicky Case: an amazing person do interesting things!</legend>
-      While playing with <a href="https://github.com/ncase/nutshell">nutshell</a>, I wandered through the author <a href="https://ncase.me/">Nicky Case&#39;s blog</a>, and <strong>BAM&#33;</strong>, she really lives a person I wish I could have been&#33; She is insightful and develops interesting things. All her posts are worth reading. <strong>Mark&#33;</strong> 
-  </fieldset>
-  
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 Nicky Case: an amazing person do interesting things!</legend>
+  While playing with <a href="https://github.com/ncase/nutshell">nutshell</a>, I wandered through the author <a href="https://ncase.me/">Nicky Case&#39;s blog</a>, and <strong>BAM&#33;</strong>, she really lives a person I wish I could have been&#33; She is insightful and develops interesting things. All her posts are worth reading. <strong>Mark&#33;</strong> 
+</fieldset>
+
 <h2 id="setup_nutshell_in_my_franklin_blog"><a href="#setup_nutshell_in_my_franklin_blog" class="header-anchor">Setup nutshell in my Franklin Blog</a></h2>
 <p>The setup step is quite simple: just follow <a href="https://github.com/ncase/nutshell#advanced-features--options">the nutshell&#39;s official documentation</a>, and everything works fine.</p>
 
-  <fieldset class="admon admon-error">
-  <legend class="admon-legend admon-legend-error"> 🐞 But my style got mixed up:</legend>
-      Every heading has <strong>larger top/bottom margin</strong>: 
+<fieldset class="admon admon-error">
+<legend class="admon-legend admon-legend-error"> 🐞 But my style got mixed up:</legend>
+  Every heading has <strong>larger top/bottom margin</strong>: 
 <img src="/posts/2022/08/data/nutshell-franklin-css-mixed.png" width="20%" class="post-img">
  
-  </fieldset>
-  
+</fieldset>
+
 <p>Find out the css incompatiblity for me &#40;knowledge of html&#43;css ≈ 0.1&#37;&#41; is nightmare &#33;</p>
 <p>But I just got it worked for me anyway, without knowing why 😅 :</p>
 
-  <fieldset class="admon admon-tip">
-  <legend class="admon-legend admon-legend-tip"> 🍏 Compatibility of Franklin Academic template with nutshell:</legend>
-      It turns out to be the incompatible between <a href="https://github.com/tlienart/ft-academic-resume">the Academic Theme of Franklin.jl</a> I used and nutshell&#39;s rendering. More specific, the <code>article-style</code> related css. Since I cannot figure out which exact css rule works, I just made all <code>article-style</code> related css unfunctional by modifying the <code>head.html</code>:</p>
+<fieldset class="admon admon-tip">
+<legend class="admon-legend admon-legend-tip"> 🍏 Compatibility of Franklin Academic template with nutshell:</legend>
+  It turns out to be the incompatible between <a href="https://github.com/tlienart/ft-academic-resume">the Academic Theme of Franklin.jl</a> I used and nutshell&#39;s rendering. More specific, the <code>article-style</code> related css. Since I cannot figure out which exact css rule works, I just made all <code>article-style</code> related css unfunctional by modifying the <code>head.html</code>:</p>
 <blockquote>
 <p>I changed <code>&lt;div class&#61;&quot;article-style&quot;&gt;</code> to <code>&lt;div class&#61;&quot;gst-style&quot;&gt;</code> so that every <code>article-style</code> related div in my pages were changed into <code>gst-style</code> &#40;which with css I did not defined&#41;.</p>
 </blockquote>
@@ -175,17 +176,17 @@
 &#125;</code></pre>
 <p><div class="code-lag">html</div></fieldset>
 <p>commit out these two rules, and it&#39;ll work. So I change the div class back now. 
-  </fieldset>
-  
+</fieldset>
+
 <p>What&#39;s more, I found that on some header, a nutshell hinter pops up when hover, which is not what I want. So, I need a rule to turn on the nutshell functions page by page:</p>
 
-  <fieldset class="admon admon-tip">
-  <legend class="admon-legend admon-legend-tip"> 🍏 Set a `hasnutshell` var based nutshell function switch:</legend>
-      In the header of every markdown, there should be a keyword assign of <code>hasnutshell &#61; false</code> to turn off nutshell functions by default. Change that to <code>hasnutshell &#61; true</code> if you want to use nutshell functions in the specific markdown file. This was made happen by modifying the <code>stylesheets.html</code> to add a line of:</p>
+<fieldset class="admon admon-tip">
+<legend class="admon-legend admon-legend-tip"> 🍏 Set a `hasnutshell` var based nutshell function switch:</legend>
+  In the header of every markdown, there should be a keyword assign of <code>hasnutshell &#61; false</code> to turn off nutshell functions by default. Change that to <code>hasnutshell &#61; true</code> if you want to use nutshell functions in the specific markdown file. This was made happen by modifying the <code>stylesheets.html</code> to add a line of:</p>
 <pre><code class="language-plain">&#123;&#123;if hasnutshell&#125;&#125;&lt;script src&#61;&quot;/libs/nutshell/nutshell.js&quot;&gt;&lt;/script&gt;&#123;&#123;end&#125;&#125;</code></pre>
 <p>
-  </fieldset>
-  
+</fieldset>
+
 <p>Now, everything just works fine for me 😄.</p>
 <h2 id="test_normal_nutshell_functions"><a href="#test_normal_nutshell_functions" class="header-anchor">Test normal nutshell functions</a></h2>
 <p>The nutshell-contained below was generated with:</p>
@@ -193,11 +194,11 @@
 <p>text in invisible hd1. <a href="#VisibleHd2">:hd2</a></p>
 <h3 id="visible_hd2"><a href="#visible_hd2" class="header-anchor">: visible hd2</a></h3>
 <p>text in visible hd2. 
-  <fieldset class="admon admon-hack">
-  <legend class="admon-legend admon-legend-hack"> 💻 test</legend>
-      test hack info 
-  </fieldset>
-   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 test</legend>
+  test hack info 
+</fieldset>
+ <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
 <h3 id="normal_hd"><a href="#normal_hd" class="header-anchor">normal hd</a></h3>
 <p>text that refers <a href="#InvisibleHd1">:hd1</a> and <a href="#VisibleHd2">:hd2</a> and plain text.</p>
 <hr />
@@ -205,17 +206,17 @@
 <p>text in invisible hd1. <a href="#VisibleHd2">:hd2</a></p>
 <h3 id="visible_hd2__2"><a href="#visible_hd2__2" class="header-anchor">: visible hd2</a></h3>
 <p>text in visible hd2. 
-  <fieldset class="admon admon-hack">
-  <legend class="admon-legend admon-legend-hack"> 💻 test</legend>
-      test hack info 
-  </fieldset>
-   <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 test</legend>
+  test hack info 
+</fieldset>
+ <span class="Sadmon Sadmon-hack">hack highlight</span> <div class="aadmon aadmon-hack"> hacklogging</div> <span class="cadmon sadmon-hack">hack colored text</span></p>
 <h3 id="normal_hd__2"><a href="#normal_hd__2" class="header-anchor">normal hd</a></h3>
 <p>text that refers <a href="#InvisibleHd1">:hd1</a> and <a href="#VisibleHd2">:hd2</a> and plain text.</p>
 
-  <fieldset class="admon admon-warn">
-  <legend class="admon-legend admon-legend-warn"> 🍇 Notes on basic nutshell usage</legend>
-  </p>
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> 🍇 Notes on basic nutshell usage</legend>
+</p>
 <ul>
 <li><p>for most cases, use the <code>:x header</code> grammar is enough;</p>
 </li>
@@ -231,27 +232,27 @@
 </li>
 </ul>
 <p>
-  </fieldset>
-  
+</fieldset>
+
 <h3 id="test_code_blocks"><a href="#test_code_blocks" class="header-anchor">test code blocks</a></h3>
 <p>nutshell code block <a href="#test-code-blocks">:here</a></p>
 
-  <fieldset class="admon admon-error">
-  <legend class="admon-legend admon-legend-error"> 🐞 the highlight is a nightmare!</legend>
-      Compare to:</p>
+<fieldset class="admon admon-error">
+<legend class="admon-legend admon-legend-error"> 🐞 the highlight is a nightmare!</legend>
+  Compare to:</p>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function abc&#40;&#41;
     println&#40;&quot;abc&quot;&#41;
 end</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <p>
-  <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> UPDATED: 2022-09-25</legend>
-      The reason that every format within the NutShell bubble are gone is that Nutshell force to remove any <code>id, class, style ...</code> attributes assigned to the html. After comment out the related codes &#40;Those start with comments of <code>// DOMPurify</code>&#41;, and force the NutShell to use rawHTML for downstream work, every style comes back &#40;except for <code>Highlight.js</code> based code highlights&#41;, that&#39;s enough for me.</p>
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> UPDATED: 2022-09-25</legend>
+  The reason that every format within the NutShell bubble are gone is that Nutshell force to remove any <code>id, class, style ...</code> attributes assigned to the html. After comment out the related codes &#40;Those start with comments of <code>// DOMPurify</code>&#41;, and force the NutShell to use rawHTML for downstream work, every style comes back &#40;except for <code>Highlight.js</code> based code highlights&#41;, that&#39;s enough for me.</p>
 <p><span class="Sadmon Sadmon-error">Comment out these code may cause unexpected bugs, I just do it for my own using scene &#40;which seldomly contain complex css styles&#41;. Be caution when applying to YOURS&#33;</span> 
-  </fieldset>
-   
-  </fieldset>
-  
+</fieldset>
+ 
+</fieldset>
+
 <h1 id="x_test-code-blocks"><a href="#x_test-code-blocks" class="header-anchor">:x test-code-blocks</a></h1>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">function abc&#40;&#41;

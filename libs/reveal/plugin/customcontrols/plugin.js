@@ -41,7 +41,8 @@ const initCustomControls = function(Reveal){
 	});
 
 	div.appendChild(toggleButton);
-
+	console.log("config:")
+	console.log(config.controls)
 	var controls = document.createElement( 'ul' );
 	for (var i = 0; i < config.controls.length; i++ ) {
 		var control = document.createElement( 'li' );

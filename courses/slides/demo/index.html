@@ -13,6 +13,10 @@
     <link rel="icon" href="/assets/favicon-bright.svg">
     <link rel="stylesheet" href="/libs/reveal/dist/reset.css">
     <link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+    <link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
     
     <link rel="stylesheet" href="/libs/reveal/dist/theme/simple.css">
     <!-- Theme used for syntax highlighted code -->
@@ -26,13 +30,31 @@
 
 <div class="slides">
 
-<section ></p>
-<h2><span class="cadmon sadmon-note">Thank You&#33;</span></h2>
-<p>
-  <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Follow ME</legend>
-   <br><br> <span class="Sadmon Sadmon-hack">My GitHub</span>: <a href="https://github.com/SongtaoGui">https://github.com/SongtaoGui</a> <br><br> <span class="Sadmon Sadmon-note">My Blog</span>: <a href="https://songtaogui.github.io/">https://songtaogui.github.io/</a> <br><br> 
-  </fieldset>
-   </section>
+<section > <div data-animate data-src="animate/heart.svg">
+    <!--{"setup": [
+    {
+    "element": "#heart", 
+    "modifier": "function() {
+        this.animate(100).ease('<>').scale(.99).loop(true,true);
+    }"
+}
+
+]
+}-->
+
+</div>
+ </section>
+<section > 
+<div style="height: 480px; width:900px;"><canvas data-chart="bar">
+Month, January, February, March, April, May, June, July
+D1, 65, 59, 80, 81, 56, 55, 40
+D2, 28, 48, 40, 19, 86, 27, 90
+D3, 38, 58, 20, 39, 66, 57, 40
+D4, 48, 48, 40, 49, 46, 47, 40
+D5, 68, 68, 60, 69, 66, 67, 60
+D6, 88, 88, 80, 89, 86, 87, 80
+</canvas></div>
+ </section>
 
 </div>
 
@@ -45,6 +67,13 @@
 <script src="/libs/reveal/plugin/highlight/highlight.js"></script>
 <script src="/libs/reveal/plugin/search/search.js"></script>
 <script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<script src="/libs/reveal/plugin/reveald3/plugin.js"></script>
 <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -68,9 +97,76 @@
             RevealNotes,
             RevealMath.KaTeX,
             RevealSearch,
-            // RevealChalkboard, 
-            // RevealCustomControls //did not work, don't know why
-        ]
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
     });
 </script>
 </body>

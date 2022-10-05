@@ -471,7 +471,7 @@ console.warn( "toggleNotesButton is deprecated, use customcontrols plugin instea
 			if ( boardHandle ) {
 				var handle = document.createElement( 'div' );
 				handle.classList.add( 'boardhandle' );
-				handle.innerHTML = '<ul><li><a id="previousboard" href="#" title="Previous board"><i class="fas fa-chevron-up"></i></a></li><li><a id="nextboard" href="#" title="Next board"><i class="fas fa-chevron-down"></i></a></li></ul>';
+				handle.innerHTML = '<ul><li><a id="previousboard" href="#" title="Previous board"><i class="fa fa-chevron-up"></i></a></li><li><a id="nextboard" href="#" title="Next board"><i class="fa fa-chevron-down"></i></a></li></ul>';
 				handle.querySelector( '#previousboard' ).addEventListener( 'click', function ( e ) {
 					e.preventDefault();
 					switchBoard( board - 1 );
