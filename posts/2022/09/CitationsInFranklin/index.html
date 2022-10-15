@@ -219,7 +219,6 @@
 <p>The implementation codes were accessible <a href="https://github.com/songtaogui/blog_builder/blob/master/src/Citation.jl">HERE</a>, and also as listed below:</p>
 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia">using BibParser
-
 #&#61;
 Make Citation smoothly in My Franklin Blog
 &#61;#
@@ -247,7 +246,6 @@ function fmtidx&#40;idx::String, name::String; format&#61;&quot;normal&quot;&#41
         @error &quot;No ref information in the database for &#36;k&quot;
         name &#61; &quot;ERROR&quot;
     end
-
     return &quot;&quot;&quot;&lt;a href&#61;&quot;#&#36;idx&quot;&gt;&#36;&#40;name&#41;&lt;/a&gt;&quot;&quot;&quot;
 end
 
@@ -255,19 +253,27 @@ function hfun_citebib&#40;ks&#41;
     rpath &#61; Franklin.FD_ENV&#91;:CUR_PATH&#93;
     idxpath &#61; replace&#40;rpath, r&quot;\.md&#36;&quot; &#61;&gt; &quot;.citedb&quot;&#41;
     indexes &#61; Vector&#123;Any&#125;&#40;&#41;
+    final_indexes &#61; Vector&#123;Any&#125;&#40;&#41;
+    if isfile&#40;idxpath&#41;
+        indexes &#61; unique&#40;readlines&#40;idxpath&#41;&#41;
+    end
     open&#40;idxpath, &quot;a&quot;&#41; do io
         for k in ks
+            # @info &quot;Parse citation &#36;k for &#36;rpath ...&quot;
             curbib &#61; CITEDB&#91;k&#93;
             curbib_year &#61; curbib.date.year
             curbib_first_author &#61; curbib.authors |&gt; first
             curbib_etal &#61; length&#40;curbib.authors&#41; &gt; 1 ? &quot; et al. &quot; : &quot; &quot;
             outname &#61; curbib_first_author.last * curbib_etal * curbib_year
-            write&#40;io, &quot;&#36;&#40;k&#41;\n&quot;&#41;
             curidx &#61; fmtidx&#40;k, outname&#41;
-            push&#33;&#40;indexes, curidx&#41;
+            push&#33;&#40;final_indexes, curidx&#41;
+            if &#33;&#40;k in indexes&#41;
+                push&#33;&#40;indexes, k&#41;
+                write&#40;io, &quot;&#36;&#40;k&#41;\n&quot;&#41;
+            end
         end
     end
-    final_index &#61; join&#40;indexes, &quot;, &quot;&#41;
+    final_index &#61; join&#40;final_indexes, &quot;, &quot;&#41;
     return &quot;&quot;&quot;
         &lt;span&gt;
             &#40;&#36;final_index&#41;
@@ -328,7 +334,8 @@ function hfun_citebiblist&#40;&#41;
     end
 
     return reflist
-end # func hfun_citebiblist</code></pre>
+end # func hfun_citebiblist
+a &#61; &#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#93;</code></pre>
 <p><div class="code-lag">julia</div></fieldset>
 <h3 id="demo"><a href="#demo" class="header-anchor">DEMO</a></h3>
 <p>By the implementation above, I could insert <code>citation&#40;s&#41;</code> through <code>&#123;&#123;citebib CiteKey1 CiteKey2 ...&#125;&#125;</code>, and add a <code>&#123;&#123;citebiblist&#125;&#125;</code> to the end of the file, then everything will work smoothly&#33;</p>
@@ -348,11 +355,11 @@ end # func hfun_citebiblist</code></pre>
 <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> DEMO-OUT</legend>
  <span class="sadmon sadmon-info">I&#39;ll get this:</span></p>
 <p>... has been well discussed in Pandey&#39;s work on evolution of unilateral incompatibility in flowering plants and Pla&#39;s work on ABA cis-regulators <span>
-    (1981-Pandey-Evolution-NP, 1993-Pla-Cisregulatory-PMB, 1991-Les-Molecular-PNASUSA)
+    (<a href="#1981-Pandey-Evolution-NP">Pandey 1981</a>, <a href="#1993-Pla-Cisregulatory-PMB">Pla et al. 1993</a>)
 </span>
 .</p>
 <p>... Please refer to Les Donald&#39;s work on the evolution history of aquatic angiosperms <span>
-    (1981-Pandey-Evolution-NP, 1993-Pla-Cisregulatory-PMB, 1991-Les-Molecular-PNASUSA)
+    (<a href="#1991-Les-Molecular-PNASUSA">Les et al. 1991</a>)
 </span>
 .</p>
 <p><h2>References</h2><li id="1981-Pandey-Evolution-NP">
@@ -411,7 +418,7 @@ end # func hfun_citebiblist</code></pre>
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: October 06, 2022.
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 15, 2022.
 
             <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
