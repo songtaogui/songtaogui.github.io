@@ -33,6 +33,7 @@ OPTIONS: ([R]:required  [O]:optional)
     -h, --help                          show help and exit.
     -m, --commit  <str>                 github commit info, default: 'date'
     -f, --force                         force re-encrypt, default: skip exits
+    -d, --dryrun                        skip the github deploy step, just output the cmd
     --quiet                             keep quiet, only output fatal errors
     --verbose                           be verbose, output detailed logs
 ------------------------------------------------------------
@@ -50,6 +51,7 @@ EOF
 # Set Default Opt
 export commit=$(date +'%y-%m-%d %H:%M')
 export force=FALSE
+export dryrun=FALSE
 # parse args
 UNKOWN_ARGS=()
 while [[ $# > 0 ]]; do
@@ -64,6 +66,10 @@ while [[ $# > 0 ]]; do
         ;;
         -f|--force)
             force=TRUE
+            shift 1
+        ;;
+        -d|--dryrun)
+            dryrun=TRUE
             shift 1
         ;;
         --quiet)
@@ -123,6 +129,9 @@ do
             # already encrypted
             if [[ $force == "TRUE" ]];then
                 CRPYT="TRUE"
+                gst_warn "force re-encrypt $htmlfile ..."
+            else
+                gst_warn "skip $htmlfile: already encrypted, force re-encrypt with -f"
             fi
         fi
         # encrypt it
@@ -137,10 +146,21 @@ done
 
 gst_log "Deploy on github with commit [ $commit ] ..."
 
-cd __site || exit 1
-git add . &&\
-git commit -m "$commit" &&\
-git push origin master
+if [[ $dryrun != "TRUE" ]];then
+    cd __site || exit 1
+    git add . &&\
+    git commit -m "$commit" &&\
+    git push origin master
+else
+   gst_warn "Dryrun commands:
+-------------------------------
+    cd __site &&\\
+    git add . &&\\
+    git commit -m \"$commit\" &&\\
+    git push origin master
+-------------------------------
+   "
+fi
 
 if [ $? -ne 0 ];then gst_err "Deploy failed: Non-zero exit"; exit 1;fi
 
