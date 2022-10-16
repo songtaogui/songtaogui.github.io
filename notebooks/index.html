@@ -37,6 +37,7 @@
 <link rel=stylesheet href="/css/codeset.css">
 <link rel=stylesheet href="/css/admonition.css">
 <link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -112,6 +113,24 @@
 
             </ul>
         </div>
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
         <div class="nav-icon d-none d-lg-inline-flex">
             <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img"
                         src="/assets/img/notebook.svg"></span></a>
@@ -152,13 +171,13 @@
 
 <div class="col-12 col-lg-8"><div class="card experience course">
 <div class=card-body>
-<span class="card-title Sadmon Sadmon-info"
+<span class="card-title Sadmon Sadmon-todo"
       style="padding-left:0.4em;padding-right:0.5em;padding-top:0.1em">
       Julia code style: Blue
 </span>
 
 <a class=card-link href="/notebooks/JuliaBlueStyleZh" target=_blank rel=noopener>
-    <span class="sadmon sadmon-info">Accession</span>
+    <span class="sadmon sadmon-todo">Accession</span>
 </a>
     
 <hr style="margin: 0rem">
@@ -242,13 +261,13 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="card-title Sadmon Sadmon-info"
+<span class="card-title Sadmon Sadmon-warn"
       style="padding-left:0.4em;padding-right:0.5em;padding-top:0.1em">
       Julia Data Science
 </span>
 
 <a class=card-link href="/notebooks/JuliaDataScience" target=_blank rel=noopener>
-    <span class="sadmon sadmon-info">Accession</span>
+    <span class="sadmon sadmon-warn">Accession</span>
 </a>
     
 <hr style="margin: 0rem">

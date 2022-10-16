@@ -13,8 +13,8 @@
 
     
     
-    <meta name="keywords" content="Search result">
-    <title>Search result</title>
+    <meta name="keywords" content="search">
+    <title>search</title>
     
 
     <link rel="icon" href="/assets/favicon.svg">
@@ -37,6 +37,7 @@
 <link rel=stylesheet href="/css/codeset.css">
 <link rel=stylesheet href="/css/admonition.css">
 <link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -112,6 +113,24 @@
 
             </ul>
         </div>
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
         <div class="nav-icon d-none d-lg-inline-flex">
             <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img"
                         src="/assets/img/notebook.svg"></span></a>
@@ -133,7 +152,7 @@
     
     <article class=article>
         <div class="article-container pt-3">
-             <h1>Search result</h1> 
+             <h1>search</h1> 
         </div>
         
         <div class="article-container">
@@ -144,9 +163,44 @@
                 
                 
                 <div class="franklin-content">
-<p>Number of results found: <span id="resultCount"></span></p>
 
-<div id="searchResults"></div>
+<h1>Bing Search</h1>
+<form action="https://bing.com/search" id="searchForma">
+    <input type="text" name="q" value="" required>
+    <input type="hidden" name="site" value="songtaogui.github.io">
+    <input type="submit" value="Search">
+</form>
+<script>
+    var searchForma = document.getElementById('searchForma');
+    searchForma.onsubmit = function () {
+        var url = this.action;
+        var q = this.children['q'].value;
+        var site = this.children['site'].value;
+        var url = url + '?q=' + ' site:' + site + "+" + q;
+        window.open(url);
+        return false;
+    };
+</script>
+
+<div class="inputBox">
+    <form action="https://bing.com/search" id="searchForm">
+        <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+        <div class="search"></div>
+    </form>
+    <script>
+        var searchForm = document.getElementById('searchForm');
+        searchForm.onsubmit = function () {
+            var url = this.action;
+            var q = this.children['q'].value;
+            var q = 'site:songtaogui.github.io+' + q
+            // var site = this.children['site'].value;
+            var url = url + '?q=' + q;
+            window.open(url,'__blank');
+            return false;
+        };
+    </script>
+</div>
+
 
 
 
@@ -165,7 +219,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: September 28, 2022.
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 16, 2022.
 
             <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
