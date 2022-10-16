@@ -103,21 +103,30 @@ do
         exit 1
     fi
     # check if has encrypt code
-    encode=$(grep -o -P "^encrypt = (1|2)" $mdfile)
+    encode=$(grep -o -P "^encrypt = ([123])" $mdfile)
     if [[ -n "${encode}" ]]; then
         PSWD=""
         CRPYT="FALSE"
-        if [[ "$encode" == "encrypt = work" ]];then
-            PSWD=$WORKPSWD
-        else
+        if [[ "$encode" == "encrypt = 1" ]];then
             PSWD=$PERSONALPSWD
+        elif [[ "$encode" == "encrypt = 2" ]];then
+            PSWD=$WORKPSWD
+        elif [[ "$encode" == "encrypt = 3" ]];then
+            PSWD=$WORKPSWD2
         fi
         if [[ -z "${PSWD}" ]]; then
-            gst_err "no password detected! Please check the \$WORKPSWD or \$PERSONALPSWD env!"
+            gst_err "no password detected! Please check the env!"
             exit 1
         fi
         # get the html file:
-        htmlfile=$(echo "$mdfile" | perl -pe 's/^\.\//\.\/__site\//; s/\.md$/\/index.html/;')
+        htmlfile=$(echo "$mdfile" | perl -pe '
+            s/^\.\//\.\/__site\//;
+            if(/index.md$/){
+                s/\.md$/\.html/;
+            }else{
+                s/\.md$/\/index.html/;
+            }
+            ')
         check_files_exists $htmlfile
         # check if htmlfile is already encrypted
         head $htmlfile | grep "staticrypt" 1>/dev/null 2>&1
@@ -130,7 +139,7 @@ do
                 CRPYT="TRUE"
                 gst_warn "force re-encrypt $htmlfile ..."
             else
-                gst_warn "skip $htmlfile: already encrypted, force re-encrypt with -f"
+                gst_warn "skip $htmlfile"
             fi
         fi
         # encrypt it
