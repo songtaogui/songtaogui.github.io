@@ -32,7 +32,6 @@ USAGE:
 OPTIONS: ([R]:required  [O]:optional)
     -h, --help                          show help and exit.
     -m, --commit  <str>                 github commit info, default: 'date'
-    -f, --force                         force re-encrypt, default: skip exits
     -d, --dryrun                        skip the github deploy step, just output the cmd
     --quiet                             keep quiet, only output fatal errors
     --verbose                           be verbose, output detailed logs
@@ -137,7 +136,10 @@ do
         # encrypt it
         if [[ $CRPYT == "TRUE" ]];then
             gst_rcd "Encrypt $htmlfile ..."
-            staticrypt $htmlfile $PSWD -o $htmlfile.new &&\
+            staticrypt $htmlfile $PSWD \
+                -o $htmlfile.new \
+                --remember-label "Remember me in the next 7 days" -r 7 \
+                &&\
             mv $htmlfile.new $htmlfile
             if [ $? -ne 0 ];then gst_err "staticrypt $htmlfile failed: Non-zero exit"; exit 1;fi
         fi
