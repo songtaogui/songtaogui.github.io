@@ -176,9 +176,3 @@ fi
 if [ $? -ne 0 ];then gst_err "Deploy failed: Non-zero exit"; exit 1;fi
 
 gst_log "All Done !"
-
-
-
-
-
-
