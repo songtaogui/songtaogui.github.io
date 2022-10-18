@@ -86,12 +86,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/work\test-zeamap2\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\09\Encrypted_Reveal_met_Franklin\index.html</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,12 +130,6 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia%E6%B5%81%E7%A8%8B%E6%90%AD%E5%BB%BA%E5%B7%A5%E5%85%B7Pipeline\index.html</loc>
     <lastmod>2022-09-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/private\test-private\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -212,6 +200,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\private\test-private\index.html</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2018\05\repeatmasker-usage\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -225,7 +219,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
+    <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -380,6 +374,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\work\test-zeamap2\index.html</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2018\02\mapcomp\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -388,6 +388,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Franklin%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95\index.html</loc>
     <lastmod>2022-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\work\test-zeamap\index.html</loc>
+    <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -424,12 +430,6 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2017\11\r_note\index.html</loc>
     <lastmod>2022-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/work\test-zeamap\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
