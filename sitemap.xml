@@ -26,8 +26,26 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GenomicFeatures\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\SequenceVariation\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/cv\Zh\index.html</loc>
     <lastmod>2022-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -40,6 +58,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\%E6%88%91%E7%9A%84fzf%E9%85%8D%E7%BD%AE\index.html</loc>
     <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\TwoBit\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -62,20 +86,38 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BigWig\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\add_visitor_stat_to_my_blog\index.html</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Distances\index.html</loc>
-    <lastmod>2022-10-17</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Kmers\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\PopGen\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\index.html</loc>
     <lastmod>2022-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Distances\index.html</loc>
+    <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -92,14 +134,20 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\index.html</loc>
-    <lastmod>2022-10-05</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\CategoricalArrays\index.html</loc>
     <lastmod>2022-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/posts\index.html</loc>
+    <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -123,7 +171,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\StatsBase\index.html</loc>
-    <lastmod>2022-10-17</lastmod>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -134,8 +182,26 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GenomeGraphs\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioAlignments\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2017\04\window_UAC\index.html</loc>
     <lastmod>2022-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BGZFStreams\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -188,14 +254,38 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\FMIndexes\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2017\03\sicer-usage\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\SubstitutionModels\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Statistics\index.html</loc>
+    <lastmod>2022-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\FASTX\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\index.html</loc>
-    <lastmod>2022-10-17</lastmod>
+    <lastmod>2022-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -214,6 +304,12 @@
 <url>
     <loc>https://songtaogui.github.io/courses\slides\HZAU-JC\index.html</loc>
     <lastmod>2022-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioGenerics\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -238,6 +334,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\docker%E5%92%8Csingularity%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B\index.html</loc>
     <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\NaturalSelection\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -278,6 +380,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSymbols\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
     <lastmod>2022-09-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -314,8 +422,20 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSequences\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\09\automa_basic_usage\index.html</loc>
     <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Indexes\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -334,6 +454,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\CitationsInFranklin\index.html</loc>
     <lastmod>2022-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\IntervalTrees\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -357,7 +483,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2022-10-17</lastmod>
+    <lastmod>2022-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -374,6 +500,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\private\random_ideas\index.html</loc>
+    <lastmod>2022-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\work\test-zeamap2\index.html</loc>
     <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -386,14 +518,20 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\work\test-zeamap\index.html</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\Franklin%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\work\test-zeamap\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioFetch\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -428,8 +566,26 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\XAM\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GFF3\index.html</loc>
+    <lastmod>2022-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2017\11\r_note\index.html</loc>
     <lastmod>2022-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BED\index.html</loc>
+    <lastmod>2022-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
