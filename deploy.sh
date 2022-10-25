@@ -147,7 +147,7 @@ do
             gst_rcd "Encrypt $htmlfile ..."
             staticrypt $htmlfile $PSWD \
                 -o $htmlfile.new \
-                --remember-label "Remember me in the next 7 days" -r 7 \
+                --remember-label "Remember me in the next 30 days" -r 30 \
                 &&\
             mv $htmlfile.new $htmlfile
             if [ $? -ne 0 ];then gst_err "staticrypt $htmlfile failed: Non-zero exit"; exit 1;fi

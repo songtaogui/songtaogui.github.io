@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\VarianceComponentModels\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2018\02\trf-usage\index.html</loc>
     <lastmod>2022-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\OpenADMIXTRUE\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\VCFTools\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -20,6 +38,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelGameteCompetition\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2017\02\Irys-scaffolding-pipeline\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -27,13 +51,25 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GenomicFeatures\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelEstimateFrequencies\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\QuasiCopula\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\SequenceVariation\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -63,7 +99,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\TwoBit\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -87,7 +123,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BigWig\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -98,14 +134,20 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelTwoPointLinkage\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Kmers\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\PopGen\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -135,7 +177,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -176,6 +218,18 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelImpute\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\OrdinalMultinomialModels\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia%E6%B5%81%E7%A8%8B%E6%90%AD%E5%BB%BA%E5%B7%A5%E5%85%B7Pipeline\index.html</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -183,13 +237,13 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GenomeGraphs\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioAlignments\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -201,7 +255,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BGZFStreams\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -212,14 +266,38 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\ADMIXTURE\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaBlueStyleZh\index.html</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\BGEN\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelGeneticCounseling\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\GLM\index.html</loc>
     <lastmod>2022-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\TraitSimulation\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -254,8 +332,26 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelSearch\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\FMIndexes\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelAimSelection\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelKinship\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -267,7 +363,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\SubstitutionModels\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -279,13 +375,25 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\FASTX\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\index.html</loc>
-    <lastmod>2022-10-18</lastmod>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\TrajGWAS\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -309,19 +417,19 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioGenerics\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\08\notes_on_franklin_gramma\index.html</loc>
-    <lastmod>2022-10-05</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelBase\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -338,8 +446,14 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/posts\2022\08\notes_on_franklin_gramma\index.html</loc>
+    <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\NaturalSelection\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -380,14 +494,26 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\PGENFiles\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSymbols\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
     <lastmod>2022-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelGWAS\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -423,7 +549,13 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSequences\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelPlots\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -435,7 +567,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Indexes\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -446,8 +578,38 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelLocationScores\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\OrdinalGWAS\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\Franklin%E5%8D%9A%E5%AE%A2%E4%B8%AD%E8%AE%BE%E7%BD%AE%E6%8F%90%E7%A4%BA%E6%A1%86%E5%92%8Calert%E9%AB%98%E4%BA%AE\index.html</loc>
     <lastmod>2022-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelGeneDropping\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\IntervalTrees\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/posts\2017\06\busco-usage\index.html</loc>
+    <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -458,14 +620,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\IntervalTrees\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/posts\2017\06\busco-usage\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\WiSER\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -483,7 +639,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -501,7 +657,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\private\random_ideas\index.html</loc>
-    <lastmod>2022-10-19</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -531,7 +687,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioFetch\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -567,13 +723,25 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\XAM\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\GFF3\index.html</loc>
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\SnpArrays\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelIHT\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -585,7 +753,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BED\index.html</loc>
-    <lastmod>2022-10-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
