@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+    <loc>https://songtaogui.github.io/test\index.html</loc>
+    <lastmod>2022-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\VarianceComponentModels\index.html</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -75,13 +81,19 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\Zh\index.html</loc>
-    <lastmod>2022-09-18</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\index.html</loc>
     <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\work\zeamap-req-1027\index.html</loc>
+    <lastmod>2022-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -153,7 +165,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\index.html</loc>
-    <lastmod>2022-09-24</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -195,7 +207,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/achievements\index.html</loc>
-    <lastmod>2022-08-19</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -321,7 +333,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/index.html</loc>
-    <lastmod>2022-09-19</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -507,7 +519,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
-    <lastmod>2022-09-18</lastmod>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -638,14 +650,14 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2022-10-25</lastmod>
+    <loc>https://songtaogui.github.io/courses\slides\demo\index.html</loc>
+    <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\slides\demo\index.html</loc>
-    <lastmod>2022-10-04</lastmod>
+    <loc>https://songtaogui.github.io/giants\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -670,12 +682,6 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2018\02\mapcomp\index.html</loc>
     <lastmod>2022-09-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/notebooks\work\test-zeamap\index.html</loc>
-    <lastmod>2022-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
