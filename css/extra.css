@@ -216,3 +216,10 @@ kbd {
     word-break:break-all;
     word-wrap: break-word;
 }
+
+#lov td:hover {
+    background-color: #f8fcff;
+}
+
+
+

@@ -116,15 +116,14 @@
                 };
             </script>
         </div>
-        <div class="nav-icon d-none d-lg-inline-flex">
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
             <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
                 src="/assets/img/giant.svg"></span></a>
             <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
                         src="/assets/img/achievement.svg"></span></a>
             <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
                         src="/assets/img/rss.svg"></span></a>
-        </div>
-        <div class="nav-icon ">
             <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
                         src="/assets/img/music.svg"></span></a>
         </div>
@@ -344,19 +343,18 @@ a &#61; &#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#93;</code></pre>
 
 <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> DEMO-CODE</legend>
   By writing Franklin markdown like this:</p>
+<p><fieldset class="code code-markdown"><legend class="code-legend code-legend-markdown">markdown</legend></p>
 <pre><code class="language-markdown">... has been well discussed in Pandey&#39;s work on evolution of unilateral incompatibility in flowering plants and Pla&#39;s work on ABA cis-regulators &#123;&#123;citebib 1981-Pandey-Evolution-NP 1993-Pla-Cisregulatory-PMB&#125;&#125;.
 
 ... Please refer to Les Donald&#39;s work on the evolution history of aquatic angiosperms &#123;&#123;citebib 1991-Les-Molecular-PNASUSA&#125;&#125;.
 
-
 &#123;&#123;citebiblist&#125;&#125;</code></pre>
-<p>
+<p><div class="code-lag">markdown</div></fieldset> 
 </fieldset>
 
-
+<p><span class="sadmon sadmon-info">I&#39;ll get this:</span> 
 <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> DEMO-OUT</legend>
- <span class="sadmon sadmon-info">I&#39;ll get this:</span></p>
-<p>... has been well discussed in Pandey&#39;s work on evolution of unilateral incompatibility in flowering plants and Pla&#39;s work on ABA cis-regulators <span>
+  ... has been well discussed in Pandey&#39;s work on evolution of unilateral incompatibility in flowering plants and Pla&#39;s work on ABA cis-regulators <span>
     (<a href="#1981-Pandey-Evolution-NP">Pandey 1981</a>, <a href="#1993-Pla-Cisregulatory-PMB">Pla et al. 1993</a>)
 </span>
 .</p>
@@ -378,7 +376,7 @@ a &#61; &#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#93;</code></pre>
 </li>
  
 </fieldset>
-
+</p>
 <h3 id="flaws"><a href="#flaws" class="header-anchor">Flaws</a></h3>
 <p>There are several flaws for this primary implementation:</p>
 <ul>
@@ -391,7 +389,7 @@ a &#61; &#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#93;</code></pre>
 </ul>
 <div class="indent-block" style="margin-left: 2em !important"> <div class="aadmon aadmon-info"> say if you insert two articles published on 2022 by <code>Wang Dabao</code> and <code>Wang Erbao</code> respectively, the indexes would both be <code>Wang 2022</code>, which should be <code>Wang 2022a</code> and <code>Wang 2022b</code>, but the links are correct, so I&#39;ll live with it <span class="cadmon sadmon-todo">&#40;after all, it&#39;s a blog, not a journal&#41;</span>.</div> </div>
 <h3 id="thats_it_for_now"><a href="#thats_it_for_now" class="header-anchor">That&#39;s It&#33; For now&#33;</a></h3>
-<div class="aadmon aadmon-warn"> Feel free to use mine implementation on your blogs&#33;<br> And let me know if there are &#40;there sure will be or already been&#41; better solutions&#33;</div>
+<div class="indent-block" style="margin-left: 2em !important"> <div class="aadmon aadmon-warn"> Feel free to use mine implementation on your blogs&#33;<br> And let me know if there are &#40;there sure will be or already been&#41; better solutions&#33;</div> </div>
 
 
 </div>
@@ -420,7 +418,7 @@ a &#61; &#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#93;</code></pre>
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: October 15, 2022.
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 28, 2022.
 
             <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">

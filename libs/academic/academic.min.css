@@ -11640,6 +11640,7 @@ div.alert a {
 @media(max-width:991.98px) {
     .navbar-brand-mobile-wrapper {
         position: absolute;
+        width:50%;
         left: 0;
         right: 0
     }
