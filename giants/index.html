@@ -72,7 +72,16 @@
 </head>
 
 <body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
-
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
@@ -99,6 +108,22 @@
             </ul>
         </div>
         <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
             <form action="https://bing.com/search" id="searchForm">
                 <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
                 <div class="search"></div>
@@ -115,7 +140,7 @@
                     return false;
                 };
             </script>
-        </div>
+        </div> -->
         <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
         <div class="nav-icon">
             <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
@@ -197,7 +222,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="http://hypervolu.me/~erik/erik_garrison.html" target=_blank rel=noopener>
-    <span class="sadmon sadmon-tip">Erik Garrison</span>
+    <span class="sadmon sadmon-warn">Erik Garrison</span>
 </a>
 
 </span>
@@ -215,7 +240,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://jokergoo.github.io/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-warn">Zuguang Gu</span>
+    <span class="sadmon sadmon-todo">Zuguang Gu</span>
 </a>
 
 </span>
@@ -233,7 +258,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://github.com/orgs/OpenMendel/repositories" target=_blank rel=noopener>
-    <span class="sadmon sadmon-error">OpenMendel</span>
+    <span class="sadmon sadmon-note">OpenMendel</span>
 </a>
 
 </span>
@@ -251,7 +276,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://github.com/orgs/BioJulia/repositories" target=_blank rel=noopener>
-    <span class="sadmon sadmon-tip">BioJulia</span>
+    <span class="sadmon sadmon-info">BioJulia</span>
 </a>
 
 </span>
@@ -269,7 +294,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://github.com/orgs/pangenome/repositories" target=_blank rel=noopener>
-    <span class="sadmon sadmon-hack">pangenome</span>
+    <span class="sadmon sadmon-todo">pangenome</span>
 </a>
 
 </span>
@@ -287,7 +312,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://github.com/neherlab/pangraph" target=_blank rel=noopener>
-    <span class="sadmon sadmon-hack">pangraph</span>
+    <span class="sadmon sadmon-warn">pangraph</span>
 </a>
 
 </span>
@@ -323,7 +348,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://viralinstruction.com/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-tip">Jakob Nybo Nissen</span>
+    <span class="sadmon sadmon-hack">Jakob Nybo Nissen</span>
 </a>
 
 </span>
@@ -341,7 +366,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://shixiangwang.github.io/weekly/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-note">Bioinfo weekly</span>
+    <span class="sadmon sadmon-tip">Bioinfo weekly</span>
 </a>
 
 </span>
@@ -403,7 +428,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://swarma.org/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-tip">Swarma Club</span>
+    <span class="sadmon sadmon-todo">Swarma Club</span>
 </a>
 
 </span>
@@ -421,7 +446,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="http://captainbed.top/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-tip">CaptainBed-AI_Tutorial</span>
+    <span class="sadmon sadmon-note">CaptainBed-AI_Tutorial</span>
 </a>
 
 </span>
@@ -439,7 +464,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://a2htray.github.io/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-warn">Mozart's Sheet</span>
+    <span class="sadmon sadmon-hack">Mozart's Sheet</span>
 </a>
 
 </span>
@@ -457,7 +482,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://www.oxinabox.net/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-info">Frames Catherine White</span>
+    <span class="sadmon sadmon-hack">Frames Catherine White</span>
 </a>
 
 </span>
@@ -475,7 +500,7 @@
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="https://www.johnmyleswhite.com/" target=_blank rel=noopener>
-    <span class="sadmon sadmon-todo">JOHN MYLES WHITE</span>
+    <span class="sadmon sadmon-info">JOHN MYLES WHITE</span>
 </a>
 
 </span>
