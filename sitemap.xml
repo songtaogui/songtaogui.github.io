@@ -452,8 +452,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2018\05\repeatmasker-usage\index.html</loc>
-    <lastmod>2022-09-13</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\work\zeamap_homepage_stats\index.html</loc>
+    <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -482,13 +482,13 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\08\docker%E5%92%8Csingularity%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B\index.html</loc>
-    <lastmod>2022-10-31</lastmod>
+    <loc>https://songtaogui.github.io/posts\2018\05\repeatmasker-usage\index.html</loc>
+    <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\08\notes_on_franklin_gramma\index.html</loc>
+    <loc>https://songtaogui.github.io/posts\2022\08\docker%E5%92%8Csingularity%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B\index.html</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -496,6 +496,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\NaturalSelection\index.html</loc>
     <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/posts\2022\08\notes_on_franklin_gramma\index.html</loc>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
