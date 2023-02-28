@@ -116,11 +116,11 @@ do
         elif [[ "$encode" == "encrypt = 3" ]];then
             PSWD=$FRANKLINPSWD3
         fi
+        gst_log "PSWD: ${PSWD}"
         if [[ -z "${PSWD}" ]]; then
             gst_err "no password detected! Please check the env!"
             exit 1
         fi
-        gst_log "PSWD: ${PSWD} "
         # get the html file:
         htmlfile=$(echo "$mdfile" | perl -pe '
             s/^\.\//\.\/__site\//;
