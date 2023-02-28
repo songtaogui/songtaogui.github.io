@@ -3,13 +3,14 @@
 
 # set -o xtrace
 # set -o errexit
-# set -o nounset
+set -o nounset
 set -o pipefail
 
 # >>>>>>>>>>>>>>>>>>>>>>>> Load Common functions >>>>>>>>>>>>>>>>>>>>>>>>
 export quiet=FALSE
 export verbose=TRUE
 source $EASYBASH/lib/common.sh
+source ~/.gst_config/path.cfg
 if [ $? -ne 0 ];then 
     echo -e "\033[31m\033[7m[ERROR]\033[0m --> Cannot load common functions from easybash lib: $EASYBASH" >&2
     exit 1;
