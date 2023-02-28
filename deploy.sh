@@ -24,7 +24,7 @@ Deploy my blog on github:
 1. find all markdown files that had "encrypt = true", and encrypt the related html file;
 2. cd to "__site" dir, "git add .", "git commit" and "git push"
 ------------------------------------------------------------
-Dependence:
+Dependence: staticrypt
 ------------------------------------------------------------
 USAGE:
     bash $(basename $0) [OPTIONS]
@@ -45,6 +45,8 @@ EOF
     # echo "$usage" >&2
     # exit 1
 # fi
+
+check_sftw_path staticrypt
 
 # >>>>>>>>>>>>>>>>>>>>>>>> Parse Options >>>>>>>>>>>>>>>>>>>>>>>>
 # Set Default Opt
@@ -108,11 +110,11 @@ do
         PSWD=""
         CRPYT="FALSE"
         if [[ "$encode" == "encrypt = 1" ]];then
-            PSWD=$PERSONALPSWD
+            PSWD=$FRANKLINPSWD1
         elif [[ "$encode" == "encrypt = 2" ]];then
-            PSWD=$WORKPSWD
+            PSWD=$FRANKLINPSWD2
         elif [[ "$encode" == "encrypt = 3" ]];then
-            PSWD=$WORKPSWD2
+            PSWD=$FRANKLINPSWD3
         fi
         if [[ -z "${PSWD}" ]]; then
             gst_err "no password detected! Please check the env!"

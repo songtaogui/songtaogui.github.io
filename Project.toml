@@ -2,6 +2,7 @@
 DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
 FranklinUtils = "dcd8a645-c81d-482f-af4b-568f72f3e16d"
 PlotlyJS = "f0f68f2c-4968-5e81-91da-67840de0976a"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 Shuffle = "bf21e494-c40e-4daa-abfb-de5ec0aad010"
 VegaDatasets = "0ae4a718-28b7-58ec-9efb-cded64d6d5b4"
