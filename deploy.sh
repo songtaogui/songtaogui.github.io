@@ -120,6 +120,7 @@ do
             gst_err "no password detected! Please check the env!"
             exit 1
         fi
+        gst_log "PSWD: ${PSWD} "
         # get the html file:
         htmlfile=$(echo "$mdfile" | perl -pe '
             s/^\.\//\.\/__site\//;
