@@ -9,8 +9,8 @@ set -o pipefail
 # >>>>>>>>>>>>>>>>>>>>>>>> Load Common functions >>>>>>>>>>>>>>>>>>>>>>>>
 export quiet=FALSE
 export verbose=TRUE
-source $EASYBASH/lib/common.sh
 source ~/.gst_config/path.cfg
+source $EASYBASH/lib/common.sh
 if [ $? -ne 0 ];then 
     echo -e "\033[31m\033[7m[ERROR]\033[0m --> Cannot load common functions from easybash lib: $EASYBASH" >&2
     exit 1;
@@ -94,7 +94,60 @@ if [ "${#UNKOWN_ARGS[@]}" -gt 0 ];then
 fi
 unset UNKOWN_ARGS # restore UNKOWN_ARGS params
 # <<<<<<<<<<<<<<<<<<<<<<<< Parse Options <<<<<<<<<<<<<<<<<<<<<<<<
-
+gst_log "Check ref.bib and format ..."
+# check if the ref.bib has been updated with md5
+if ! md5sum -c _assets/citedb/ref.bib.md5 1>/dev/null 2>&1; then
+    gst_rcd "ref.bib has been updated, re-format it ..."
+    # remove the file and abstract track from bib
+    mv _assets/citedb/ref.bib _assets/citedb/ref.bib.bak &&\
+    perl -pe '
+        s/^\s*file = \{.*\},\s*$//g;
+        s/^\s*abstract = \{.*\},\s*$//g;
+    ' _assets/citedb/ref.bib.bak |\
+    perl -lane '
+        # keep only intact records:
+        # records with title, author|editor, year, journal|publisher
+        if(/^@/){
+            $cur_key = $F[0];
+            $cur_key =~ s/@.*?\{(.*),$/$1/;
+            @cur_record = ();
+            $in_record = 1;
+            $abstract = 0;
+            $valid_score = 0;
+            push @cur_record, $_;
+        }elsif($in_record){
+            # skip abstract record
+            if(/^\s*abstract = /){
+                $abstract = 1;
+            }elsif(/^\s*\}/ and $abstract == 1){
+                $abstract = 0;
+                next;
+            }
+            push @cur_record, $_ if $abstract == 0;
+            if(/^}/){
+                $in_record = 0;
+                foreach $line (@cur_record){
+                    if( $line =~ /^\s*title = / or
+                        $line =~ /^\s*(author|editor) = / or
+                        $line =~ /^\s*year/ or
+                        $line =~ /^\s*(journal|publisher) = /)
+                    {
+                        $valid_score ++;
+                    }
+                }
+                if($valid_score >= 4){
+                    print join("\n", @cur_record);
+                }else{
+                    print STDERR "\033[35m[WARNING]\033[0m -->","Skip invalid record:$cur_key";
+                }
+            }
+        }
+    ' > _assets/citedb/ref.bib &&\
+    md5sum _assets/citedb/ref.bib > _assets/citedb/ref.bib.md5
+    if [ $? -ne 0 ];then gst_err "md5sum ref.bib failed: Non-zero exit"; exit 1;fi
+else
+    gst_rcd "ref.bib has not been updated, skip re-format ..."
+fi
 
 gst_log "Encrypting private files ..."
 
