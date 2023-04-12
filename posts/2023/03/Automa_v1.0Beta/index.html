@@ -293,14 +293,14 @@ end;</code></pre>
 <h2 id="buffer_validator"><a href="#buffer_validator" class="header-anchor">Buffer validator</a></h2>
 <code>generate_buffer_validator&#40;name::Symbol, regexp::RE; goto&#61;true; docstring&#61;true&#41;</code>
 <p>function <code>generate_buffer_validator</code> to generate a function that matches certain regex in the <strong>buffer</strong>:</p>
-<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
 <pre><code class="language-julia"># generate a function names validate_fasta:
 eval&#40;generate_buffer_validator&#40;:validate_fasta, fasta_regex&#41;&#41;;
 # use it:
 validate_fasta&#40;&quot;&gt;hello\nTAGAGA\nTAGAG&quot;&#41; # missing trailing newline, return 0
 validate_fasta&#40;&quot;&gt;helloXXX&quot;&#41; # Error at byte index 7, return 7
 validate_fasta&#40;&quot;&gt;hello\nTAGAGA\nTAGAG\n&quot;&#41; # it matches, return nothing</code></pre>
-<p><div class="code-lag">julia</div></fieldset> &#125;</p>
+<p><div class="code-lag">julia</div></fieldset>
 <h2 id="io_validators"><a href="#io_validators" class="header-anchor">IO validators</a></h2>
 <code>generate_io_validator&#40;funcname::Symbol, regex::RE; goto::Bool&#61;false&#41;</code>
 <p>function <code>generate_io_validator</code> to generate a function that matches certain regex in the <strong>IO stream</strong> for large files that cannot read into buffer. <span class="sadmon sadmon-note">Load <code>TranscodingStreams</code>before <code>Automa</code> to use the IO validator</span>.</p>
@@ -483,7 +483,7 @@ make_tokenizer&#40;&#40;error,
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: March 15, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: April 12, 2023.
 
             <!-- <span class="float-right" aria-hidden="true">
         <a href="#" class="back-to-top">
