@@ -7,8 +7,8 @@
     <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
     <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="Demo">
-    <title>Demo</title>
+    <meta name="keywords" content="Slide Title">
+    <title>Slide Title</title>
     
 
 
@@ -48,31 +48,43 @@
 
 <div class="slides">
 
-<section > <div data-animate data-src="animate/heart.svg">
-    <!--{"setup": [
-    {
-    "element": "#heart", 
-    "modifier": "function() {
-        this.animate(100).ease('<>').scale(.99).loop(true,true);
-    }"
-}
 
-]
-}-->
+<section >
 
-</div>
- </section>
-<section > 
-<div style="height: 480px; width:900px;"><canvas data-chart="bar">
-Month, January, February, March, April, May, June, July
-D1, 65, 59, 80, 81, 56, 55, 40
-D2, 28, 48, 40, 19, 86, 27, 90
-D3, 38, 58, 20, 39, 66, 57, 40
-D4, 48, 48, 40, 49, 46, 47, 40
-D5, 68, 68, 60, 69, 66, 67, 60
-D6, 88, 88, 80, 89, 86, 87, 80
-</canvas></div>
- </section>
+ <section data-auto-animate>
+    <pre data-id="code-animation"><code data-trim data-line-numbers>
+            let planets = [
+            { name: 'mars', diameter: 6779 },
+            ]
+        </code></pre>
+</section>
+<section data-auto-animate>
+    <pre data-id="code-animation"><code data-trim data-line-numbers>
+            let planets = [
+            { name: 'mars', diameter: 6779 },
+            { name: 'earth', diameter: 12742 },
+            { name: 'jupiter', diameter: 139820 }
+            ]
+        </code></pre>
+</section>
+<section data-auto-animate>
+    <pre data-id="code-animation"><code data-trim data-line-numbers>
+            let circumferenceReducer = ( c, planet ) => {
+            return c + planet.diameter * Math.PI;
+            }
+        
+            let planets = [
+            { name: 'mars', diameter: 6779 },
+            { name: 'earth', diameter: 12742 },
+            { name: 'jupiter', diameter: 139820 }
+            ]
+        
+            let c = planets.reduce( circumferenceReducer, 0 )
+        </code></pre>
+</section>
+
+</section>
+
 
 </div>
 
