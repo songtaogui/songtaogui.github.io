@@ -224,6 +224,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\VegaLite\05_Scales\index.html</loc>
+    <lastmod>2023-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelLocationScores\index.html</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -614,6 +620,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\VegaLite\04_trigger_projection\index.html</loc>
+    <lastmod>2023-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Distributions\index.html</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -628,12 +640,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\index.html</loc>
     <lastmod>2022-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/notebooks\VegaLite\04_triggers\index.html</loc>
-    <lastmod>2023-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
