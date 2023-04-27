@@ -10,14 +10,14 @@
     <meta name="author" content="Songtao Gui">
 
     
-    <meta name="description" content="OpenMendel系列-ADMIXTURE包用法。
+    <meta name="description" content="OpenMendel系列-ADMIXTURE和OpenADMIXTURE用法。
 ">
     
 
     
     
-    <meta name="keywords" content="OpenMendel系列-ADMIXTURE包">
-    <title>OpenMendel系列-ADMIXTURE包</title>
+    <meta name="keywords" content="OpenMendel系列-ADMIXTURE和OpenADMIXTURE">
+    <title>OpenMendel系列-ADMIXTURE和OpenADMIXTURE</title>
     
 
     <link rel="icon" href="/assets/favicon.svg">
@@ -49,7 +49,7 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
 
 
 
@@ -163,7 +163,7 @@
     
     <article class=article>
         <div class="article-container pt-3">
-             <h1>OpenMendel系列-ADMIXTURE包</h1> 
+             <h1>OpenMendel系列-ADMIXTURE和OpenADMIXTURE</h1> 
         </div>
         
         <div class="article-container">
@@ -175,7 +175,115 @@
                 
                 <div class="franklin-content">
 <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/julia/">julia</a>, <a href="/tag/openmendel/">openmendel</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#admixturejl">ADMIXTURE.jl</a></li><li><a href="#openadmixturejl">OpenADMIXTURE.jl</a><ol><li><a href="#安装">安装</a></li><li><a href="#用法">用法</a></li><li><a href="#多线程">多线程</a></li><li><a href="#gpu支持">GPU支持</a></li><li><a href="#admixdata">AdmixData</a></li></ol></li></ol></div>
+<h1 id="admixturejl"><a href="#admixturejl" class="header-anchor">ADMIXTURE.jl</a></h1>
 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> ADMIXTURE.jl</legend>
+ <code>ADMIXTURE.jl</code>是<a href="https://dalexander.github.io/admixture/download.html">ADMIXTURE</a>的julia包装器, 等于直接运行ADMIXTURE再加了个Julia的壳, 就不赘述了, 直接学习<code>OpenADMIXTURE.jl</code>。 
+</fieldset>
+
+<h1 id="openadmixturejl"><a href="#openadmixturejl" class="header-anchor">OpenADMIXTURE.jl</a></h1>
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> OpenADMIXTURE.jl</legend>
+</p>
+<ul>
+<li><p>是ADMIXTURE的julia重新实现, 采用更高效的多线程方案, 比原软件快8倍; 支持CUDA GPU计算; 输入为PLINK BED格式, 内存使用更小&#40;比<code>Float32</code>,<code>Float64</code>小16x-32x&#41;。</p>
+</li>
+<li><p>假定个体不相关, 使用ML估计SNP的基因型数据祖先状态。支持利用<code>sparse K-means via feature ranking</code> &#40;<a href="https://github.com/kose-y/SKFR.jl">SKFR</a>&#41;方法选择SNP子集运行。</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="安装"><a href="#安装" class="header-anchor">安装</a></h2>
+<ul>
+<li><p>Julia v1.6&#43;</p>
+</li>
+</ul>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 安装软件包
+using Pkg
+pkg&quot;add https://github.com/kose-y/SKFR.jl&quot;
+pkg&quot;add https://github.com/OpenMendel/OpenADMIXTURE.jl&quot;
+# 安装示例应用相关包
+pkg&quot;add SnpArrays CSV DelimitedFiles&quot;
+# GPU支持
+pkg&quot;add CUDA&quot;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="用法"><a href="#用法" class="header-anchor">用法</a></h2>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using LinearAlgebra, Random, SnpArrays
+using OpenADMIXTURE
+using CSV, DelimitedFiles
+
+# 获取测试数据
+filename &#61; SnpArrays.datadir&#40;&quot;EUR_subset.bed&quot;&#41;;
+
+# 核心函数 run_admixture&#40;&#41;
+# 不使用SKFR:
+d, clusters, aims &#61; OpenADMIXTURE.run_admixture&#40;filename, 4; T&#61;Float64, use_gpu&#61;false, rng&#61;MersenneTwister&#40;7856&#41;&#41;
+# 使用SKFR:
+d, clusters, aims &#61; OpenADMIXTURE.run_admixture&#40;filename, 4; T&#61;Float64, use_gpu&#61;false, rng&#61;MersenneTwister&#40;7856&#41;, sparsity&#61;10000, admix_rtol&#61;1e-7, prefix&#61;&quot;./EUR_subset&quot;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> Note</legend>
+ <code>run_admixture&#40;&#41;</code>参数说明:</p>
+<span class="cadmon sadmon-note">输入</span>
+<ol>
+<li><p><code>T</code>: 估计精度, <code>Float64</code>或<code>Float32</code>, 默认是<code>Float64</code>;</p>
+</li>
+<li><p><code>use_gpu</code>: 是否使用GPU, 默认<code>false</code>;</p>
+</li>
+<li><p><code>rng</code>: 随机数生成方法, 默认<code>Random.GLOBAL_RNG</code>, 采用<code>MersenneTwister</code>是SKFR.jl包中推荐用法, 好像是可以在多线程中稳定随机;</p>
+</li>
+<li><p><code>prefix</code>: SKFR输出的SNP bed文件的前缀, 输出文件格式<code>&#36;&#40;prefix&#41;_&#36;&#40;k&#41;_&#36;&#40;sparsity&#41;aims.bed</code>;</p>
+</li>
+<li><p><code>sparsity</code>: SKFR选择的SNP数量, 默认<code>nothing</code>&#40;跳过SKFR&#41;;</p>
+</li>
+<li><p><code>skfr_tries</code>: 运行SKFR多次并选择最佳集群, 默认<code>1</code>;</p>
+</li>
+<li><p><code>skfr_max_inner_iter</code>: 运行每个SKFR最多迭代次数或直到收敛, 默认<code>50</code>;</p>
+</li>
+<li><p><code>admix_n_iter</code>: ADMIXTURE的最大迭代次数, 默认<code>1000</code>;</p>
+</li>
+<li><p><code>admix_rtol</code>: 根据对数似然的相对变化收敛标准, 默认<code>1e-7</code>;</p>
+</li>
+<li><p><code>admix_n_em_iter</code>: EM迭代次数, 用于获得最佳初始值, 默认<code>5</code>;</p>
+</li>
+<li><p><code>Q</code>: <code>quasi-Newton acceleration</code>中的步数&#40;不知道干啥的&#41;, 默认<code>3</code>;</p>
+</li>
+</ol>
+<p><span class="cadmon sadmon-note">输出</span>: <code>&#40;d,clusters,aims&#41;</code></p>
+<ul>
+<li><p><code>d</code>: Admixture结果数据结构<code>AdmixData</code>, 有很多信息, 其中<code>d.p</code>存储<code>AF</code>, <code>d.q</code>存储<code>admixture proportions</code>;</p>
+</li>
+<li><p><code>clusters</code>: 样本聚类标签, 如果<code>sparsity &#61;&#61; nothing</code>则不输出;</p>
+</li>
+<li><p><code>aims</code>: SKFR所选的SNP索引, 按照重要性降序排列, 如果<code>sparsity &#61;&#61; nothing</code>则不输出;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="多线程"><a href="#多线程" class="header-anchor">多线程</a></h2>
+<p>默认使用julia占用的线程数, 所以启动julia的时候设置多线程: <code>julia -t 8</code></p>
+<h2 id="gpu支持"><a href="#gpu支持" class="header-anchor">GPU支持</a></h2>
+<p><code>use_gpu &#61; true</code>开启GPU, 将会把<code>gradients and Hessians of the loglikelihood</code>计算放到GPU中执行。</p>
+<h2 id="admixdata"><a href="#admixdata" class="header-anchor">AdmixData</a></h2>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">AdmixData&#123;T&#125;&#40;I, J, K, Q; skipmissing&#61;true, rng&#61;Random.GLOBAL_RNG&#41;
+Constructor for Admixture information.
+
+Arguments:
+- I: Number of samples
+- J: Number of variants
+- K: Number of clusters
+- Q: Number of steps used for quasi-Newton update
+- skipmissing: skip computation of loglikelihood for missing values. Should be kept &#96;true&#96; in most cases
+- rng: Random number generation.
+- 还有其他一堆...</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
 
 
 </div>
@@ -205,7 +313,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: October 25, 2022.
+            <strong>&copy; Songtao Gui</strong>. Last modified: April 27, 2023.
           </p>
     </footer>
     
@@ -220,7 +328,9 @@
 
 <!-- CONTENT ENDS HERE -->
 
-
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
