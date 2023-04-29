@@ -404,6 +404,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Queryverse\index.html</loc>
+    <lastmod>2023-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\Julia_v1.8_%E6%96%B0%E7%89%B9%E6%80%A7\index.html</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -442,6 +448,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelAimSelection\index.html</loc>
     <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\Bioinformatics\Graph_Genome\index.html</loc>
+    <lastmod>2023-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -681,7 +693,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\Zh\index.html</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
