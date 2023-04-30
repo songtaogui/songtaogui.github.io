@@ -69,7 +69,7 @@ LARGER with right-toc
 	--code-font: SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
 	--code-size: .875em;
-	--code-col: #6d56d3;
+	--code-col: #7e6eb5;
 
 	/* --------------
      COLOUR PALETTE
@@ -342,7 +342,11 @@ a {
 code {
 	font-family: var(--code-font);
 	font-size: var(--code-size);
+	padding-left: .2em;
+	padding-right: .2em;
 	color: var(--code-col);
+	background-color: #f1f3f4;
+	border-radius: .2em .2em .2em .2em;
 	word-wrap: break-word;
 }
 
