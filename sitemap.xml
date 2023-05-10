@@ -369,7 +369,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\index.html</loc>
-    <lastmod>2023-05-10</lastmod>
+    <lastmod>2022-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -482,12 +482,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\private\random_ideas\index.html</loc>
-    <lastmod>2023-05-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2016\12\photoshop_gif_wechat\index.html</loc>
     <lastmod>2022-09-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -542,12 +536,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\work\MaizeMethylML_note\index.html</loc>
-    <lastmod>2022-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/notebooks\work\zeamap_homepage_stats\index.html</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -560,8 +548,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Bootstrap\index.html</loc>
-    <lastmod>2023-04-30</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -602,14 +590,20 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Bootstrap\index.html</loc>
+    <lastmod>2023-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\TimeSeries\index.html</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
-    <lastmod>2023-04-27</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\index.html</loc>
+    <lastmod>2023-05-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -620,8 +614,20 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
+    <lastmod>2023-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2022\08\add_visitor_stat_to_my_blog\index.html</loc>
     <lastmod>2022-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\private\random_ideas\index.html</loc>
+    <lastmod>2023-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -650,8 +656,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\ADMIXTURE\index.html</loc>
-    <lastmod>2023-04-27</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\index.html</loc>
+    <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -734,6 +740,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\work\MaizeMethylML_note\index.html</loc>
+    <lastmod>2022-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2017\03\sicer-usage\index.html</loc>
     <lastmod>2022-09-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -753,7 +765,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/index.html</loc>
-    <lastmod>2023-05-10</lastmod>
+    <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -790,6 +802,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\09\intervaltrees_and_genomicfeatures_usage\index.html</loc>
     <lastmod>2022-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\ADMIXTURE\index.html</loc>
+    <lastmod>2023-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
