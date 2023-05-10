@@ -22,6 +22,29 @@
 
     <link rel="icon" href="/assets/favicon.svg">
 
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
     
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -58,9 +81,9 @@
 
 
     <!-- Vega -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <style media="screen">
         /* Add space between Vega-Embed links  */
@@ -230,7 +253,7 @@
  
 <div id="vis785"></div>
 <script>
-    var opt = {renderer: "svg"};
+    var opt = {renderer: "canvas"};
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
         "data": {"url": "/assets/data/movies.json"},
@@ -1427,7 +1450,7 @@
  
 <div id="vis1190"></div>
 <script>
-    var opt = {renderer: "svg"};
+    var opt = {renderer: "canvas"};
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
         "data": {
@@ -1529,9 +1552,9 @@
 </td>
 <td id="lov" width="50%" height=90% align="left">
  
-<div id="纸294"></div>
+<div id="1294"></div>
 <script>
-    var opt = {renderer: "svg"};
+    var opt = {renderer: "canvas"};
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
         "data": {
@@ -1578,7 +1601,7 @@
     }
   ]
     };
-    vegaEmbed('#纸294', vlSpec, opt);
+    vegaEmbed(' 1294294', vlSpec, opt);
 </script>
  
 </td>
@@ -1971,7 +1994,7 @@
 
 <div id="vis1760"></div>
 <script>
-    var opt = {renderer: "svg"};
+    var opt = {renderer: "canvas"};
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
         "data": {
@@ -2785,7 +2808,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: April 25, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: April 30, 2023.
           </p>
     </footer>
     

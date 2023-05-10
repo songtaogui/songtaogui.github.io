@@ -13,12 +13,35 @@
 
     
     
-    <meta name="keywords" content="Work related things">
-    <title>Work related things</title>
+    <meta name="keywords" content="MaizeMethylML_note">
+    <title>MaizeMethylML_note</title>
     
 
     <link rel="icon" href="/assets/favicon.svg">
 
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
     
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -46,7 +69,7 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
 
 
 
@@ -54,9 +77,9 @@
 
 
     <!-- Vega -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <style media="screen">
         /* Add space between Vega-Embed links  */
@@ -160,7 +183,7 @@
     
     <article class=article>
         <div class="article-container pt-3">
-             <h1>Work related things</h1> 
+             <h1>MaizeMethylML_note</h1> 
         </div>
         
         <div class="article-container">
@@ -176,11 +199,11 @@
     <div class="row "></p>
 <div class="col-12 col-lg-8"><div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">1</span>
+<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">1</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\work\wlab_wpy" rel=noopener>
-    <span class="sadmon sadmon-tip">wlab_wpy</span>
+    <span class="sadmon sadmon-todo">wlab_wpy</span>
 </a>
 
 </span>
@@ -192,11 +215,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\work\zeamap_homepage_stats" rel=noopener>
-    <span class="sadmon sadmon-error">zeamap_homepage_stats</span>
+    <span class="sadmon sadmon-note">zeamap_homepage_stats</span>
 </a>
 
 </span>
@@ -208,11 +231,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">3</span>
+<span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">3</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\work\zeamap-pheno-meta" rel=noopener>
-    <span class="sadmon sadmon-error">Zeamap 表型和代谢整理需求</span>
+    <span class="sadmon sadmon-info">Zeamap 表型和代谢整理需求</span>
 </a>
 
 </span>
@@ -240,11 +263,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
+<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\work\zeamap-req-1027" rel=noopener>
-    <span class="sadmon sadmon-todo">zeamap-需求讨论-1027</span>
+    <span class="sadmon sadmon-warn">zeamap-需求讨论-1027</span>
 </a>
 
 </span>
@@ -262,7 +285,18 @@
 <!-- article style -->
 
 
+ <hr>
 
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
 
 <div class="container">
     
@@ -289,7 +323,9 @@
 
 <!-- CONTENT ENDS HERE -->
 
-
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>

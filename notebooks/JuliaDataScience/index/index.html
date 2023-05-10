@@ -22,6 +22,29 @@
 
     <link rel="icon" href="/assets/favicon.svg">
 
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
     
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -57,9 +80,9 @@
 
 
     <!-- Vega -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <style media="screen">
         /* Add space between Vega-Embed links  */
@@ -180,11 +203,11 @@
     <div class="row "></p>
 <div class="col-12 col-lg-8"><div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">1</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">1</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Bootstrap" rel=noopener>
-    <span class="sadmon sadmon-info">Julia数据科学系列-Bootstrap包</span>
+    <span class="sadmon sadmon-error">Julia数据科学系列-Bootstrap包</span>
 </a>
 
 </span>
@@ -199,11 +222,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-hack" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
+<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\CategoricalArrays" rel=noopener>
-    <span class="sadmon sadmon-hack">Julia数据科学系列-CategoricalArrays包</span>
+    <span class="sadmon sadmon-tip">Julia数据科学系列-CategoricalArrays包</span>
 </a>
 
 </span>
@@ -218,11 +241,30 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">3</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">3</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaDataScience\CausalInference" rel=noopener>
+    <span class="sadmon sadmon-error">Julia数据科学系列-CausalInference包</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>Julia数据科学系列-CausalInference包用法。</p>
+</div>
+
+
+</div>
+</div>
+
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">4</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Clustering" rel=noopener>
-    <span class="sadmon sadmon-note">Julia数据科学系列-Clustering包</span>
+    <span class="sadmon sadmon-info">Julia数据科学系列-Clustering包</span>
 </a>
 
 </span>
@@ -237,7 +279,7 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">4</span>
+<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\CSV" rel=noopener>
@@ -256,11 +298,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
+<span class="Sadmon Sadmon-hack" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">6</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\DataFrames" rel=noopener>
-    <span class="sadmon sadmon-tip">Julia数据科学系列-DataFrames包</span>
+    <span class="sadmon sadmon-hack">Julia数据科学系列-DataFrames包</span>
 </a>
 
 </span>
@@ -275,11 +317,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">6</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">7</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Distances" rel=noopener>
-    <span class="sadmon sadmon-todo">Julia数据科学系列-Distances包</span>
+    <span class="sadmon sadmon-error">Julia数据科学系列-Distances包</span>
 </a>
 
 </span>
@@ -294,7 +336,7 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">7</span>
+<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">8</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Distributions" rel=noopener>
@@ -313,7 +355,7 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">8</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">9</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\GLM" rel=noopener>
@@ -332,11 +374,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">9</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">10</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\HypothesisTests" rel=noopener>
-    <span class="sadmon sadmon-note">Julia数据科学系列-HypothesisTests包</span>
+    <span class="sadmon sadmon-error">Julia数据科学系列-HypothesisTests包</span>
 </a>
 
 </span>
@@ -351,11 +393,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">10</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">11</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\KernelDensity" rel=noopener>
-    <span class="sadmon sadmon-error">Julia数据科学系列-KernelDensity包</span>
+    <span class="sadmon sadmon-note">Julia数据科学系列-KernelDensity包</span>
 </a>
 
 </span>
@@ -370,11 +412,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-hack" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">11</span>
+<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">12</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Loess" rel=noopener>
-    <span class="sadmon sadmon-hack">Julia数据科学系列-Loess包</span>
+    <span class="sadmon sadmon-tip">Julia数据科学系列-Loess包</span>
 </a>
 
 </span>
@@ -389,11 +431,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">12</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">13</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\MixedModels" rel=noopener>
-    <span class="sadmon sadmon-note">Julia数据科学系列-MixedModels包</span>
+    <span class="sadmon sadmon-error">Julia数据科学系列-MixedModels包</span>
 </a>
 
 </span>
@@ -408,11 +450,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">13</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">14</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\MultivariateStats" rel=noopener>
-    <span class="sadmon sadmon-warn">Julia数据科学系列-MultivariateStats包</span>
+    <span class="sadmon sadmon-note">Julia数据科学系列-MultivariateStats包</span>
 </a>
 
 </span>
@@ -427,11 +469,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">14</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">15</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\ShiftedArrays" rel=noopener>
-    <span class="sadmon sadmon-warn">Julia数据科学系列-ShiftedArrays包</span>
+    <span class="sadmon sadmon-note">Julia数据科学系列-ShiftedArrays包</span>
 </a>
 
 </span>
@@ -446,11 +488,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">15</span>
+<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">16</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Statistics" rel=noopener>
-    <span class="sadmon sadmon-tip">Julia数据科学系列-Statistics-julia统计标准库</span>
+    <span class="sadmon sadmon-warn">Julia数据科学系列-Statistics-julia统计标准库</span>
 </a>
 
 </span>
@@ -465,7 +507,7 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">16</span>
+<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">17</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\StatsBase" rel=noopener>
@@ -484,11 +526,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-hack" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">17</span>
+<span class="Sadmon Sadmon-todo" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">18</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\TimeSeries" rel=noopener>
-    <span class="sadmon sadmon-hack">Julia数据科学系列-TimeSeries包</span>
+    <span class="sadmon sadmon-todo">Julia数据科学系列-TimeSeries包</span>
 </a>
 
 </span>
@@ -503,17 +545,36 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">18</span>
+<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">19</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaDataScience\Queryverse" rel=noopener>
-    <span class="sadmon sadmon-error">Julia数据科学系列-Queryverse系列包</span>
+    <span class="sadmon sadmon-tip">Julia数据科学系列-Queryverse系列包</span>
 </a>
 
 </span>
 
 <hr style="margin: 0rem">
 <div class=card-text><p>学习 Queryverse 系列工具使用</p>
+</div>
+
+
+</div>
+</div>
+
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">20</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaDataScience\Tidier" rel=noopener>
+    <span class="sadmon sadmon-note">Julia数据科学系列-TidierOrg</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>用R的Tidyverse语法封装Julia的数据处理包, 让R语言用户无缝切换Julia。</p>
 </div>
 
 

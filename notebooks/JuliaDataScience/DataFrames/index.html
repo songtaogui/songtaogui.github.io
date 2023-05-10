@@ -22,6 +22,29 @@
 
     <link rel="icon" href="/assets/favicon.svg">
 
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
     
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -57,9 +80,9 @@
 
 
     <!-- Vega -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <style media="screen">
         /* Add space between Vega-Embed links  */
@@ -225,8 +248,8 @@ german.Sex
 german.&quot;Sex&quot;
 german&#91;&#33;, :Sex&#93;
 german&#91;&#33;, &quot;Sex&quot;&#93;
-name&#40;german&#41;
-name&#40;german, AbstractString&#41; # 获取指定类型列的名字
+names&#40;german&#41;
+names&#40;german, AbstractString&#41; # 获取指定类型列的名字
 propertynames&#40;german&#41; # 获取Symbols格式的名字
 eachcol&#40;german&#41; # 按列迭代
 empty, empty&#33;   # 删除行, 但保留列数&#40;维度&#41;
@@ -1349,7 +1372,7 @@ end</code></pre>
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: April 29, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: May 05, 2023.
           </p>
     </footer>
     

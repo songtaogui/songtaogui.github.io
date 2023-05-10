@@ -1,2 +1,6 @@
-.DS_Store
-src
+.*
+__site
+Backups
+blob_storage
+*Cache
+Service*
