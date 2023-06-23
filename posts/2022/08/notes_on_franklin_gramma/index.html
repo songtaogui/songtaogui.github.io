@@ -1,0 +1,521 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="learn franklin's markdown gramma and make some DIY
+">
+    
+
+    
+    
+    <meta name="keywords" content="Notes on franklin's gramma">
+    <title>Notes on franklin's gramma</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>Notes on franklin's gramma</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/franklin/">franklin</a>, <a href="/tag/hack/">hack</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#franklin_syntax">Franklin syntax</a><ol><li><a href="#markdown">Markdown</a></li><li><a href="#divs_and_commands">Divs and Commands</a></li><li><a href="#citations">Citations</a></li><li><a href="#page_variables">Page variables</a></li><li><a href="#html_functions">HTML functions</a></li><li><a href="#global_page_variables">Global page variables</a></li></ol></li></ol></div>
+
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> 📘 Notes on Franklin's gramma</legend>
+</p>
+<ul>
+<li><p>Records on the Franklin syntax &#40;md, div, variables etc.&#41;</p>
+</li>
+<li><p>List the differences &#40;limits&#41; I know for Franklin</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="franklin_syntax"><a href="#franklin_syntax" class="header-anchor">Franklin syntax</a></h2>
+<h3 id="markdown"><a href="#markdown" class="header-anchor">Markdown</a></h3>
+
+<fieldset class="admon admon-todo">
+<legend class="admon-legend admon-legend-todo"> 🍊 Expreimenting</legend>
+  using <code>fd2html</code> in julia REPL to see how md was converted to html in Franklin:</p>
+<p><fieldset class="code code-html"><legend class="code-legend code-legend-html">html</legend></p>
+<pre><code class="language-html">&quot;&quot;&quot;Set &#96;x&#96; to 1, see &#91;the docs&#93;&#40;http://example.com&#41;.&quot;&quot;&quot; |&gt; fd2html
+&lt;p&gt;Set &lt;code&gt;x&lt;/code&gt; to 1, see &lt;a href&#61;&quot;http://example.com&quot;&gt;the docs&lt;/a&gt;.&lt;/p&gt;\n</code></pre>
+<p><div class="code-lag">html</div></fieldset> 
+</fieldset>
+
+
+<fieldset class="admon admon-info">
+<legend class="admon-legend admon-legend-info"> 🥑 Franklin new thing apart from md</legend>
+</p>
+<ul>
+<li><p><code>\fig&#123;path&#125;</code> and <code>\figalt&#123;alt&#125;&#123;path&#125;</code> for figure insertion, in addition to markdown&#39;s <code>&#33;&#91;alt&#93;&#40;full_path&#41;</code> syntax, the difference is the Franklin version allows <strong>relative</strong> paths;</p>
+</li>
+<li><p><code>\figenv&#123;alt&#125;&#123;path&#125;&#123;style&#125;</code>: new command &#40;defined in config.md&#41; suggested by Franklin tutorials to insert img with control of styles such as <code>width|border|text-align</code> etc. </p>
+</li>
+<li><p><code>\figdiy&#123;path&#125;&#123;img-features&#125;</code>: my diy command to insert image <code>\figdiy&#123;/assets/img/bash.svg&#125;&#123;width&#61;100px align&#61;&quot;left&quot; &#125;</code></p>
+</li>
+<li><p><code>\textinput&#123;path&#125;</code>: insert a markdown file</p>
+</li>
+<li><p><code>\tableinput&#123;headers&#125;&#123;path&#125;</code>: insert a table from <strong>CSV</strong> file, if headers option left empty, use the first line of the csv file as table header</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="admon admon-warn">
+<legend class="admon-legend admon-legend-warn"> 🍇 Sth diff from normal markdown</legend>
+</p>
+<ul>
+<li><p>using HTML comments</p>
+</li>
+<li><p><code>&#36;</code> should be escaped: <code>\&#36;</code> &#61;&gt; &#36;</p>
+</li>
+<li><p>HTML entities supported: <code>&amp;rarr;</code> &#61;&gt; &rarr;</p>
+</li>
+<li><p><code>\\</code> for line break</p>
+</li>
+<li><p><code>~~~ &lt;some html things&gt; ~~~</code> for insert raw html</p>
+</li>
+<li><p><code>\toc</code> or <code>\tableofcontents</code> for TOC &#61;&gt; in a <code>franklin-toc</code> div block, modify <code>.franklin-toc ol</code> or <code>.franklin-toc li</code> in CSS for styling, set <code>@def mintoclevel&#61;1</code> and <code>@def maxtoclevel&#61;3</code> to control the header levels</p>
+</li>
+<li><p>both single and double back-ticks represent inline code &#40;double back-ticks are useful when code contain <code>&#96;</code>&#41;: <code>&quot;&#96;&quot;</code>;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="admon admon-error">
+<legend class="admon-legend admon-legend-error"> 🐞 Some md things unsupported by Franklin</legend>
+</p>
+<ul>
+<li><p><strong>no native <span class="cadmon sadmon-warn">Admonitions</span> gramma support</strong>, I made my own <a href="/posts/2022/08/Franklin博客中设置提示框和alert高亮">here</a>, but not very productive;</p>
+</li>
+<li><p><strong>list items</strong> must be <strong>on the same line</strong> due to a <a href="https://github.com/JuliaLang/julia/issues/30198">limitation</a> of Julia Markdown parser, so code block or table indent to a list item would not happen in Franklin blogs &#40;for now maybe&#41;</p>
+</li>
+<li><p><strong><code>~~ strikethrough text ~~</code> not supported in Franklin:</strong> ~~ I should be strikethrough ~~, use<code>~~~&lt;del&gt;&lt;/del&gt;~~~</code> instead: <del>I am strikethrough</del>, I wrapped it as a function: <code>\del</code> in config.md, so I could also do <code>\del&#123;I am strikethrough&#125;</code> and get: <del> I am strikethrough</del></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h3 id="divs_and_commands"><a href="#divs_and_commands" class="header-anchor">Divs and Commands</a></h3>
+<ul>
+<li><p>Using <code>@@divclass ... @@</code> to define custom div blocks. Could be nested.</p>
+</li>
+</ul>
+<h3 id="citations"><a href="#citations" class="header-anchor">Citations</a></h3>
+<ul>
+<li><p><code>\biblabel&#123;short&#125;&#123;name&#125;</code>: create bibliography list with cite link <code>short</code>;</p>
+</li>
+<li><p><code>\cite&#123;short1, short2&#125;</code> or <code>\citet&#123;short3&#125;</code>: will not add parentheses: <code>Some text gui et al.&#40;2022&#41;</code></p>
+</li>
+<li><p><code>\citep&#123;short1, short2&#125;</code>: will add parentheses: <code>Some text &#40;gui et al.&#40;2022&#41;&#41;</code></p>
+</li>
+</ul>
+
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 example</legend>
+  by this:</p>
+<p><fieldset class="code code-plain"><legend class="code-legend code-legend-plain">plain</legend></p>
+<pre><code class="language-plaintext">In the text, you may refer to \citep&#123;noether15, bezanson17&#125; while in a bibliography section you would have
+
+* \biblabel&#123;noether15&#125;&#123;Noether &#40;1915&#41;&#125; **Noether**, Korper und Systeme rationaler Funktionen, 1915.
+* \biblabel&#123;bezanson17&#125;&#123;Bezanson et al. &#40;2017&#41;&#125; **Bezanson**, **Edelman**, **Karpinski** and **Shah**, &#91;Julia: a fresh approach to numerical computing&#93;&#40;https://julialang.org/publications/julia-fresh-approach-BEKS.pdf&#41;, SIAM review 2017.</code></pre>
+<p><div class="code-lag">plain</div></fieldset> we will get:</p>
+<p>In the text, you may refer to <span class="bibref">(<a href="#noether15">Noether (1915)</a>, <a href="#bezanson17">Bezanson et al. (2017)</a>)</span> while in a bibliography section you would have</p>
+<ul>
+<li><p><a id="noether15" class="anchor"></a><strong>Noether</strong>, Korper und Systeme rationaler Funktionen, 1915.</p>
+</li>
+<li><p><a id="bezanson17" class="anchor"></a><strong>Bezanson</strong>, <strong>Edelman</strong>, <strong>Karpinski</strong> and <strong>Shah</strong>, <a href="https://julialang.org/publications/julia-fresh-approach-BEKS.pdf">Julia: a fresh approach to numerical computing</a>, SIAM review 2017.</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="admon admon-todo">
+<legend class="admon-legend admon-legend-todo"> 🍊 Thoughts</legend>
+  This may also not so convenient, what if we:</p>
+<ul>
+<li><p>define a function that auto add bibliography to the end of the file? </p>
+</li>
+<li><p>or, auto add bibliography to a temp file, and a new function say <code>\biblist</code> to get all bibliography in the temp file?</p>
+</li>
+<li><p>use a BibTex file as database, and use the key as options?</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h3 id="page_variables"><a href="#page_variables" class="header-anchor">Page variables</a></h3>
+
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> 📘 Page variables</legend>
+  define them with <code>@def</code>:</p>
+<fieldset class="code code-markdown"><legend class="code-legend code-legend-markdown">markdown</legend></p>
+<pre><code class="language-markdown">@def author &#61; &quot;songtaogui&quot;
+
+ &lt;&#33;-- if text are multi-lines, they MUST be indented --&gt;
+@def some_str &#61; &quot;&quot;&quot;
+    abc
+    def
+    &quot;&quot;&quot;</code></pre>
+<p><div class="code-lag">markdown</div></fieldset>
+<p>or define them within <code>&#43;&#43;&#43;</code> block, the content between <code>&#43;&#43;&#43;</code> will be evaluated as julia code, all variables will be consided as page variables.</p>
+<p>using <code>&#123;&#123;fill var&#125;&#125;</code> function to retrieve the page variables: <code>&#123;&#123;fill author&#125;&#125;</code></p>
+<p>
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Updated: 20220921</legend>
+  The latest version of Franklin &#40;Xranklin.jl&#41; deprecates the using of <code>@def</code>, so here we recommend the use of toml inside <code>&#43;&#43;&#43;</code> for var definition. 
+</fieldset>
+ 
+</fieldset>
+
+<h3 id="html_functions"><a href="#html_functions" class="header-anchor">HTML functions</a></h3>
+<p>list of buildin Franklin HTML functions:</p>
+<table><tr><th align="left">Format</th><th align="left">Role</th></tr><tr><td align="left"><code>&#123;&#123;fill var&#125;&#125;</code> or <code>&#123;&#123;var&#125;&#125;</code></td><td align="left">retrieve the values from <code>var</code> page variables</td></tr><tr><td align="left"><code>&#123;&#123;fill vname rpath&#125;&#125;</code></td><td align="left">place the value of page variable vname defined at <code>rpath</code> where <code>rpath</code> is a relative path like <code>blog/pg1</code></td></tr><tr><td align="left"><code>&#123;&#123;redirect /some/other/addr.html&#125;&#125;</code></td><td align="left">adds a redirect page: when a user goes to <code>&#40;baseurl&#41;/some/other/addr.html</code>, they will be redirected to the current page</td></tr><tr><td align="left"><code>&#123;&#123;insert fpath&#125;&#125;</code></td><td align="left">insert the content of the file at <code>fpath</code> where fpath is taken relative to the <code>_layout</code> folder</td></tr><tr><td align="left"><code>&#123;&#123;if var&#125;&#125; ... &#123;&#123;elseif var2&#125;&#125; ... &#123;&#123;else&#125;&#125; ... &#123;&#123;end&#125;&#125;</code></td><td align="left">Conditional blocks</td></tr><tr><td align="left"><code>&#123;&#123;ispage path&#125;&#125;</code>,<code>&#123;&#123;isnotpage path&#125;&#125;</code>, <code>&#123;&#123;is&#40;not&#41;def var&#125;&#125;</code>, <code>&#123;&#123;is&#40;not&#41;empty var&#125;&#125;</code></td><td align="left">dedicated conditional blocks</td></tr><tr><td align="left"><code>&#123;&#123;for &#40;x,y&#41; in var&#125;&#125; ... &#123;&#123;fill x&#125;&#125; ...&#123;&#123;fill y&#125;&#125; ... &#123;&#123;end&#125;&#125;</code></td><td align="left">For loops, with eg.: var &#61; &#91;&#40;1,2&#41;,&#40;3,4&#41;&#93;</td></tr></table>
+<h3 id="global_page_variables"><a href="#global_page_variables" class="header-anchor">Global page variables</a></h3>
+
+<fieldset class="admon admon-info">
+<legend class="admon-legend admon-legend-info"> 🥑 Global page var</legend>
+</p>
+<ul>
+<li><p><code>author</code></p>
+</li>
+<li><p><code>prepath</code>,<code>prefix</code>,<code>base_path</code></p>
+</li>
+<li><p><code>date_format</code></p>
+</li>
+<li><p><code>date_days</code>,<code>date_shortdays</code>,<code>date_&#40;short&#41;months</code></p>
+</li>
+<li><p><code>div_content</code></p>
+</li>
+<li><p><code>ignore</code>: indicate files should be ignored by Franklin. to ignore a file add it&#39;s relative path like <code>&quot;path/to/file.md&quot;</code>, to ignore a directory end the path with a <code>/</code> like <code>&quot;path/to/dir/&quot;</code>..</p>
+</li>
+<li><p><code>autocode</code></p>
+</li>
+<li><p><code>automath</code></p>
+</li>
+</ul>
+<blockquote>
+<p>Refer to other buildin variables <a href="https://franklinjl.org/syntax/page-variables/">here</a>.</p>
+</blockquote>
+<p>
+</fieldset>
+
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+

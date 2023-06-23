@@ -1,0 +1,490 @@
+/***************************************************
+    HEADERS with link / embed options
+    ***************************************************/
+
+.nutshell-heading {
+    position: relative;
+}
+
+.nutshell-heading-embed {
+
+    /* Position at end of heading text */
+    width: 0;
+    /* don't force newline */
+    display: inline-block;
+    position: relative;
+    top: 0.14em;
+    left: 0;
+
+    /* Button, reveal on hover */
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+}
+
+.nutshell-heading-embed img {
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+    /* some deal with the devil */
+}
+
+.nutshell-heading:hover .nutshell-heading-embed {
+    left: 0.25em;
+    opacity: 0.33;
+}
+
+.nutshell-heading:hover .nutshell-heading-embed:hover {
+    opacity: 1;
+}
+
+/***************************************************
+    EXPANDABLE LINKS
+    ***************************************************/
+
+.nutshell-expandable {
+
+    /* Boring style to fit parent */
+    color: inherit;
+    text-decoration: none;
+    border-bottom: dotted 1.5px;
+
+    /* So those balls work */
+    position: relative;
+
+    /* Animate opacity on hover */
+    transition: opacity 0.1s ease-in-out;
+    opacity: 1;
+
+}
+
+.nutshell-expandable:hover {
+    color: inherit;
+    opacity: 0.8;
+}
+
+.nutshell-expandable .nutshell-expandable-text {
+    padding-left: 0.35em;
+    /* Give balls space */
+}
+
+/* The balls! */
+.nutshell-ball-up,
+.nutshell-ball-down {
+
+    /* Placed to the left */
+    position: absolute;
+    display: inline-block;
+    left: 1px;
+
+    /* They're balls */
+    width: 0.15em;
+    height: 0.15em;
+    background: #000;
+    border-radius: 1em;
+
+    /* Animate moving up & down */
+    transition: top 0.1s ease-in-out;
+
+}
+
+/* Ball animation! Depends on open/closed, hover */
+.nutshell-expandable[mode=closed] .nutshell-ball-up {
+    top: 0.4em;
+}
+
+.nutshell-expandable[mode=closed] .nutshell-ball-down {
+    top: 0.7em;
+}
+
+.nutshell-expandable[mode=closed]:hover .nutshell-ball-up {
+    top: 0.2em;
+}
+
+.nutshell-expandable[mode=closed]:hover .nutshell-ball-down {
+    top: 0.9em;
+}
+
+.nutshell-expandable[mode=open] .nutshell-ball-up {
+    top: 0.4em;
+}
+
+.nutshell-expandable[mode=open] .nutshell-ball-down {
+    top: 0.7em;
+}
+
+.nutshell-expandable[mode=open]:hover .nutshell-ball-up {
+    top: 0.55em;
+}
+
+.nutshell-expandable[mode=open]:hover .nutshell-ball-down {
+    top: 0.55em;
+}
+
+/* Followup! */
+.nutshell-followup {
+    opacity: 0.33;
+}
+
+/***************************************************
+    BUBBLES:
+    ***************************************************/
+
+.nutshell-bubble {
+
+    /* Gon' stretch out */
+    display: inline-block;
+    width: 100%;
+
+    /* It's nice & speech-bubble-lookin' */
+    border: 1px solid black;
+    /*border: 1px solid #ddd;*/
+    border-radius: 20px;
+
+    /* For the speech-bubble arrow */
+    position: relative;
+    margin-top: 22px;
+
+    /* For subtle move up & down */
+    position: relative;
+    top: 0;
+    transition: top 0.3s linear;
+
+}
+
+/* Arrow outline */
+.nutshell-bubble-arrow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #000;
+    /*border-bottom: 20px solid #ddd;*/
+    position: absolute;
+    top: -20px;
+    pointer-events: none;
+    /* don't block clicking */
+    --arrow-background: #fff;
+    /* css var */
+}
+
+/* Arrow white */
+.nutshell-bubble-arrow::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #fff;
+    /* fallback */
+    border-bottom: 20px solid var(--arrow-background);
+    /* css var */
+    position: absolute;
+    top: 1.5px;
+    left: -20px;
+    pointer-events: none;
+    /* don't block clicking */
+}
+
+/* Overflow: contains the head/section/food */
+.nutshell-bubble-overflow {
+    overflow: hidden;
+}
+
+.nutshell-bubble-overflow[mode=opening] {
+    transition: height 0.3s ease-out;
+    /* Snap to open */
+}
+
+.nutshell-bubble-overflow[mode=closing] {
+    transition: height 0.3s ease-in;
+    /* Snap to close */
+}
+
+/* Head: Embed Button, show on hover */
+.nutshell-bubble-overflow-embed-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 1em;
+    height: 1em;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.nutshell-bubble-overflow-embed-button img {
+    width: 1em;
+    height: 1em;
+}
+
+.nutshell-bubble-overflow:hover>.nutshell-bubble-overflow-embed-button {
+    right: 5px;
+    opacity: 0.33;
+}
+
+.nutshell-bubble-overflow:hover>.nutshell-bubble-overflow-embed-button:hover {
+    opacity: 1.0;
+}
+
+/* NO EMBEDDING IF IT'S A PREVIEW INSIDE EMBED MODAL */
+.nutshell-embed-modal .nutshell-bubble-overflow-embed-button {
+    display: none;
+}
+
+/* Section */
+.nutshell-bubble-overflow-section {
+    padding: 0 1em;
+    padding-bottom: 0.5em;
+    overflow: hidden;
+    /* to capture full height, including <p>'s margins */
+}
+
+.nutshell-bubble-overflow-section>div {
+    margin: 1em 0;
+    /* if you people forgot to put your text in <p>'s -_- */
+}
+
+.nutshell-bubble-overflow-section img {
+    max-width: 100%;
+    /* so it fits */
+}
+
+.nutshell-bubble-overflow-section video {
+    max-width: 100%;
+    /* so it fits */
+}
+
+/* Total hack for nice styling */
+.nutshell-bubble-overflow-section img[data-float=left] {
+    float: left;
+    margin: 1em;
+}
+
+.nutshell-bubble-overflow-section img[data-float=right] {
+    float: right;
+    margin: 1em;
+}
+
+.nutshell-bubble-overflow-section iframe {
+    max-width: 100%;
+    /* so it fits */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.nutshell-bubble-overflow-section .nutshell-bubble {
+    /* So that recursive bubbles don't get squashed too quickly */
+    width: calc(100% + 2em - 6px);
+    /* undo section's padding, minus a gap */
+    position: relative;
+    right: calc(1em - 2px);
+}
+
+/* From */
+.nutshell-bubble-from {
+    font-size: 0.69em;
+    /* line-height: 0.69em; */
+    margin-bottom: -0.69em;
+    opacity: 0.69;
+}
+
+/* Foot: is a close button, too. */
+.nutshell-bubble-overflow-close {
+
+    /* A &times; sign */
+    /*font-weight:100;*/
+    text-align: center;
+
+    /* Whole-width bottom */
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    /* A button that gets darker. */
+    cursor: pointer;
+    opacity: 0.33;
+    transition: opacity 0.1s ease-in-out;
+
+}
+
+.nutshell-bubble-overflow-close:hover {
+    opacity: 1;
+}
+
+/* Misc styling for bubbles. I am a busybody. */
+.nutshell-bubble li {
+    margin-bottom: 0.5em;
+}
+
+.nutshell-bubble code {
+    background: transparent;
+    border-radius: 5px;
+    /*font-weight:100;*/
+    padding: 0 5px;
+}
+
+.nutshell-bubble blockquote {
+    /*background: #eee;*/
+    margin-left: 0px;
+    margin-right: 0px;
+    border-left: 0.5em solid #eee;
+    padding: 1px 1em 1px 1.5em;
+    margin-top: 0;
+}
+
+/***************************************************
+    EMBED MODAL
+    ***************************************************/
+
+.nutshell-embed-modal {
+
+    /* TAKE UP WHOLE SCREEN */
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Animate by fade in */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.nutshell-embed-modal[mode=shown] {
+    opacity: 1;
+}
+
+.nutshell-embed-modal[mode=hidden] {
+    opacity: 0;
+}
+
+/* Background is a big transparent black */
+#nutshell-embed-modal-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Bubble is a big white rounded rect */
+#nutshell-embed-modal-bubble {
+
+    /* In the middle */
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 450px;
+
+    /* Color & font */
+    background: #fff;
+    color: #000;
+    border-radius: 30px;
+    font-size: 20px;
+    line-height: 1.5em;
+
+    /* Animate by slide up */
+    transition: top 0.3s ease-in-out;
+}
+
+.nutshell-embed-modal[mode=shown] #nutshell-embed-modal-bubble {
+    top: 0;
+}
+
+.nutshell-embed-modal[mode=hidden] #nutshell-embed-modal-bubble {
+    top: 100px;
+}
+
+/* Close button */
+#nutshell-embed-modal-close {
+
+    /* Top right button */
+    z-index: 999;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+
+    /* Just a times sign */
+    font-size: 40px;
+    /*font-weight: 100;*/
+    height: 40px;
+
+    /* Anim */
+    opacity: 0.25;
+    transition: opacity 0.1s ease-in-out;
+
+}
+
+#nutshell-embed-modal-close:hover {
+    opacity: 1;
+}
+
+/* Can scroll inside! */
+#nutshell-embed-modal-overflow {
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 15px 30px;
+    width: calc(100% - 60px);
+    height: calc(100% - 30px);
+}
+
+/* The "inputs" in the modal should look code-like */
+#nutshell-embed-modal-bubble input {
+    width: 100%;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+/* Learn More */
+#nutshell-embed-p4 {
+    font-size: 0.7em;
+    line-height: 0em;
+    text-align: center;
+    margin-top: 3em;
+}
+
+/***************************************************
+    CLOSE ALL NUTSHELLS
+    ***************************************************/
+
+#nutshell-close-all {
+
+    /* Top-right */
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    /* Fades in & out */
+    transition: opacity 0.9s ease-in-out;
+    opacity: 0;
+    text-align: right;
+    cursor: pointer;
+
+    /* Little text */
+    font-size: 0.7em;
+    line-height: 1.2em;
+
+    /* Rounded corner */
+    /*background: inherit;*/
+    background: #fff;
+    padding: 0.7em;
+    border-radius: 0 0 0 1em;
+
+}
+
+#nutshell-close-all[show=yes] {
+    opacity: 1;
+}
+
+#nutshell-close-all[show=no] {
+    opacity: 0;
+}

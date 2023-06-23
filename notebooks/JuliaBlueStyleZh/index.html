@@ -1,0 +1,804 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Julia的一个代码规范,
+与官方规范有一点出入,
+低配翻译一下,
+当作自己以后的代码标准
+">
+    
+
+    
+    
+    <meta name="keywords" content="Julia 代码规范 Blue">
+    <title>Julia 代码规范 Blue</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+<script src="/libs/nutshell/nutshell.js"></script>
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>Julia 代码规范 Blue</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/codestyle/">codestyle</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 徽章标识</legend>
+  如果你的Julia项目遵循该代码规范, 可以在项目的<code>README.md</code>中通过以下链接添加该徽章<a href="https://github.com/invenia/BlueStyle"><img src="https://img.shields.io/badge/code&#37;20style-blue-4495d1.svg?style&#61;for-the-badge&amp;logo&#61;julia&amp;labelColor&#61;202020" alt="Code Style: Blue" /></a></p>
+<pre><code class="language-plaintext">&#91;&#33;&#91;Code Style: Blue&#93;&#40;https://img.shields.io/badge/code&#37;20style-blue-4495d1.svg?style&#61;for-the-badge&amp;logo&#61;julia&amp;labelColor&#61;202020&#41;&#93;&#40;https://github.com/invenia/BlueStyle&#41;</code></pre>
+<p>
+</fieldset>
+
+<div class="franklin-toc"><ol><li><a href="#语法概要">语法概要</a></li><li><a href="#详细规则">详细规则</a><ol><li><a href="#代码规范">代码规范</a><ol><li><a href="#模块引入">模块引入</a></li><li><a href="#函数输出">函数输出</a></li><li><a href="#全局变量">全局变量</a></li><li><a href="#函数命名">函数命名</a></li><li><a href="#方法定义">方法定义</a></li><li><a href="#空格">空格</a></li><li><a href="#数据结构和控制流">数据结构和控制流</a></li><li><a href="#类型标注">类型标注</a></li><li><a href="#版本声明">版本声明</a></li><li><a href="#代码注释">代码注释</a></li><li><a href="#文档">文档</a></li></ol></li><li><a href="#测试规范">测试规范</a></li><li><a href="#性能和优化">性能和优化</a></li><li><a href="#编辑器配置推荐">编辑器配置推荐</a></li></ol></li></ol></div>
+<h2 id="语法概要"><a href="#语法概要" class="header-anchor">语法概要</a></h2>
+<ul>
+<li><p>用<span class="sadmon sadmon-note">4个空格</span>缩进</p>
+</li>
+<li><p>一行<span class="sadmon sadmon-note">92</span>个字符</p>
+</li>
+<li><p>模块名和类型名用<span class="sadmon sadmon-note">大骆驼</span>命名格式</p>
+</li>
+<li><p>方法名用<span class="sadmon sadmon-note">小写字母&#43;下划线</span>的形式&#40;<span class="sadmon sadmon-error">注意区别于官方规则: 官方建议尽量不用下划线</span>&#41;</p>
+</li>
+<li><p>用<span class="sadmon sadmon-note">using</span>引入模块, 每个模块一行, 在文件的开头引入</p>
+</li>
+<li><p>写尽可能详细的<span class="sadmon sadmon-note">注释</span></p>
+</li>
+<li><p>合理利用空格增加代码可读性</p>
+</li>
+<li><p>行尾不要空格</p>
+</li>
+<li><p>避免括号后追加空格: <code>Int64&#40;value&#41;</code> 好过 <code>Int64&#40; value &#41;</code></p>
+</li>
+</ul>
+<h2 id="详细规则"><a href="#详细规则" class="header-anchor">详细规则</a></h2>
+<h3 id="代码规范"><a href="#代码规范" class="header-anchor">代码规范</a></h3>
+<h4 id="模块引入"><a href="#模块引入" class="header-anchor">模块引入</a></h4>
+<blockquote>
+<p><span class="sadmon sadmon-note"><a href="#YesModule">:推荐示例</a></span> <span class="sadmon sadmon-error"><a href="#NoModule">:不推荐示例</a></span></p>
+</blockquote>
+<ul>
+<li><p>每次引入一个</p>
+</li>
+<li><p>根据模块名字字母排列</p>
+</li>
+<li><p>引入的函数按照字母或者实际意义顺序排列</p>
+</li>
+<li><p>引入内容很长时, 可以按照合理规则分组</p>
+</li>
+<li><p>推荐用<code>using</code>而不是用<code>import</code></p>
+</li>
+</ul>
+
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> using和import的区别</legend>
+  二者唯一的区别是, using引入的module, 调用其内部函数时需要加module名, 而import引入的则不需要:</p>
+<pre><code class="language-julia"># Yes:
+using Example
+
+Example.hello&#40;x::Monster&#41; &#61; &quot;Aargh&#33; It&#39;s a Monster&#33;&quot;
+Base.isreal&#40;x::Ghost&#41; &#61; false
+
+# No:
+import Base: isreal
+import Example: hello
+
+hello&#40;x::Monster&#41; &#61; &quot;Aargh&#33; It&#39;s a Monster&#33;&quot;
+isreal&#40;x::Ghost&#41; &#61; false</code></pre>
+<p>
+</fieldset>
+
+<h1 id="x_yesmodule"><a href="#x_yesmodule" class="header-anchor">:x YesModule</a></h1>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using A
+using B
+
+using Dates: Year, Month, Week, Day, Hour
+
+using AVeryLongPackage: AVeryLongType, AnotherVeryLongType, a_very_long_function,
+    another_very_long_function
+# or
+using AVeryLongPackage: AVeryLongType, AnotherVeryLongType
+using AVeryLongPackage: a_very_long_function, another_very_long_function</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h1 id="x_nomodule"><a href="#x_nomodule" class="header-anchor">:x NoModule</a></h1>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using A, B
+# or
+using B
+using A
+
+using AVeryLongPackage:
+    AVeryLongType,
+    AnotherVeryLongType,
+    a_very_long_function,
+    another_very_long_function
+
+using AVeryLongPackage: AVeryLongType
+using AVeryLongPackage: AnotherVeryLongType
+using AVeryLongPackage: a_very_long_function
+using AVeryLongPackage: another_very_long_function</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h4 id="函数输出"><a href="#函数输出" class="header-anchor">函数输出</a></h4>
+<ul>
+<li><p>函数输出语句需要放在模块的头部, 在引入依赖以后;</p>
+</li>
+<li><p>不要对一个<code>export</code>语句换行, 要么一行一个, 要么按需分组;</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+export foo
+export bar
+export qux
+
+# Yes:
+export get_foo, get_bar
+export solve_foo, solve_bar
+
+# No:
+export foo,
+    bar,
+    qux</code></pre>
+<p></div>
+<h4 id="全局变量"><a href="#全局变量" class="header-anchor">全局变量</a></h4>
+<ul>
+<li><p>尽量避免使用全局变量;</p>
+</li>
+<li><p>如果需要使用, 加前缀<code>const</code>, 命名规则为<span class="sadmon sadmon-note">全部大写</span>;</p>
+</li>
+<li><p>全局变量在文件的头部位置定义, 紧跟在<code>imports</code>和<code>exports</code>之后</p>
+</li>
+</ul>
+<h4 id="函数命名"><a href="#函数命名" class="header-anchor">函数命名</a></h4>
+<ul>
+<li><p>函数名需要能表示函数的属性或者功能, 不需要体现参数类型: <code>submit_bid&#40;bid&#41;</code>应该改成<code>submit&#40;bid::Bid&#41;</code>;</p>
+</li>
+<li><p>函数名尽量控制在<span class="sadmon sadmon-note">一到两个单词</span>内, 小写加下划线分隔;</p>
+</li>
+<li><p>函数越简单约好, 尽量把复杂函数拆分;</p>
+</li>
+<li><p>只用于内部使用的函数,用<strong>下划线开头</strong>;</p>
+</li>
+</ul>
+<h4 id="方法定义"><a href="#方法定义" class="header-anchor">方法定义</a></h4>
+<ul>
+<li><p>只有在函数非常短的时候, 才用短函数定义方式</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+    foo&#40;x::Int64&#41; &#61; abs&#40;x&#41; &#43; 3
+
+    # No:
+    foobar&#40;array_data::AbstractArray&#123;T&#125;, item::T&#41; where &#123;T&lt;:Int64&#125; &#61; T&#91;
+        abs&#40;x&#41; * abs&#40;item&#41; &#43; 3 for x in array_data
+    &#93;</code></pre>
+<p></div>
+<ul>
+<li><p>用长函数定义的语法时, 用<code>return</code>显式返回, 且显式声明返回值:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+function Foo&#40;x, y&#41;
+    # code ...
+    return nothing
+end</code></pre>
+<p></div>
+<ul>
+<li><p>参数列尽量不要换行, 除非特别长, 如果要换行, 就要每个参数一行,或者按照位置参数和关键字参数分组换行, 不要随意地到长度限制再换行:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+function foobar&#40;
+    df::DataFrame,
+    id::Symbol,
+    variable::Symbol,
+    value::AbstractString,
+    prefix::AbstractString&#61;&quot;&quot;,
+&#41;
+    # code
+end
+
+# Ok:
+function foobar&#40;df::DataFrame, id::Symbol, variable::Symbol, value::AbstractString, prefix::AbstractString&#61;&quot;&quot;&#41;
+    # code
+end
+
+# No: Don&#39;t put any args on the same line as the open parenthesis if they won&#39;t all fit.
+function foobar&#40;df::DataFrame, id::Symbol, variable::Symbol, value::AbstractString,
+    prefix::AbstractString&#61;&quot;&quot;&#41;
+
+    # code
+end</code></pre>
+<p></div>
+<ul>
+<li><p>关键字参数需要用<code>;</code>和位置参数区分开</p>
+</li>
+</ul>
+<h4 id="空格"><a href="#空格" class="header-anchor">空格</a></h4>
+<ul>
+<li><p>紧跟着各种括号内部<strong>不要</strong>空格: <code>foo&#40;ham&#91;1&#93;,&#91;eggs&#93;&#41;</code>好过<code>foo&#40; ham&#91; 1 &#93;, &#91; eggs &#93; &#41;</code></p>
+</li>
+<li><p>逗号和分号前面不要加空格;</p>
+</li>
+<li><p>比较和赋值等二元操作符两端要加空格, <code>&#61;</code>,<code>&#43;&#61;</code>,<code>&#61;&#61;</code>, <code>-&gt;</code>等;</p>
+</li>
+<li><p>一些数值相关的二元操作符两侧不加空格, <code>^</code>, <code>//</code>, <code>-1</code>;</p>
+</li>
+<li><p>在<code>Range</code>定义中, <code>:</code>两侧不要加空格, 复杂的Range定义用括号括起来, 避免歧义: <code>&#40;1&#43;2&#41;:&#40;3&#43;4&#41;</code></p>
+</li>
+<li><p>不要为了对齐引入超过一个的空格:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+x &#61; 1
+y &#61; 2
+long_variable &#61; 3
+
+# No:
+x             &#61; 1
+y             &#61; 2
+long_variable &#61; 3</code></pre>
+<p>
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 个人感悟</legend>
+  我经常为了对齐, 加各种空格, 这样好看, 也方便批量修改, 为啥不呢? 
+</fieldset>
+ </div>
+<ul>
+<li><p>不要引入不必要的空行, 比如同一个函数的不同单行分派之间不需要换行;</p>
+</li>
+<li><p>如果函数调用语句中, 参数过长&#40;比如嵌套函数&#41;, 则要按照如下规则换行: <span class="sadmon sadmon-note">函数的左右括号要在同一缩进水平, 参数要多缩进一级, 参数和关键字在多数情况下应该每个一行。</span></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia">constraint &#61; conic_form&#33;&#40;
+    SOCElemConstraint&#40;temp2 &#43; temp3, temp2 - temp3, 2 * temp1&#41;,
+    unique_conic_forms,
+&#41;</code></pre>
+<p></div>
+<ul>
+<li><p>数组或者元组定义的时候, 括号缩进规则类似:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia">arr &#61; &#91;
+    some_long_sub_array_A,
+    some_long_sub_array_B,
+&#93;
+
+nestedarr &#61; &#91;
+    &#91;
+        some_long_A,
+        some_long_B
+    &#93;,
+    &#91;
+        another_long_A,
+        another_long_B
+    &#93;
+&#93;</code></pre>
+<p></div>
+<ul>
+<li><p>三引号, 三反引号需要缩进:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-plaintext">str &#61; &quot;&quot;&quot;
+    hello
+    world&#33;
+    &quot;&quot;&quot;
+cmd &#61; &#96;&#96;&#96;
+    program
+        --flag value
+        parameter
+    &#96;&#96;&#96;</code></pre>
+<p></div>
+<ul>
+<li><p>用空行分隔不同的<code>多行代码块</code>:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># Yes:
+if foo
+    println&#40;&quot;Hi&quot;&#41;
+end
+
+for i in 1:10
+    println&#40;i&#41;
+end
+
+quote
+    x &#61; 1
+    y &#61; 2
+    a &#61; x &#43; y
+end</code></pre>
+<p></div>
+<ul>
+<li><p>在控制流和返回语句之间添加空行:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia">function foo&#40;bar; verbose&#61;false&#41;
+    if verbose
+        println&#40;&quot;baz&quot;&#41;
+    end
+
+    return bar
+end</code></pre>
+<p></div>
+<h4 id="数据结构和控制流"><a href="#数据结构和控制流" class="header-anchor">数据结构和控制流</a></h4>
+<ul>
+<li><p>具名元组中的<code>&#61;</code>类似于关键字参数的用法, 两端不加空格, 空具名元组应该写成<code>NamedTuple&#40;&#41;</code>而不是<code>&#40;;&#41;</code></p>
+</li>
+<li><p>浮点数不要省略小数点前后的0: <code>0.1, 2.0</code>而不是<code>.1 2.</code></p>
+</li>
+<li><p>三元操作符<code>?:</code>只能用于单行语句, 如果语句超过单行, 则应该用传统的<code>if elseif else</code>的方式</p>
+</li>
+<li><p><code>for</code>循环中应该只用<code>in</code>关键词, 尽量不要用 <code>&#61;</code>或者<code>∈</code>, 在列表展开式中也适用</p>
+</li>
+</ul>
+<h4 id="类型标注"><a href="#类型标注" class="header-anchor">类型标注</a></h4>
+<ul>
+<li><p><span class="Sadmon Sadmon-note">类型标注需要尽可能的抽象</span>,而不是尽可能的具体</p>
+</li>
+<li><p>如果需要性能, 则可以用<code>类型参数</code>的方式:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia"># 类型参数
+mutable struct MySubString&#123;T&lt;:AbstractString&#125; &lt;: AbstractString
+    string::T
+    offset::Integer
+    endof::Integer
+end
+# 相比于传统方式:
+mutable struct MySubString &lt;: AbstractString
+    string::AbstractString
+    offset::Int
+    endof::Int
+end</code></pre>
+<p>
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> Note</legend>
+  在类型参数的情况下, 数据结构在定义的时候就确定了, 在整个生命周期中数据类型是限定了的, 所以会有更好的性能优化。可以在开发的时候使用下边这种抽象类型, 在优化的时候再改成类型参数的模式。 
+</fieldset>
+ </div>
+<h4 id="版本声明"><a href="#版本声明" class="header-anchor">版本声明</a></h4>
+<p>为了保持简洁和一致性, 声明版本的时候不要使用脱字符<code>^</code>:</p>
+<pre><code class="language-julia"># Yes:
+DataFrames &#61; &quot;0.17&quot;
+
+# No:
+DataFrames &#61; &quot;^0.17&quot;</code></pre>
+<h4 id="代码注释"><a href="#代码注释" class="header-anchor">代码注释</a></h4>
+<ul>
+<li><p>注释是用来解释&#40;复杂的&#41;代码的逻辑的, 不要在简单代码上也过度注释</p>
+</li>
+<li><p>注释要随着代码的更新而更新</p>
+</li>
+<li><p>注释应该是完整的语句, 首字母大写&#40;除非首字母小写有特殊意义, 比如是代码中的指示词/变量&#41;</p>
+</li>
+<li><p>短注释的末尾句号<code>.</code>可以省略, 块注释需要在每句结尾加上句号</p>
+</li>
+<li><p>如果注释不能保证在与代码同行时不超过单行限制, 就不要把注释写在代码同行</p>
+</li>
+<li><p>注释与同行代码之间至少要有<span class="Sadmon Sadmon-note">两个</span>空格, <code>#</code>与注释内容之间有<span class="Sadmon Sadmon-note">一个</span>空格</p>
+</li>
+<li><p>提到<code>Julia</code>的时候, 通常<code>Julia</code>指代Julia语言, <code>julia</code>指代Julia可执行命令</p>
+</li>
+</ul>
+<h4 id="文档"><a href="#文档" class="header-anchor">文档</a></h4>
+<ul>
+<li><p>大多数模块、类型、函数都应该有规范的<code>docstrings</code>&#40;尤其是需要export的函数&#41;, 但是内嵌函数或者很简单的函数不需要额外添加<code>docstrings</code></p>
+</li>
+<li><p>给一个函数添加文档, 而不是给函数的一个方法添加文档</p>
+</li>
+<li><p>只有新方法与老方法有区别时, 才给已有文档的函数的新方法添加文档</p>
+</li>
+<li><p>文档需要用<code>Markdown</code>格式书写, 同样遵守<code>92 chars</code>的规则</p>
+</li>
+<li><p>复杂参数的方法建议用以下文档模板:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<pre><code class="language-julia">&quot;&quot;&quot;
+    mysearch&#40;array::MyArray&#123;T&#125;, val::T; verbose&#61;true&#41; where &#123;T&#125; -&gt; Int
+
+Searches the &#96;array&#96; for the &#96;val&#96;. For some reason we don&#39;t want to use Julia&#39;s
+builtin search :&#41;
+
+# Arguments
+- &#96;array::MyArray&#123;T&#125;&#96;: the array to search
+- &#96;val::T&#96;: the value to search for
+
+# Keywords
+- &#96;verbose::Bool&#61;true&#96;: print out progress details
+
+# Returns
+- &#96;Int&#96;: the index where &#96;val&#96; is located in the &#96;array&#96;
+
+# Throws
+- &#96;NotFoundError&#96;: I guess we could throw an error if &#96;val&#96; isn&#39;t found.
+&quot;&quot;&quot;
+function mysearch&#40;array::AbstractArray&#123;T&#125;, val::T&#41; where T
+    ...
+end</code></pre>
+<p>如果参数过多, 可以不用在文档首行中列出:</p>
+<pre><code class="language-julia">&quot;&quot;&quot;
+    Manager&#40;args...; kwargs...&#41; -&gt; Manager
+
+A cluster manager which spawns workers.
+
+# Arguments
+
+- &#96;min_workers::Integer&#96;: The minimum number of workers to spawn or an exception is thrown
+- &#96;max_workers::Integer&#96;: The requested number of workers to spawn
+
+# Keywords
+
+- &#96;definition::AbstractString&#96;: Name of the job definition to use. Defaults to the
+    definition used within the current instance.
+- &#96;name::AbstractString&#96;: ...
+- &#96;queue::AbstractString&#96;: ...
+&quot;&quot;&quot;
+function Manager&#40;...&#41;
+    ...
+end</code></pre>
+<blockquote>
+<p>更多文档相关的规范参考<a href="https://docs.julialang.org/en/v1/manual/documentation/">官方文档</a></p>
+</blockquote>
+<p></div>
+<h3 id="测试规范"><a href="#测试规范" class="header-anchor">测试规范</a></h3>
+<ul>
+<li><p>测试组</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important">  Julia中提供了<a href="https://docs.julialang.org/en/v1/stdlib/Test/#Working-with-Test-Sets-1">测试组&#40;test sets&#41;</a>来方便用户按照应用逻辑对测试代码进行分组。<code>runtests.jl</code>文件最好只包含一个<code>主测试组</code>, 其他分组可以嵌套在主分组内。 </div>
+<ul>
+<li><p>比较操作</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important">  大多数测试会写成<code>@test x &#61;&#61; y</code>的形式, <code>&#61;&#61;</code>不会进行类型检查, 所以<code>@test 1.0 &#61;&#61; 1</code>是可以通过的, 所以不必要为了类型一致牺牲代码可读性:</p>
+<pre><code class="language-julia"># Yes:
+@test value &#61;&#61; 0
+
+# No:
+@test value &#61;&#61; 0.0</code></pre>
+<p></div>
+<h3 id="性能和优化"><a href="#性能和优化" class="header-anchor">性能和优化</a></h3>
+<blockquote>
+<p>参考官方的<a href="https://docs.julialang.org/en/v1/manual/performance-tips/">Julia性能建议</a></p>
+</blockquote>
+<p>Julia中很多性能提升都是来自于<code>针对输入类型对实际调用函数进行优化</code>。</p>
+<ul>
+<li><p>尽量不要声明全局变量&#40;会阻碍Julia进行代码优化&#41;, 如果要声明, 加上前缀<code>const</code></p>
+</li>
+<li><p>第一次实际调用某函数时, 会根据输入类型编译该函数, 所以测试函数性能不应该测试其第一次执行的性能, <code>BenchmarkTools</code>中的<code>@benchmark</code>和<code>@btime</code>宏可以执行多次函数, 得到更客观的性能测试结果</p>
+</li>
+</ul>
+<h3 id="编辑器配置推荐"><a href="#编辑器配置推荐" class="header-anchor">编辑器配置推荐</a></h3>
+<ul>
+<li><p>Sublime Text 推荐配置: <a href="https://github.com/invenia/BlueStyle#sublime-text-settings">点这里</a></p>
+</li>
+<li><p>Vim 推荐配置: <a href="https://github.com/invenia/BlueStyle#vim-settings">点这里</a></p>
+</li>
+<li><p>Atom 推荐配置: <a href="https://github.com/invenia/BlueStyle#Atom-settings">点这里</a></p>
+</li>
+<li><p>VSCode 推荐配置: <a href="https://github.com/invenia/BlueStyle#vs-code-settings">点这里</a>, 推荐使用<a href="https://github.com/julia-vscode/julia-vscode">Julia VS-Code插件</a></p>
+</li>
+</ul>
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+

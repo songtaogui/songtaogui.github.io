@@ -1,0 +1,432 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+
+    
+    
+    <meta name="keywords" content="zeamap_homepage_stats">
+    <title>zeamap_homepage_stats</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>zeamap_homepage_stats</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<div class="franklin-toc"><ol><li><a href="#说明">说明</a></li><li><a href="#各组学统计信息">各组学统计信息</a><ol><li><a href="#evolutions">Evolutions</a></li><li><a href="#populations">Populations</a></li><li><a href="#phenomics">Phenomics</a></li><li><a href="#metabolomics">Metabolomics</a></li><li><a href="#germplasms">Germplasms</a></li><li><a href="#genomics">Genomics</a></li><li><a href="#variations">Variations</a></li><li><a href="#epigenetics">Epigenetics</a></li><li><a href="#transcriptomics">Transcriptomics</a></li><li><a href="#genetics">Genetics</a></li></ol></li></ol></div>
+<h1 id="说明"><a href="#说明" class="header-anchor">说明</a></h1>
+<ul>
+<li><p>用富文本和表格的形式展示每个组学的统计信息</p>
+</li>
+<li><p>将下一个章节中的每个二级目录中的富文本/表格与对应组学的SVG分组进行交互</p>
+</li>
+</ul>
+<h1 id="各组学统计信息"><a href="#各组学统计信息" class="header-anchor">各组学统计信息</a></h1>
+<h2 id="evolutions"><a href="#evolutions" class="header-anchor">Evolutions</a></h2>
+<p>Storage of selection regions related to maize domestication and adaptation:</p>
+<table><tr><th align="left">SelectType</th><th align="left">Population Compared</th><th align="left">SelectTag</th><th align="left">Number Of Regions</th></tr><tr><td align="left"><span class="sadmon sadmon-note">Adaptation</span></td><td align="left"><span class="cadmon sadmon-note">TEM<em>vs</em>TST</span></td><td align="left">FST</td><td align="left">997,422</td></tr><tr><td align="left"><span class="sadmon sadmon-note">Adaptation</span></td><td align="left"><span class="cadmon sadmon-note">TEM<em>vs</em>TST</span></td><td align="left">XPCLR</td><td align="left">662,610</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Domestication</span></td><td align="left"><span class="cadmon sadmon-info">Mexicana<em>vs</em>Maize</span></td><td align="left">FST</td><td align="left">1,000,604</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Domestication</span></td><td align="left"><span class="cadmon sadmon-info">Mexicana<em>vs</em>Maize</span></td><td align="left">XPCLR</td><td align="left">1,640,409</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Domestication</span></td><td align="left"><span class="cadmon sadmon-tip">Parviglumis<em>vs</em>Maize</span></td><td align="left">FST</td><td align="left">1,001,197</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Domestication</span></td><td align="left"><span class="cadmon sadmon-tip">Parviglumis<em>vs</em>Maize</span></td><td align="left">XPCLR</td><td align="left">1,660,502</td></tr></table>
+<h2 id="populations"><a href="#populations" class="header-anchor">Populations</a></h2>
+<p>Collection of individuals including all Zea species:</p>
+<table><tr><th align="left">Species/Groups</th><th align="left">frequency</th></tr><tr><td align="left"><span class="sadmon sadmon-hack">Td</span></td><td align="left">2</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zn</span></td><td align="left">14</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zl</span></td><td align="left">14</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zp</span></td><td align="left">19</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zd</span></td><td align="left">20</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zh</span></td><td align="left">5</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zx</span></td><td align="left">81</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">Zv</span></td><td align="left">70</td></tr><tr><td align="left"><span class="sadmon sadmon-warn">TEO-MIX</span></td><td align="left">14</td></tr><tr><td align="left"><span class="sadmon sadmon-note">Zm-TST</span></td><td align="left">241</td></tr><tr><td align="left"><span class="sadmon sadmon-note">Zm-TEM</span></td><td align="left">299</td></tr><tr><td align="left"><span class="sadmon sadmon-note">Zm-MIX</span></td><td align="left">29</td></tr></table>
+<h2 id="phenomics"><a href="#phenomics" class="header-anchor">Phenomics</a></h2>
+<p>Collection of population-level agronomic traits from different locations and multiple years:</p>
+<table><tr><th align="left">Omics</th><th align="left">Category</th><th align="left">Number of Traits</th></tr><tr><td align="left">Agronomic</td><td align="left"><span class="cadmon sadmon-info">disease</span></td><td align="left">12</td></tr><tr><td align="left">Agronomic</td><td align="left"><span class="cadmon sadmon-error">flowering</span></td><td align="left">105</td></tr><tr><td align="left">Agronomic</td><td align="left"><span class="cadmon sadmon-warn">moisture</span></td><td align="left">30</td></tr><tr><td align="left">Agronomic</td><td align="left"><span class="cadmon sadmon-todo">Morphic/Yeild</span></td><td align="left">171</td></tr></table>
+<h2 id="metabolomics"><a href="#metabolomics" class="header-anchor">Metabolomics</a></h2>
+<p>Collection of population-level metabolite contents of maize leaf and kernel:</p>
+<table><tr><th align="left">Omics</th><th align="left">Category</th><th align="left">Type</th><th align="left">Number of Traits</th></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Amino_acid</span></td><td align="left">277</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Carbohydrates</span></td><td align="left">40</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Fatty_Acids</span></td><td align="left">30</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Organic_acid</span></td><td align="left">61</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Tryptophan</span></td><td align="left">20</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Vitamin</span></td><td align="left">25</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-note">primary_meta</span></td><td align="left"><span class="cadmon sadmon-note">Others</span></td><td align="left">28</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Flavonoid</span></td><td align="left">74</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Phenolamides</span></td><td align="left">46</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Lysophosphatide</span></td><td align="left">31</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Fatty_Acids</span></td><td align="left">14</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Alkaloid</span></td><td align="left">7</td></tr><tr><td align="left">Metabolite</td><td align="left"><span class="sadmon sadmon-warn">secondary_meta</span></td><td align="left"><span class="cadmon sadmon-warn">Others</span></td><td align="left">122</td></tr></table>
+<h2 id="germplasms"><a href="#germplasms" class="header-anchor">Germplasms</a></h2>
+<p>Collection of 453 common maize germplasms that has seeds stored in <a href="https://db.cngb.org/brc/plant/">BRC-PAM</a>:</p>
+<table><tr><th align="left">Species</th><th align="left">origin</th><th align="left">Number of Germplasms</th></tr><tr><td align="left">Zm</td><td align="left">Thailand</td><td align="left">2</td></tr><tr><td align="left">Zm</td><td align="left">USA</td><td align="left">56</td></tr><tr><td align="left">Zm</td><td align="left">China</td><td align="left">194</td></tr><tr><td align="left">Zm</td><td align="left">CIMMYT</td><td align="left">201</td></tr></table>
+<h2 id="genomics"><a href="#genomics" class="header-anchor">Genomics</a></h2>
+<p>Collection of genome assemblies and gene annotations of Zea species:</p>
+<table><tr><th align="left">Species</th><th align="left">Genome Version</th><th align="left">Number of Genes</th><th align="left">Number of TEs</th></tr><tr><td align="left">Zm</td><td align="left">B73.v4.0</td><td align="left"><span class="cadmon sadmon-note">39,591</span></td><td align="left"><span class="cadmon sadmon-info">2,662,838</span></td></tr><tr><td align="left">Zm</td><td align="left">B73.v5.0</td><td align="left"><span class="cadmon sadmon-note">39,756</span></td><td align="left"><span class="cadmon sadmon-info">1,513,619</span></td></tr><tr><td align="left">Zm</td><td align="left">CML228.v1.0</td><td align="left"><span class="cadmon sadmon-note">41,577</span></td><td align="left"><span class="cadmon sadmon-info">1,538,629</span></td></tr><tr><td align="left">Zm</td><td align="left">CML69.v1.0</td><td align="left"><span class="cadmon sadmon-note">40,272</span></td><td align="left"><span class="cadmon sadmon-info">1,554,165</span></td></tr><tr><td align="left">Zm</td><td align="left">HZS.v1.0</td><td align="left"><span class="cadmon sadmon-note">40,893</span></td><td align="left"><span class="cadmon sadmon-info">3,143,643</span></td></tr><tr><td align="left">Zm</td><td align="left">KN5585.v1.0</td><td align="left"><span class="cadmon sadmon-note">40,765</span></td><td align="left"><span class="cadmon sadmon-info">2,989,565</span></td></tr><tr><td align="left">Zm</td><td align="left">MO17.v1.0</td><td align="left"><span class="cadmon sadmon-note">38,620</span></td><td align="left"><span class="cadmon sadmon-info">2,719,073</span></td></tr><tr><td align="left">Zm</td><td align="left">SK.v1.0</td><td align="left"><span class="cadmon sadmon-note">43,271</span></td><td align="left"><span class="cadmon sadmon-info">2,778,026</span></td></tr></table>
+<h2 id="variations"><a href="#variations" class="header-anchor">Variations</a></h2>
+<p>Collection of population-level genotypes of genetic variations:</p>
+<table><tr><th align="left">Population</th><th align="left">Analysis</th><th align="left">Type</th><th align="left">Number of Variants</th></tr><tr><td align="left">TEO,AMP</td><td align="left">ZA02aVAR000001</td><td align="left"><span class="sadmon sadmon-note">SNP</span></td><td align="left">70,730,921</td></tr><tr><td align="left">TEO,AMP</td><td align="left">ZA02aVAR000001</td><td align="left"><span class="sadmon sadmon-tip">Short Deletion</span></td><td align="left">4,097,690</td></tr><tr><td align="left">TEO,AMP</td><td align="left">ZA02aVAR000001</td><td align="left"><span class="sadmon sadmon-tip">Short Insertion</span></td><td align="left">4,888,941</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-warn">SV-INV</span></td><td align="left">1,563</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-warn">SV-TRA</span></td><td align="left">26,894</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-note">SNP</span></td><td align="left">10,770,214</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-warn">SV-INS</span></td><td align="left">19,437</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-warn">SV-DEL</span></td><td align="left">180,132</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-warn">SV-DUP</span></td><td align="left">6,992</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-tip">Short Insertion</span></td><td align="left">964,520</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000002</td><td align="left"><span class="sadmon sadmon-tip">Short Deletion</span></td><td align="left">844,749</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000003</td><td align="left"><span class="sadmon sadmon-note">SNP</span></td><td align="left">2,451,616</td></tr><tr><td align="left">AMP</td><td align="left">ZA02aVAR000004</td><td align="left"><span class="sadmon sadmon-note">SNP</span></td><td align="left">52,376</td></tr></table>
+<h2 id="epigenetics"><a href="#epigenetics" class="header-anchor">Epigenetics</a></h2>
+
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Epigenetics</legend>
+</p>
+<ul>
+<li><p><span class="sadmon sadmon-tip">Histone modification:</span> B73 seedling Histone modification including <span class="sadmon sadmon-tip">H3K27ac H3K27me3 H3K4me1 and H3K4me3</span>;</p>
+</li>
+<li><p><span class="sadmon sadmon-info">Chromatin Accessibility:</span> B73 chromatin accessibility of <span class="cadmon sadmon-info">root</span> and <span class="cadmon sadmon-info">shoot</span> measured by MNase;</p>
+</li>
+<li><p><span class="sadmon sadmon-warn">DNA methylation:</span> DNA methylation data &#40;<span class="cadmon sadmon-warn">CpG, CHH and CHG</span>&#41; from V3 leaf of <span class="cadmon sadmon-warn">263</span> AMP individuals;</p>
+</li>
+<li><p><span class="sadmon sadmon-note">Chromatin interaction:</span> Collection of maize chromatin interaction information:</p>
+</li>
+</ul>
+<p><div class="indent-block" style="margin-left: 2em !important"> 
+<table>
+    <tbody>
+    <tr><th align="right">Tissue</th><th align="right">Type</th><th align="left">Number of Interaction pairs</th></tr><tr><td align="right">leaf</td><td align="right">HiC</td><td align="left">4,285</td></tr>
+    <tr><td align="right">leaf</td><td align="right">K4me3-HiChIP</td><td align="left">67,012</td></tr>
+    <tr><td align="right">leaf</td><td align="right">K27me3-HiChIP</td><td align="left">39,818</td></tr>
+    <tr><td align="right">Immature ear</td><td align="right">H3K27ac-ChIA-PET</td><td align="left">20,980</td></tr>
+    <tr><td align="right">Immature ear</td><td align="right">H3K4me3-ChIA-PET</td><td align="left">14,000</td></tr>
+    <tr><td align="right">Shoot</td><td align="right">H3K27ac-ChIA-PET</td><td align="left">19,384</td></tr>
+    <tr><td align="right">Shoot</td><td align="right">H3K4me3-ChIA-PET</td><td align="left">17,822</td></tr>
+    <tr><td align="right">2-4mm tassel</td><td align="right">loops</td><td align="left">28,748</td></tr>
+    <tr><td align="right">leaf mesophyll cell</td><td align="right">loops</td><td align="left">5,616</td></tr>
+    <tr><td align="right">2-4mm ear</td><td align="right">loops</td><td align="left">42,300</td></tr>
+    <tr><td align="right">Seedling</td><td align="right">RNAPII</td><td align="left">25,002</td></tr>
+    <tr><td align="right">Seedling</td><td align="right">H3K4me3</td><td align="left">49,766</td></tr>
+    </tbody>
+</table>
+ </div> 
+</fieldset>
+
+<h2 id="transcriptomics"><a href="#transcriptomics" class="header-anchor">Transcriptomics</a></h2>
+
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> Transcriptomics</legend>
+</p>
+<ul>
+<li><p><span class="sadmon sadmon-note">Reference Expression:</span> Collection of gene expression in different tissues of <span class="cadmon sadmon-note">8</span> genomes</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">Population Expression:</span> Collection of population-level gene expression in maize association mapping panel:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"></p>
+<ul>
+<li><p><span class="sadmon sadmon-todo">Kernel</span>: expression of <span class="cadmon sadmon-todo">42,116</span> genes in <span class="cadmon sadmon-todo">340</span> germplasms</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">Leaf</span>: expression of <span class="cadmon sadmon-tip">43,804</span> genes under <span class="cadmon sadmon-tip">3</span> conditions in <span class="cadmon sadmon-tip">225</span> germplasms</p>
+</li>
+</ul>
+<p></div>
+<ul>
+<li><p><span class="sadmon sadmon-warn">Transcript factor binding sites:</span> Collection of Chip-Seq data of <span class="cadmon sadmon-warn">104</span> transcript factor in maize based on B73v4</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="genetics"><a href="#genetics" class="header-anchor">Genetics</a></h2>
+
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> Genetics</legend>
+</p>
+<ul>
+<li><p><span class="Sadmon Sadmon-tip">Linkage mapping:</span> Collection of <span class="sadmon sadmon-tip">787</span> QTLs from <span class="sadmon sadmon-tip">12</span> linkage maps</p>
+</li>
+<li><p><span class="Sadmon Sadmon-note">Association mapping:</span> Collection of <span class="sadmon sadmon-note">93,569</span> QTLs from <span class="sadmon sadmon-note">29,271</span> multi-omics traits</p>
+</li>
+<li><p><span class="Sadmon Sadmon-warn">GWAS Summary data:</span> Collection of GWAS summary results of <span class="sadmon sadmon-warn">29,271</span> multi-omics traits</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+

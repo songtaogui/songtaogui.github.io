@@ -1,0 +1,536 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Brief usage of Bowtiew2: a short reads aligner
+">
+    
+
+    
+    
+    <meta name="keywords" content="bowtie2-usage">
+    <title>bowtie2-usage</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>bowtie2-usage</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content"><p> <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/bioinformatics/">bioinformatics</a>, <a href="/tag/genomics/">genomics</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div></p>
+<h2 id="bowtie2安装使用"><a href="#bowtie2安装使用" class="header-anchor">Bowtie2安装使用</a></h2>
+<h3 id="1安装"><a href="#1安装" class="header-anchor">1、安装</a></h3>
+<blockquote>
+<p>无需安装，下载linux版本解压即可用</p>
+</blockquote>
+<h3 id="2使用"><a href="#2使用" class="header-anchor">2、使用</a></h3>
+<h4 id="用法"><a href="#用法" class="header-anchor">用法</a></h4>
+<pre><code class="language-sh">#建库：   
+ bowtie2-build genome.fasta index
+ #比对：
+ bowtie2 -x &#91;db&#93; -f -U &#91;query&#93; -S &#91;out&#93; --no-unal --no-hd -k &#91;int:输出结果保留多少个&#93;</code></pre>
+<p>懒人必看</p>
+<p>Bowtie2 -q --phred33 --sensitive --end-to-end -I 0 -X 500 --fr --un unpaired --al aligned \
+--un-conc unconc --al-conc alconc -p 6 --reorder -x&#123;-1-2| -U&#125; -S &#91;&#93;</p>
+<p>用法：</p>
+<p>bowtie2 &#91;options&#93;* -x &lt;bt2-idx&gt; &#123;-1 &lt;m1&gt; -2 &lt;m2&gt; | -U &lt;r&gt;&#125; -S &#91;&lt;hit&gt;&#93;</p>
+<h4 id="必须参数"><a href="#必须参数" class="header-anchor">必须参数：</a></h4>
+<pre><code class="language-julia">-x &lt;bt2-idx&gt; 由bowtie2-build所生成的索引文件的前缀。首先 在当前目录搜寻，然后
+在环境变量 BOWTIE2_INDEXES 中制定的文件夹中搜寻。
+-1 &lt;m1&gt; 双末端测寻对应的文件1。可以为多个文件，并用逗号分开；多个文件必须和 -2 
+&lt;m2&gt; 中制定的文件一一对应。比如:&quot;-1 flyA_1.fq,flyB_1.fq -2 flyA_2.fq,flyB_2.fq&quot;. 测序文件中的reads的长度可以不一样。
+-2 &lt;m2&gt; 双末端测寻对应的文件2.
+-U &lt;r&gt; 非双末端测寻对应的文件。可以为多个文件，并用逗号分开。测序文件中的reads的
+长度可以不一样。
+-S &lt;hit&gt; 所生成的SAM格式的文件前缀。默认是输入到标准输出。</code></pre>
+<h4 id="可选参数"><a href="#可选参数" class="header-anchor">可选参数：</a></h4>
+<h5 id="输入参数"><a href="#输入参数" class="header-anchor">输入参数</a></h5>
+<pre><code class="language-julia">-q 输入的文件为FASTQ格式文件，此项为默认值。
+-qseq 输入的文件为QSEQ格式文件。
+-f 输入的文件为FASTA格式文件。选择此项时，表示--ignore-quals也被选择了。
+-r 输入的文件中，每一行代表一条序列，没有序列名和测序质量等。选择此项时，表示--
+ignore-quals也被选择了。
+-c 后直接为比对的reads序列，而不是包含序列的文件名。序列间用逗号隔开。选择此项时，
+表示—ignore-quals也被选择了。
+-s/--skip &lt;int&gt; input的reads中，跳过前&lt;int&gt;个reads或者pairs。
+-u/--qupto &lt;int&gt; 只比对前&lt;int&gt;个reads或者pairs（在跳过前&lt;int&gt;个reads或者
+pairs后）。Default: no limit.
+-5/--trim5 &lt;int&gt; 剪掉5&#39;端&lt;int&gt;长度的碱基，再用于比对。&#40;default: 0&#41;.
+-3/--trim3 &lt;int&gt; 剪掉3&#39;端&lt;int&gt;长度的碱基，再用于比对。&#40;default: 0&#41;.
+--phred33 输入的碱基质量等于ASCII码值加上33. 在最近的illumina pipiline中
+得以运用。
+--phred64 输入的碱基质量等于ASCII码值加上64.
+--solexa-quals 将Solexa的碱基质量转换为Phred。在老的GA Pipeline版本中得以
+运用。Default: off.
+ --int-quals 输入文件中的碱基质量为用“ ”分隔的数值，而不是ASCII码。比如 40 40 
+30 40...。Default: off.
+ –end-to-end模式下的预设参数
+--very-fast Same as: -D 5 -R 1 -N 0 -L 22 -i S,0,2.50 
+--fast Same as: -D 10 -R 2 -N 0 -L 22 -i S,0,2.50 
+--sensitive Same as: -D 15 -R 2 -N 0 -L 22 -i S,1,1.15 &#40;default in --end-to-end mode&#41; 
+--very-sensitive Same as: -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+–loca模式下的预设参数
+–loca模式下的预设参数
+--very-fast-local Same as: -D 5 -R 1 -N 0 -L 25 -i S,1,2.00 
+--fast-local Same as: -D 10 -R 2 -N 0 -L 22 -i S,1,1.75 
+--sensitive-local Same as: -D 15 -R 2 -N 0 -L 20 -i S,1,0.75 &#40;default in --local mode&#41; 
+--very-sensitive-local Same as: -D 20 -R 3 -N 0 -L 20 -i S,1,0.50</code></pre>
+<h5 id="比对参数"><a href="#比对参数" class="header-anchor">比对参数：</a></h5>
+<pre><code class="language-julia">-N &lt;int&gt; 进行种子比对时允许的mismatch数. 可以设为0或者1. Default: 0.
+-L &lt;int&gt; 设定种子的长度.</code></pre>
+<h5 id="功能选项"><a href="#功能选项" class="header-anchor">功能选项</a></h5>
+<p>给bowtie的一些参数设定值的时候，使用一个计算公式代替，于是值的大小与比对序列的长度成一定关系。&lt;func&gt;有三部分组成: &#40;a&#41;计算方法, 包括常数&#40;C&#41;,线性&#40;L&#41;,平方根&#40;S&#41;和自然对数&#40;G&#41;; &#40;b&#41;一个常数; &#40;c&#41;一个系数.  例如: </p>
+<pre><code class="language-julia">&lt;func&gt; 为 L,-0.4,-0.6 则计算公式为: f&#40;x&#41; &#61; -0.4 &#43; -0.6 * x
+&lt;func&gt; 为G,1,5.4 则计算公式为: f&#40;x&#41; &#61; 1.0 &#43; 5.4 * ln&#40;x&#41;</code></pre>
+<hr />
+<pre><code class="language-julia">-i &lt;func&gt; 设定两个相邻种子间所间距的碱基数。</code></pre>
+<hr />
+<p>例如：如果read的长度为30, 种子的长度为10, 相邻种子的间距为6,则提取出的种子如下 所示：</p>
+<pre><code class="language-julia">Read: TAGCTACGCTCTACGCTATCATGCATAAAC
+Seed 1 fw: TAGCTACGCT
+Seed 1 rc: AGCGTAGCTA
+Seed 2 fw: CGCTCTACGC
+Seed 2 rc: GCGTAGAGCG
+Seed 3 fw: ACGCTATCAT
+Seed 3 rc: ATGATAGCGT
+Seed 4 fw: TCATGCATAA
+Seed 4 rc: TTATGCATGA</code></pre>
+<hr />
+<pre><code class="language-julia">--end-to-end模式中默认值为”-i S,1,1.15”.即表示f&#40;x&#41; &#61; 1 &#43; 1.15 * sqrt&#40;x&#41;. 如果read长度为100, 则相邻种子的间距为12.
+
+--n-ceil &lt;func&gt; 设定read中允许含有不确定碱基&#40;非GTAC,通常为N&#41;的最大数目. 
+Default: L,0,0.15. 计算公式为: f&#40;x&#41; &#61; 0 &#43; 0.15 * x, 表示长度为100的read
+最多运行存在15个不确定碱基. 一旦不确定碱基数超过15, 则该条read会被过滤掉.
+
+--dpad &lt;int&gt; Default: 15.
+
+--gbar &lt;int&gt; 在read头尾&lt;int&gt;个碱基内不允许gap. Default: 4.
+
+--ignore-quals 计算错配罚分的时候不考虑碱基质量. 当输入序列的模式为-f, -r 或
+者-c的时候, 该设置自动成为默认设置.
+
+--nofw/--norc –nofw设定read不和前导链&#40;forward reference strand&#41;进行比对;
+
+--norc设定不和后随链&#40;reverse-complement reference strand&#41;进行比对. Default: both strands enabled.
+
+--end-to-end 比对是将整个read和参考序列进行比对. 该模式--ma的值为0. 该模式为
+默认模式, --local模式冲突.
+
+--local 该模式下对read进行局部比对, 从而, read两端的一些碱基不比对，从而使比
+对得分满足要求. 该模式下 –ma默认为2.
+得分罚分参数
+
+--ma &lt;int&gt; 设定匹配得分. --local模式下每个read上碱基和参考序列上碱基匹配, 则
+加&lt;int&gt;分. 在—end-to-end模式中无效. Default: 2.
+
+--mp MX,MN 设定错配罚分. 其中MX为所罚最高分, MN为所罚最低分. 默认设置下罚分与
+碱基质量相关. 罚分遵循的公式为: MN &#43; floor&#40; &#40;MX-MN&#41;&#40;MIN&#40;Q, 40.0&#41;/40.0&#41; &#41;. 
+其中Q为碱基的质量值. 如果设置了—ignore-qual参数, 则错配总是罚最高分. Default: 
+MX &#61; 6, MN &#61; 2.
+
+--np &lt;int&gt; 当匹配位点中read, reference上有不确定碱基&#40;比如N&#41;时所设定的罚分值.
+Default: 1.
+
+--rdg &lt;int1&gt;,&lt;int2&gt; 设置在read上打开gap 罚分&lt;int1&gt;, 延长gap罚分&lt;int2&gt;. 
+Default: 5, 3.
+
+--rfg &lt;int1&gt;,&lt;int2&gt; 设置在reference上打开gap 罚分&lt;int1&gt;, 延长gap罚分
+&lt;int2&gt;. Default: 5, 3.
+
+--score-min &lt;func&gt; 设定成为有效比对的最小分值. 在—end-to-end模式下默认值为:
+L,-0.6,-0.6; 在--local模式下默认值为: G,20,8.</code></pre>
+<h5 id="报告参数"><a href="#报告参数" class="header-anchor">报告参数</a></h5>
+<pre><code class="language-julia">-k &lt;int&gt; 
+
+默认设置下, bowtie2搜索出了一个read不同的比对结果, 
+并报告其中最好的比对结果
+&#40;如果好几个最好的比对结果得分一致, 则随机挑选出其中一个&#41;.
+而在该模式下, bowtie2最多搜索出一个read &lt;int&gt;个比对结果,
+并将这些结果按得分降序报告出来.
+
+-a 
+
+和-k参数一样, 不过不限制搜索的结果数目. 
+并将所有的比对结果都按降序报告出来.
+此参数和-k参数冲突. 
+值得注意的是: 如果基因组含有很多重复序列时, 该参数会导致程序
+运行极其缓慢.</code></pre>
+<h5 id="effort_参数"><a href="#effort_参数" class="header-anchor">Effort 参数</a></h5>
+<pre><code class="language-julia">-D &lt;int&gt; 比对时, 将一个种子延长后得到比对结果, 如果不产生更好的或次好的比对结果, 
+则该次比对失败. 当失败次数连续达到&lt;int&gt;次后, 则该条read比对结束. Bowtie2才会
+继续进行下去. Default: 15. 当具有-k或-a参数, 则该参数所产生的限制会自动调整.
+-R &lt;int&gt; 如果一个read所生成的种子在参考序列上匹配位点过多. 当每个种子平均匹配超
+过300个位置, 则通过一个不同的偏移来重新生成种子进行比对. &lt;int&gt;则是重新生成种子
+的次数. Default: 2.
+Paired-end 参数
+-I/--minins &lt;int&gt; 设定最小的插入片段长度. Default: 0.
+-X/--maxins &lt;int&gt; 设定最长的插入片段长度. Default: 500.
+--fr/--rf/--ff 设定上下游reads和前导链paired-end比对的方向. --fr: 匹配时，
+read1在5&#39;端上游, 和前导链一致, read2在3&#39;下游, 和前导链反向互补. 或者read2在
+上游, read1在下游反向互补; --rf: read1在5&#39;端上游, 和前导链反向互补, read2在
+3&#39;端下游, 和前导链一致; --fr: 两条reads都和前导链一致. Default: --fr. 默认
+设置适合于Illumina的paired-end测序数据; 若是mate-paired, 则要选择—rf参数.
+--no-mixed 默认设置下, 一对reads不能成对比对到参考序列上, 则单独对每个read进
+行比对. 该选项则阻止此行为.
+--no-discordant 默认设置下, 一对reads不能和谐比对&#40;concordant alignment,
+即满足-I, -X, --fr/--rf/--ff的条件&#41;到参考序列上, 则搜寻其不和谐比对&#40;discon
+cordant alignment, 即两条reads都能独一无二地比对到参考序列上, 但是不满足-I,
+-X,--fr/--rf/--ff的条件&#41;. 该选项阻止此行为.
+--dovetail read1和read2的关系为dovetail的时候,该状况算为和谐比对. 默认情况
+下dovetail不算和谐比对.
+--no-contain read1和read2的关系为包含的时候, 该状况不算为和谐比对. 默认情况
+下包含关系算为和谐比对.
+--no-overlap read1和read2的关系为有重叠的时候, 该状况不算为和谐比对. 默认情
+况下两个reads重叠算为和谐比对.</code></pre>
+<h5 id="输出参数"><a href="#输出参数" class="header-anchor">输出参数</a></h5>
+<pre><code class="language-julia">-t/--time --un &lt;path&gt; 将unpaired reads写入到&lt;path&gt;.
+--un-gz &lt;path&gt; 将unpaired reads写入到&lt;path&gt;, gzip压缩.
+--un-bz2 &lt;path&gt; 将unpaired reads写入到&lt;path&gt;, bz2压缩.
+--al &lt;path&gt; 将至少能比对1次以上的unpaired reads写入&lt;path&gt;.
+--al-gz &lt;path&gt; ... ,gzip压缩.
+--al-bz2 &lt;path&gt; ... ,bz2压缩.
+--un-conc &lt;path&gt; 将不能和谐比对的paired-end reads写入&lt;path&gt;.
+--un-conc-gz &lt;path&gt; ... ,gzip压缩.
+--un-conc-bz2 &lt;path&gt; ... ,bz2压缩.
+--al-conc &lt;path&gt; 将至少能和谐比对一次以上的paired-end reads写入&lt;path&gt;.
+--al-conc-gz &lt;path&gt; ... ,gzip压缩.
+--al-conc-bz2 &lt;path&gt;... ,bz2压缩.
+--quiet 安静模式,除了比对错误和一些严重的错误, 不在屏幕上输出任何东西.
+--met-file &lt;path&gt; 将bowtie2的检测信息&#40;metrics&#41;写入文件&lt;path&gt;. 用于debug. 
+Default: metrics disabled.
+--met-stderr &lt;path&gt; 将bowtie2的检测信息&#40;metrics&#41;写入标准错误文件句柄. 和上
+一个选项不冲突. Default: metrics disabled.
+--met &lt;int&gt; 每隔&lt;int&gt;秒写入一次metrics记录. Default: 1.</code></pre>
+<h5 id="sam_参数"><a href="#sam_参数" class="header-anchor">Sam 参数</a></h5>
+<pre><code class="language-julia">--no-unal 不记录没比对上的reads.
+--no-hd 不记录SAM header lines &#40;以@开头&#41;.
+--no-sq 不记录@SQ的SAM header lines.
+--rg-id &lt;text&gt; 设定read group Id到&lt;text&gt;.
+--rg &lt;text&gt; 增加&lt;text&gt;作为一行@RG.</code></pre>
+<h5 id="性能参数"><a href="#性能参数" class="header-anchor">性能参数</a></h5>
+<pre><code class="language-julia">-o/--offrate &lt;int&gt; 无视index的offrate值, 以&lt;int&gt;取代之. Index默认的&lt;int&gt; 
+值为5. &lt;int&gt;值必须大于index的offrate值, 同时&lt;int&gt;越大, 耗时越长，耗内存越少.
+-p/--threads NTHREADS 设置线程数. Default: 1
+--reorder 多线程运算时, 比对结果在顺序上会和文件中reads的顺序不一致, 使用该选
+项, 则使其一致.
+--mm 使用内存定位的I/O来载入index, 而不是常规的文件I/O. 从而使多个bowtie程
+序共用内存中同样的index, 节约内存消耗.</code></pre>
+<p>其它参数：</p>
+<pre><code class="language-julia">--qc-filter 滤除QSEQ fileter filed为非0的reads. 仅当有—qseq选项时有效. 
+Default: off.
+--seed &lt;int&gt; 使用&lt;int&gt;作为随机数产生的种子. Default: 0.
+--version 打印程序版本并退出
+-h/--help 打印用法信息并推出</code></pre>
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+

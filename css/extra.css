@@ -1,0 +1,225 @@
+
+/* ===============================================
+
+field box learned from xranklin doc
+
+================================================== */
+:root {
+    --block-background: hsl(0, 0%, 94%);
+    --output-background: hsl(0, 0%, 98%);
+    /* -------------
+           FONT VARIABLES
+           -------------- */
+    --text-sm: 0.95em;
+    --text-lg: 1.2em;
+    --text-xl: 1.4em;
+    --text-h4: 1.2em;
+    --text-h3: 1.5em;
+    --text-h2: 2em;
+    --text-h1: 3em;
+    --text-col: hsl(0, 0%, 20%);
+    --text-font: system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans",
+        "Liberation Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --text-line-height: 1.5;
+}
+
+.code-output {
+    background-color: var(--output-background);
+    padding: .5em;
+}
+
+.code-output table {
+    border-collapse: collapse;
+}
+
+.code-output td,
+th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+}
+
+
+/* ==================================================================
+    KATEX
+================================================================== */
+
+body {
+    counter-reset: eqnum;
+}
+
+.katex {
+    font-size: 1.1em !important;
+}
+
+.katex-display .katex {
+    display: inline-block;
+}
+
+.katex-display::after {
+    counter-increment: eqnum;
+    content: "(" counter(eqnum) ")";
+    position: relative;
+    float: right;
+    padding-right: 5px;
+}
+
+.nonumber .katex-display::after {
+    counter-increment: nothing;
+    content: "";
+}
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 600;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+/* ==================================================================
+    Other stuff
+================================================================== */
+
+.small-img img {
+    width: 70%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.small-ctr {
+    width: 100%;
+    text-align: center;
+}
+
+.small-ctr .js-plotly-plot {
+    margin: auto;
+}
+
+/* ==================================================================
+    Tweaks to academic
+================================================================== */
+
+.profile {
+    text-align: center;
+    padding: 30px 10px;
+    position: relative
+}
+
+.result-title a {
+    text-decoration: none;
+}
+
+.result-title a:hover {
+    text-decoration: underline;
+}
+
+.result-preview {
+    color: #542788;
+}
+
+.resultCount {
+    color: #123456;
+}
+
+.result-query {
+    font-weight: bold;
+}
+
+/* TOC */
+.franklin-toc {
+    width: 95%;
+    margin-left: 0em;
+    /* border-left: solid 0.2em; */
+    /* border-color: #aaacac; */
+    /* margin-bottom: 2em; */
+}
+
+
+.franklin-toc {
+    display: flexbox;
+    position: fixed;
+    top: 8%;
+    right:3%;
+    /* min-width: 100px; */
+    max-width: 30px;
+    max-height: 30px;
+    overflow: hidden;
+    padding: 15px;
+    margin-top: 1.5em;
+    margin-left: 0em;
+    margin-right: auto;
+    background-color: #92b4fc;
+    border: solid 0.25em #383838;
+    border-radius: 20px;
+    z-index: 9999;
+}
+
+.franklin-toc:hover {
+    display: block;
+    position: fixed;
+    top: 7%;
+    right:1.5%;
+    width: auto;
+    min-width: 90px;
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: scroll;
+    margin-top: 1.5em;
+    padding: 0px;
+    padding-top: 15px;
+    padding-right: 15px;
+    margin-left: -2em;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.822);
+    border-radius: 10px;
+    border: solid 0em #505050;
+    border-left: solid 0.1em rgba(0, 0, 0, .125);
+    border-bottom: solid 0.1em rgba(0, 0, 0, .125);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    margin-bottom: 1em;
+    font-size: 15px;
+    z-index: 9999;
+}
+
+.nav-linksmall {
+    padding: 1px 1px !important
+}
+
+.nav-img {
+    vertical-align: text-bottom;
+    display: inline-block;
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    width: 30px;
+    height: 30px;
+}
+
+#lov table{
+    table-layout: fixed;
+    word-break: break-all;
+    background-color: transparent;
+}
+
+#lov td {
+    max-width: 90%;
+    vertical-align: middle;
+    table-layout: fixed;
+    word-break:break-all;
+    word-wrap: break-word;
+}
+
+#lov td:hover {
+    background-color: #f8fcff;
+}
+
+
+

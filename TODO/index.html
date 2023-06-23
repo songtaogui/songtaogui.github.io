@@ -1,0 +1,391 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+
+    
+    
+    <meta name="keywords" content="TODO">
+    <title>TODO</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>TODO</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> LONG TERM TODO LIST</legend>
+</p>
+<ul>
+<li><p><input class="checkbox" type="checkbox" > make a speech on <code>My Zima Blue</code> in the future &#40;What I study is the causation of why I study it&#41;</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > make my md based slide creator: <div class="indent-block" style="margin-left: 1em !important">  learn how markdown was parsed in Julia base Markdown.jl pkg, and try to develop my own pkg for parse markdown for PPT, depends on <code>reveal.js</code>, compatible with Franklin &#40;or Xranklin&#41;, and easy to use &#40;the control options should all embedded in <code>&lt;&#33;-- --&gt;</code> comment strings, so that the md file could also be parsed as normal markdown. The name would be <code>Keynote.jl</code>&#41; </div></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > <code>Bigots.jl</code></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Graph genomes</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Statistics with Julia</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > learn <code>D3.js</code> or <code>Vega</code> and <code>VegaLite</code>, and <code>Vega.jl</code> and <code>VegaLite.jl</code></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> POSTED 2022-09-20</legend>
+</p>
+<ul>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> Reformat my admonitions and code block formats, neat</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> Reformat my blogs <kbd> bact to top button</kbd>: now it is JS derived</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> Add VSCode autocompletion for my franklin functions, soooo smoooooth</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Finish my blog of <a href="/posts/2022/09/make_my_own_parser">Make my own bioinformatics parser with Automa.jl</a></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> Translate <em>Frames Catherine White</em>&#39;s insightfull post <a href="https://www.oxinabox.net/2020/04/19/Julia-Antipatterns.html">JuliaLang Antipatterns</a> into chinese: <span class="Sadmon Sadmon-note">Done&#33;</span></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Learn the <a href="https://github.com/invenia/BlueStyle">BlueStyle</a> julia style guide</p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Finish <a href="https://odgi.readthedocs.io/en/latest/index.html">ODGI</a>&#39;s tutorial: <a href="/posts/2022/08/odgi-泛基因组分析工具包">ODGI-泛基因组分析工具包</a></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> POSTED 2022-09-21</legend>
+</p>
+<ul>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> reformat my diy CSS rules, now they are well organized and more optional than before: <a href="https://github.com/songtaogui/songtaogui.github.io/tree/master/css">src dir</a></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> reformat my diy franklin lx functions, now they are well organized and fit well with the css. <a href="https://raw.githubusercontent.com/songtaogui/blog_builder/master/config.md">src</a></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Learn Frames&#39;s another Julia post <a href="https://www.oxinabox.net/2020/02/09/whycompositionaljulia.html#multiple-dispatch--duck-typing">JuliaLang: The Ingredients for a Composable Programming Language</a></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Learn Frame&#39;s another Julia post <a href="https://www.oxinabox.net/2019/09/28/Continuous-Delivery-For-Julia-Packages.html">Continuous Delivery</a></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> POSTED 2022-09-25</legend>
+</p>
+<ul>
+<li><p><input class="checkbox" type="checkbox" checked="checked"> record how I set my franklin blog to support creating PPT using <code>reveal.js</code></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Learn the limitations of Franklin <code>config.md</code> based functions, and their relationships to <code>util.jl</code> defined funcs, learn the inside procedure of <code>Franklin.serve&#40;&#41;</code></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > <a href="https://github.com/johnmyleswhite/julia-function-docs">How to write a well function docs in julia</a></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > Learn about interesting blogs written by <a href="https://www.johnmyleswhite.com/posts/">JOHN MYLES WHITE</a></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> POSTED 2022-10-04</legend>
+</p>
+<ul>
+<li><p><input class="checkbox" type="checkbox" > finish the document of <code>DataFramesMeta.jl</code></p>
+</li>
+<li><p><input class="checkbox" type="checkbox" > set <code>Slide.jl</code> to better interact with Reveal Chart and Animation plugins</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: April 25, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+
