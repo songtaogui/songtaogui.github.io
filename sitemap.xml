@@ -339,7 +339,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2023-05-10</lastmod>
+    <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -364,6 +364,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\TraitSimulation\index.html</loc>
     <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\MolecularEvolution\index.html</loc>
+    <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -454,6 +460,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\Bioinformatics\Graph_Genome\index.html</loc>
     <lastmod>2023-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/posts\2023\06\probabilistic_data_structures\index.html</loc>
+    <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
