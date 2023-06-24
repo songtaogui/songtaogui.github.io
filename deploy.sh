@@ -32,7 +32,8 @@ USAGE:
 
 OPTIONS: ([R]:required  [O]:optional)
     -h, --help                          show help and exit.
-    -b, --builder                           deploy the builder instead of the blog site.
+    -b, --builder                       deploy the builder instead of the blog site.
+    -f, --force                         force git push 
     -m, --commit  <str>                 github commit info, default: 'date'
     -d, --dryrun                        skip the github deploy step, just output the cmd
     --quiet                             keep quiet, only output fatal errors
@@ -52,7 +53,7 @@ check_sftw_path staticrypt
 
 # >>>>>>>>>>>>>>>>>>>>>>>> Parse Options >>>>>>>>>>>>>>>>>>>>>>>>
 # Set Default Opt
-export template="_libs/staticrypt_template.html"
+export template="_layout/staticrypt_template.html"
 export commit=$(date +'%y-%m-%d %H:%M')
 export builder=FALSE
 export force=FALSE
@@ -103,11 +104,15 @@ unset UNKOWN_ARGS # restore UNKOWN_ARGS params
 # <<<<<<<<<<<<<<<<<<<<<<<< Parse Options <<<<<<<<<<<<<<<<<<<<<<<<
 
 if [ "$builder" == "TRUE" ];then
-    gst_log "Deploying to blogbuilder ..."
+    gst_log "Deploying to blogbuilder $(git branch -vv)..."
     if [[ $dryrun != "TRUE" ]];then
         git add . &&\
         git commit -m "$commit" &&\
-        git push origin master
+        if [ "$force" == "TRUE" ];then
+            git push -u origin master -f
+        else
+            git push origin master
+        fi
     else
         gst_warn "Dryrun commands:
         -------------------------------
@@ -118,7 +123,7 @@ if [ "$builder" == "TRUE" ];then
         "
     fi
 else
-gst_log "Deploying to my blog site ..."
+gst_log "Deploying to my blog site $(git branch -vv)..."
 gst_rcd "Check ref.bib and format ..."
 # check if the ref.bib has been updated with md5
 if ! md5sum -c _assets/citedb/ref.bib.md5 1>/dev/null 2>&1; then
@@ -216,12 +221,7 @@ do
             CRPYT="TRUE"
         else
             # already encrypted
-            if [[ $force == "TRUE" ]];then
-                CRPYT="TRUE"
-                gst_warn "force re-encrypt $htmlfile ..."
-            else
-                gst_warn "skip $htmlfile"
-            fi
+            gst_warn "skip $htmlfile"
         fi
         # encrypt it
         if [[ $CRPYT == "TRUE" ]];then
@@ -253,7 +253,11 @@ if [[ $dryrun != "TRUE" ]];then
     cd __site || exit 1
     git add . &&\
     git commit -m "$commit" &&\
-    git push origin master
+    if [ "$force" == "TRUE" ];then
+        git push -u origin master -f
+    else
+        git push origin master
+    fi
 else
    gst_warn "Dryrun commands:
 -------------------------------
