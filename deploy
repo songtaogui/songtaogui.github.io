@@ -34,7 +34,7 @@ OPTIONS: ([R]:required  [O]:optional)
     -h, --help                          show help and exit.
     -b, --builder                       deploy the builder instead of the blog site, 
                                         default: only deploy the blog repos (__site dir)
-    --all                               deploy both the builder and the blog repos
+    -a, --all                               deploy both the builder and the blog repos
     -f, --force                         force git push 
     -m, --commit  <str>                 github commit info, default: 'date'
     -d, --dryrun                        skip the github deploy step, just output the cmd
@@ -73,7 +73,7 @@ while [[ $# > 0 ]]; do
             builder=TRUE
             shift 1
         ;;
-        --all)
+        -a|--all)
             builder=TRUE
             blog=TRUE
             shift 1
