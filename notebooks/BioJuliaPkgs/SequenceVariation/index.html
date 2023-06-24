@@ -72,7 +72,7 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
 
 
 
@@ -198,6 +198,237 @@
                 
                 <div class="franklin-content">
 <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/biojulia/">biojulia</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#从比对结果中提取变异">从比对结果中提取变异</a></li><li><a href="#根据单倍型重建query序列">根据单倍型重建query序列</a></li><li><a href="#切换ref">切换REF</a></li><li><a href="#构建">构建</a></li><li><a href="#提取">提取</a></li><li><a href="#转换ref">转换REF</a></li><li><a href="#变异的比较">变异的比较</a></li><li><a href="#edits">Edits</a></li><li><a href="#variants">Variants</a></li><li><a href="#variations">Variations</a></li></ol></div>
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Julia中变异和单倍型的表示</legend>
+  <a href="https://biojulia.dev/SequenceVariation.jl/stable">文档原文</a></p>
+<ul>
+<li><p>基于两两比对的结果, 输出变异和单倍型信息;</p>
+</li>
+<li><p>单倍型和变异类型, 包含ref信息, 可以互相比较;</p>
+</li>
+<li><p>可以根据比对结果, 切换参考基因组;</p>
+</li>
+<li><p>只提供了PAV&#40;INS和DEL&#41;和SNP&#40;Substitutions&#41;三种基本类型的变异</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h1 id="单倍型"><a href="#单倍型" class="header-anchor">单倍型</a></h1>
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> `Haplotype`类型</legend>
+  PASS 
+</fieldset>
+
+<h2 id="从比对结果中提取变异"><a href="#从比对结果中提取变异" class="header-anchor">从比对结果中提取变异</a></h2>
+<p><code>SequenceVariant</code>可以使用<code>Haplotype</code>类型的构造函数直接获得变异信息。</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; using SequenceVariation, BioAlignments, BioSequences
+julia&gt; bovine &#61; dna&quot;GACCGGCTGCATTCGAGGCTGCCAGCAAGCAG&quot;;
+julia&gt; ovine  &#61; dna&quot;GACCGGCTGCATTCGAGGCTGTCAGCAAACAG&quot;;
+julia&gt; human  &#61; dna&quot;GACAGGCTGCATCAGAAGAGGCCATCAAGCAG&quot;;
+julia&gt; bos_ovis_alignment &#61;
+           PairwiseAlignment&#40;AlignedSequence&#40;ovine, Alignment&#40;&quot;32M&quot;, 1, 1&#41;&#41;, bovine&#41;;
+julia&gt; bos_human_alignment &#61;
+           PairwiseAlignment&#40;AlignedSequence&#40;human, Alignment&#40;&quot;32M&quot;, 1, 1&#41;&#41;, bovine&#41;;
+julia&gt; bos_ovis_haplotype &#61; Haplotype&#40;bos_ovis_alignment&#41;
+Haplotype&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSymbols.DNA&#125; with 2 edits:
+  C22T
+  G29A
+julia&gt; bos_human_haplotype &#61; Haplotype&#40;bos_human_alignment&#41;
+Haplotype&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSymbols.DNA&#125; with 7 edits:
+  C4A
+  T13C
+  C14A
+  G17A
+  C19A
+  T20G
+  G25T</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="根据单倍型重建query序列"><a href="#根据单倍型重建query序列" class="header-anchor">根据单倍型重建query序列</a></h2>
+<p><code>Haplotype</code>类型存储了参考序列信息, 可以利用<code>reconstruct</code>函数重建query序列:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; human2 &#61; reconstruct&#40;bos_human_haplotype&#41;
+32nt DNA Sequence:
+GACAGGCTGCATCAGAAGAGGCCATCAAGCAG
+julia&gt; human2 &#61;&#61; bovine
+false
+julia&gt; human2 &#61;&#61; human
+true</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="切换ref"><a href="#切换ref" class="header-anchor">切换REF</a></h2>
+<p>提供 <code>RawREF &#61;&gt; NewREF</code>的比对结果, 就可以用<code>translate</code>函数把变异切换到NewREF:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; ovis_human_alignment &#61; PairwiseAlignment&#40;AlignedSequence&#40;human, Alignment&#40;&quot;32M&quot;, 1, 1&#41;&#41;, ovine&#41;
+BioAlignments.PairwiseAlignment&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;&#125;:
+  seq:  1 GACAGGCTGCATCAGAAGAGGCCATCAAGCAG 32
+          ||| ||||||||  || |  | || ||| |||
+  ref:  1 GACCGGCTGCATTCGAGGCTGTCAGCAAACAG 32
+
+julia&gt; SequenceVariation.translate&#40;bos_ovis_haplotype, ovis_human_alignment&#41;
+Haplotype&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSymbols.DNA&#125; with 2 edits:
+  C22T
+  G29A</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h1 id="变异"><a href="#变异" class="header-anchor">变异</a></h1>
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> `Variation`类型</legend>
+  PASS 
+</fieldset>
+
+<h2 id="构建"><a href="#构建" class="header-anchor">构建</a></h2>
+<p>利用<code>Variation</code>构造函数:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using BioSequences, SequenceVariation
+bovine_ins &#61; dna&quot;GACCGGCTGCATTCGAGGCTGCCAGCAAGCAG&quot;
+snp &#61; Variation&#40;bovine_ins, &quot;C4A&quot;&#41;
+typeof&#40;mutation&#40;snp&#41;&#41; # Substitution&#123;DNA&#125;
+del &#61; Variation&#40;bovine_ins, &quot;Δ13-14&quot;&#41;
+typeof&#40;mutation&#40;del&#41;&#41; # Deletion
+ins &#61; Variation&#40;bovine_ins, &quot;25ACA&quot;&#41;
+typeof&#40;mutation&#40;ins&#41;&#41; # Insertion&#123;LongSequence&#123;DNAAlphabet&#123;4&#125;&#125;&#125;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="提取"><a href="#提取" class="header-anchor">提取</a></h2>
+<p>利用<code>variations&#40;&#41;</code>函数从<code>Haplotype</code>中提取:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">variations&#40;bos_ovis_haplotype&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="转换ref"><a href="#转换ref" class="header-anchor">转换REF</a></h2>
+<p><code>translate</code>函数也可以对Variation进行切换: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; ovis_human_alignment &#61; PairwiseAlignment&#40;AlignedSequence&#40;human, Alignment&#40;&quot;32M&quot;, 1, 1&#41;&#41;, ovine&#41;
+BioAlignments.PairwiseAlignment&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;&#125;:
+  seq:  1 GACAGGCTGCATCAGAAGAGGCCATCAAGCAG 32
+          ||| ||||||||  || |  | || ||| |||
+  ref:  1 GACCGGCTGCATTCGAGGCTGTCAGCAAACAG 32
+
+julia&gt; human_variation &#61; first&#40;variations&#40;bos_ovis_haplotype&#41;&#41;
+C22T
+
+julia&gt; reference&#40;ans&#41; &#61;&#61; bovine
+true
+
+julia&gt; SequenceVariation.translate&#40;human_variation, ovis_human_alignment&#41;
+C22T
+
+julia&gt; reference&#40;ans&#41; &#61;&#61; bovine
+false</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<h2 id="变异的比较"><a href="#变异的比较" class="header-anchor">变异的比较</a></h2>
+<ol>
+<li><p><code>in</code>函数用于在<code>Haplotype</code>中查找<code>Variation</code></p>
+</li>
+</ol>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">println&#40;&quot;Variation\tOvis aires\tHomo sapiens&quot;&#41;
+for v in vcat&#40;variations&#40;bos_ovis_haplotype&#41;, variations&#40;bos_human_haplotype&#41;&#41;
+    is_sheep &#61; v in bos_ovis_haplotype
+    is_human &#61; v in bos_human_haplotype
+    println&#40;&quot;&#36;v\t&#36;is_sheep\t\t&#36;is_human&quot;&#41;
+end</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<table><tr><th align="left">Variation</th><th align="left">Ovis aires</th><th align="left">Homo sapiens</th></tr><tr><td align="left">C22T</td><td align="left">true</td><td align="left">false</td></tr><tr><td align="left">G29A</td><td align="left">true</td><td align="left">false</td></tr><tr><td align="left">C4A</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">T13C</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">C14A</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">G17A</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">C19A</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">T20G</td><td align="left">false</td><td align="left">true</td></tr><tr><td align="left">G25T</td><td align="left">false</td><td align="left">true</td></tr></table>
+<ol start="2">
+<li><p>用变异构建新的单倍型</p>
+</li>
+</ol>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; sheeple &#61; vcat&#40;variations&#40;bos_ovis_haplotype&#41;, variations&#40;bos_human_haplotype&#41;&#41;;
+julia&gt; Haplotype&#40;bovine, sheeple&#41;
+Haplotype&#123;BioSequences.LongSequence&#123;BioSequences.DNAAlphabet&#123;4&#125;&#125;, BioSymbols.DNA&#125; with 9 edits:
+  C4A
+  T13C
+  C14A
+  G17A
+  C19A
+  T20G
+  C22T
+  G25T
+  G29A
+
+julia&gt; reconstruct&#33;&#40;bovine, ans&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h1 id="api"><a href="#api" class="header-anchor">API</a></h1>
+<h2 id="edits"><a href="#edits" class="header-anchor">Edits</a></h2>
+<ul>
+<li><p><code>Edits</code>类型</p>
+</li>
+<li><p><code>Substitution</code>类型</p>
+</li>
+<li><p><code>Deletion</code>类型</p>
+</li>
+<li><p><code>Insertion</code>类型</p>
+</li>
+</ul>
+<p>变异发生的位置不存储在以上数据结构中。</p>
+<h2 id="variants"><a href="#variants" class="header-anchor">Variants</a></h2>
+<ul>
+<li><p><code>Haplotype</code>类型</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <code>Haplotype&#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;</code> 记录了一系列变异的集合 构造函数: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 根据edits类型
+Haplotype&#40;ref::S, edits::Vector&#123;Edit&#123;S,T&#125;&#125;&#41; where &#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;
+# 根据Variation
+Haplotype&#40;ref::S, vars::Vector&#123;Variation&#123;S,T&#125;&#125;&#41; where &#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;
+# 根据序列比对
+Haplotype&#40;aln::PairwiseAlignment&#123;T,T&#125;&#41; where &#123;T&lt;:LongSequence&#123;&lt;:Union&#123;BS.AminoAcidAlphabet,BS.NucleicAcidAlphabet&#125;&#125;&#125;</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>当从<code>Edit</code>和<code>Variation</code>构造时, 从序列的第一个位置到最后一个位置依次引用, 因此必须始终按照位置对向量排序。 </div>
+<ul>
+<li><p><code>reference&#40;h::Haplotype&#41;</code>: 提取h的参考序列</p>
+</li>
+<li><p><code>variations&#40;h::Haplotype&#123;S,T&#125;&#41; where &#123;S, T&#125;</code>: 把h中的edits转变成Variation向量</p>
+</li>
+<li><p><code>reconstruct&#40;h::&quot;Haplotype&#41;</code>: 重构query序列</p>
+</li>
+<li><p><code>translate&#40;h::Haplotype&#123;S,T&#125;, aln::PairwiseAlignment&#123;S,S&#125;&#41; where &#123;S,T&#125;</code></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important">  根据aln切换ref, 位于开头或结尾的INDEL可能无法保存。 </div>
+<h2 id="variations"><a href="#variations" class="header-anchor">Variations</a></h2>
+<ul>
+<li><p><code>Variation</code>类型:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <code>Variation&#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;</code> 包含ref和edit, 比<code>Edit</code>类型更稳健。 <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">struct Variation&#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;
+    ref::S
+    edit::Edit&#123;S,T&#125;
+
+    function Variation&#123;S,T&#125;&#40;
+        ref::S, e::Edit&#123;S,T&#125;, ::Unsafe
+    &#41; where &#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;
+        return new&#40;ref, e&#41;
+    end
+end</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 构造函数: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">Variation&#40;ref::S, e::Edit&#123;S,T&#125;&#41; where &#123;S&lt;:BioSequence,T&lt;:BioSymbol&#125;
+Variation&#40;ref::S, edit::AbstractString&#41; where &#123;S&lt;:BioSequence&#125;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 鼓励使用<code>variations&#40;h&#41;</code>的方式构造。 </div>
+<ul>
+<li><p><code>reference&#40;v&#41;</code></p>
+</li>
+<li><p><code>mutation&#40;v&#41;</code>: 获得v对应的edits</p>
+</li>
+<li><p><code>translate&#40;v, aln&#41;</code></p>
+</li>
+<li><p><code>refbases&#40;v&#41;</code>: 获得v的REF序列</p>
+</li>
+<li><p><code>altbases&#40;v&#41;</code>: 获得v的ALT序列, 对于INS, 会根据VCFv4 Spec, 包含插入前的碱基: <code>25ACA: G &#61;&gt; GACA</code></p>
+</li>
+</ul>
+
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 思考</legend>
+</p>
+<ul>
+<li><p>传统的SV包含<code>INS</code>,<code>DEL</code>,<code>TRA</code>,<code>INV</code>,<code>DUP</code>,<code>BND</code>等类型, 如何用三种基本的<code>Edits</code>类型表示?</p>
+</li>
+<li><p>串联重复序列呢?</p>
+</li>
+</ul>
+<p>
+</fieldset>
 
 
 
@@ -228,7 +459,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 24, 2023.
           </p>
     </footer>
     
@@ -243,7 +474,9 @@
 
 <!-- CONTENT ENDS HERE -->
 
-
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
