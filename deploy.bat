@@ -1,2 +1,0 @@
-@echo off
-C:\Windows\System32\bash.exe -c 'export EASYBASH="/home/stgui/sftw/00_basic/easy_bash";cd /mnt/f/MyBlogs; ./deploy %1'
