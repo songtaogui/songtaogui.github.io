@@ -10,15 +10,41 @@
     <meta name="author" content="Songtao Gui">
 
     
+    <meta name="description" content="Julia高性能编程相关知识学习记录
+">
+    
 
     
     
-    <meta name="keywords" content="Work related things">
-    <title>Work related things</title>
+    <meta name="keywords" content="Julia编程技巧相关">
+    <title>Julia编程技巧相关</title>
     
 
     <link rel="icon" href="/assets/favicon.svg">
 
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
     
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
 <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -39,6 +65,7 @@
 <link rel=stylesheet href="/css/cv.css">
 <link rel=stylesheet href="/css/search-box.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
 <!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -53,9 +80,9 @@
 
 
     <!-- Vega -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
     <style media="screen">
         /* Add space between Vega-Embed links  */
@@ -69,7 +96,16 @@
 </head>
 
 <body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
-
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
      <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
@@ -89,35 +125,29 @@
         <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
             <ul class="navbar-nav d-md-inline-flex">
                 <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
-                <!-- <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li> -->
                 <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
-                <li class=nav-item><a class=nav-link href="/achievements/"><span>Achievements</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
                 <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
                 <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
-                <!-- <li class=nav-item><a class=nav-link href="/giants/"><span>Giants</span></a></li> -->
-
-
-                <!-- 
-        <li class=nav-item><a class=nav-link ><span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></a></li>
-        <li class=nav-item>
-          <a class=nav-link>
-            <span>
-              <script src="/libs/lunr/lunr.js"></script>
-              <script src="lunr.stemmer.support.js"></script>
-              <script src="/libs/lunr/lunr.zh.js"></script>
-              <script src="/libs/lunr/lunr_index.js"></script>
-              <script src="/libs/lunr/lunrclient.min.js"></script>
-              <form id="lunrSearchForm" name="lunrSearchForm">
-                <input class="search-input" name="q" placeholder="Enter search term" type="text">
-                <input type="submit" value="Search" formaction="/search/index.html">
-              </form>
-            </span>
-          </a>
-        </li>
-        -->
-
             </ul>
         </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
         <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
             <form action="https://bing.com/search" id="searchForm">
                 <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
@@ -136,15 +166,14 @@
                 };
             </script>
         </div>
-        <div class="nav-icon d-none d-lg-inline-flex">
-            <a class=nav-linksmall href="/notebooks" target="_blank"><span><img class="nav-img"
-                        src="/assets/img/notebook.svg"></span></a>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
             <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
-                        src="/assets/img/giant.svg"></span></a>
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
             <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
                         src="/assets/img/rss.svg"></span></a>
-        </div>
-        <div class="nav-icon ">
             <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
                         src="/assets/img/music.svg"></span></a>
         </div>
@@ -157,7 +186,7 @@
     
     <article class=article>
         <div class="article-container pt-3">
-             <h1>Work related things</h1> 
+             <h1>Julia编程技巧相关</h1> 
         </div>
         
         <div class="article-container">
@@ -168,7 +197,7 @@
                 
                 
                 <div class="franklin-content">
-<section id="work" class="home-section ">
+<section id="juliaprogrammingskills" class="home-section ">
   <div class="container">
     <div class="row "></p>
 <div class="col-12 col-lg-8"><div class="card experience course">
@@ -176,14 +205,14 @@
 <span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">1</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
-    <a class=card-link href="/work\test-zeamap" target=_blank rel=noopener>
-    <span class="sadmon sadmon-info">test-zeamap</span>
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\probabilistic_data_structures" rel=noopener>
+    <span class="sadmon sadmon-info">概率数据结构</span>
 </a>
 
 </span>
 
 <hr style="margin: 0rem">
-<div class=card-text><p>Put short description to your post here, will be show in the post list, and the rss info</p>
+<div class=card-text><p>概率数据结构和算法的Julia实现</p>
 </div>
 
 
@@ -192,24 +221,98 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">2</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
-    <a class=card-link href="/work\test-zeamap2" target=_blank rel=noopener>
-    <span class="sadmon sadmon-note">test-zeamap2</span>
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\BitOperation" rel=noopener>
+    <span class="sadmon sadmon-error">BitOperation</span>
 </a>
 
 </span>
 
 <hr style="margin: 0rem">
-<div class=card-text><p>Put short description to your post here, will be show in the post list, and the rss info</p>
+<div class=card-text><p>Learn bit operations with julia</p>
 </div>
 
 
 </div>
 </div>
 
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">3</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\Aqua" rel=noopener>
+    <span class="sadmon sadmon-note">Aqua.jl: Auto quality assurance for julia packages</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>run automatable checks for julia packages.</p>
 </div>
+
+
+</div>
+</div>
+
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-hack" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">4</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\Comonicon" rel=noopener>
+    <span class="sadmon sadmon-hack">Comonicon.jl: Command line parser for julia</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>Your best CLI generator in JuliaLang</p>
+</div>
+
+
+</div>
+</div>
+
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\Jet" rel=noopener>
+    <span class="sadmon sadmon-tip">Jet.jl: detect potential bugs and type instability for julia</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>JET employs Julia&#39;s type inference system to detect potential bugs and type instabilities.</p>
+</div>
+
+
+</div>
+</div>
+
+<div class="card experience course">
+<div class=card-body>
+<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">6</span>
+
+<span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
+    <a class=card-link href="/notebooks\JuliaProgramingSkills\JuliaFold" rel=noopener>
+    <span class="sadmon sadmon-error">JuliaFold</span>
+</a>
+
+</span>
+
+<hr style="margin: 0rem">
+<div class=card-text><p>Learning JuliaFold packages: things to make better parallel programing.</p>
+</div>
+
+
+</div>
+</div></div>
 <p>    </div>
   </div>
 </section>
@@ -219,28 +322,31 @@
 <!-- article style -->
 
 
+ <hr>
 
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
 
 <div class="container">
     
     <footer class="site-footer">
         <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
             Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
             Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
-            The text is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
-            The code is licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: October 16, 2022.
-
-            <!-- <span class="float-right" aria-hidden="true">
-        <a href="#" class="back-to-top">
-          <span class="button_icon">
-            <i class="fas fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span> -->
-
-        </p>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 23, 2023.
+          </p>
     </footer>
     
 </div>
@@ -255,7 +361,7 @@
 <!-- CONTENT ENDS HERE -->
 
 
-<!-- 
+
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
@@ -266,8 +372,6 @@
     integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
 <script src="/libs/academic/academic.min.js"></script>
 <script src="/libs/pure/ui.js"></script>
--->
-
 
 </body>
 
@@ -341,5 +445,6 @@
   </script> -->
 
 </html>
+
 
 

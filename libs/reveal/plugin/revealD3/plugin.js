@@ -2,6 +2,7 @@
  * reveal.js plugin to integrate d3.js visualizations into slides and trigger transitions supporting data-fragment-index
  */
 
+
  var Reveald3 = window.Reveald3 || {
     id: 'Reveald3',
     init: function(deck) {
