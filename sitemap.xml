@@ -152,6 +152,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\TODO-list\index.html</loc>
+    <lastmod>2023-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
     <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -466,6 +472,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\CSV\index.html</loc>
     <lastmod>2023-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\CxxWrap\index.html</loc>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -819,7 +831,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelIHT\index.html</loc>
-    <lastmod>2022-10-25</lastmod>
+    <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
