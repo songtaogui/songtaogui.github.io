@@ -153,13 +153,19 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\TODO-list\index.html</loc>
-    <lastmod>2023-06-26</lastmod>
+    <lastmod>2023-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
     <lastmod>2023-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\PanGraph\index.html</loc>
+    <lastmod>2023-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -369,7 +375,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2023-06-03</lastmod>
+    <lastmod>2023-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -825,7 +831,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/index.html</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-07-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
