@@ -662,6 +662,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\private\zyx\index.html</loc>
+    <lastmod>2023-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSequences\index.html</loc>
     <lastmod>2023-05-09</lastmod>
     <changefreq>weekly</changefreq>
