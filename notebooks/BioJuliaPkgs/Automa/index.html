@@ -72,8 +72,9 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+ <link rel="stylesheet" href="/libs/katex/katex.min.css">
+ 
 
 
 
@@ -198,10 +199,426 @@
                 
                 <div class="franklin-content">
 <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/biojulia/">biojulia</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#正则表达式理论基础">正则表达式理论基础</a></li><li><a href="#有限自动机">有限自动机</a><ol><li><a href="#非确定性自动机">非确定性自动机</a></li><li><a href="#确定性自动机">确定性自动机</a></li><li><a href="#nfa转换成dfa">NFA转换成DFA</a></li></ol></li><li><a href="#automa基本原理">Automa基本原理</a><ol><li><a href="#regex">Regex</a></li><li><a href="#文本验证器">文本验证器</a><ol><li><a href="#缓冲区验证器">缓冲区验证器</a></li><li><a href="#io验证器">IO验证器</a></li><li><a href="#相关api">相关API</a></li></ol></li><li><a href="#分词器">分词器</a><ol><li><a href="#制作分词器">制作分词器</a></li><li><a href="#相关api__2">相关API</a></li></ol></li><li><a href="#从buffer解析">从Buffer解析</a></li></ol></li></ol></div>
 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Automa.jl: Julia的正则表达式编译器</legend>
+</p>
 <blockquote>
-<p><a href="https://biojulia.net/Automa.jl/latest/">原文戳我</a></p>
+<p><a href="https://biojulia.dev/Automa.jl/latest/">原文戳我</a></p>
 </blockquote>
+<ul>
+<li><p>Automa将正则表达式编译为<code>Expr</code>对象</p>
+</li>
+<li><p>利用Julia的元编程功能创建高效强大的词法分析器和解析器</p>
+</li>
+<li><p>可以将任意Julia代码插入到匹配过程</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="正则表达式理论基础"><a href="#正则表达式理论基础" class="header-anchor">正则表达式理论基础</a></h2>
+<ol>
+<li><p>正则表达式的两个原子属性: </p>
+</li>
+</ol>
+<ul>
+<li><p><code>re&quot;&quot;</code>: 空字符串是合法的正则表达式</p>
+</li>
+<li><p><code>re&quot;p&quot;</code>: 有限字母表中的单个符号匹配</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>原子操作可以与以下操作组合:</p>
+</li>
+</ol>
+<ul>
+<li><p><code>|</code>: 交替, <code>R | P</code>表示匹配R或P</p>
+</li>
+<li><p><code>*</code>: 串联, <code>R * P</code>表示先匹配R再匹配P</p>
+</li>
+<li><p><code>R*</code>: 重复, 匹配0次或多次R</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>其他正则表达式匹配操作可以从原子操作组合而成:</p>
+</li>
+</ol>
+<ul>
+<li><p><code>R?</code>可以视为<code>&quot;&quot;|R</code>;</p>
+</li>
+<li><p><code>R&#43;</code>可以视为<code>RR*</code>;</p>
+</li>
+</ul>
+<ol start="4">
+<li><p>基于以上理论构建的正则表达式,其算法复杂度为<code>O&#40;N&#41;</code>时间和<code>O&#40;1&#41;</code>空间, 所以是非常快的</p>
+</li>
+<li><p>正则表达式的以上实现, 被转换成<code>有限自动机</code>, 然后在代码中实现</p>
+</li>
+</ol>
+
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> Note</legend>
+  Julia的正则表达式库<code>PCRE lib</code>实际上不是由以上原子操作的理论实现的, 所以速度上会稍微慢一点, 但好处是支持反向引用和向后检索&#40;而原子操作构建的automa是不支持的&#41; 
+</fieldset>
+
+<h2 id="有限自动机"><a href="#有限自动机" class="header-anchor">有限自动机</a></h2>
+<p>分为非确定性自动机&#40;non-deterministic finite automata, NFA&#41;和确定性自动机&#40;deterministic finite automata, DFA&#41;。</p>
+<h3 id="非确定性自动机"><a href="#非确定性自动机" class="header-anchor">非确定性自动机</a></h3>
+<ul>
+<li><p>具有可以从节点 A 移动到节点 B 的<code>ɛ</code>边，而无需符号成本;</p>
+</li>
+<li><p>可以从一个状态进行多次转换;</p>
+</li>
+<li><p>可以有多个最终状态;</p>
+</li>
+</ul>
+<h3 id="确定性自动机"><a href="#确定性自动机" class="header-anchor">确定性自动机</a></h3>
+<ul>
+<li><p>没有<code>ɛ</code>边;</p>
+</li>
+<li><p>只能有一个状态的转换;</p>
+</li>
+<li><p>只能有一个最终状态;</p>
+</li>
+<li><p>更容易在代码中实现, 速度更快;</p>
+</li>
+<li><p>可以&#40;通过折叠节点&#41;优化;</p>
+</li>
+</ul>
+<h3 id="nfa转换成dfa"><a href="#nfa转换成dfa" class="header-anchor">NFA转换成DFA</a></h3>
+<p>将具有<code>N</code>个节点的NFA转换为DFA可能会产生\(2^N\)个节点&#40;最坏的情况&#41;，主要有两种方法可以解决此问题：</p>
+<ul>
+<li><p><code>Powerset construction</code>: <code>Automa.jl</code>采用的方法, 直接构造DFA, 并接受最坏情况。\(Ø(2^N)\)的最坏情况通常很少发生, 而且automa的构造是发生在编译时, 速度影响不大;</p>
+</li>
+<li><p><code>Adaptive construction</code>: <code>ripgrep</code>等命令行工具常采用的方法&#40;命令行工具的DFA构造发生在运行时, 所以必须要用一种动态高效的策略&#41;, 动态构造DFA并进行缓存, 如果DFA变得太大, 就刷新缓存, 如果刷新的太频繁, 就退回重新构建NFA;</p>
+</li>
+</ul>
+<h2 id="automa基本原理"><a href="#automa基本原理" class="header-anchor">Automa基本原理</a></h2>
+<ul>
+<li><p><code>Automa</code>创建<code>Julia Expr</code>对象来模拟DFA, 然后用元编程生成Julia函数, 然后让Julia和LLVM编译器优化函数;</p>
+</li>
+<li><p>可以将Julia代码放入DFA模拟中, 目前仅支持两种代码: <code>actions</code>和<code>preconditions</code>;</p>
+<ul>
+<li><p><code>actions</code>: 在状态转换时执行的代码;</p>
+</li>
+<li><p><code>preconditions</code>: 在状态转换之前执行的代码, 返回值必须是<code>Bool</code>;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="regex"><a href="#regex" class="header-anchor">Regex</a></h3>
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Regex in Automa</legend>
+</p>
+<ul>
+<li><p>使用<code>@re_str</code>宏: <code>re&quot;ABC&#91;DEF&#93;&quot;</code></p>
+</li>
+<li><p>匹配单个<span class="cadmon sadmon-warn">字节</span>, 而不是字符: 如<code>re&quot;Æ&quot; &#61;&#61; re&quot;\xc3\x86&quot;</code>, 特殊字符<code>Æ</code>被展开成两个字节;</p>
+</li>
+<li><p>语法支持:</p>
+</li>
+<li><p>文字符号: <code>re&quot;ABC&quot;</code>,<code>re&quot;\xfe\xa2&quot;</code>, <code>re&quot;Θ&quot;</code></p>
+</li>
+<li><p><code>|</code>, <code>&#91;&#93;</code>, <code>&#91;^&#93;</code>, <code>&amp;</code>, <code>&#43;</code>, <code>?</code>, <code>&#40;&#41;</code></p>
+</li>
+<li><p>正则表达式支持的操作:</p>
+</li>
+<li><p><code>*</code> for concatenation: <code>re&quot;ABC&quot; * re&quot;DEF&quot;</code> &#61;&gt; <code>re&quot;ABCDEF&quot;</code></p>
+</li>
+<li><p><code>|</code> for alternation: <code>re&quot;ABC&quot; | re&quot;DEF&quot;</code> &#61;&gt; <code>re&quot;ABC|DEF&quot;</code></p>
+</li>
+<li><p><code>&amp;</code> for intersection: <code>re&quot;A&#91;AB&#93;C&#43;D?&quot; &amp; re&quot;ABC&quot;</code> &#61;&gt; <code>re&quot;ABC&quot;</code></p>
+</li>
+<li><p><code>\</code> for difference: <code>A \ B</code> &#61;&gt; 匹配A而不匹配B</p>
+</li>
+<li><p><code>&#33;</code> for inversion: <code>&#33;re&quot;ABC&quot;</code> &#61;&gt; 匹配除<code>ABC</code>外的任何字符</p>
+</li>
+<li><p>预设别名: </p>
+<ul>
+<li><p><code>opt &#61;&#61; ?</code>;</p>
+</li>
+<li><p><code>rep &#61;&#61; *</code>; </p>
+</li>
+<li><p><code>rep1 &#61;&#61; &#43;</code>: </p>
+</li>
+<li><p><code>opt&#40;re&quot;a&quot; * rep&#40;re&quot;b&quot;&#41;*re&quot;c&quot;&#41; &#61;&#61; re&quot;&#40;ab*c&#41;&quot;</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>Automa.RegExp.RE ∈ AbstractString</code>: Automa的正则表达式类型</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<p>例子: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">fasta_regex &#61; let
+    header &#61; re&quot;&#91;a-z&#93;&#43;&quot;
+    seqline &#61; re&quot;&#91;ACGTU&#93;&#43;&quot;
+    record &#61; &#39;&gt;&#39; * header * &#39;\n&#39; * rep1&#40;seqline&#41; * &#96;\n&#96;
+    rep&#40;record&#41;
+end;</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<h3 id="文本验证器"><a href="#文本验证器" class="header-anchor">文本验证器</a></h3>
+<h4 id="缓冲区验证器"><a href="#缓冲区验证器" class="header-anchor">缓冲区验证器</a></h4>
+<p>Automa提供一个<code>generate_buffer_validator</code>函数, 用于生成一个缓冲区验证器.</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; eval&#40;generate_buffer_validator&#40;:validate_fasta, fasta_regex&#41;&#41;;
+
+julia&gt; validate_fasta
+validate_fasta &#40;generic function with 1 method&#41;
+
+julia&gt; validate_fasta&#40;&quot;&gt;hello\nTAGAGA\nTAGAG&quot;&#41; # missing trailing newline
+0
+
+julia&gt; validate_fasta&#40;&quot;&gt;helloXXX&quot;&#41; # Error at byte index 7
+7
+
+julia&gt; validate_fasta&#40;&quot;&gt;hello\nTAGAGA\nTAGAG\n&quot;&#41; # nothing; it matches</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h4 id="io验证器"><a href="#io验证器" class="header-anchor">IO验证器</a></h4>
+<p>对大文件, 通常不能全部读入Buffer, 此时可以使用<code>generate_io_validator</code>生成一个IO验证器.</p>
+<p>IO验证器如果错误, 返回<code>&#40;byte, &#40;line, column&#41;&#41;</code>, 其中<code>byte</code>是第一个错误字节，<code>&#40;line，column&#41;</code>是字节的位置。如果错误字节是换行符，则列为0。如果输入到达意外的EOF，则字节为 <code>nothing</code>, 并且<code>&#40;line，column&#41;</code>指向 IO 中的最后一行/最后一列</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; eval&#40;generate_io_validator&#40;:validate_io, fasta_regex&#41;&#41;;
+
+julia&gt; validate_io&#40;IOBuffer&#40;&quot;&gt;hello\nTAGAGA\n&quot;&#41;&#41;
+
+julia&gt; validate_io&#40;IOBuffer&#40;&quot;&gt;helX&quot;&#41;&#41;
+&#40;0x58, &#40;1, 5&#41;&#41;
+
+julia&gt; validate_io&#40;IOBuffer&#40;&quot;&gt;hello\n\n&quot;&#41;&#41;
+&#40;0x0a, &#40;3, 0&#41;&#41;
+
+julia&gt; validate_io&#40;IOBuffer&#40;&quot;&gt;hello\nAC&quot;&#41;&#41;
+&#40;nothing, &#40;2, 2&#41;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h4 id="相关api"><a href="#相关api" class="header-anchor">相关API</a></h4>
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> generate_buffer_validator</legend>
+ <div class="aadmon aadmon-hack"> <code>generate_buffer_validator&#40;name::Symbol, regexp::RE; goto::Bool&#61;true; docstring&#61;true&#41;</code></div></p>
+<ul>
+<li><p>一个<span class="cadmon sadmon-error">代码生成器</span>, 生成名为<code>name</code>的函数, 函数接收单个参数<code>data</code>, 并被当作字节序列进行处理;</p>
+</li>
+<li><p>如果<code>data</code>匹配<code>Machine</code>, name函数返回<code>noting</code>, 否则返回<span class="cadmon sadmon-info">第一个非法字节的索引</span></p>
+</li>
+<li><p>如果<code>goto&#61;ture</code>, 生成包含<code>:goto</code>的代码&#40;更快但更复杂&#41;;</p>
+</li>
+<li><p>如果<code>docstring&#61;true</code>, 自动为代码创建<code>docstring</code>;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> generate_io_validator</legend>
+ <div class="aadmon aadmon-hack"> <code>generate_io_validator&#40;name::Symbol, regexp::RE; goto:Bool&#61;false&#41;</code></div> <div class="aadmon aadmon-error"> 该方法需要加载<code>TranscodingStreams</code>包</div></p>
+<ul>
+<li><p>一个<span class="cadmon sadmon-error">代码生成器</span>, 生成名为<code>name</code>的函数, 函数接收<code>IO</code>管道当作输入, 并被当作字节序列进行处理;</p>
+</li>
+<li><p>如果<code>data</code>匹配<code>Machine</code>, name函数返回<code>noting</code>, 否则返回<span class="cadmon sadmon-info"><code>&#40;byte, &#40;line, col&#41;&#41;</code></span>, 其中<code>byte</code>是第一个非法字节的索引, <code>line</code>和<code>col</code>是非法字节在<code>IO</code>中的位置&#40;1-based&#41;;如果由于意外的EOF导致错误输入, <code>byte</code>值为<code>nothing</code>;</p>
+</li>
+<li><p>如果<code>goto&#61;ture</code>, 生成包含<code>:goto</code>的代码&#40;更快但更复杂&#41;;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> compile</legend>
+ <div class="aadmon aadmon-hack"> <code>complie&#40;re::RE; optimize::Bool&#61;true, unambiguous::Bool&#61;true&#41;::Machine</code></div></p>
+<ul>
+<li><p>将<code>RE</code>编译成FSM</p>
+</li>
+<li><p>如果<code>optimize&#61;true</code>, 尝试最小化FSM中的状态数;</p>
+</li>
+<li><p>如果<code>unambiguous&#61;true</code>, 则不允许在操作不确定的情况下创建FSM;</p>
+</li>
+</ul>
+<p>例子: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">machine &#61; let
+    name &#61; re&quot;&#91;A-Z&#93;&#91;a-z&#93;&#43;&quot;
+    first_last &#61; name * re&quot; &quot; * name
+    last_first &#61; name * re&quot;, &quot; * name
+    compile&#40;first_last | last_first&#41;
+end</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<div class="aadmon aadmon-hack"> <code>complie&#40;tokens::Vector&#123;RE&#125;; unambiguous::Bool&#61;false&#41;::Machine</code></div>
+<ul>
+<li><p>将<code>tokens</code>编译成分词器machine&#40;可以传递给<code>make_tokenizer</code>&#41;</p>
+</li>
+<li><p><code>unambiquous</code>: 设置当有多个token匹配时采用哪个, 如果是<code>false</code>&#40;默认&#41;, 采用最长token&#40;长度相同则采用index最大的&#41;; 如果是<code>true</code>, 在有多个匹配时<code>make_tokenizer</code>会报错</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h3 id="分词器"><a href="#分词器" class="header-anchor">分词器</a></h3>
+<ul>
+<li><p>用于将输入文本分解为小块</p>
+</li>
+<li><p>分词器本身是上下文未知的</p>
+</li>
+</ul>
+<h4 id="制作分词器"><a href="#制作分词器" class="header-anchor">制作分词器</a></h4>
+<p><code>Automa.jl</code>中制作分词器: <code>make_tokenizer</code>:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; make_tokenizer&#40;
+    &#91;
+        re&quot;\&#40;&quot;,
+        re&quot;\&#41;&quot;,
+        re&quot;,&quot;,
+        re&quot;\&quot;&quot;,
+        re&quot; &#43;&quot;,
+        re&quot;&#91;a-zA-Z&#93;&#43;&quot;
+    &#93;
+&#41; |&gt; eval</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<ul>
+<li><p>默认的分词器用<code>UInt32</code>当作tokens解析格式, 可以提通过调用<code>tokenize&#40;UInt32, data&#41;</code>来解析, 详细用法见下方API介绍。</p>
+</li>
+</ul>
+
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 使用enums创建tokens</legend>
+  用<code>UInt32</code>当作tokens不太方便, 可以用<code>enums</code>来创建: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">julia&gt; @enum Token error lparens rparens comma quot space letters
+julia&gt; make_tokenizer&#40;&#40;error, &#91;
+           lparens &#61;&gt; re&quot;\&#40;&quot;,
+           rparens &#61;&gt; re&quot;\&#41;&quot;,
+           comma &#61;&gt; re&quot;,&quot;,
+           quot &#61;&gt; re&quot;\&quot;&quot;,
+           space &#61;&gt; re&quot; &#43;&quot;,
+           letters &#61;&gt; re&quot;&#91;a-zA-Z&#93;&#43;&quot;
+        &#93;&#41;&#41; |&gt; eval
+julia&gt; collect&#40;tokenize&#40;Token, &quot;XY&#33;&#33;&#41;&quot;&#41;&#41;
+3-element Vector&#123;Tuple&#123;Int64, Int32, Token&#125;&#125;:
+ &#40;1, 2, letters&#41;
+ &#40;3, 2, error&#41;
+ &#40;5, 1, rparens&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>更简便地, 可以一次性定义enum并构建tokenizer:</p>
+<p><fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">tokens &#61; &#91;
+    :lparens &#61;&gt; re&quot;\&#40;&quot;,
+    :rparens &#61;&gt; re&quot;\&#41;&quot;,
+    :comma &#61;&gt; re&quot;,&quot;,
+    :quot &#61;&gt; re&quot;\&quot;&quot;,
+    :space &#61;&gt; re&quot; &#43;&quot;,
+    :letters &#61;&gt; re&quot;&#91;a-zA-Z&#93;&#43;&quot;
+&#93;
+@eval @enum Token error &#36;&#40;first.&#40;tokens&#41;...&#41;
+make_tokenizer&#40;&#40;error, 
+    &#91;Token&#40;i&#41; &#61;&gt; j for &#40;i,j&#41; in enumerate&#40;last.&#40;tokens&#41;&#41;&#93;
+&#41;&#41; |&gt; eval</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 
+</fieldset>
+
+
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> Token歧义消除</legend>
+  考虑如下token: <div class="aadmon aadmon-info"> <code>julia&gt; make_tokenizer&#40;&#91;re&quot;&#91;ab&#93;&#43;&quot;, re&quot;ab*&quot;, re&quot;ab&quot;&#93;&#41; |&gt; eval</code></div> 用该token解析<code>&quot;a&quot;, &quot;aa&quot;, &quot;ab&quot;</code>等字符串时, 多个正则表达式都可以匹配, 具体对应哪个token, 根据如下两个规则判断:</p>
+<ol>
+<li><p><span class="cadmon sadmon-info">匹配最长的token</span>: 比如用上述token解析<code>&quot;aa&quot;</code>时, <code>re&quot;&#91;ab&#93;&#43;&quot;</code>会解析成一个长度为2byte的token, 而<code>re&quot;ab*&quot;</code>会解析成两个长度为1byte的token, 因此<code>&quot;aa&quot;</code>的输出token是<code>re&quot;&#91;ab&#93;&#43;&quot;</code>;</p>
+</li>
+<li><p><span class="cadmon sadmon-info">输出索引更高的token</span>: 如果两个token长度一样, 输出索引更高的那个。比如匹配<code>&quot;ab&quot;</code>时, 三个正则都可以匹配, 且长度都是1byte, 此时输出<code>re&quot;ab&quot;</code>, 因为它的index最大;</p>
+</li>
+</ol>
+<p>在<code>make_tokenizer</code>时添加<code>unambiguous&#61;true</code>参数, 可以消除歧义, 即当出现有歧义的token时, 就报错。<span class="cadmon sadmon-todo">这会导致大多数分词器构建报错, 因为大多数分词器都是有歧义的。</span> 
+</fieldset>
+
+
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> Tokenizer</legend>
+ <div class="aadmon aadmon-info"> <code>Tokenizer&#123;E, Data, C::Int&#125;</code></div> 
+</fieldset>
+
+<h4 id="相关api__2"><a href="#相关api__2" class="header-anchor">相关API</a></h4>
+
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> Tokenizer</legend>
+ <div class="aadmon aadmon-info"> <code>Tokenizer&#123;E, Data, C::Int&#125;</code></div></p>
+<ul>
+<li><p>生成针对数据<code>Data</code>的<code>E</code>类型Token迭代器;</p>
+</li>
+<li><p>迭代器返回一个三个元素的Tuple: <code>Tuple&#123;Int, Int, Token&#125;</code></p>
+<ul>
+<li><p>第一个是buffer中token的起始位置&#40;1-based&#41;;</p>
+</li>
+<li><p>第二个是token长度;</p>
+</li>
+<li><p>第三个是token种类&#40;token的索引&#41;</p>
+</li>
+</ul>
+</li>
+<li><p><code>C::Int</code>: 标识数字, 用于从同一套参数创建多个分词器</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> tokenize</legend>
+ <div class="aadmon aadmon-hack"> <code>tokenize&#40;::Type&#123;E&#125;, data, version&#61;1&#41;</code></div> 创建<code>Tokenizer&#123;E, typeof&#40;data&#41;, version&#125;</code> 
+</fieldset>
+
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> make_tokenizer</legend>
+</p>
+<pre><code class="language-julia">make_tokenizer&#40;
+    machine::TokenizerMachine;
+    tokens::Tuple&#123;E, AbstractVector&#123;E&#125;&#125; &#61; &#91; integers &#93;,
+    goto&#61;true, version&#61;1
+&#41; where E</code></pre>
+<ul>
+<li><p><span class="cadmon sadmon-error">代码生成器</span>, 定义<code>Base.iterate&#40;::Tokenizer&#123;E, D, &#36;version&#125;&#41;</code>;</p>
+</li>
+<li><p><code>tokens</code>: 一个元组, 第一个参数是error token, 第二个参数是所有non-error token组成的向量;</p>
+</li>
+<li><p><code>version</code>: 设置<code>Tokenizer</code>类型的最后一个参数;</p>
+</li>
+</ul>
+<p><strong>例子:</strong></p>
+<pre><code class="language-julia">julia&gt; machine &#61; compile&#40;&#91;re&quot;a&quot;, re&quot;b&quot;&#93;&#41;;
+
+julia&gt; make_tokenizer&#40;machine; tokens&#61;&#40;0x00, &#91;0x01, 0x02&#93;&#41;&#41; |&gt; eval
+
+julia&gt; iter &#61; tokenize&#40;UInt8, &quot;abxxxba&quot;&#41;; typeof&#40;iter&#41;
+Tokenizer&#123;UInt8, String, 1&#125;
+
+julia&gt; collect&#40;iter&#41;
+5-element Vector&#123;Tuple&#123;Int64, Int32, UInt8&#125;&#125;:
+ &#40;1, 1, 0x01&#41;
+ &#40;2, 1, 0x02&#41;
+ &#40;3, 3, 0x00&#41;
+ &#40;6, 1, 0x02&#41;
+ &#40;7, 1, 0x01&#41;</code></pre>
+<hr />
+<pre><code class="language-julia">make_tokenizer&#40;
+    tokens::Union&#123;
+        AbstractVector&#123;RE&#125;,
+        Tuple&#123;E, AbstractVector&#123;Pair&#123;E, RE&#125;&#125;&#125;
+    &#125;;
+    goto::Bool&#61;true,
+    version::Int&#61;1,
+    unambiguous&#61;false
+&#41; where E</code></pre>
+<p>一个方便的多重派发, 输入<code>tokens</code>, 直接编译成<code>machine</code>, 然后再生成<code>Tokenizer</code>;</p>
+<ul>
+<li><p>如果<code>tokens</code>是一个<code>RE</code>向量, 会自动创建一个<code>error token</code>&#40;index为0&#41;, 然后创建index为输入向量下标的<code>non-error token</code>; 否则, <code>tokens</code>必须是一个元组, 第一个元素是<code>error token</code>, 第二个元素是<code>pair</code>类型的<code>non-error token</code>&#40;<code>:name &#61;&gt; re&quot;pattern&quot;</code>&#41;数组;</p>
+</li>
+</ul>
+<p><strong>例子:</strong></p>
+<pre><code class="language-julia">julia&gt; make_tokenizer&#40;&#91;re&quot;abc&quot;, re&quot;def&quot;&#41; |&gt; eval
+
+julia&gt; collect&#40;tokenize&#40;Int, &quot;abcxyzdef123&quot;&#41;&#41;
+4-element Vector&#123;Tuple&#123;Int64, Int32, UInt32&#125;&#125;:
+ &#40;1, 3, 0x00000001&#41;
+ &#40;4, 3, 0x00000003&#41;
+ &#40;7, 3, 0x00000002&#41;
+ &#40;10, 3, 0x00000003&#41;</code></pre>
+<p>
+</fieldset>
+
+<h3 id="从buffer解析"><a href="#从buffer解析" class="header-anchor">从Buffer解析</a></h3>
+<p>pass</p>
 
 
 </div>
@@ -231,7 +648,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: April 27, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 03, 2023.
           </p>
     </footer>
     
@@ -245,8 +662,27 @@
 
 
 <!-- CONTENT ENDS HERE -->
-
-
+ <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+<script>
+    const options = {
+        delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+            { left: "\\begin{align}", right: "\\end{align}", display: true },
+            { left: "\\begin{alignat}", right: "\\end{alignat}", display: true },
+            { left: "\\begin{gather}", right: "\\end{gather}", display: true },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
+        ]
+    };
+    renderMathInElement(document.body, options);
+</script> 
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>

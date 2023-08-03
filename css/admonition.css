@@ -96,7 +96,7 @@ legend {
     padding-right: .5em;
     padding-bottom: .1em;
     border-radius: 5px;
-    font-variant: small-caps;
+    /* font-variant: small-caps; */
     font-size: var(--text-sm);
 }
 
