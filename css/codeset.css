@@ -72,7 +72,7 @@
     white-space: normal;
     background-color: var(--code-background-color);
     font-size: 0.7em;
-    color: #acacac;
+    color: #636363;
     font-variant: small-caps;
     padding-left: .3em;
     padding-right: .3em;
@@ -98,13 +98,19 @@
     line-height: 1.2em;
 }
 
+.code p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
 .code-legend {
     background-color: var(--code-plain-color-light);
     font-size: var(--text-sm);
     font-variant: small-caps;
-    padding-left: .5em;
-    padding-right: .5em;
-    padding-bottom: .1em;
+    padding-left: .2em;
+    padding-right: .2em;
+    padding-top: 0rem;
+    padding-bottom: 0.05rem;
     border-radius: var(--code-body-boder-radius);
     border: 2px solid var(--code-plain-color-dark);
 }

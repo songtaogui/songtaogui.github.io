@@ -36,7 +36,7 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
  <link rel="stylesheet" href="/libs/katex/katex.min.css">
  
 
@@ -172,7 +172,9 @@
     };
     renderMathInElement(document.body, options);
 </script> 
-
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
