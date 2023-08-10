@@ -72,7 +72,7 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
 
 
 
@@ -202,6 +202,39 @@
 <blockquote>
 <p><a href="https://github.com/BioJulia/BGZFStreams.jl">原文戳我</a></p>
 </blockquote>
+<ul>
+<li><p>支持多线程的<code>BGZF</code>格式压缩/解压 &#40;BGZF的spec参考<a href="https://samtools.github.io/hts-specs/SAMv1.pdf">这里</a>&#41;</p>
+</li>
+<li><p>封装成一个<code>IO</code>类型, 支持IO相关操作</p>
+</li>
+</ul>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 启动Julia时设置多线程:
+# JULIA_NUM_THREADS&#61;2 julia -q
+using BGZFStreams
+
+# The first argument is a filename or an IO object &#40;e.g. IOStream&#41;.
+stream &#61; BGZFStream&#40;&quot;data.bgz&quot;&#41;
+
+# BGZFStream is a subtype of IO and works like a usual IO object.
+while &#33;eof&#40;stream&#41;
+    byte &#61; read&#40;stream, UInt8&#41;
+    # do something...
+end
+
+# BGZFStream is also seekable with a VirtualOffset.
+seek&#40;stream, VirtualOffset&#40;0, 2&#41;&#41;
+
+# The current virtual file offset is available.
+virtualoffset&#40;stream&#41;
+close&#40;stream&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> Hack</legend>
+  建议使用<a href="https://juliaio.github.io/TranscodingStreams.jl/latest/">TranscodingStreams.jl</a>和<a href="https://github.com/jakobnissen/CodecBGZF.jl">CodecBGZF.jl</a>, 比这个包更快且更好跟Automa整合。 
+</fieldset>
+
 
 
 </div>
@@ -231,7 +264,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 04, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 09, 2023.
           </p>
     </footer>
     
@@ -246,7 +279,9 @@
 
 <!-- CONTENT ENDS HERE -->
 
-
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
