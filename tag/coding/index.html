@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+    <meta name="description" content="Aqua.jl: Auto quality assurance for julia packages">
+
+    <link rel="icon" href="/assets/favicon.png">
+
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+
+     <title>Aqua.jl: Auto quality assurance for julia packages</title> 
+
+</head>
+
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+    <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav>
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+            <h3>Tag List:</h3>
+        </div>
+        
+
+        <div class="article-container">
+            <div class="article-style">
+                
+
+                <ul><li><a href="/notebooks\JuliaProgramingSkills\/">Julia编程技巧相关</a></li><li><a href="/notebooks\JuliaProgramingSkills\probabilistic_data_structures/">概率数据结构</a></li><li><a href="/notebooks\JuliaProgramingSkills\TODO-list/">TODO</a></li><li><a href="/notebooks\VegaLite\03_transform/">Vega-Lite文档: 03_transform</a></li><li><a href="/notebooks\JuliaBlueStyleZh/">Julia 代码规范 Blue</a></li><li><a href="/notebooks\JuliaProgramingSkills\BitOperation/">BitOperation</a></li><li><a href="/notebooks\VegaLite\05_Scales/">Vega-Lite文档: 05_Scales</a></li><li><a href="/notebooks\JuliaProgramingSkills\Comonicon/">Comonicon.jl: Command line parser for julia</a></li><li><a href="/posts\2022\08\Julia流程搭建工具Pipeline/">Julia流程搭建工具Pipeline</a></li><li><a href="/posts\2022\08\Latex公式语法/">Latex公式语法</a></li><li><a href="/notebooks\VegaLite\02_data/">Vega-Lite文档: 02_data</a></li><li><a href="/posts\2022\08\Julia_v1.8_新特性/">Julia v1.8 新特性</a></li><li><a href="/notebooks\JuliaProgramingSkills\CxxWrap/">CxxWrap</a></li><li><a href="/notebooks\VegaLite\01_view/">Vega-Lite文档: 01_view</a></li><li><a href="/notebooks\JuliaProgramingSkills\Aqua/">Aqua.jl: Auto quality assurance for julia packages</a></li><li><a href="/posts\2022\09\filepaths_in_julia_with_FilePathsBase/">Filepaths in julia with FilePathsBase</a></li><li><a href="/notebooks\JuliaProgramingSkills\BinaryBuilder/">BinaryBuilder</a></li><li><a href="/notebooks\VegaLite\04_trigger_projection/">Vega-Lite文档: 04_trigger_projection</a></li><li><a href="/posts\2022\09\JuliaLang_Anitpatterns/">Julia中的反模式</a></li><li><a href="/notebooks\JuliaProgramingSkills\Jet/">Jet.jl: detect potential bugs and type instability for julia</a></li><li><a href="/notebooks\VegaLite\/">Vega-Lite语法介绍</a></li><li><a href="/notebooks\JuliaProgramingSkills\JuliaFold/">JuliaFold</a></li></ul>
+
+                
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+
