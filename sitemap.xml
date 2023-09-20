@@ -32,6 +32,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\private\MyWheatNote\index.html</loc>
+    <lastmod>2023-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/posts\2016\12\perl_note\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -369,7 +375,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/giants\index.html</loc>
-    <lastmod>2023-08-04</lastmod>
+    <lastmod>2023-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -620,12 +626,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\BinaryBuilder\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\MendelTwoPointLinkage\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -669,7 +669,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
+    <lastmod>2023-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -681,7 +681,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\private\random_ideas\index.html</loc>
-    <lastmod>2023-08-04</lastmod>
+    <lastmod>2023-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -790,6 +790,12 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Use_nutshell_in_my_Franklin_blog\index.html</loc>
     <lastmod>2023-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\BinaryBuilder_Yggdrasil\index.html</loc>
+    <lastmod>2023-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
