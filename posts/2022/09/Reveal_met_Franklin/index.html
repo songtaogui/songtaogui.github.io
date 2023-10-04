@@ -323,13 +323,7 @@ revealtheme&#61;&quot;simple&quot;</code></pre>
 <h2 id="the_functions"><a href="#the_functions" class="header-anchor">The Functions</a></h2>
 <p>I wrapped most commonly used Reveal.js grammars into \(\LaTeX\) like functions in Franklin <code>config.md</code>:</p>
 <fieldset class="code code-plain"><legend class="code-legend code-legend-plain">plain</legend></p>
-<pre><code class="language-plaintext">&lt;&#33;-- 
-############################################
-####### Reveal.js Related Functions ########
-############################################
- --&gt;
-
-\newcommand&#123;\rvsechtml&#125;&#91;2&#93;&#123;
+<pre><code class="language-plaintext">\newcommand&#123;\rvsech&#125;&#91;2&#93;&#123;
 ~~~
 &lt;section &#33;#1&gt;
 
@@ -339,13 +333,13 @@ revealtheme&#61;&quot;simple&quot;</code></pre>
 ~~~
 &#125;
 
-\newcommand&#123;\rvsecmdfranklin&#125;&#91;2&#93;&#123;
+\newcommand&#123;\rvsecf&#125;&#91;2&#93;&#123;
 ~~~&lt;section &#33;#1&gt;~~~
 #2
 ~~~&lt;/section&gt;~~~
 &#125;
 
-\newcommand&#123;\rvsecmdtext&#125;&#91;2&#93;&#123;
+\newcommand&#123;\rvsecm&#125;&#91;2&#93;&#123;
 ~~~
 &lt;section data-markdown &#33;#1&gt; 
   &lt;script type&#61;&quot;text/template&quot;&gt;
@@ -355,16 +349,6 @@ revealtheme&#61;&quot;simple&quot;</code></pre>
 ~~~
 &#125;
 
-
-\newcommand&#123;\rvsecmdscript&#125;&#91;2&#93;&#123;
-~~~
-&lt;section data-markdown &#33;#1&gt;
-    &lt;script type&#61;&quot;text/template&quot;&gt;
-#2
-    &lt;/script&gt;
-&lt;/section&gt;
-~~~
-&#125;
 
 \newcommand&#123;\rvcode&#125;&#91;2&#93;&#123;
 ~~~
@@ -417,88 +401,11 @@ revealtheme&#61;&quot;simple&quot;</code></pre>
 ~~~&lt;li class&#61;&quot;fragment&quot; data-fragment-index&#61;&quot;&#33;#1&quot; align&#61;&quot;left&quot; style&#61;&quot;margin:0px&quot;&gt;~~~
   #2
 ~~~&lt;/li&gt;~~~
-&#125;
-
-\plain&#123;
-
-\newcommand&#123;\rvlovv&#125;&#91;6&#93;&#123;
-\rvsecmdfranklin&#123; &#125;&#123;
-~~~
-&lt;div style&#61;&quot;text-align:left&quot;&gt;
-~~~
-#3
-~~~
-&lt;/div&gt;
-&lt;table width&#61;&quot;100&#37;&quot; height&#61;&quot;650px&quot; border&#61;&quot;0&quot;&gt;
-&lt;tr&gt;
-  &lt;td width&#61;&quot;&#33;#1&quot; height&#61;90&#37; style&#61;&quot;padding:0px&quot;&gt;
-~~~
-#4
-~~~
-  &lt;/td&gt;
-  &lt;td width&#61;&quot;&#33;#2&quot; height&#61;90&#37; style&#61;&quot;padding:0px;padding-left:0.2em&quot;&gt;
-~~~
-#5
-~~~
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td colspan&#61;&quot;1&quot; height&#61;5&#37; style&#61;&quot;padding:0px&quot;&gt;
-    &lt;div style&#61;&quot;font-size:18px;padding-bottom:-1em&quot;&gt;
-~~~
-#6
-~~~
-    &lt;/div&gt;
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-~~~
-&#125;
-&#125;
- 
-
-\newcommand&#123;\rvlovvv&#125;&#91;8&#93;&#123;
-\rvsecmdfranklin&#123; &#125;&#123;
-~~~
-&lt;div style&#61;&quot;text-align:left&quot;&gt;
-~~~
-#4
-~~~
-&lt;/div&gt;
-&lt;table width&#61;&quot;1400&#91;x&quot; height&#61;&quot;650px&quot; border&#61;&quot;0&quot;&gt;
-&lt;tr&gt;
-  &lt;td width&#61;&quot;&#33;#1&quot; height&#61;90&#37; style&#61;&quot;padding:0px&quot;&gt;
-~~~
-#5
-~~~
-  &lt;/td&gt;
-  &lt;td width&#61;&quot;&#33;#2&quot; height&#61;90&#37; style&#61;&quot;padding:0px;padding-left:0.1em&quot;&gt;
-~~~
-#6
-~~~
-  &lt;/td&gt;
-  &lt;td width&#61;&quot;&#33;#3&quot; height&#61;90&#37; style&#61;&quot;padding:0px;padding-left:0.1em&quot;&gt;
-~~~
-#7
-~~~
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td colspan&#61;&quot;1&quot; height&#61;5&#37; style&#61;&quot;padding:0px&quot;&gt;
-    &lt;div style&#61;&quot;font-size:18px;padding-bottom:-1em&quot;&gt;
-~~~
-#8
-~~~
-    &lt;/div&gt;
-  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-~~~
-&#125;&#125;&#125;</code></pre>
+&#125;</code></pre>
 <p><div class="code-lag">plain</div></fieldset>
 <p>Now, I can create Slides the same way I wrote Franklin Blogs. e.g.:</p>
 <p><a href="#DemoRevealCode">: demo slide codes</a></p>
-<p>I could get <a href="/courses/slides/demo">:the demo slide</a></p>
+<p>I could get <a href="/courses/misc/demo">the demo slide</a></p>
 <p>That is somewhat smooooth ㊗️&#33;</p>
 <h2 id="the_futures"><a href="#the_futures" class="header-anchor">The futures</a></h2>
 
@@ -566,7 +473,7 @@ revealtheme&#61;&quot;simple&quot;
 ~~~
 &lt;div class&#61;&quot;slides&quot;&gt;
 ~~~
-\rvsecmdfranklin&#123; &#125;&#123;
+\rvsecf&#123; &#125;&#123;
     ## \cnote&#123;Thank You&#33;&#125;
     \hwarn&#123;Follow ME&#125;&#123;
         \br&#123;2&#125;
@@ -608,7 +515,7 @@ revealtheme&#61;&quot;simple&quot;
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 03, 2023.
           </p>
     </footer>
     
