@@ -145,14 +145,14 @@ legend {
     /* color:var(--admon-hack-color-dark) !important; */
     background: transparent !important;
     display:inline-block;
-    font-style: italic;
+    font-style: normal;
     font-size: var(--text-sm);
 }
 .Cadmon {
     /* color:#FFFFFF !important; */
     /* background: var(--admon-hack-color-dark) !important; */
     display:inline-block;
-    font-style: italic;
+    font-style: normal;
     font-size: var(--text-sm);
 }
 

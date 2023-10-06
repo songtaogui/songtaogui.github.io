@@ -203,23 +203,4 @@ kbd {
     height: 30px;
 }
 
-#lov table{
-    table-layout: fixed;
-    word-break: break-all;
-    background-color: transparent;
-}
-
-#lov td {
-    max-width: 90%;
-    vertical-align: middle;
-    table-layout: fixed;
-    word-break:break-all;
-    word-wrap: break-word;
-}
-
-#lov td:hover {
-    background-color: #f8fcff;
-}
-
-
 

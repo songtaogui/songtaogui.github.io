@@ -50,130 +50,7 @@
 
 <div class="slides">
 
-<section data-background-color="#4393C3"> <br><br><br> <span style="font-size:40px; color: #CCEBC5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#ffffff"> 针对生物信息学的Linux系统使用介绍 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2023年10月</span> </section>
-<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<h1>事要知其所以然</h1>
-<p><div class="aadmon aadmon-note"> 生物信息工具的使用也需要理解背后的原理</div> <section > 
-<div style="text-align:left">
- <br> 
-</div>
-<table id="lov" width="100%" height="650px" border="0">
-<tr>
-<td id="lov" width="30%" height=90%>
- <br> <span class="Sadmon Sadmon-note">PCR:</span></p>
-<ul>
-<li><p>引物设计</p>
-</li>
-<li><p>扩增片段大小</p>
-</li>
-<li><p>反应循环次数</p>
-</li>
-<li><p>RT-PCR; Q-PCR ...</p>
-</li>
-</ul>
-<p><br><br> <span class="Sadmon Sadmon-hack">BLAST:</span></p>
-<ul>
-<li><p>e-value阈值</p>
-</li>
-<li><p>罚分矩阵</p>
-</li>
-<li><p>gap open/extension</p>
-</li>
-<li><p>预设参数: megablast, blastx-fast ...</p>
-</li>
-</ul>
-<p>
-</td>
-<td id="lov" width="70%" height=90%>
- <img src="https://raw.githubusercontent.com/songtaogui/imgbed/master/01_pcr_blast.png" style="margin: 0 auto;" /> 
-</td>
-</tr>
-<tr>
-<td id="lov" colspan="1" height=5% >
-<div style="font-size:18px;padding-bottom:-1em">
-</p>
-<p>
-</div>
-</td>
-</tr>
-</table>
- </section> </section>
-<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<h1>生信专业从业者的技能树</h1>
-<p>
-<table id="lov"><tr>
-<td id="lov" height=90% style="width:60%">
- <div class="aadmon aadmon-info"> Bioinformatics ≈ Biology &#43; Programming &#43; Mathematics</div><br><br> 
-<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 新手村技能加点</legend>
-</p>
-<ol>
-<li><p>基本的<span class="sadmon sadmon-note">生物学和组学</span>知识: 测序&#40;二代/三代&#41;, RNA-Seq, 甲基化, ChIP-seq, ATAC-seq, 单细胞 ...</p>
-</li>
-<li><p>了解常用的<span class="sadmon sadmon-note">生物数据库</span>资源: NCBI, Ensemble, UCSC, Uniprot, CoGe, Panther ...</p>
-</li>
-<li><p><span class="sadmon sadmon-note">Linux系统</span>相关: Shell&#40;Bash&#41;编程, 作业调度, 超算使用 ...</p>
-</li>
-<li><p>掌握至少一门<span class="sadmon sadmon-note">通用编程语言</span>: python, perl, R, julia, rust, java, C&#43;&#43; ...</p>
-</li>
-<li><p>基本的<span class="sadmon sadmon-note">数据分析</span>技巧: 表格操作, 数据可视化 ...</p>
-</li>
-<li><p>基本的<span class="sadmon sadmon-note">统计分析</span>知识: 数据分布、假设检验、线性回归、聚类 ....</p>
-</li>
-</ol>
-<p>
-</fieldset>
- <br><br> <div class="aadmon aadmon-hack"> 延伸阅读: <a href="https://www.cnblogs.com/raisok/p/11288251.html">生物信息等级划分</a></div> 
-</td>
-<td id="lov" width="40%" height=90% align="left">
- <img src="https://pic3.zhimg.com/80/v2-7d2865372c9cc5777b85762d402c854a_720w.jpg" style="margin: 0 auto; height: 700px" /> 
-</td>
-</tr></table>
- </section>
-<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<h1>生信工具使用者的加点建议</h1>
-<p>
-<table id="lov"><tr>
-<td id="lov" height=90% style="width:2%">
-</p>
-<p>
-</td>
-<td id="lov" width="90%" height=90% align="center">
- <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
-<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 我以湿实验为主, 偶尔使用常规分析流程、现成的生信软件做一些基础分析, 我要学啥?</legend>
- <span class="fragment" data-fragment-index="2" align="left" style="margin:0px"></p>
-<ul>
-<li><p>基本的<span class="cadmon sadmon-tip">linux操作</span>;</p>
-</li>
-<li><p>对<span class="cadmon sadmon-tip">组学技术和测序建库原理</span>有本的认识;</p>
-</li>
-<li><p>了解常用的<span class="cadmon sadmon-tip">生信数据库和软件</span>;</p>
-</li>
-<li><p>善用<span class="cadmon sadmon-tip">搜索工具</span>找到自己需要的软件, 并能看懂说明书;</p>
-</li>
-<li><p>学会向生信专业人员<span class="cadmon sadmon-tip">描述问题</span>, 快速获得帮助;</p>
-</li>
-</ul>
-<p></span> 
-</fieldset>
- </div> <br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
-<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> "切, 电脑里又种不出粮食"</legend>
- <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"></p>
-<ul>
-<li><p>编程可以快速训练<span class="Sadmon Sadmon-warn">抽象</span>的能力;</p>
-</li>
-<li><p>生信从业者情绪不稳定&#40;久坐&#43;熬夜&#43;头发少&#41;, 对他们友好一些;</p>
-</li>
-</ul>
-<p></span> 
-</fieldset>
- </div> 
-</td>
-<td id="lov" width="5%" height=90% align="center">
-</p>
-<p>
-</td>
-</tr></table>
- </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 1.2.1 针对生物信息学的Linux系统使用介绍 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2023年10月</span> </section>
 <section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>基本的计算/存储单元概念</h1>
 <p><section > 
@@ -220,6 +97,354 @@
 </tr>
 </table>
  </section> </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux操作系统简介</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Linux-Unix历史</legend>
+</p>
+<ul>
+<li><p>1970年, Unix诞生&#40;贝尔实验室&#41;并开源;</p>
+</li>
+<li><p>1979年, Unix V7开始, 贝尔实验室禁止Unix的源码用于教学;</p>
+</li>
+<li><p>1987年, Tanenbaum发布了从头开发的Minix&#40;兼容Unix V7&#41;, 用于教学;</p>
+</li>
+<li><p>1991年, Linus借鉴Minix开发了Linux内核;</p>
+</li>
+<li><p>1983年, Stallman发起了<a href="https://www.gnu.org/">GNU&#40;GNU is not Unix&#41;计划</a>, 为了创建一个完全自由的操作系统, 其与Linux内核结合, 形成现代Linux生态环境;</p>
+</li>
+<li><p>2017年11月份开始, 世界Top500的超级计算机全部使用Linux系统;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> Linux的优势和发行版</legend>
+</p>
+<ul>
+<li><p>Linux的优势:</p>
+<ul>
+<li><p>良好的可移植性和灵活性</p>
+</li>
+<li><p>应用广泛: 大型服务器, 小型计算机, 嵌入式设备 ...</p>
+</li>
+<li><p>完全开源, 免费使用</p>
+</li>
+<li><p>稳定高效, 开发和维护成本低;</p>
+</li>
+</ul>
+</li>
+<li><p>Linux常见发行版:</p>
+<ul>
+<li><p>Ubuntu, Debian, RHEL, CentOS, Fedora, Arch Linux, Kali Linux, Deepin ...</p>
+</li>
+<li><p>生信Linux推荐: 服务器用<span class="cadmon sadmon-warn">CentOS</span>, 个人PC用<span class="cadmon sadmon-note">Ubuntu</span>;</p>
+</li>
+<li><p>目前CentOS不再维护新版本, 可以使用Rocky Linux 替换;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux系统结构</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:60%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Linux哲学: 一切皆文件</legend>
+</p>
+<ul>
+<li><p>Linux中目录, 进程, 磁盘等都被抽象成了文件;</p>
+</li>
+<li><p>只需要一套API就可以调用Linux中大部分资源;</p>
+</li>
+<li><p>任何硬件设备都需要挂载到根目录下才能使用;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ <br><br></p>
+<pre><code class="language-julia">/────
+    ├── bin     # binaries&#40;二进制文件&#41;，存放着最常用的程序和指令
+    ├── boot    # 系统启动相关文件，如内核，initrd，以及grub（BootLoader）
+    ├── dev     # device，设备文件 — 体现了LInux的“一切皆文件”思想
+    ├── etc     # 配置文件。大多数为纯文本文件
+    ├── home    # 用户的家目录
+    ├── lib     # library，公共库文件（不能单独执行, 只能被调用）
+    ├── media   # 挂载点目录，挂载移动设备（如U盘）
+    ├── mnt     # 挂载额外的临时文件（如第二块硬盘）
+    ├── opt     # optional，存放额外安装软件
+    ├── proc    # processes，伪文件系统，内存映射文件，系统启动后才出现文件, 关机就空
+    ├── root    # 管理员的家目录
+    ├── sbin    # superuser binaries，存放系统管理所需要的命令
+    ├── tmp     # temporary，临时文件，所有用户都可以操作，但只能删自己的，不能删别人的
+    ├── usr     # unix shared resources，存放只能读的命令和其他文件
+    └── var     # variable，存放运行时需要改变数据的文件，如日志等</code></pre>
+<p>
+</td>
+<td id="lov" width="40%" height=90% align="left">
+  Linux系统结构: <img src="/assets/slides/SDAUBIM/Linux_sys.jpg" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux基本概念</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 用户和用户组</legend>
+</p>
+<ul>
+<li><p>每个用户有独立的ID和密码;</p>
+</li>
+<li><p>多个用户可同时登录同一个Linux系统, 互不影响;</p>
+</li>
+<li><p>root用户拥有系统最高权限;</p>
+</li>
+<li><p>用户组: 具有相同特征用户的集合, 分组可以简化管理工作;</p>
+</li>
+<li><p>用户和用户组的关系: N vs N;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 权限</legend>
+</p>
+<ul>
+<li><p>多用户通过权限实现资源隔离, 保障系统和数据安全;</p>
+</li>
+<li><p>权限的主体为用户, 对象为文件;</p>
+</li>
+<li><p>基本权限: 可读&#40;r&#41;, 可写&#40;w&#41;, 可执行&#40;x&#41;;</p>
+</li>
+<li><p>用户对自己的文件有绝对的权限, 本用户的文件默认禁止其他用户访问;</p>
+</li>
+<li><p>root用户对所有文件拥有访问和修改权限;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 命令</legend>
+ <br> <span class="sadmon sadmon-tip">命令&#40;command&#41;</span>: 终端上运行的程序;</p>
+<ul>
+<li><p><span class="cadmon sadmon-tip">命令提示符&#40;prompt&#41;</span>: 登陆终端后显示的符号, 可以通过<span class="cadmon sadmon-tip">PS1</span>变量配置;</p>
+</li>
+<li><p>命令格式: <span class="cadmon sadmon-hack">命令 -选项 参数</span>, 如<span class="cadmon sadmon-hack">grep -m 1</span></p>
+<ul>
+<li><p><span class="cadmon sadmon-tip">命令</span>: shell传递给内核执行的指令;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">选项</span>: 命令预设的控制选项, 可以是<span class="cadmon sadmon-tip">短选项, 如: -c -v -m, 或 -cvm</span>, 或是<span class="cadmon sadmon-tip">长选项, 如: –version</span>;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">参数</span>: 指向命令的目标, 多个参数要用空格隔开;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">命令类型</span>: 内置命令/外部命令;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">命令补全</span>: 使用<span class="sadmon sadmon-hack">TAB键</span>;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">命令历史</span>: <span class="sadmon sadmon-hack">↑, ↓, ctrl&#43;r, history, ~/.bash_history</span>;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">命令帮助</span>: <span class="sadmon sadmon-hack">man CMD; CMD -h; README</span>;</p>
+</li>
+<li><p><span class="cadmon sadmon-tip">命令路径</span>: 命令存放在<span class="sadmon sadmon-hack">PATH</span>路径中, 按照路径搜索并执行第一个搜到的命令;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: 文件/目录操作</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 文件/目录操作</legend>
+</p>
+<ul>
+<li><p>权限设置: <span class="sadmon sadmon-hack">chmod</span>,<span class="sadmon sadmon-hack">setfacl</span>,<span class="sadmon sadmon-hack">chown</span></p>
+</li>
+<li><p>查看目录: <span class="sadmon sadmon-hack">ls</span></p>
+</li>
+<li><p>改变目录: <span class="sadmon sadmon-hack">cd</span></p>
+</li>
+<li><p>创建文件目录: <span class="sadmon sadmon-hack">touch, mktemp, mkdir</span></p>
+</li>
+<li><p>软连接: <span class="sadmon sadmon-hack">ln</span></p>
+</li>
+<li><p>删除文件/目录: <span class="sadmon sadmon-hack">rm</span></p>
+</li>
+<li><p>复制文件/目录: <span class="sadmon sadmon-hack">cp</span></p>
+</li>
+<li><p>移动/重命名 文件/目录: <span class="sadmon sadmon-hack">mv</span></p>
+</li>
+<li><p>查看目录大小: <span class="sadmon sadmon-hack">du</span></p>
+</li>
+<li><p>查找文件: <span class="sadmon sadmon-hack">find</span></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div style="font-size: 20px; width: 600px" class="fragment " data-fragment-index="0"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 通配符</legend>
+ <div class="aadmon aadmon-info"> a1.txt a2.txt a3.txt ac1.txt b.txt.gz</div></p>
+<ul>
+<li><p><span class="Sadmon Sadmon-hack">*</span>: 匹配0或多个字符: <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-hack">ls *.txt</span> <span class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <span class="sadmon sadmon-tip">a1.txt a2.txt a3.txt ac1.txt</span> </span></p>
+</li>
+</ul>
+<p></div></p>
+</li>
+<li><p><span class="Sadmon Sadmon-hack">?</span>: 有且只有一个字符: <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-hack">ls a?.txt</span> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span class="sadmon sadmon-tip">a1.txt a2.txt a3.txt</span> </span></p>
+</li>
+</ul>
+<p></div></p>
+</li>
+<li><p><span class="Sadmon Sadmon-hack">&#91; &#93;</span>: 字符组合, 匹配其中任意一个字符:<span class="sadmon sadmon-hack">&#91;abc&#93;/&#91;&#33;abc&#93;/&#91;0-9&#93;/&#91;a-z&#93;</span> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-hack">ls a&#91;12&#93;.txt</span> <span class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <span class="sadmon sadmon-tip">a1.txt a2.txt</span> </span></p>
+</li>
+</ul>
+<p></div></p>
+</li>
+<li><p><span class="Sadmon Sadmon-hack">&#123; &#125;</span>: 集合, 匹配其中任意一个元素: &#123;abc,def,123&#125; <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-hack">ls &#123;a1,a2,ac1&#125;.txt</span> <span class="fragment" data-fragment-index="8" align="left" style="margin:0px"> <span class="sadmon sadmon-tip">a1.txt a2.txt ac1.txt</span> </span></p>
+</li>
+</ul>
+<p></div></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: 文本文件处理</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+</p>
+<ul>
+<li><p>编辑器: vim, emacs, nano, vscode...</p>
+</li>
+<li><p>查看文件: cat, less, more, head, tail</p>
+</li>
+<li><p>文件操作三剑客</p>
+<ul>
+<li><p>sed: <a href="https://coolshell.cn/articles/9104.html">sed简明教程</a></p>
+</li>
+<li><p>awk: <a href="https://coolshell.cn/articles/9070.html">awk简明教程</a></p>
+</li>
+<li><p>grep: <a href="https://www.runoob.com/linux/linux-comm-grep.html">grep命令介绍</a></p>
+</li>
+</ul>
+</li>
+<li><p>统计文件: wc</p>
+</li>
+<li><p>拆分文件: split</p>
+</li>
+<li><p>内容操作: sort, uniq, paste, cut ...</p>
+</li>
+<li><p>压缩/打包文件: tar, gzip, bzip2, bgzip ...</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="600px" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 学习资源推荐</legend>
+</p>
+<ul>
+<li><p><a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php">&lt;鸟哥的Linux私房菜 基础学习篇&gt;</a></p>
+</li>
+<li><p><a href="https://www.runoob.com/linux/linux-command-manual.html">Linux命令大全</a></p>
+</li>
+<li><p><a href="https://www.runoob.com/regexp/regexp-syntax.html">正则表达式</a></p>
+</li>
+<li><p><a href="https://www.runoob.com/linux/linux-vim.html">vim编辑器</a></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 缅怀Bram: Vim的前世今生</legend>
+ <iframe src="//player.bilibili.com/player.html?aid=233423739&bvid=BV1X8411i719&cid=1265953842&p=1" loading="lazy" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=550px height=280px> </iframe> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: IO, FIFO, PIPELINE</h1>
+<br>
+<ul>
+<li><p>预设管道: stdin, stdout, stderr</p>
+</li>
+<li><p>管道重定向: &lt;, &gt;, &lt;&lt;, &gt;&gt;</p>
+</li>
+<li><p>具名管道;</p>
+</li>
+<li><p>流水线;</p>
+</li>
+</ul>
+<p></section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: 系统状态</h1>
+<br>
+<ul>
+<li><p>任务管理: top, htop</p>
+</li>
+<li><p>进程管理: ps, kill</p>
+</li>
+<li><p>内存状态: free</p>
+</li>
+<li><p>分区状态: df</p>
+</li>
+<li><p>系统信息:</p>
+</li>
+</ul>
+<p></section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-dark.png" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: 危险操作</h1>
+<br>
+<ul>
+<li><p>rm -rf /</p>
+</li>
+<li><p>mv file1 file2</p>
+</li>
+</ul>
+<p></section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 1.2.2 超算平台使用介绍 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> </section>
 
 </div>
 

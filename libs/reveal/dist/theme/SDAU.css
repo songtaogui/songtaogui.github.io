@@ -257,7 +257,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal table {
   margin: auto;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   border-spacing: 0;
 }
 
@@ -373,3 +373,23 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     background-color: var(--r-background-color);
   }
 }
+
+/* layout table style */
+#lov table{
+  table-layout: fixed;
+  word-break: break-all;
+  background-color: transparent;
+}
+
+#lov td {
+  max-width: 90%;
+  vertical-align: auto;
+  table-layout: fixed;
+  word-break:break-all;
+  word-wrap: break-word;
+}
+
+#lov td:hover {
+  background-color: #f8f8f8;
+}
+
