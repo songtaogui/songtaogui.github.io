@@ -52,7 +52,305 @@
 
 <div class="slides">
 
-<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 2.1 生物信息学中的统计知识概览 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 2.1 生物信息学中的统计知识概览 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>统计方法导览</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:400px">
+ <div style="font-size:16px"> 
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 数据基本描述</legend>
+</p>
+<ul>
+<li><p>集中趋势: mean, median, mode</p>
+</li>
+<li><p>离散程度: sd&#40;\(σ\)&#41;, variance, cv, quartile</p>
+</li>
+<li><p>分布形态: 偏度&#40;skewness&#41;, 峰度&#40;Kurtosis&#41;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+<br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 数据清洗</legend>
+</p>
+<ul>
+<li><p>缺失值的处理</p>
+</li>
+<li><p>异常值的处理</p>
+</li>
+<li><p>数据标准化</p>
+</li>
+</ul>
+<p>
+</fieldset>
+<br> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 数据分布检验</legend>
+</p>
+<ul>
+<li><p>正态分布</p>
+</li>
+<li><p>方差齐性分布</p>
+</li>
+<li><p>二项分布</p>
+</li>
+<li><p>...</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="400px" height=90% align="center">
+ <div style="font-size:16px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 差异分析</legend>
+</p>
+<ul>
+<li><p><span class="cadmon sadmon-hack">计量变量</span> <span class="cadmon sadmon-error">参数检验</span></p>
+<ul>
+<li><p>t检验</p>
+</li>
+<li><p>单因素方差分析</p>
+</li>
+</ul>
+</li>
+<li><p><span class="cadmon sadmon-hack">计量变量</span> <span class="cadmon sadmon-error">非参数检验</span></p>
+<ul>
+<li><p>wilcoxon符号秩和检验</p>
+</li>
+<li><p>Kruskal-Wallis H检验</p>
+</li>
+<li><p>Fridman M检验</p>
+</li>
+</ul>
+</li>
+<li><p><span class="cadmon sadmon-hack">分级变量</span></p>
+<ul>
+<li><p>wilcoxon符号秩和检验</p>
+</li>
+<li><p>Kruskal-Wallis H检验</p>
+</li>
+<li><p>Ridit分析</p>
+</li>
+<li><p>Jonckheere-Terpstra检验</p>
+</li>
+</ul>
+</li>
+<li><p><span class="cadmon sadmon-hack">计数变量</span></p>
+<ul>
+<li><p>卡方检验</p>
+</li>
+<li><p>Fisher精确性检验</p>
+</li>
+<li><p>事后检验</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="300px" height=90% align="center">
+ <div style="font-size:16px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 相关性分析</legend>
+</p>
+<ul>
+<li><p>Pearson相关</p>
+</li>
+<li><p>Spearman相关</p>
+</li>
+<li><p>Kendall&#39;s tau相关</p>
+</li>
+<li><p>偏相关</p>
+</li>
+<li><p>分层CMH卡方检验</p>
+</li>
+<li><p>相关系数比较</p>
+</li>
+</ul>
+<p>
+</fieldset>
+<br> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 聚类和因子分析</legend>
+</p>
+<ul>
+<li><p>系统聚类、快速聚类、层次聚类</p>
+</li>
+<li><p>主成份分析</p>
+</li>
+</ul>
+<p>
+</fieldset>
+<br> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 进阶能力: 回归、建模</legend>
+</p>
+<ul>
+<li><p>广义线性模型</p>
+</li>
+<li><p>广义估计方程</p>
+</li>
+<li><p>偏微分方程</p>
+</li>
+<li><p>机器学习</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据描述</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 平均数mean</legend>
+ <br> \( \bar{x} = \sum_{i=1}^{n}x_i / n \) <br> <span class="cadmon sadmon-note">更少受到随机因素的影响</span>, 但<span class="cadmon sadmon-todo">更容易受到极端值的影响</span> 
+</fieldset>
+ </div><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 中位数median</legend>
+ <br> 排序后<span class="cadmon sadmon-tip">排名</span>位于中间的数&#40;如果有两个, 一般取平均值&#41; <span class="cadmon sadmon-tip">不容易受到极端值的影响</span> 
+</fieldset>
+ </div><br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 众数mode</legend>
+  出现最多的数, 可以是多个, 如<code>1,2,2,2,3,3,3</code> 
+</fieldset>
+ </div> <br> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 标准差sd、方差var</legend>
+</p>
+<ul>
+<li><p><span class="cadmon sadmon-info">标准差、方差</span>: 描述数据离散程度 → 变量离期望值的距离;</p>
+</li>
+<li><p><span class="cadmon sadmon-info">变异系数cv</span>: 标准差/平均数 → 无量纲量</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div><br> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> 四分位数 quantile</legend>
+</p>
+<ul>
+<li><p><span class="cadmon sadmon-todo"><code>&#91;Q1:25&#37;, Q2:50&#37;, Q3:75&#37;&#93;</code></span></p>
+</li>
+<li><p><span class="cadmon sadmon-todo">四分位距IQR</span>: Q3 - Q1</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div><br> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 分布形态</legend>
+ <span class="sadmon sadmon-hack">偏度 skew</span>: 左偏, 右偏; <span class="sadmon sadmon-hack">峰度 kurtosis</span> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:800px">
+ <span class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/mmm.png" style="margin: 0 auto;width:800px" /> </span> 
+</td>
+<td id="lov" width="350px" height=90% align="left">
+ <span class="fragment" data-fragment-index="8" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/kurtosis.png" style="margin: 0 auto;width:800px" /> </span> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据清洗-缺失值处理</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 缺失值的产生原因</legend>
+</p>
+<ul>
+<li><p>非专业调查</p>
+</li>
+<li><p>数据丢失&#40;存储不当、故障&#41;</p>
+</li>
+<li><p>敏感性问题&#40;<span class="sadmon sadmon-hack">收入, 吸毒 ...</span>&#41;</p>
+</li>
+<li><p>暂时无法获取的信息 &#40;<span class="sadmon sadmon-hack">产品收益...</span>&#41;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 数据缺失的类型</legend>
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-info">完全随机缺失&#40;missing completely random, MCAR&#41;</span>: 缺失与数据特征和其他变量的取值无关, 实际应用中MCAR很少, 因此判断需要慎重;</p>
+</li>
+</ul>
+<p></div> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-info">随机缺失&#40;missing at random, MAR&#41;</span>: 缺失与其他无缺失值的变量取值有关, 如<span class="sadmon sadmon-hack">统计小麦自然群体干旱条件下的产量</span>;</p>
+</li>
+</ul>
+<p></div> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-info">非随机缺失&#40;missing at non-random, MANR&#41;</span>: 缺失不仅和其他变量有关, 也和<strong>自身取值</strong>有关, 如<span class="sadmon sadmon-hack">统计家庭收入情况时, &quot;鲶鱼&quot;们不愿意说</span></p>
+</li>
+</ul>
+<p></div> 
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div style="font-size:16px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 缺失值的处理策略</legend>
+ <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"></p>
+<ul>
+<li><p><strong>不处理</strong></p>
+</li>
+</ul>
+<p></div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"></p>
+<ul>
+<li><p><strong>删除法:</strong> 按行删除; 按列删除; 按分析删除; 成对删除</p>
+</li>
+</ul>
+<p></div> <div class="fragment" data-fragment-index="8" align="left" style="margin:0px"></p>
+<ul>
+<li><p><strong>填补法:</strong> 用最可能的值来填补缺失值</p>
+<ul>
+<li><p><strong>人工插补:</strong> <span class="fragment" data-fragment-index="9" align="left" style="margin:0px"> 专业素养, </span> <span class="fragment" data-fragment-index="10" align="left" style="margin:0px"> 费时费力; </span></p>
+</li>
+<li><p><strong>统计填补:</strong> 根据简单的算法或规则进行填补, 易于操作, 但不考虑缺失值的变异性:</p>
+<ul>
+<li><p><span class="cadmon sadmon-tip">平均值填补:</span> <span class="fragment" data-fragment-index="11" align="left" style="margin:0px"> 数值变量&#61;&gt;平均值; 离散变量&#61;&gt;最高频; </span></p>
+</li>
+<li><p><span class="cadmon sadmon-tip">条件平均值填补:</span> <span class="fragment" data-fragment-index="12" align="left" style="margin:0px"> 选取跟缺失对象特征类似的对象的平均值进行填补; </span></p>
+</li>
+<li><p><span class="cadmon sadmon-tip">热卡填补:</span> <span class="fragment" data-fragment-index="13" align="left" style="margin:0px"> 也叫邻近填补, 在整个数据集中搜索一个与缺失值最相似的值进行填补 </span><span class="fragment" data-fragment-index="14" align="left" style="margin:0px"> <span class="cadmon sadmon-error">如何定义相似标准? &#61;&gt; 主观</span> </span></p>
+</li>
+<li><p><span class="cadmon sadmon-tip">K-means填补:</span> <span class="fragment" data-fragment-index="14" align="left" style="margin:0px"> 先根据距离函数判断与缺失材料最近的样本, 然后用样本的加权平均值估计缺失值 </span> <span class="fragment" data-fragment-index="15" align="left" style="margin:0px"> <span class="cadmon sadmon-error">比较合理, 但分析大型数据时非常耗时</span> </span></p>
+</li>
+<li><p><span class="cadmon sadmon-tip">复杂填补:</span> <span class="fragment" data-fragment-index="16" align="left" style="margin:0px"> 回归算法, EM算法, 多重填补 </span></p>
+</li>
+<li><p><span class="cadmon sadmon-tip">其他方法:</span> <span class="fragment" data-fragment-index="17" align="left" style="margin:0px"> 学科特性的算法, 如遗传学的单倍型&#61;&gt;基因型填补 </span></p>
+</li>
+</ul>
+</li>
+<li><p><strong>虚拟变量法&#40;特殊值填充&#41;</strong>: <span class="fragment" data-fragment-index="18" align="left" style="margin:0px"> 学科特性的算法, 如遗传学的单倍型&#61;&gt;基因型填补 </span></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></div> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据清洗-异常值处理</h1>
+<p>异常值通常有两种情况：一是测量值随机波动的极度表现，即极值，它虽然与其余数据相差较远，但仍然处于统计上所允许的合理误差范围之内，这时的异常值称为局内值；二是与其余数据不属于同一个总体的异常值，称为局外值。</p>
+<p>&#40;一&#41; 异常值的检测方法 专业判断：基于专业角度判断数值是否为异常值往往是最基础且可靠的方法，很多通过统计学方法检测提示的异常值，最终也需要从专业角度衡量是否为真正的异常值；但在实际研究过程中，一些变量指标难以从专业角度进行衡量是否异常。 图形法：包括直方图法、箱式图法等。在直方图上，位于图形两端，并远离均数的数值，提示可能存在异常；在箱式图上位于上下四分位数±1.5倍四分位间距的数值，提示可能存在异常。 统计描述法：一般位于均数±3倍标准差之外的数据，提示可能存在异常。 马氏距离法：常用于多变量异常值的检测。 &#40;二&#41; 异常值处理中的注意事项 异常值产生的原因不明之前，不应简单决定其取舍，通过图形法和统计描述法检测出的异常值，最好再从专业角度进行判断是否为真正的异常值。 尽可能核对原始记录，如果确认数据有逻辑错误，又无法纠正，可直接删除。 若数据无明显逻辑错误，可将数据删除前后各做一次分析，若结果不矛盾，则不予删除；若结果矛盾且需要删除数据时，必须给予充分合理的解释。 若采用其他数值替换异常值，最好对替换前后的数据各做一次分析，并对结果进行比较。 </section>
 
 </div>
 
