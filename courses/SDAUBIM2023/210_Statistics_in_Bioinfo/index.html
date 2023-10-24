@@ -193,6 +193,177 @@
 </td>
 </tr></table>
  </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>从正态分布开始</h1>
+<p><span class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <hr> <span style="font-size:30px; color:#4393C3"> 正态分布&#40;Normal distribution&#41;/高斯分布&#40;Gaussian distribution&#41; </span> <hr> </span> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:500px">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px">  正态分布是一种连续型随机变量概率分布, 分布图是一条以均值为中心, 左右对称的钟形曲线。 <hr> </div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px">  若随机变量\(X\)服从一个平均数为\(\mu\) 、标准差为\(\sigma\)的正态分布，则记为：</p>
+<div class="aadmon aadmon-hack"> \(X \sim N(\mu,\sigma^2)\)</div>
+<p>其概率密度函数为:</p>
+<p><div class="aadmon aadmon-hack"> \( f(x) = \frac1{\sigma\sqrt{2\pi}}\; \exp\left(-\frac{\left(x-\mu\right)^2}{2\sigma^2} \right) \! \)</div> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/Normal_Distribution_PDF.svg"  /> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>从正态分布开始</h1>
+<p><hr> 模拟正态分布抽样的<span class="cadmon sadmon-error">频率直方图</span> <hr></p>
+<p>
+<div id="vis95"></div>
+<script>
+    var opt = {
+        renderer: "svg",
+        actions:{
+            export: true,
+            source: false,
+            compiled: false,
+            editor: false,
+        },
+    };
+    var vlSpec = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        "width": 800,
+    "height": 400,
+    "params": [
+        {
+            "name": "μ", "value": 0,
+            "bind": {
+                "input": "range",
+                "min": -5,
+                "max": 5,
+                "step": 0.5
+            }
+        },
+        {
+            "name": "δ",
+            "value": 3,
+            "bind": {
+                "input": "range",
+                "min": 3,
+                "max": 10,
+                "step": 0.2
+            }
+        }
+    ],
+    "data": {
+        "sequence": {
+            "start": 0,
+            "stop": 2000,
+            "step": 1,
+            "as": "x"
+        }
+    },
+    transform: [
+        {
+            "calculate": "sampleNormal(μ, δ)",
+            "as": "X"
+        }
+    ],
+    "mark": {
+        "type": "bar",
+        "binSpacing": 0
+    },
+    "encoding": {
+        "x": {
+            "field": "X",
+            "bin": {"maxbins": 100, "step": 0.5},
+            "scale": {"domain": [-30, 30]},
+            "axis": {"titleFontSize": 20, "labelFontSize": 20},
+            "type": "quantitative"
+        },
+        "y": {
+            "aggregate": "count",
+            "scale": {"domain": [0, 160]},
+            "axis": {"titleFontSize": 20, "labelFontSize": 20},
+            "type": "quantitative"
+        },
+        "color": {"value": "#db646f"}
+    }
+    };
+    vegaEmbed('#vis95', vlSpec, opt);
+</script>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>从正态分布开始</h1>
+<p><hr> <span style="font-size:30px; color:#4393C3"> 为什么正态分布这么重要? </span> <hr> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 简单</legend>
+</p>
+<ul>
+<li><p><span class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 只由两个统计量定义: <span class="cadmon sadmon-note">均值</span>和<span class="cadmon sadmon-note">标准差</span>; </span></p>
+</li>
+<li><p><span class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 分布曲线简单: 均值, 也是中位数, 也是众数; </span></p>
+</li>
+<li><p><span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 对称且稳定&#61;&gt;数学计算简单: <span class="cadmon sadmon-todo">68-95-99.7 Rule</span> </span></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/normal-rule.jpg" style="margin: 0 auto;" /> </div> </div> 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 无处不在</legend>
+</p>
+<ul>
+<li><p>身高、体重;</p>
+</li>
+<li><p>考试成绩;</p>
+</li>
+<li><p>股票;</p>
+</li>
+<li><p>测量误差;</p>
+</li>
+<li><p>回归残差;</p>
+</li>
+<li><p>大多数大自然中的变量;</p>
+</li>
+</ul>
+<span class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br><span class="cadmon sadmon-error">WHY?</span> </span>
+<p><span class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <span class="cadmon sadmon-tip">中心极限定理:</span>大量随机变量的重复实验，其分布总和/均值将非常接近正态分布 </span> 
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <div class="fragment" data-fragment-index="8" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 应用广泛</legend>
+</p>
+<ul>
+<li><p>A&lt;&#61;&gt;B TEST:</p>
+<ul>
+<li><p>T检验</p>
+</li>
+<li><p>Z检验</p>
+</li>
+</ul>
+</li>
+<li><p>回归模型;</p>
+</li>
+<li><p>复杂分布的简化处理:</p>
+<ul>
+<li><p>t分布</p>
+</li>
+<li><p>二项分布</p>
+</li>
+<li><p>泊松分布</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>从正态分布开始</h1>
+<p><hr> <span style="font-size:30px; color:#4393C3"> 为什么正态分布无处不在: 中心极限定理&#40;Central Limit Theorem&#41; </span> <hr> <iframe src="//player.bilibili.com/player.html?aid=612459403&bvid=BV1gh4y1W7ag&cid=1094137217&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="false" width="1200px" height="600px"> </iframe> </section>
 <section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>数据描述</h1>
 <p>
@@ -1229,24 +1400,6 @@ subset&#40;hh, :Height &#61;&gt; x -&gt; is_outlier.&#40;x, h_mean, h_std&#41;&#
 </td>
 </tr></table>
  </section>
-<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<pre><code class="language-julia">function my_zscore&#40;x&#41;
-    μ &#61; mean&#40;x&#41;
-    δ &#61; std&#40;x&#41;
-    return &#91;&#40;i - μ&#41;/δ for i in x&#93;
-end
-
-test &#61; &#91;1, 2, 4, 10, 2, 5, 8&#93;
-
-# 用自定义函数
-my_zscore&#40;test&#41; |&gt; show
-# &#91;-1.0631081389064057, -0.765437860012612, -0.17009730222502484, 1.6159243711377367, -0.765437860012612, 0.12757297666876877, 1.0205838133501495&#93;
-
-# 用内嵌函数
-using StatsBase: zscore
-zscore&#40;test&#41; |&gt; show
-# &#91;-1.0631081389064057, -0.765437860012612, -0.17009730222502484, 1.6159243711377367, -0.765437860012612, 0.12757297666876877, 1.0205838133501495&#93;</code></pre>
-<p></section>
 
 </div>
 

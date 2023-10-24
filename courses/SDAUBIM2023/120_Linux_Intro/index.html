@@ -397,7 +397,7 @@
 <h1>Linux终端基本操作: IO, PIPE, FIFO</h1>
 <p><br> 
 <table id="lov"><tr>
-<td id="lov" height=90% style="width:600px">
+<td id="lov" height=90% style="width:400px">
  
 <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 输入输出(IO)</legend>
  <br> <span class="sadmon sadmon-note">Linux标准IO: <span class="sadmon sadmon-hack">stdin, stdout, stderr</span></span></p>
@@ -411,14 +411,19 @@
 <li><p>黑洞设备: <span class="Sadmon Sadmon-hack">/dev/null</span>, 用来当垃圾桶</p>
 </li>
 </ul>
-<p><br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <span class="sadmon sadmon-note">IO重定向:<span class="sadmon sadmon-hack">&lt;,&gt;,&lt;&lt;,&gt;&gt;</span></span></p>
+<p><br> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="800px" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <span class="sadmon sadmon-note">IO重定向:<span class="sadmon sadmon-hack">&lt;, &gt;, &lt;&lt;, &gt;&gt;</span></span> <div style="font-size: 30px"></p>
 <pre><code class="language-sh">cat &lt;file # stdin重定向到file
 cat file &gt; abc # stdout 重定向到abc, 覆盖abc原有内容, 等价于:
 cat file 1&gt; abc
 cat file &gt;&gt; abc # stdout 重定向到abc, 追加在abc原有内容之后
 command 1&gt;log.txt 2&gt;error.txt # stderr 重定向到 error.txt
 command 1&gt;/dev/null 2&gt;&amp;1 # 丢弃stdout, 同时把stderr重定向到stdout&#40;屏幕打印&#41;</code></pre>
-<p></div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<p></div> </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> stdout和stderr的区别</legend>
 </p>
 <ul>
@@ -429,26 +434,33 @@ command 1&gt;/dev/null 2&gt;&amp;1 # 丢弃stdout, 同时把stderr重定向到st
 </ul>
 <p>
 </fieldset>
- </div> <br> 
-</fieldset>
- 
+ </div> 
 </td>
-<td id="lov" width="600px" height=90% align="left">
+</tr></table>
+ </section>
+<section style="font-size:20px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux终端基本操作: IO, PIPE, FIFO</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:500px">
  <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 管道PIPE</legend>
- <br></p>
+ <br> <div style="font-size:30px"></p>
 <pre><code class="language-sh"># 对一个文件取第一列, 然后排序, 然后去重:
 cut -f 1 file.txt &gt; tmp1.txt
 sort tmp1.txt &gt; tmp2.txt
 uniq tmp2.txt &gt; final.txt
 rm -f tmp1.txt tmp2.txt</code></pre>
-<p><br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span class="cadmon sadmon-todo">临时文件, IO负载</span> </span><span class="fragment" data-fragment-index="5" align="left" style="margin:0px"> → 管道操作符<span class="Cadmon Sadmon-info"><code>|</code></span><br> </span> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br></p>
+<p></div> <br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span class="cadmon sadmon-todo">临时文件, IO负载</span> </span><span class="fragment" data-fragment-index="5" align="left" style="margin:0px"> → 管道操作符<span class="Cadmon Sadmon-info"><code>|</code></span><br> </span> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br></p>
 <pre><code class="language-sh">cut -f 1 file.txt | sort | uniq &gt; fianl.txt</code></pre>
 <p><br> </div> 
 </fieldset>
- </div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <br> 
+ </div> 
+</td>
+<td id="lov" width="800px" height=90% align="left">
+ <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 进阶知识: 具名管道FIFO</legend>
- <div style="font-size:15px"> 
+ <div > 
 <table id="lov"><tr>
 <td id="lov" height=90% style="width:60%">
 </p>
