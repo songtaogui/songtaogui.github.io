@@ -193,6 +193,7 @@
 </td>
 </tr></table>
  </section>
+<section data-background-color="#ffffff"> <br><br><br><br><br><br> <hr> <br> <span style="font-size:40px; color:#4393C3"> 从正态分布开始 </span> <br><br> <hr> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>从正态分布开始</h1>
 <p><span class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <hr> <span style="font-size:30px; color:#4393C3"> 正态分布&#40;Normal distribution&#41;/高斯分布&#40;Gaussian distribution&#41; </span> <hr> </span> 
@@ -364,6 +365,7 @@
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>从正态分布开始</h1>
 <p><hr> <span style="font-size:30px; color:#4393C3"> 为什么正态分布无处不在: 中心极限定理&#40;Central Limit Theorem&#41; </span> <hr> <iframe src="//player.bilibili.com/player.html?aid=612459403&bvid=BV1gh4y1W7ag&cid=1094137217&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="false" width="1200px" height="600px"> </iframe> </section>
+<section data-background-color="#ffffff"> <br><br><br><br><br><br> <hr> <br> <span style="font-size:40px; color:#4393C3"> 数据描述和数据清洗 </span> <br><br> <hr> </section>
 <section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>数据描述</h1>
 <p>
@@ -1400,6 +1402,77 @@ subset&#40;hh, :Height &#61;&gt; x -&gt; is_outlier.&#40;x, h_mean, h_std&#41;&#
 </td>
 </tr></table>
  </section>
+<section data-background-color="#ffffff"> <br><br><br><br><br><br> <hr> <br> <span style="font-size:40px; color:#4393C3"> 差异分析: 以T-TEST为例 </span> <br><br> <hr> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>T-TEST</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 什么是T检验</legend>
+ <br> <span class="fragment" data-fragment-index="1" align="left" style="margin:0px"> t检验也称为<span class="cadmon sadmon-note">Student t检验</span>，它是一种使用假设检验来评估一个或两个总体<span class="sadmon sadmon-note">均值</span>的方法 </span><br><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px">  t检验可用于评估: <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"></p>
+<ol>
+<li><p>某个组是否与已知值有差异</p>
+</li>
+</ol>
+<p></div><span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> &#61;&gt;<span class="sadmon sadmon-note">单样本 t 检验</span> </span> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"></p>
+<ol start="2">
+<li><p>两个组是否彼此有差异</p>
+</li>
+</ol>
+<p></div><span class="fragment" data-fragment-index="6" align="left" style="margin:0px"> &#61;&gt; <span class="sadmon sadmon-note">独立双样本 t 检验</span> </span> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"></p>
+<ol start="3">
+<li><p>成对测量值中是否存在显著差异</p>
+</li>
+</ol>
+<p></div><span class="fragment" data-fragment-index="8" align="left" style="margin:0px"> &#61;&gt; <span class="sadmon sadmon-note">成对或非独立样本 t 检验</span> </span> <br><br> </div> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="9" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/t-test.png" style="margin: 0 auto;" /> </div> <br> <li class="fragment" data-fragment-index="10" align="left" style="margin:0px"> <span class="sadmon sadmon-note">双尾检验</span> &#61;&gt; \(H_0: μ_A = μ_B; H_a: μ_A ≠ μ_B\) </li> <li class="fragment" data-fragment-index="10" align="left" style="margin:0px"> <span class="sadmon sadmon-info">单尾检验</span> &#61;&gt; \(H_0: μ_A ≥ μ_B; H_a: μ_A < μ_B\) </li> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>T-TEST</h1>
+<p><br> <hr> <span style="font-size:30px; color:#4393C3"> T-TEST的适用条件 </span> <hr> <br> <div class="indent-block" style="margin-left: 20em !important"> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<ul>
+<li><p>观察变量为<span class="cadmon sadmon-warn">连续变量</span>;</p>
+</li>
+<li><p>观察变量<span class="cadmon sadmon-warn">相互独立</span>;</p>
+</li>
+<li><p>观察变量不存在显著<span class="cadmon sadmon-warn">异常值</span>;</p>
+</li>
+<li><p>观察变量为&#40;或近似为&#41;<span class="cadmon sadmon-warn">正态分布</span>;</p>
+</li>
+<li><p>观察变量<span class="cadmon sadmon-warn">最多两组</span>;</p>
+</li>
+</ul>
+<p></div> </div> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>T-TEST</h1>
+<p><br> <hr> <span style="font-size:30px; color:#4393C3"> T-统计量的计算 </span> <hr></p>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+  T统计量&#40;以单样本T-Test为例&#41;</p>
+<p><div class="aadmon aadmon-hack"> \(t = \frac{X̄ - μ}{s / \sqrt{n}}\)</div> <br></p>
+<p>T分布</p>
+<p><div class="aadmon aadmon-hack"> <img src="/courses/SDAUBIM2023/data/T-dist-formular.svg"  /> <br>其中ν为<strong>自由度</strong></div> <br></p>
+<p><div class="aadmon aadmon-info"> 拓展阅读: <a href="https://zh.wikipedia.org/wiki/&#37;E8&#37;87&#37;AA&#37;E7&#37;94&#37;B1&#37;E5&#37;BA&#37;A6_&#40;&#37;E7&#37;BB&#37;9F&#37;E8&#37;AE&#37;A1&#37;E5&#37;AD&#37;A6&#41;">什么是自由度</a></div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img src="/courses/SDAUBIM2023/data/t-dist.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>参数检验和非参数检验方法</h1>
+<p><div class="aadmon aadmon-info"> 拓展学习: <a href="https://zhuanlan.zhihu.com/p/502980636">常用的参数检验和非参数检验方法对比</a></div> <img src="/courses/SDAUBIM2023/data/test-methods.jpg" style="margin: 0 auto;" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>推荐资源</h1>
+<p><div style="width: 400px; margin-left: 20em; margin-top: 5em"> <div class="aadmon aadmon-note"> <a href="https://seeing-theory.brown.edu/basic-probability/cn.html">看见统计</a></div> <div class="aadmon aadmon-warn"> <a href="https://space.bilibili.com/1309928900?spm_id_from&#61;333.337.search-card.all.click">StatQuest</a></div> <div class="aadmon aadmon-info"> <a href="https://www.bilibili.com/video/BV1DK4y1n7J8/?vd_source&#61;624de12a99ae16939ecd88fc98527758">可汗学院-统计学公开课</a></div> </div> </section>
 
 </div>
 
