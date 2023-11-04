@@ -1,0 +1,950 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Julia数据科学系列-强大的绘图库: Makie and AOG
+">
+    
+
+    
+    
+    <meta name="keywords" content="Julia数据科学系列-Makie and AOG">
+    <title>Julia数据科学系列-Makie and AOG</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+
+
+
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/">Songtao Gui</a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>Julia数据科学系列-Makie and AOG</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/coding/">coding</a>, <a href="/tag/doc/">doc</a>, <a href="/tag/julia/">julia</a>, <a href="/tag/plot/">plot</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#makie_基础教程">Makie 基础教程</a><ol><li><a href="#makie的渲染后端">Makie的渲染后端</a></li><li><a href="#figure">Figure</a></li><li><a href="#axis">Axis</a></li><li><a href="#plots">Plots</a><ol><li><a href="#隐式调用figure和axis的基本函数">隐式调用Figure和Axis的基本函数</a></li><li><a href="#参数转换">参数转换</a></li><li><a href="#图层和多图">图层和多图</a></li><li><a href="#属性">属性</a></li><li><a href="#subplot子图">Subplot子图</a></li><li><a href="#图例">图例</a></li></ol></li></ol></li><li><a href="#布局教程">布局教程</a></li><li><a href="#长宽比和尺寸控制">长宽比和尺寸控制</a></li><li><a href="#绘图参考">绘图参考</a><ol><li><a href="#blocks">Blocks</a><ol><li><a href="#axis__2">Axis</a></li></ol></li></ol></li></ol></div>
+<h2 id="makie_基础教程"><a href="#makie_基础教程" class="header-anchor">Makie 基础教程</a></h2>
+<h3 id="makie的渲染后端"><a href="#makie的渲染后端" class="header-anchor">Makie的渲染后端</a></h3>
+<ul>
+<li><p><code>GLMakie</code>: 交互式、3D渲染, <span class="cadmon sadmon-error">不能进行矢量图输出</span></p>
+</li>
+<li><p><code>CairoMakie</code>: 矢量图输出, 高质量的2D图形, <span class="cadmon sadmon-error">不能3D渲染, 不能进行交互</span></p>
+</li>
+<li><p><code>WGLMakie</code>: 网络端口, 类似GLMakie</p>
+</li>
+</ul>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 每种渲染方式都配套一个activate&#33;&#40;&#41;函数, 可以用于切换:
+using CairoMakie
+CairoMakie.activate&#33;&#40;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h3 id="figure"><a href="#figure" class="header-anchor">Figure</a></h3>
+<ul>
+<li><p>Makie中最重要的对象是<code>Figure</code>, <code>Axis</code>和<code>plots</code>。</p>
+</li>
+<li><p><code>Figure</code>命令定义一个画布&#40;canvas&#41;, 在上边可以添加Axis, Colorbar, Legend等。</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">f &#61; Figure&#40;
+    backgroundcolor &#61; :tomato, # 设置背景色
+    resolution &#61; &#40;800, 300&#41; # 设置分辨率</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<h3 id="axis"><a href="#axis" class="header-anchor">Axis</a></h3>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">f &#61; Figure&#40;&#41;
+ax &#61; Axis&#40;f&#91;1,1&#93;,
+    title &#61; &quot;title&quot;,
+    xlabel &#61; &quot;x&quot;,
+    ylabel &#61; &quot;y&quot;
+&#41;
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h3 id="plots"><a href="#plots" class="header-anchor">Plots</a></h3>
+<p>定义好Figure和Axis后就可以把基础图形添加到Axis中: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">f &#61; Figure&#40;&#41;
+ax &#61; Axis&#40;f&#91;1, 1&#93;&#41;
+x &#61; range&#40;0, 10, length&#61;100&#41;
+y &#61; sin.&#40;x&#41;
+lines&#33;&#40;ax, x, y&#41;
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<h4 id="隐式调用figure和axis的基本函数"><a href="#隐式调用figure和axis的基本函数" class="header-anchor">隐式调用Figure和Axis的基本函数</a></h4>
+<ul>
+<li><p>基本绘图函数通常都包含两个版本, 一个加<code>&#33;</code>, 一个不加: <code>lines&#33; 和 lines</code></p>
+</li>
+<li><p>加叹号的会在现有Axis的基础上修改, 而不加叹号的版本&#40;下称&quot;无叹&quot;&#41;会自动先创建Figure再定义Axis再把图画上:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">x &#61; range&#40;0, 10, length&#61;100&#41;
+y &#61; sin.&#40;x&#41;
+lines&#40;x, y&#41; # 返回类型是FigureAxisPlot</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p>所以无叹的基础绘图函数会返回一个元组: <code>&#40;Figure, Axis, Plot&#41;</code></p>
+</li>
+</ul>
+<p>ind&#123;\julia&#123; fig, axis, lineplot &#61; lines&#40;x, y&#41; }}</p>
+<ul>
+<li><p><code>Figure</code>和<code>axis</code>也可以以关键字参数的形式在绘图函数中定义:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">scatter&#40;x, y; 
+    figure &#61; &#40;; resolution &#61; &#40;400, 400&#41;&#41;,
+    axis &#61; &#40;; title &#61; &quot;Scatter plot&quot;, xlabel &#61; &quot;Xs&quot;&#41;
+&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> 
+<fieldset class="admon admon-note">
+<legend class="admon-legend admon-legend-note"> Note</legend>
+  语法<code>&#40;; opt&#61;xxx&#41;</code>中的<code>;</code>没有特别意义, 只是用来表示之后的变量是 
+</fieldset>
+ </div>
+<ul>
+<li><p>绘图函数有不同的调用方式:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">lines&#40;x, y&#41; # 基本的调用: 两个array
+lines&#40;1..10, sin&#41; # 用函数生成y</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<h4 id="参数转换"><a href="#参数转换" class="header-anchor">参数转换</a></h4>
+<p>x和y坐标可以是:</p>
+<ul>
+<li><p>具体的array: <code>lines&#40;0:10, 0:10&#41;</code></p>
+</li>
+<li><p>也可以是区间和转换函数: <code>lines&#40;0..10, sin&#41;</code></p>
+</li>
+<li><p>也可以是基本绘图元素的集合:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># Points类型来自GeometryBasics.jl, 支持Makie中的大多数集合基本元素操作:
+lines&#40;&#91;Point&#40;0, 0&#41;, Point&#40;5,10&#41;, Point&#40;10, 5&#41;&#93;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> <div class="aadmon aadmon-warn"> 不同图形支持的基本绘图元素集合是不一样的, 比如<code>lines</code>和<code>scatter</code>都具有<code>PointBased</code>转换特征, 但<code>heatmap</code>就不能用Point, 因为需要的是2d-grid数据, 对应的特征是<code>DiscreteSurface</code></div> </div>
+<h4 id="图层和多图"><a href="#图层和多图" class="header-anchor">图层和多图</a></h4>
+<p>带<code>&#33;</code>的函数会在原始图片的基础上添加新的图层进行绘制: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">x &#61; range&#40;0, 10, length&#61;100&#41;
+f, ax, l1 &#61; lines&#40;x, sin&#41;
+l2 &#61; lines&#33;&#40;ax, x, cos&#41;
+l2 &#61; lines&#33;&#40;x, cos&#41; # 可以省略axis的参数, 默认会用&#96;current_axis&#40;&#41;&#96;函数获取当前的axis</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>带<code>&#33;</code>的函数不能接受<code>figure</code>和<code>axis</code>关键字&#40;of course&#33;&#41;</p>
+<h4 id="属性"><a href="#属性" class="header-anchor">属性</a></h4>
+<ul>
+<li><p>每个绘图函数都可以通过关键字参数设置不同的属性。</p>
+</li>
+<li><p>还可以用<code>plot.attribute &#61; new_value</code>这种语法来操作属性:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">x &#61; range&#40;0, 10, length&#61;100&#41;
+f, ax, sc1 &#61; scatter&#40;x, sin, color &#61; :red, markersize &#61; 5&#41;
+sc2 &#61; scatter&#33;&#40;ax, x, cos, color &#61; :blue, markersize &#61; 10&#41;
+f
+# 改变属性
+sc1.color &#61; :yellow
+sc2.strokewidth &#61; 1
+f # changed</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p>属性可以设置成单个值, 也可以是数组&#40;要与绘图元素等长&#41;</p>
+</li>
+</ul>
+<h4 id="subplot子图"><a href="#subplot子图" class="header-anchor">Subplot子图</a></h4>
+<p>Makie自带图像布局的网格管理, 构建<code>fig&#61;Figure&#40;&#41;</code>以后, 可以通过<code>fig&#91;row,col&#93;</code>的语法来指定绘制子图的布局:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">x &#61; LinRange&#40;0, 10, 100&#41;
+y &#61; sin.&#40;x&#41;
+
+fig &#61; Figure&#40;&#41;
+lines&#40;fig&#91;1, 1&#93;, x, y, color &#61; :red&#41;
+lines&#40;fig&#91;1, 2&#93;, x, y, color &#61; :blue&#41;
+lines&#40;fig&#91;2, 1:2&#93;, x, y, color &#61; :green&#41;
+
+fig</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>还可以先创建空的<code>Axis</code>, 然后再绘制: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">fig &#61; Figure&#40;&#41;
+ax1 &#61; Axis&#40;fig&#91;1, 1&#93;&#41;
+ax2 &#61; Axis&#40;fig&#91;1, 2&#93;&#41;
+ax3 &#61; Axis&#40;fig&#91;2, 1:2&#93;&#41;
+fig
+
+lines&#33;&#40;ax1, 0..10, sin&#41;
+lines&#33;&#40;ax2, 0..10, cos&#41;
+lines&#33;&#40;ax3, 0..10, sqrt&#41;
+fig</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<h4 id="图例"><a href="#图例" class="header-anchor">图例</a></h4>
+<p>Makie中可以用<code>Legend&#40;&#41;</code>函数来手动添加图例, 该函数接受<code>绘图对象</code>作为参数:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">fig &#61; Figure&#40;&#41;
+ax1, l1 &#61; lines&#40;fig&#91;1, 1&#93;, 0..10, sin, color &#61; :red&#41;
+ax2, l2 &#61; lines&#40;fig&#91;2, 1&#93;, 0..10, cos, color &#61; :blue&#41;
+Legend&#40;fig&#91;1:2, 2&#93;, &#91;l1, l2&#93;, &#91;&quot;sin&quot;, &quot;cos&quot;&#93;&#41;
+fig</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p><code>Colorbar&#40;&#41;</code>也是一种图列, 适用于<code>Heatmap&#40;&#41;</code>等颜色变化的图</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">fig, ax, hm &#61; heatmap&#40;randn&#40;20, 20&#41;&#41;
+Colorbar&#40;fig&#91;1, 2&#93;, hm&#41;
+fig</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="布局教程"><a href="#布局教程" class="header-anchor">布局教程</a></h2>
+<p>Makie可以进行非常细致的布局控制, 比如以下图例:</p>
+<img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/tutorials/layout-tutorial/code/output/final_result.png" />
+<p>对应的代码:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CairoMakie
+using Makie.FileIO
+
+f &#61; Figure&#40;backgroundcolor &#61; RGBf&#40;0.98, 0.98, 0.98&#41;,
+    resolution &#61; &#40;1000, 700&#41;&#41;
+ga &#61; f&#91;1, 1&#93; &#61; GridLayout&#40;&#41;
+gb &#61; f&#91;2, 1&#93; &#61; GridLayout&#40;&#41;
+gcd &#61; f&#91;1:2, 2&#93; &#61; GridLayout&#40;&#41;
+gc &#61; gcd&#91;1, 1&#93; &#61; GridLayout&#40;&#41;
+gd &#61; gcd&#91;2, 1&#93; &#61; GridLayout&#40;&#41;
+
+# deal with grid A:
+axtop &#61; Axis&#40;ga&#91;1, 1&#93;&#41;
+axmain &#61; Axis&#40;ga&#91;2, 1&#93;, xlabel &#61; &quot;before&quot;, ylabel &#61; &quot;after&quot;&#41;
+axright &#61; Axis&#40;ga&#91;2, 2&#93;&#41;
+# align plots
+linkyaxes&#33;&#40;axmain, axright&#41;
+linkxaxes&#33;&#40;axmain, axtop&#41;
+
+labels &#61; &#91;&quot;treatment&quot;, &quot;placebo&quot;, &quot;control&quot;&#93;
+data &#61; randn&#40;3, 100, 2&#41; .&#43; &#91;1, 3, 5&#93;
+
+for &#40;label, col&#41; in zip&#40;labels, eachslice&#40;data, dims &#61; 1&#41;&#41;
+    scatter&#33;&#40;axmain, col, label &#61; label&#41;
+    density&#33;&#40;axtop, col&#91;:, 1&#93;&#41;
+    density&#33;&#40;axright, col&#91;:, 2&#93;, direction &#61; :y&#41;
+end
+
+# 设置图形紧贴坐标轴
+ylims&#33;&#40;axtop, low &#61; 0&#41;
+xlims&#33;&#40;axright, low &#61; 0&#41;
+
+# 设置坐标轴breaks和label
+axmain.xticks &#61; 0:3:9
+axtop.xticks &#61; 0:3:9
+
+# 添加图例
+leg &#61; Legend&#40;ga&#91;1, 2&#93;, axmain&#41;
+
+# 隐藏附图的内容, 对齐图和图例
+hidedecorations&#33;&#40;axtop, grid &#61; false&#41;
+hidedecorations&#33;&#40;axright, grid &#61; false&#41;
+leg.tellheight &#61; true
+
+# 控制图间距
+colgap&#33;&#40;ga, 10&#41;
+rowgap&#33;&#40;ga, 10&#41;
+
+# 添加标题
+Label&#40;ga&#91;1, 1:2, Top&#40;&#41;&#93;, &quot;Stimulus ratings&quot;, valign &#61; :bottom,
+    font &#61; :bold,
+    padding &#61; &#40;0, 0, 5, 0&#41;&#41;
+
+# GridLayout B:
+
+xs &#61; LinRange&#40;0.5, 6, 50&#41;
+ys &#61; LinRange&#40;0.5, 6, 50&#41;
+data1 &#61; &#91;sin&#40;x^1.5&#41; * cos&#40;y^0.5&#41; for x in xs, y in ys&#93; .&#43; 0.1 .* randn.&#40;&#41;
+data2 &#61; &#91;sin&#40;x^0.8&#41; * cos&#40;y^1.5&#41; for x in xs, y in ys&#93; .&#43; 0.1 .* randn.&#40;&#41;
+
+ax1, hm &#61; contourf&#40;gb&#91;1, 1&#93;, xs, ys, data1,
+    levels &#61; 6&#41;
+ax1.title &#61; &quot;Histological analysis&quot;
+contour&#33;&#40;ax1, xs, ys, data1, levels &#61; 5, color &#61; :black&#41;
+hidexdecorations&#33;&#40;ax1&#41;
+
+ax2, hm2 &#61; contourf&#40;gb&#91;2, 1&#93;, xs, ys, data2,
+    levels &#61; 6&#41;
+contour&#33;&#40;ax2, xs, ys, data2, levels &#61; 5, color &#61; :black&#41;
+# 添加colorbar
+cb &#61; Colorbar&#40;gb&#91;1:2, 2&#93;, hm, label &#61; &quot;cell group&quot;&#41;
+# 设置colorbar上下界
+low, high &#61; extrema&#40;data1&#41;
+edges &#61; range&#40;low, high, length &#61; 7&#41;
+centers &#61; &#40;edges&#91;1:6&#93; .&#43; edges&#91;2:7&#93;&#41; .* 0.5
+cb.ticks &#61; &#40;centers, string.&#40;1:6&#41;&#41;
+# 对齐
+cb.alignmode &#61; Mixed&#40;right &#61; 0&#41;
+# 间距
+colgap&#33;&#40;gb, 10&#41;
+rowgap&#33;&#40;gb, 10&#41;
+
+
+# GridLayout C:
+brain &#61; load&#40;assetpath&#40;&quot;brain.stl&quot;&#41;&#41;
+
+ax3d &#61; Axis3&#40;gc&#91;1, 1&#93;, title &#61; &quot;Brain activation&quot;&#41;
+m &#61; mesh&#33;&#40;
+    ax3d,
+    brain,
+    color &#61; &#91;tri&#91;1&#93;&#91;2&#93; for tri in brain for i in 1:3&#93;,
+    colormap &#61; Reverse&#40;:magma&#41;,
+&#41;
+Colorbar&#40;gc&#91;1, 2&#93;, m, label &#61; &quot;BOLD level&quot;&#41;
+
+# GridLayout D:
+axs &#61; &#91;Axis&#40;gd&#91;row, col&#93;&#41; for row in 1:3, col in 1:2&#93;
+hidedecorations&#33;.&#40;axs, grid &#61; false, label &#61; false&#41;
+
+for row in 1:3, col in 1:2
+    xrange &#61; col &#61;&#61; 1 ? &#40;0:0.1:6pi&#41; : &#40;0:0.1:10pi&#41;
+
+    eeg &#61; &#91;sum&#40;sin&#40;pi * rand&#40;&#41; &#43; k * x&#41; / k for k in 1:10&#41;
+        for x in xrange&#93; .&#43; 0.1 .* randn.&#40;&#41;
+
+    lines&#33;&#40;axs&#91;row, col&#93;, eeg, color &#61; &#40;:black, 0.5&#41;&#41;
+end
+
+axs&#91;3, 1&#93;.xlabel &#61; &quot;Day 1&quot;
+axs&#91;3, 2&#93;.xlabel &#61; &quot;Day 2&quot;
+
+Label&#40;gd&#91;1, :, Top&#40;&#41;&#93;, &quot;EEG traces&quot;, valign &#61; :bottom,
+    font &#61; :bold,
+    padding &#61; &#40;0, 0, 5, 0&#41;&#41;
+
+rowgap&#33;&#40;gd, 10&#41;
+colgap&#33;&#40;gd, 10&#41;
+
+for &#40;i, label&#41; in enumerate&#40;&#91;&quot;sleep&quot;, &quot;awake&quot;, &quot;test&quot;&#93;&#41;
+    Box&#40;gd&#91;i, 3&#93;, color &#61; :gray90&#41;
+    Label&#40;gd&#91;i, 3&#93;, label, rotation &#61; pi/2, tellheight &#61; false&#41;
+end
+
+colgap&#33;&#40;gd, 2, 0&#41;
+
+n_day_1 &#61; length&#40;0:0.1:6pi&#41;
+n_day_2 &#61; length&#40;0:0.1:10pi&#41;
+
+colsize&#33;&#40;gd, 1, Auto&#40;n_day_1&#41;&#41;
+colsize&#33;&#40;gd, 2, Auto&#40;n_day_2&#41;&#41;
+
+# 添加ABCD标签
+for &#40;label, layout&#41; in zip&#40;&#91;&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;&#93;, &#91;ga, gb, gc, gd&#93;&#41;
+    Label&#40;layout&#91;1, 1, TopLeft&#40;&#41;&#93;, label,
+        fontsize &#61; 26,
+        font &#61; :bold,
+        padding &#61; &#40;0, 5, 5, 0&#41;,
+        halign &#61; :right&#41;
+end
+
+colsize&#33;&#40;f.layout, 1, Auto&#40;0.5&#41;&#41;
+
+rowsize&#33;&#40;gcd, 1, Auto&#40;1.5&#41;&#41;
+
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h2 id="长宽比和尺寸控制"><a href="#长宽比和尺寸控制" class="header-anchor">长宽比和尺寸控制</a></h2>
+<p>控制长宽比和尺寸是绘图中的常见需求, 比如许多图需要正方形的axes, <code>Axis</code>有一个<code>aspect</code>属性来控制长宽比:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">set_theme&#33;&#40;backgroundColor &#61; :gray90&#41;
+
+f &#61; Figure&#40;resolution &#61; &#40;800, 500&#41;&#41;
+ax &#61; Axis&#40;f&#91;1, 1&#93;, aspect &#61; 1&#41;
+Colorbar&#40;f&#91;1,2&#93;&#41;
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/tutorials/aspect-tutorial/code/output/example_7161082110194571875.svg" />
+<p>可以发现一个问题, 方形的axis和colorbar之间间距很大, 这是为什么呢? </p>
+<p>通过向axis所在单元格添加一个<code>Box</code>来看看:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">Box&#40;f&#91;1, 1&#93;, color &#61; &#40;:red, 0.2&#41;, strokewidth &#61; 0&#41;
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/tutorials/aspect-tutorial/code/output/aspect_tutorial_example.svg" />
+<p>可以看到<code>aspect</code>的实际作用是减少了Axis的尺寸, 而布局没有做相应的适配改变。 因此, 大多数时候, 我们应该直接操作布局, 而不是Axis的长宽比。</p>
+<p><code>GridLayout&#40;&#41;</code>默认的宽和高是<code>Auto&#40;&#41;</code>, 就是根据内容自动适应. 如果想要固定宽高, 则需要把内容设置为<code>Aspect</code>:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">ax &#61; Axis&#40;f&#91;1, 1&#93;&#41;
+Colorbar&#40;f&#91;1, 2&#93;&#41;
+colsize&#33;&#40;f.layout, 1, Aspect&#40;1, 1.0&#41;&#41;
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>此时图就正常了:</p>
+<img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/tutorials/aspect-tutorial/code/output/example_5656392007283475632.svg" />
+<p>还可以用<code>colsize&#33;&#40;&#41;</code>函数更改Grid的长宽比: <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">ax.aspect &#61; 0.5 # 手动更改aspect
+f # 轴和colorbar又拉大间距了
+
+colsize&#33;&#40;f.layout, 1, Aspect&#40;1, 0.5&#41;&#41; # 再设定Grid的长款比
+f # 又ok了</code></pre>
+<p><div class="code-lag">julia</div></fieldset></p>
+<p>还有一个<code>resize_to_layout&#33;&#40;&#41;</code>函数, 将图形大小调整为布局所有内容所需要的大小, 这样Grid上下左右的留白也会尽可能的少: <code>resize_to_layout&#33;&#40;f&#41;; f</code></p>
+<img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/tutorials/aspect-tutorial/code/output/example_18306201722621179310.svg" />
+<h2 id="绘图参考"><a href="#绘图参考" class="header-anchor">绘图参考</a></h2>
+<h3 id="blocks"><a href="#blocks" class="header-anchor">Blocks</a></h3>
+<h4 id="axis__2"><a href="#axis__2" class="header-anchor">Axis</a></h4>
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Axis的属性</legend>
+</p>
+<ul>
+<li><p><code>alignmode</code>: Axis相对与其父GridLayout的对齐模式, 默认是<code>Inside&#40;&#41;</code></p>
+</li>
+<li><p><code>aspect</code>: 长宽比, 默认为<code>nothing</code></p>
+<ul>
+<li><p><code>noting</code></p>
+</li>
+<li><p><code>DataAspect&#40;&#41;</code>: 按照数据自动适配长宽比</p>
+</li>
+<li><p><code>AxisAspect&#40;ratio&#41;</code>: 自定义</p>
+</li>
+</ul>
+</li>
+<li><p><code>autolimitaspect</code>: 可选nothing或数字, 默认是nothing, 如果设置为数字, 则自动调整aspect的比例&#40;类似于PS中锁定长宽比&#41;</p>
+</li>
+<li><p><code>backgroundcolor</code>: 默认<code>:white</code></p>
+</li>
+<li><p><code>bottom/left/top/rightspinecolor</code>: 默认<code>:black</code></p>
+</li>
+<li><p><code>bottom/left/top/rightspinevisible</code>: <code>true</code></p>
+</li>
+<li><p><code>flip_ylabel</code>: 是否反转ylabel, <code>false</code></p>
+</li>
+<li><p><code>h/valign</code>: 水平/垂直对齐方式, <code>:center</code></p>
+</li>
+<li><p><code>height/width</code>: 高宽, <code>nothing</code></p>
+</li>
+<li><p><code>limits</code>: <code>&#40;noting, noting&#41;</code>, 可以是<code>&#40;xlow, xhigh, ylow, yhigh&#41;</code>四元元组, 也可以用<code>xlims&#33;&#40;&#41;</code>、<code>ylims&#33;&#40;&#41;</code>、<code>limits&#33;&#40;&#41;</code>来快捷设置</p>
+</li>
+<li><p><code>panbutton</code>: 交互选项, 平移按钮</p>
+</li>
+<li><p><code>spinewidth</code>: 轴宽, 默认<code>1.0</code></p>
+</li>
+<li><p><code>&#91;sub&#93;title</code>: 默认<code>&quot;&quot;</code>, 可以是<code>text</code>基本绘图支持的对象, 比如数学公式</p>
+</li>
+<li><p><code>&#91;sub&#93;titlecolor</code>: 默认<code>@inherit :textcolor :black</code></p>
+</li>
+<li><p><code>&#91;sub&#93;titlefont</code>: 默认<code>:regular</code></p>
+</li>
+<li><p><code>&#91;sub&#93;titlegap</code>: 默认0</p>
+</li>
+<li><p><code>&#91;sub&#93;titlelineheight</code>: 默认1</p>
+</li>
+<li><p><code>&#91;sub&#93;titlesize</code>: 默认<code>@inherit :fontsize 16.0f0</code></p>
+</li>
+<li><p><code>&#91;sub&#93;titlevisible</code>: true</p>
+</li>
+<li><p><code>titlealign</code>: <code>:center</code></p>
+</li>
+<li><p><code>tellheight/width</code>: true, 高宽是否能被父Layout控制</p>
+</li>
+<li><p><code>x/yautolimitmargin</code>: 默认<code>&#40;0.05f0, 0.05f0&#41;</code></p>
+</li>
+<li><p><code>x/yaxisposition</code>: 默认<code>:bottom</code>&#40;x&#41;和<code>:left</code>&#40;y&#41;, 可选: <code>x: &#91;:bottom, :top&#93;, y: &#91;:left, :right&#93;</code></p>
+</li>
+<li><p><code>x/ygridcolor</code>: x/y内部网格线颜色, 默认<code>RGBAf&#40;0, 0, 0, 0.12&#41;</code></p>
+</li>
+<li><p><code>x/ygridstyle</code>: 网格线类型, 默认<code>nothing</code></p>
+</li>
+<li><p><code>x/ygridvisible</code>: 默认<code>true</code></p>
+</li>
+<li><p><code>x/ygridwidth</code>: 默认<code>1.0</code></p>
+</li>
+<li><p><code>x/ylabel</code>: <code>&quot;&quot;</code></p>
+</li>
+<li><p><code>x/ylabelcolor</code>: <code>@inherit :textcolor :black</code></p>
+</li>
+<li><p><code>x/ylabelfont</code>: <code>:regular</code></p>
+</li>
+<li><p><code>x/ylabelpadding</code>: <code>3.0</code></p>
+</li>
+<li><p><code>x/ylabelrotation</code>: <code>Makie.automatic</code>, 可以是弧度值, 如<code>pi/2</code></p>
+</li>
+<li><p><code>x/ylabelsize</code>: <code>@inherit :fontsize 16.0f0</code></p>
+</li>
+<li><p><code>x/ylabelvisible</code>: <code>true</code></p>
+</li>
+<li><p><code>x/yminorgridcolor</code>: <code>RGBAf&#40;0, 0, 0, 0.05&#41;</code></p>
+</li>
+<li><p><code>x/yminorgridvisible</code>: <code>true</code></p>
+</li>
+<li><p><code>x/yminorgirdwidth</code>: <code>1.0</code></p>
+</li>
+<li><p><code>x/yminortickalign</code>: <code>0.0</code></p>
+</li>
+<li><p><code>x/yminortickcolor</code>: <code>:black</code></p>
+</li>
+<li><p><code>x/yminorticks</code>: <code>IntervalsBetween&#40;2&#41;</code>或者数字向量, 定义刻度间隔</p>
+</li>
+<li><p><code>x/yminorticksize</code>: <code>4.0</code></p>
+</li>
+<li><p><code>x/yminorticksvisible</code>: <code>false</code></p>
+</li>
+<li><p><code>x/yminortickwidth</code>: <code>1.0</code></p>
+</li>
+<li><p><code>x/ypankey/lock</code>: 交互的绑定</p>
+</li>
+<li><p><code>x/yrectzoom</code>: <code>true</code>, 交互缩放是否影响尺寸</p>
+</li>
+<li><p><code>x/yreversed</code>: <code>false</code>, 坐标轴反向</p>
+</li>
+<li><p><code>x/yscale</code>: <code>identity</code>, 坐标轴缩放投射函数, 可以是任何可逆函数, 一些预定义选项:</p>
+</li>
+<li><p><code>identity, log, log2, log10, sqrt, logit, Makie.pseudolog10, Makie.Symlog10</code></p>
+</li>
+<li><p><code>x/ytickalgin</code></p>
+</li>
+<li><p><code>x/ytickcolor</code></p>
+</li>
+<li><p><code>x/ytickformat</code></p>
+</li>
+<li><p><code>x/yticklabelalign</code></p>
+</li>
+<li><p><code>x/yticklabelcolor</code></p>
+</li>
+<li><p><code>x/yticklabelfont</code></p>
+</li>
+<li><p><code>x/yticklabelpad</code></p>
+</li>
+<li><p><code>x/yticklabelrotation</code></p>
+</li>
+<li><p><code>x/yticklabelsize</code></p>
+</li>
+<li><p><code>x/yticks</code></p>
+</li>
+<li><p><code>x/yticksize</code></p>
+</li>
+<li><p><code>x/yticksmirrored</code>: 是否在对侧也显示刻度线</p>
+</li>
+<li><p><code>x/yticksvisible</code></p>
+</li>
+<li><p><code>x/ytickswidth</code></p>
+</li>
+<li><p><code>x/ytrimspine</code>: <code>false</code>, 是否将轴的范围限制到最外侧主刻度线&#40;就是控制x和y是否会在0点交汇&#41;</p>
+</li>
+<li><p><code>x/yzoomkey</code>, <code>x/yzoomlock</code></p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<p>默认<code>Axis</code>是2D布局, 有以下操作:</p>
+<ul>
+<li><p>定义: <code>ax &#61; Axis&#40;f&#91;1,1&#93;, xlabel&#61;&quot;x&quot;, ylabel&#61;&quot;y&quot;, title&#61;&quot;Title&quot;&#41;</code></p>
+</li>
+<li><p>绘图&#40;2d图形&#41;: <code>lineobj &#61; lines&#33;&#40;ax, 0..10, sin, color&#61;:red&#41;</code></p>
+</li>
+<li><p>删除和清空: <code>delete&#33;&#40;ax, plotobj&#41;; empty&#33;&#40;ax&#41;</code></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CairoMakie
+
+
+f &#61; Figure&#40;&#41;
+
+axs &#61; &#91;Axis&#40;f&#91;1, i&#93;&#41; for i in 1:3&#93;
+
+scatters &#61; map&#40;axs&#41; do ax
+    &#91;scatter&#33;&#40;ax, 0:0.1:10, x -&gt; sin&#40;x&#41; &#43; i&#41; for i in 1:3&#93;
+end
+
+delete&#33;&#40;axs&#91;2&#93;, scatters&#91;2&#93;&#91;2&#93;&#41;
+empty&#33;&#40;axs&#91;3&#93;&#41;
+
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset> <img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/reference/blocks/axis/code/output/example_6014838608786939744.svg" /> </div>
+<ul>
+<li><p>隐藏边框和提示: <code>hidespines&#33;&#40;&#41;</code>, <code>hidedecorations&#33;&#40;&#41;</code></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CairoMakie
+
+
+f &#61; Figure&#40;&#41;
+
+ax1 &#61; Axis&#40;f&#91;1, 1&#93;, title &#61; &quot;Axis 1&quot;&#41;
+ax2 &#61; Axis&#40;f&#91;1, 2&#93;, title &#61; &quot;Axis 2&quot;&#41;
+
+hidespines&#33;&#40;ax1&#41;
+hidespines&#33;&#40;ax2, :t, :r&#41; # only top and right
+
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset> <img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/reference/blocks/axis/code/output/example_15149457713994868428.svg" /></p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CairoMakie
+
+
+f &#61; Figure&#40;&#41;
+
+ax1 &#61; Axis&#40;f&#91;1, 1&#93;, title &#61; &quot;Axis 1&quot;&#41;
+ax2 &#61; Axis&#40;f&#91;1, 2&#93;, title &#61; &quot;Axis 2&quot;&#41;
+ax3 &#61; Axis&#40;f&#91;1, 3&#93;, title &#61; &quot;Axis 3&quot;&#41;
+
+hidedecorations&#33;&#40;ax1&#41;
+hidexdecorations&#33;&#40;ax2, grid &#61; false&#41;
+hideydecorations&#33;&#40;ax3, ticks &#61; false&#41;
+
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p><img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/reference/blocks/axis/code/output/example_4053789819352817287.svg" /> </div>
+<ul>
+<li><p>对齐: </p>
+<ul>
+<li><p><code>linkyaxes&#33;&#40;&#41;</code> 和 <code>linkxaxes&#33;&#40;&#41;</code>: 对齐Axes</p>
+</li>
+<li><p><code>xticklabelspace&#40;&#41;</code>和<code>yticklabelspace&#40;&#41;</code>: 控制坐标轴标题和轴的距离, 保证标题对齐</p>
+</li>
+</ul>
+</li>
+<li><p>创建双坐标轴: 目前没有专门的函数, 可以添加新坐标轴&#40;设置<code>yaxisposition</code>&#41;, 然后隐藏新轴的内容:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using CairoMakie
+
+f &#61; Figure&#40;&#41;
+
+ax1 &#61; Axis&#40;f&#91;1, 1&#93;, yticklabelcolor &#61; :blue&#41;
+ax2 &#61; Axis&#40;f&#91;1, 1&#93;, yticklabelcolor &#61; :red, yaxisposition &#61; :right&#41;
+hidespines&#33;&#40;ax2&#41;
+hidexdecorations&#33;&#40;ax2&#41;
+
+lines&#33;&#40;ax1, 0..10, sin, color &#61; :blue&#41;
+lines&#33;&#40;ax2, 0..10, x -&gt; 100 * cos&#40;x&#41;, color &#61; :red&#41;
+
+f</code></pre>
+<p><div class="code-lag">julia</div></fieldset> <img style="margin: 0 auto;" src="https://docs.makie.org/stable/assets/reference/blocks/axis/code/output/example_2115761524578697646.svg" /> </div>
+<ul>
+<li><p>交互操作: 在<code>GLMakie</code>等可以交互的后端中, 可以进行如下交互式操作:</p>
+<ul>
+<li><p>鼠标滚动缩放</p>
+</li>
+<li><p>拖拽平移</p>
+</li>
+<li><p><code>Ctrl &#43; leftclick</code>重置</p>
+</li>
+<li><p>选框缩放</p>
+</li>
+<li><p>还可以用<code>register_interaction&#33;&#40;&#41;</code>和<code>deregister_interaction&#33;&#40;&#41;</code>函数自定义交互</p>
+</li>
+<li><p>用<code>interactions&#40;ax&#41;</code>检查当前可用的交互</p>
+</li>
+<li><p>用<code>activate_interaction&#33;&#40;&#41;</code>和<code>deactivate_interaction&#33;&#40;&#41;</code>激活和停用交互</p>
+</li>
+<li><p>自定义交互函数: <span class="Sadmon Sadmon-todo">暂略, 用时再补充</span></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="aadmon aadmon-todo"> 太长不翻了, 原文在此:<a href="https://docs.makie.org/stable/reference/blocks" target="_blank" rel="noopener noreferrer"> Blocks</a>; <a href="https://docs.makie.org/stable/reference/plots" target="_blank" rel="noopener noreferrer"> Plots</a></div>
+
+
+</div>
+<!-- article style -->
+
+
+ <hr>
+
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: November 04, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div>
+
+
+</div>
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+
+ <a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // 当用户点击按钮时，通过动画效果返回头部
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+<!-- PJAX配置: 先不搞了! -->
+<!--   
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+  
+  <script>
+    var pjax = new Pjax({
+      elements: "a",
+      selectors: [
+        "title",
+        "meta[name=description]",
+        ".the-header",
+        ".the-content",
+        ".the-sidebar",
+      ]
+    })
+  </script> -->
+
+</html>
+
+
+
