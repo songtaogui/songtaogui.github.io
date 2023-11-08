@@ -1,0 +1,369 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="3.6.0 宏基因组分析专题">
+    <title>3.6.0 宏基因组分析专题</title>
+    
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+<link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css">
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+          margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript> 
+    
+    <div class="reveal">
+ <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 3.6 宏基因组分析专题 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>什么是宏基因组</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 宏基因组学(Metagenomics)</legend>
+ <br> 又称<span class="sadmon sadmon-warn">元基因组学</span>, <span class="sadmon sadmon-warn">总体基因组学</span>, 是一门直接取得环境中所有遗传物质的研究。</p>
+<br>
+<p>利用非培养的微生物群落, 对群落个体基因片段或全基因组进行系统测定和研究, 分析微生物在环境中的基因组集合, 研究其群落结构与生态功能。</p>
+<br>
+<ul>
+<li><p>环境基因组</p>
+</li>
+<li><p>生态基因组</p>
+</li>
+<li><p>群落基因组</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <img style="margin: 0 auto;" src="/courses/SDAUBIM2023/data/meta-1.jpg" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>为什么研究宏基因组</h1>
+<p><br> <img style="margin: 0 auto;height:600px" src="/courses/SDAUBIM2023/data/gut-mycobiome.jpg" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>为什么研究宏基因组</h1>
+<p><br> <img style="margin: 0 auto;height:600px" src="/courses/SDAUBIM2023/data/plant-micro.jpg" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>如何研究宏基因组</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ <br><br></p>
+<ol>
+<li><p>取样: 土壤, 肠道, 根际 ...</p>
+</li>
+<li><p>DNA提取, 扩增子: 总DNA, 16s rDNA</p>
+</li>
+<li><p>建库4. DNA测序: 二代, 三代, DNA, RNA</p>
+</li>
+<li><p>序列比对, 物种分类: Mapping, OUT, Database ...</p>
+</li>
+<li><p>群落分析: 丰度鉴定, 相似性, 系统发生 ...</p>
+</li>
+<li><p>功能分析...</p>
+</li>
+</ol>
+<p>
+</td>
+<td id="lov" width="800px" height=90% align="left">
+ <img style="margin: 0 auto;height:600px;width:800px" src="/courses/SDAUBIM2023/data/meta-4.jpg" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>如何研究宏基因组</h1>
+<p><br> <span class="Sadmon Sadmon-note">测序和分析步骤概览</span> <br> <img style="margin: 0 auto;height:600px" src="/courses/SDAUBIM2023/data/meta-step.jpg" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>16s rRNA 测序</h1>
+<br>
+<p><img style="margin: 0 auto;height:600px" src="https://www.researchgate.net/publication/303086665/figure/fig1/AS:361641129594887@1463233372258/Schematic-strategy-for-16S-rRNA-sequencing-a-Flow-diagram-representing-library.png" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>16s rRNA 测序</h1>
+<p><br> <iframe width="1060" height="615" src="https://www.youtube.com/embed/_IpZOqFP9iY?si=AFrwRbP7-zzG4FR-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>16s rRNA 测序: 分析步骤</h1>
+<p><br> <img style="margin: 0 auto;height: 600px" src="/courses/SDAUBIM2023/data/16s-flow.png" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 格式</span> <br><br> <img style="margin: 0 auto;height: 300px" src="/courses/SDAUBIM2023/data/fastq_fmt.png" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量值</span> <br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:28%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 测序错误概率(P)</legend>
+</p>
+<ul>
+<li><p>根据荧光信号强弱计算的参考错误概率<span class="Sadmon Sadmon-hack">P</span></p>
+</li>
+<li><p>数值越小越好, 如<code>0.0000001</code></p>
+</li>
+<li><p>浮点数的存储占用空间太大, 需要更高效的存储方案</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="32%" height=90% align="center">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 测序质量值Q</legend>
+</p>
+<ul>
+<li><p>Illumina</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> \(Q = - 10 * log_{10}(P)\) </div>
+<ul>
+<li><p>Solid</p>
+</li>
+</ul>
+<p><div class="indent-block" style="margin-left: 2em !important"> \(Q = - 10 * log_{10}(\frac{P}{1-P})\) </div> <br><br> 
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="40%" height=90% align="center">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Phred质量值</legend>
+ <br></p>
+<ul>
+<li><p><div style="font-size: 30px"> \(Phred33 = ASCII_{[Q+33]}\) </div></p>
+</li>
+</ul>
+<br>
+<ul>
+<li><p><div style="font-size: 30px"> \(Phred64 = ASCII_{[Q+64]}\) </div></p>
+</li>
+</ul>
+<p><br> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><span class="Sadmon Sadmon-note">ASCII码表</span><br> <img style="margin: 0 auto;height: 650px" src="https://xenyinzen.wikidot.com/local--files/c-language:ascii-table/7728275.gif" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量质控: 测序reads各位置质量值分布</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://pic4.zhimg.com/80/v2-e2e96b8283953706638c30b912158eb3_720w.webp" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量质控: 测序reads各位置质量值分布</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://pic3.zhimg.com/80/v2-1124a2cb5ecd22a02611ba605531b99e_720w.webp" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量质控: 碱基总体质量值分布</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://pic3.zhimg.com/80/v2-1124a2cb5ecd22a02611ba605531b99e_720w.webp" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量质控: Reads各位置上碱基比例分布</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://pic1.zhimg.com/80/v2-1a67b7c433e85dd18ce60ac62221e854_720w.webp" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br><br> <span class="Sadmon Sadmon-note">Fastq 质量质控: GC含量分布</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://pic3.zhimg.com/80/v2-7c7aa7c76bb463c056f30e137640b90a_720w.webp" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br> <span class="Sadmon Sadmon-info">Barcode和Demultiplex</span> <br><br> <img style="margin: 0 auto;height: 500px" src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-020-60361-3/MediaObjects/41598_2020_60361_Fig1_HTML.png" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>质量控制</h1>
+<p><br> <span class="Sadmon Sadmon-info">检测和去除嵌合体&#40;Chimera&#41;</span> <br> <img style="margin: 0 auto;height: 600px" src="https://i.imgur.com/SMrn0Ls.png" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>OTU鉴定</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> OTU</legend>
+</p>
+<ul>
+<li><p>OTU&#40;operational taxonomic units&#41; 是在系统发生学研究或群体遗传学研究中，为了便于进行分析，人为给某一个分类单元（品系，种，属，分组等）设置的同一标志。</p>
+</li>
+<li><p>通常按照<span class="Sadmon Sadmon-note">97&#37;</span>的相似性阈值将序列划分为不同的 OTU，每一个 OTU 通常被视为一个微生物物种:</p>
+<ul>
+<li><p>相似性小于97&#37;, 可以认为属于不同的种</p>
+</li>
+<li><p>相似性小于95&#37;，可以认为属于不同的属</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><br> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 为什么引入OTU</legend>
+  高通量测序得到的16S序列有成千上万条，如果对每条序列都进行物种注释的话，工作量大、耗时长，而且16S扩增、测序等过程中出现的错误会降低结果的准确性。在16S分析中引入OTU，首先对相似性序列进行聚类，分成数量较少的分类单元，基于分类单元进行物种注释。这不仅简化工作量，提高分析效率，而且OTU在聚类过程中会去除一些测序错误的序列，提高分析的准确性。 <br><br> <img style="margin: 0 auto;" src="https://www.omicsclass.com/image/show/attachments-2018-04-MdwiFvge5ad9e0dea454b.png" /> 
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>OTU鉴定</h1>
+<p><br> OTU聚类方法: 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> de novo OTU 聚类</legend>
+  按照序列相似度聚类, 选取每个分组中丰度最高的序列作为代表序列, 然后用代表序列比对参考数据库, 获得该OTU的物种注释 
+</fieldset>
+ </section>
+
+</div>
+
+</div>
+ </div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        // controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
