@@ -243,13 +243,74 @@
 </td>
 </tr></table>
  </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>OTU聚类方法</h1>
+<p><br> <img style="margin: 0 auto;height:600px" src="https://www.omicsclass.com/image/show/attachments-2018-04-I6arCITG5ad9e0eb7acb5.png" /> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<h1>OTU鉴定</h1>
-<p><br> OTU聚类方法: 
-<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> de novo OTU 聚类</legend>
-  按照序列相似度聚类, 选取每个分组中丰度最高的序列作为代表序列, 然后用代表序列比对参考数据库, 获得该OTU的物种注释 
+<h1>OTU聚类方法</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:33%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> de novo聚类</legend>
+ <br> 按照序列相似度聚类, 选取每个分组中丰度最高的序列作为代表序列, 然后用代表序列比对参考数据库, 获得该OTU的物种注释</p>
+<ul>
+<li><p><span class="Sadmon Sadmon-tip">优点:</span></p>
+<ul>
+<li><p>不依赖参考数据库</p>
+</li>
+<li><p>适合已知物种较少的样品&#40;如极端环境样品&#41;</p>
+</li>
+</ul>
+</li>
+<li><p><span class="Sadmon Sadmon-error">缺点:</span> 测序错误和嵌合体影响大;</p>
+</li>
+</ul>
+<p>
 </fieldset>
+ 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> closed-reference聚类</legend>
+ <br> 将序列与参考数据库直接比对, 比对到同一参考序列的作为一个OTU，在OTU聚类的同时，也获得了该OTU的物种注释信息。</p>
+<ul>
+<li><p><span class="Sadmon Sadmon-tip">优点:</span></p>
+<ul>
+<li><p>获得的OTU可信度高;</p>
+</li>
+<li><p>可以用来合并不同文章的结果;</p>
+</li>
+</ul>
+</li>
+<li><p><span class="Sadmon Sadmon-error">缺点:</span> 智能得到已知物种的序列, 丢失未知物种信息;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> open-reference聚类</legend>
+ <br> 是将之前两种方法进行整合: 将序列与参考数据库比对, 比对上的进行close-reference OTU聚类, 比对补上的序列再进行de novo聚类。</p>
+<ul>
+<li><p><span class="Sadmon Sadmon-tip">优点:</span> 兼具上两种方法的优点</p>
+</li>
+<li><p><span class="Sadmon Sadmon-error">缺点:</span> 无法用于不同16S区域的合并分析</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
  </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>常用OTU聚类数据库</h1>
+<br><br>
+<img style="margin: 0 auto;height:300px" src="https://www.omicsclass.com/image/show/attachments-2018-04-oZ9wm8BT5ad9e0b6c3f28.png" />
+<p><br><br> GreenGene和RDP数据库更新太慢，一般采用<span class="Sadmon Sadmon-tip">Silva数据库</span>进行分析 </section>
 
 </div>
 
