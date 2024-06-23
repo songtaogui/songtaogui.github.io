@@ -737,6 +737,52 @@ ylog
 &#61; TRUE：纵坐标取对数</code></pre>
 <h2 id="r基础绘图_plot"><a href="#r基础绘图_plot" class="header-anchor">R基础绘图 plot</a></h2>
 <p>详见<code>D:\Works\BOOKS\LANGUAGE\R\R 语言资料大全\R-导论中文版.pdf</code></p>
+<h2 id="panz_enrich_画图配套代码"><a href="#panz_enrich_画图配套代码" class="header-anchor">PANZ_enrich 画图配套代码</a></h2>
+<pre><code class="language-julia">ggplot&#40;e&#41; &#43; geom_segment&#40;aes&#40;x &#61; Item, xend &#61; Item, y &#61; 0, yend&#61; fold_enrichment&#41;, color &#61; &quot;grey70&quot;, linetype&#61;&quot;dashed&quot;&#41; &#43;  geom_point&#40;aes&#40;x &#61; Item, y &#61; fold_enrichment,color &#61; Significant_Tag,size &#61; -log10&#40;Q&#41;&#41;&#41; &#43; facet_wrap&#40;~Outpre&#41; &#43; theme_bw&#40;base_size &#61; 16&#41; &#43; scale_color_manual&#40;values &#61; c&#40;&quot;NotSig&quot;&#61;&quot;grey70&quot;, &quot;Diminished&quot; &#61; &quot;#377EB8&quot;, &quot;Enriched&quot; &#61; &quot;#9E0142&quot;&#41;&#41; &#43; scale_size_continuous&#40;range &#61; c&#40;2,6&#41;&#41;</code></pre>
+<h2 id="get_cluster_from_complexheatmap"><a href="#get_cluster_from_complexheatmap" class="header-anchor">Get cluster from ComplexHeatmap</a></h2>
+<pre><code class="language-julia"># fast distance and fast hclust
+library&#40;distances&#41;
+library&#40;fastcluster&#41;
+library&#40;ape&#41;
+library&#40;ComplexHeatmap&#41;
+library&#40;purrr&#41;
+
+mat.dist &#61; distance_matrix&#40;distances&#40;mat&#41;&#41;
+mat.hcls &#61; hclust&#40;mat.dist&#41;
+mat.dend &#61; as.dendrogram&#40;mat.hcls&#41;
+mat.cls &#61; cutree&#40;mat.hcls, k &#61; 4&#41; # number of clusters
+mat.clsdb &#61; data.frame&#40;Sample &#61; names&#40;mat.cls&#41;, CLS &#61; paste0&#40;&quot;CLS&quot;,mat.cls&#41;&#41;
+
+hmp &#61; Heatmap&#40;mat, cluster_rows &#61; mat.dend, ...&#41;
+
+get_CH_cls &lt;- function&#40;CH, m, by &#61; &quot;row&quot;&#41;&#123;
+    fmt &lt;- function&#40;List, ID&#41; &#123;
+        data.frame&#40;Order &#61; List &#91;&#91;ID&#93;&#93;,CLS &#61; rep&#40;ID, length&#40;List &#91;&#91;ID&#93;&#93;&#41;&#41;&#41; 
+    &#125;
+    library&#40;ComplexHeatmap&#41;
+    library&#40;purrr&#41;
+    if&#40;by &#61;&#61; &quot;row&quot;&#41;&#123;
+        cl &#61; row_order&#40;CH&#41;
+        cls &#61; map_dfr&#40;1:length&#40;cl&#41;,fmt, List &#61; cl&#41;
+        cls&#36;Name &#61; row.names&#40;m&#41;&#91;cls&#36;Order&#93;
+    &#125;else&#123;
+        cl &#61; column_order&#40;CH&#41;
+        cls &#61; map_dfr&#40;1:length&#40;cl&#41;,fmt, List &#61; cl&#41;
+        cls&#36;Name &#61; colnames&#40;m&#41;&#91;cls&#36;Order&#93;
+    &#125;
+    return&#40;cls&#41;
+&#125;</code></pre>
+<pre><code class="language-julia">data_summary &lt;- function&#40;data, varname, groupnames&#41;&#123;
+  require&#40;plyr&#41;
+  summary_func &lt;- function&#40;x, col&#41;&#123;
+    c&#40;mean &#61; mean&#40;x&#91;&#91;col&#93;&#93;, na.rm&#61;TRUE&#41;,
+      sd &#61; sd&#40;x&#91;&#91;col&#93;&#93;, na.rm&#61;TRUE&#41;&#41;
+  &#125;
+  data_sum&lt;-ddply&#40;data, groupnames, .fun&#61;summary_func,
+                  varname&#41;
+  data_sum &lt;- rename&#40;data_sum, c&#40;&quot;mean&quot; &#61; varname&#41;&#41;
+ return&#40;data_sum&#41;
+&#125;</code></pre>
 
 
 </div>
@@ -766,7 +812,7 @@ ylog
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: June 01, 2024.
           </p>
     </footer>
     
