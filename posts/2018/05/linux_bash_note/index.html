@@ -72,13 +72,17 @@
 
 <!-- nutshell + highlight + katex + plotly -->
 
-<link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css">
+
+    <link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css"> 
 
 
 
 
+ 
+<!-- end for isnotdef revealslide -->
 
 
+<!-- end for isdef revealslide -->
     <!-- Vega -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -87,7 +91,7 @@
     <style media="screen">
         /* Add space between Vega-Embed links  */
         .vega-actions a {
-          margin-right: 5px;
+            margin-right: 5px;
         }
     </style>
     <!-- end Vega -->
@@ -106,7 +110,8 @@
         _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
     </script>
     
-     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
         <div class="d-none d-lg-inline-flex">
@@ -207,8 +212,8 @@
 </ol>
 </a></h2>
 <h3 id="11_反向删除"><a href="#11_反向删除" class="header-anchor">1.1 反向删除</a></h3>
-<p>rm -f <code>ls|grep -v &quot;files_U_want_to_keep&quot;</code> 
-#注意rm -f 后是反引号！（数字1左边的号）</p>
+<pre><code class="language-julia">rm -f &#96;ls|grep -v &quot;files_U_want_to_keep&quot;&#96; 
+    #注意rm -f 后是反引号！（数字1左边的号）</code></pre>
 <h3 id="12_wget"><a href="#12_wget" class="header-anchor">1.2 wget </a></h3>
 <blockquote>
 <p>wget -c -r -np -nd -k -L -p www.xxx.org/pub/path/</p>
@@ -519,7 +524,7 @@ gcc会去找-L
 再找内定目录 /lib /usr/lib /usr/local/lib 
 这是当初compile gcc时写在程序内的（不可配置的？）</code></pre>
 <h3 id="111_批量转换测序文件只有序列信息为fasta格式文件"><a href="#111_批量转换测序文件只有序列信息为fasta格式文件" class="header-anchor">1.11 批量转换测序文件&#40;只有序列信息&#41;为fasta格式文件:</a></h3>
-<p>for i in *.seq ; do echo -e &quot;&gt;&quot;&#36;i&quot;\n&quot;&#96;cat &#36;i&#96; &gt;&#36;i.fasta;done</p>
+<pre><code class="language-julia">for i in *.seq ; do echo -e &quot;&gt;&quot;&#36;i&quot;\n&quot;&#96;cat &#36;i&#96; &gt;&#36;i.fasta;done</code></pre>
 <h3 id="112_echo参数"><a href="#112_echo参数" class="header-anchor">1.12 echo参数</a></h3>
 <pre><code class="language-julia">功能说明：显示文字。
     语 　 法：echo &#91;-ne&#93;&#91;字符串&#93;或 echo &#91;--help&#93;&#91;--version&#93;
@@ -1184,8 +1189,8 @@ fi</code></pre>
 <!-- article style -->
 
 
- <hr>
-
+ <!-- add comments to page -->
+<hr>
 <script src="https://utteranc.es/client.js"
     repo="songtaogui/blog_comments"
     issue-term="pathname"
@@ -1193,7 +1198,6 @@ fi</code></pre>
     crossorigin="anonymous"
     async>
 </script>
-
 
 <hr> 
 
@@ -1207,22 +1211,27 @@ fi</code></pre>
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 05, 2024.
           </p>
     </footer>
     
 </div>
-</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
 
 
+
+
+
 </div>
+
 <!--article container -->
 </article>
 
 
 <!-- CONTENT ENDS HERE -->
 
- <script src="/libs/highlight/highlight.min.js"></script>
+ <!-- seperate highlight.js so that I can control it with 'hascode=true' in the md file -->
+<script src="/libs/highlight/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
  
 
@@ -1239,8 +1248,8 @@ fi</code></pre>
 
 </body>
 
-
- <a class="js-back-to-top back-to-top-button" href="#">
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
     <img src="/assets/img/up.svg" style="width: 100px;">
 </a>
 <!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
@@ -1249,7 +1258,7 @@ fi</code></pre>
     $(function () {
         var $win = $(window);
         var $backToTop = $('.js-back-to-top');
-        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        // show the button when the user scrolls past 100 pixels
         $win.scroll(function () {
             if ($win.scrollTop() > 100) {
                 $backToTop.show();
@@ -1257,7 +1266,7 @@ fi</code></pre>
                 $backToTop.hide();
             }
         });
-        // 当用户点击按钮时，通过动画效果返回头部
+        // when the user clicks on the button, scroll to the top of the document
         $backToTop.click(function () {
             $('html, body').animate({
                 scrollTop: 0
@@ -1290,23 +1299,6 @@ fi</code></pre>
     }
 </style> 
 
-
-<!-- PJAX配置: 先不搞了! -->
-<!--   
-  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-  
-  <script>
-    var pjax = new Pjax({
-      elements: "a",
-      selectors: [
-        "title",
-        "meta[name=description]",
-        ".the-header",
-        ".the-content",
-        ".the-sidebar",
-      ]
-    })
-  </script> -->
 
 </html>
 

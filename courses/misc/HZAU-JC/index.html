@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content="JC-GST">
     <title>JC-GST</title>
-    
+     
+<!-- end for isnotdef revealslide -->
 
 
 <!-- reveal.js related -->
@@ -21,13 +22,16 @@
 <link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 
-<link rel="stylesheet" href="/libs/reveal/dist/theme/simple.css">
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/simple.css"> 
 <!-- Theme used for syntax highlighted code -->
 <link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
 <!-- end reveal.js related -->
 
 <link rel="stylesheet" href="/css/darkmode.css">
 
+
+<!-- end for isdef revealslide -->
 
     <!-- Vega -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -37,18 +41,18 @@
     <style media="screen">
         /* Add space between Vega-Embed links  */
         .vega-actions a {
-          margin-right: 5px;
+            margin-right: 5px;
         }
     </style>
     <!-- end Vega -->
 </head>
 
 <!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
 <body oncontextmenu="event.returnValue=false">
-    <noscript><iframe src="*.htm"></iframe> </noscript> 
+    <noscript><iframe src="*.htm"></iframe> </noscript>
     
-    <div class="reveal">
- <div class="franklin-content">
+    <div class="reveal"> <div class="franklin-content">
 
 <div class="slides">
 
@@ -406,8 +410,12 @@
 
 </div>
 
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
 </div>
- </div>
 
 <script src="/libs/reveal/dist/reveal.js"></script>
 <script src="/libs/reveal/plugin/notes/notes.js"></script>

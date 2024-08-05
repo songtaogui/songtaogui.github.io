@@ -77,8 +77,11 @@
 
 
 
+ 
+<!-- end for isnotdef revealslide -->
 
 
+<!-- end for isdef revealslide -->
     <!-- Vega -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -87,7 +90,7 @@
     <style media="screen">
         /* Add space between Vega-Embed links  */
         .vega-actions a {
-          margin-right: 5px;
+            margin-right: 5px;
         }
     </style>
     <!-- end Vega -->
@@ -106,7 +109,8 @@
         _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
     </script>
     
-     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
         <div class="d-none d-lg-inline-flex">
@@ -263,11 +267,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">4</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">4</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\Comonicon" rel=noopener>
-    <span class="sadmon sadmon-warn">Comonicon.jl: Command line parser for julia</span>
+    <span class="sadmon sadmon-note">Comonicon.jl: Command line parser for julia</span>
 </a>
 
 </span>
@@ -282,11 +286,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-error" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
+<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">5</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\Jet" rel=noopener>
-    <span class="sadmon sadmon-error">Jet.jl: detect potential bugs and type instability for julia</span>
+    <span class="sadmon sadmon-note">Jet.jl: detect potential bugs and type instability for julia</span>
 </a>
 
 </span>
@@ -301,11 +305,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">6</span>
+<span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">6</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\JuliaFold" rel=noopener>
-    <span class="sadmon sadmon-note">JuliaFold</span>
+    <span class="sadmon sadmon-info">JuliaFold</span>
 </a>
 
 </span>
@@ -320,11 +324,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">7</span>
+<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">7</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\TODO-list" rel=noopener>
-    <span class="sadmon sadmon-note">TODO</span>
+    <span class="sadmon sadmon-warn">TODO</span>
 </a>
 
 </span>
@@ -339,11 +343,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-note" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">8</span>
+<span class="Sadmon Sadmon-info" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">8</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\CxxWrap" rel=noopener>
-    <span class="sadmon sadmon-note">CxxWrap</span>
+    <span class="sadmon sadmon-info">CxxWrap</span>
 </a>
 
 </span>
@@ -358,11 +362,11 @@
 
 <div class="card experience course">
 <div class=card-body>
-<span class="Sadmon Sadmon-tip" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">9</span>
+<span class="Sadmon Sadmon-warn" style="padding-left:0.1em;padding-right:0.3em;padding-top:0.1em">9</span>
 
 <span style="padding-left:0em;padding-right:0.5em;padding-top:0.1em">
     <a class=card-link href="/notebooks\JuliaProgramingSkills\BinaryBuilder_Yggdrasil" rel=noopener>
-    <span class="sadmon sadmon-tip">BinaryBuilder</span>
+    <span class="sadmon sadmon-warn">BinaryBuilder</span>
 </a>
 
 </span>
@@ -402,9 +406,15 @@
 <!-- article style -->
 
 
- <hr>
-
-
+ <!-- add comments to page -->
+<hr>
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
 
 <hr> 
 
@@ -418,15 +428,19 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 05, 2024.
           </p>
     </footer>
     
 </div>
-</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
 
 
+
+
+
 </div>
+
 <!--article container -->
 </article>
 
@@ -448,8 +462,8 @@
 
 </body>
 
-
- <a class="js-back-to-top back-to-top-button" href="#">
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
     <img src="/assets/img/up.svg" style="width: 100px;">
 </a>
 <!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
@@ -458,7 +472,7 @@
     $(function () {
         var $win = $(window);
         var $backToTop = $('.js-back-to-top');
-        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        // show the button when the user scrolls past 100 pixels
         $win.scroll(function () {
             if ($win.scrollTop() > 100) {
                 $backToTop.show();
@@ -466,7 +480,7 @@
                 $backToTop.hide();
             }
         });
-        // 当用户点击按钮时，通过动画效果返回头部
+        // when the user clicks on the button, scroll to the top of the document
         $backToTop.click(function () {
             $('html, body').animate({
                 scrollTop: 0
@@ -499,23 +513,6 @@
     }
 </style> 
 
-
-<!-- PJAX配置: 先不搞了! -->
-<!--   
-  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-  
-  <script>
-    var pjax = new Pjax({
-      elements: "a",
-      selectors: [
-        "title",
-        "meta[name=description]",
-        ".the-header",
-        ".the-content",
-        ".the-sidebar",
-      ]
-    })
-  </script> -->
 
 </html>
 

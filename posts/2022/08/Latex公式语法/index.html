@@ -73,13 +73,17 @@
 <!-- nutshell + highlight + katex + plotly -->
 
 
- <link rel="stylesheet" href="/libs/katex/katex.min.css">
+
+    <link rel="stylesheet" href="/libs/katex/katex.min.css">
  
 
 
 
+ 
+<!-- end for isnotdef revealslide -->
 
 
+<!-- end for isdef revealslide -->
     <!-- Vega -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -88,7 +92,7 @@
     <style media="screen">
         /* Add space between Vega-Embed links  */
         .vega-actions a {
-          margin-right: 5px;
+            margin-right: 5px;
         }
     </style>
     <!-- end Vega -->
@@ -107,7 +111,8 @@
         _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
     </script>
     
-     <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
     <div class=container>
         <!-- Main name -->
         <div class="d-none d-lg-inline-flex">
@@ -2003,8 +2008,8 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
 <!-- article style -->
 
 
- <hr>
-
+ <!-- add comments to page -->
+<hr>
 <script src="https://utteranc.es/client.js"
     repo="songtaogui/blog_comments"
     issue-term="pathname"
@@ -2012,7 +2017,6 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
     crossorigin="anonymous"
     async>
 </script>
-
 
 <hr> 
 
@@ -2031,16 +2035,21 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
     </footer>
     
 </div>
-</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
 
 
+
+
+
 </div>
+
 <!--article container -->
 </article>
 
 
 <!-- CONTENT ENDS HERE -->
- <script src="/libs/katex/katex.min.js"></script>
+ <!-- seperate katex.js so that I can control it with 'hasmath=true' in the md file -->
+<script src="/libs/katex/katex.min.js"></script>
 <script src="/libs/katex/auto-render.min.js"></script>
 <script>renderMathInElement(document.body)</script>
 <script>
@@ -2073,8 +2082,8 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
 
 </body>
 
-
- <a class="js-back-to-top back-to-top-button" href="#">
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
     <img src="/assets/img/up.svg" style="width: 100px;">
 </a>
 <!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
@@ -2083,7 +2092,7 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
     $(function () {
         var $win = $(window);
         var $backToTop = $('.js-back-to-top');
-        // 当用户滚动到离顶部100像素时，展示回到顶部按钮
+        // show the button when the user scrolls past 100 pixels
         $win.scroll(function () {
             if ($win.scrollTop() > 100) {
                 $backToTop.show();
@@ -2091,7 +2100,7 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
                 $backToTop.hide();
             }
         });
-        // 当用户点击按钮时，通过动画效果返回头部
+        // when the user clicks on the button, scroll to the top of the document
         $backToTop.click(function () {
             $('html, body').animate({
                 scrollTop: 0
@@ -2124,23 +2133,6 @@ f(x,y,z) <span class="token punctuation">&amp;</span> = <span class="token punct
     }
 </style> 
 
-
-<!-- PJAX配置: 先不搞了! -->
-<!--   
-  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
-  
-  <script>
-    var pjax = new Pjax({
-      elements: "a",
-      selectors: [
-        "title",
-        "meta[name=description]",
-        ".the-header",
-        ".the-content",
-        ".the-sidebar",
-      ]
-    })
-  </script> -->
 
 </html>
 

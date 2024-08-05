@@ -1,0 +1,332 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="00.0 课程简介">
+    <title>00.0 课程简介</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 关于本课程的一些说明 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2024年08月</span> </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>WHY? 事要知其所以然</h1>
+<p><div class="aadmon aadmon-note"> 生物信息工具的使用也需要理解背后的原理</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:30%">
+ <br> <span class="Sadmon Sadmon-note">PCR:</span></p>
+<ul>
+<li><p>引物设计</p>
+</li>
+<li><p>扩增片段大小</p>
+</li>
+<li><p>反应循环次数</p>
+</li>
+<li><p>RT-PCR; Q-PCR ...</p>
+</li>
+</ul>
+<p><br><br> <span class="Sadmon Sadmon-hack">BLAST:</span></p>
+<ul>
+<li><p>e-value阈值</p>
+</li>
+<li><p>罚分矩阵</p>
+</li>
+<li><p>gap open/extension</p>
+</li>
+<li><p>预设参数: megablast, blastx-fast ...</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="70%" height=90% align="left">
+ <img src="https://raw.githubusercontent.com/songtaogui/imgbed/master/01_pcr_blast.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生信专业从业者的技能树</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:60%">
+ <div class="aadmon aadmon-info"> Bioinformatics ≈ Biology &#43; Programming &#43; Mathematics</div><br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 新手村技能加点</legend>
+</p>
+<ol>
+<li><p>基本的<span class="sadmon sadmon-note">生物学和组学</span>知识: 测序&#40;二代/三代&#41;, RNA-Seq, 甲基化, ChIP-seq, ATAC-seq, 单细胞 ...</p>
+</li>
+<li><p>了解常用的<span class="sadmon sadmon-note">生物数据库</span>资源: NCBI, Ensemble, UCSC, Uniprot, CoGe, Panther ...</p>
+</li>
+<li><p><span class="sadmon sadmon-note">Linux系统</span>相关: Shell&#40;Bash&#41;编程, 作业调度, 超算使用 ...</p>
+</li>
+<li><p>掌握至少一门<span class="sadmon sadmon-note">通用编程语言</span>: python, perl, R, julia, rust, java, C&#43;&#43; ...</p>
+</li>
+<li><p>基本的<span class="sadmon sadmon-note">数据分析</span>技巧: 表格操作, 数据可视化 ...</p>
+</li>
+<li><p>基本的<span class="sadmon sadmon-note">统计分析</span>知识: 数据分布、假设检验、线性回归、聚类 ....</p>
+</li>
+<li><p>常见的<span class="sadmon sadmon-note">生物信息学算法</span>: 动态规划, 遗传算法, BWT转换, 序列比对 ...</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ <br><br> <div class="aadmon aadmon-hack"> 延伸阅读: <a href="https://www.cnblogs.com/raisok/p/11288251.html">生物信息等级划分</a></div><br><br><br><br> 
+</td>
+<td id="lov" width="40%" height=90% align="left">
+ <img src="https://pic3.zhimg.com/80/v2-7d2865372c9cc5777b85762d402c854a_720w.jpg" style="margin: 0 auto; height: 700px" /> 
+</td>
+</tr></table>
+ </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生信工具使用者的加点建议</h1>
+<p><br> <div style="width: 1000px; margin-left: 150px"> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 我以湿实验为主, 偶尔使用常规分析流程、现成的生信软件做一些基础分析, 我要学啥?</legend>
+ <span class="fragment" data-fragment-index="2" align="left" style="margin:0px"></p>
+<ul>
+<li><p>基本的<span class="cadmon sadmon-tip">linux操作</span>;</p>
+</li>
+<li><p>对<span class="cadmon sadmon-tip">组学技术和测序建库原理</span>有本的认识;</p>
+</li>
+<li><p>了解常用的<span class="cadmon sadmon-tip">生信数据库和软件</span>;</p>
+</li>
+<li><p>善用<span class="cadmon sadmon-tip">搜索工具</span>找到自己需要的软件, 并能看懂说明书;</p>
+</li>
+<li><p>学会向生信专业人员<span class="cadmon sadmon-tip">描述问题</span>, 快速获得帮助;</p>
+</li>
+</ul>
+<p></span> 
+</fieldset>
+ </div> </div> </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>课程概览</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 生信基础</legend>
+</p>
+<ol>
+<li><p>生物信息学导论</p>
+</li>
+<li><p>生物数据库 </p>
+</li>
+<li><p>序列比对 </p>
+</li>
+<li><p>分子进化 </p>
+</li>
+<li><p>高通量测序和基因组分析</p>
+</li>
+<li><p>基因预测及功能和结构注释</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="600px" height=90% align="left">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 跨学科技能</legend>
+</p>
+<ol start="7">
+<li><p>统计和算法基础 </p>
+</li>
+<li><p>计算机和编程基础 </p>
+</li>
+<li><p>数据可视化基础</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ <br> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 生信分析专题</legend>
+</p>
+<ol start="10">
+<li><p>基因家族分析</p>
+</li>
+<li><p>转录组分析 </p>
+</li>
+<li><p>多组学分析 </p>
+</li>
+<li><p>群体遗传分析</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
+ <br> <div style="width: 500px; margin-left: 400px" class="fragment" data-fragment-index="1"> <p><div class="aadmon aadmon-info"> <span style="font-size:40px"> 绝知须躬行 </span></p>
+<ul>
+<li><p>课上内容以框架、大纲为主;</p>
+</li>
+<li><p>提供自学资源、资料;</p>
+</li>
+<li><p>90&#37;以上的内容需要课下<strong>自学</strong>掌握;</div></p>
+</li>
+</ul>
+ </div> </section>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        // controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
