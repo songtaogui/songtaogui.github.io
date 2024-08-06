@@ -199,13 +199,13 @@ screen and (min-width:40em) {
     -webkit-font-smoothing: inherit;
     box-sizing: border-box;
     background: #ffffff;
-    padding: 25px 25px 35px 25px;
+    padding: 5px 25px 0px 25px;
     min-height: 100px;
     position: relative;
     box-shadow: 0px 3px 7px -3px rgb(151, 162, 210);
     /* cursor: pointer; */
     background-color: #fafafa;
-    margin: 20px 0px;
+    margin: 0px 0px;
     margin-bottom: 20px;
     text-align: inherit;
     border-radius: 20px;
@@ -272,9 +272,8 @@ screen and (min-width:40em) {
     line-height: 1.1;
     font-family: Lato;
     letter-spacing: 0px;
-    margin: 0;
-    padding: 0 0 15px 0;
-    font-size: 21px;
+    margin-bottom: 5px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -295,34 +294,28 @@ screen and (min-width:40em) {
 
 .achieve-author {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: #333333;
     letter-spacing: 0px;
     font: inherit;
     font-family: inherit;
     -webkit-font-smoothing: inherit;
-    /* cursor: pointer; */
     box-sizing: border-box;
-    font-size: 14px;
+    margin-bottom: 5px;
     line-height: 18px;
-}
-
-.achieve-author {
-    font-size: 16px;
+    font-size: 14px;
     font-variant: small-caps;
-    color: rgb(4, 20, 196);
-    /* text-align: right; */
+    color: rgb(101, 101, 101);
 }
 
 .achieve-pubinfo {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: #0d0d9b;
+    color: #596eb8;
     letter-spacing: 0px;
     font: inherit;
     font-family: inherit;
     -webkit-font-smoothing: inherit;
     /* cursor: pointer; */
     box-sizing: border-box;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 18px;
     font-style: italic;
 }
@@ -359,21 +352,19 @@ screen and (min-width:40em) {
     margin-right: 8px;
     margin-bottom: 8px;
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .label-type {
     /* 1 */
-    background-color: #e4d0ed;
-    color: #9558B2;
-    font-size: 10px;
+    background-color: #eae9ff;
+    color: #4d4590;
 }
 
 .label-tag {
     /* 2 */
-    background-color: #d4e0ff;
-    color: #153385;
-    font-size: 10px;
+    background-color: #e6ebf7;
+    color: #7583ab;
 }
 
 .mpg-icon {
