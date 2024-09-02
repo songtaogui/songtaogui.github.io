@@ -73,7 +73,10 @@
 <!-- nutshell + highlight + katex + plotly -->
 
 
+    <link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css"> 
 
+    <link rel="stylesheet" href="/libs/katex/katex.min.css">
+ 
 
 
 
@@ -206,8 +209,205 @@
                 
                 <div class="franklin-content">
 <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/codeskills/">codeskills</a>, <a href="/tag/coding/">coding</a>, <a href="/tag/doc/">doc</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
-<div class="franklin-toc"><ol><li><a href="#transducersjl">Transducers.jl</a></li><li><a href="#floopsjl">FLoops.jl</a></li><li><a href="#bangbangjl">Bangbang.jl</a></li></ol></div>
+<div class="franklin-toc"><ol><li><a href="#transducersjl">Transducers.jl</a><ol><li><a href="#introduction">Introduction</a></li><li><a href="#概念">概念</a></li><li><a href="#对比迭代器">对比迭代器</a></li></ol></li><li><a href="#floopsjl">FLoops.jl</a></li><li><a href="#bangbangjl">Bangbang.jl</a></li></ol></div>
 <h1 id="transducersjl"><a href="#transducersjl" class="header-anchor">Transducers.jl</a></h1>
+<h2 id="introduction"><a href="#introduction" class="header-anchor">Introduction</a></h2>
+<p>Clojure中Transducer的julia实现, 高效的函数式编程，要理解Transducer, 需要先理解函数式编程的基本概念。</p>
+<div class="aadmon aadmon-info"> 更详细地了解Transducer, 请参考<a href="https://www.youtube.com/watch?v=6mTbuzafcII" target="_blank" rel="noopener noreferrer"> Rich Hickey在Strange Loop的演讲</a></div>
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 函数式编程(Functional Programming)</legend>
+</p>
+<ul>
+<li><p>函数是一等公民;</p>
+</li>
+<li><p>高阶函数、纯函数;</p>
+</li>
+<li><p>代码简洁、可维护性强、容易测试和重构;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 高阶函数</legend>
+  处理函数的函数&#40;宏?&#41;, 常用的高阶函数: map, filter, reduce等。</p>
+<ul>
+<li><p>函数复用和组合;</p>
+</li>
+<li><p>延时计算和闭包;</p>
+</li>
+<li><p>数据转换和映射、筛选过滤、积累聚合;</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<p>先来一个直观的例子感受一下Transducers的优势:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using BenchmarkTools
+using Transducers
+
+xs &#61; randn&#40;100_000_000&#41;
+
+# 进行如下操作: 对每个x取sin函数，然后求和
+
+# method1: these three works similarly
+@benchmark sum&#40;sin.&#40;xs&#41;&#41;
+@benchmark sum&#40;map&#40;sin, xs&#41;&#41;
+@benchmark reduce&#40;&#43;, map&#40;sin,xs&#41;&#41;
+
+BenchmarkTools.Trial: 6 samples with 1 evaluation.
+ Range &#40;min … max&#41;:  887.046 ms … 978.415 ms  ┊ GC &#40;min … max&#41;: 0.00&#37; … 6.41&#37;
+ Time  &#40;median&#41;:     903.369 ms               ┊ GC &#40;median&#41;:    1.37&#37;
+ Time  &#40;mean ± σ&#41;:   919.349 ms ±  38.214 ms  ┊ GC &#40;mean ± σ&#41;:  2.62&#37; ± 3.04&#37;
+
+  █ ██              █                         █               █
+  █▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█ ▁
+  887 ms           Histogram: frequency by time          978 ms &lt;
+
+ Memory estimate: 762.94 MiB, allocs estimate: 4.
+
+
+# method2: use transducer foldl, significant MEM saving
+@benchmark foldl&#40;&#43;, Map&#40;sin&#41;, xs&#41;
+
+
+BenchmarkTools.Trial: 7 samples with 1 evaluation.
+ Range &#40;min … max&#41;:  785.240 ms … 799.354 ms  ┊ GC &#40;min … max&#41;: 0.00&#37; … 0.00&#37;
+ Time  &#40;median&#41;:     792.432 ms               ┊ GC &#40;median&#41;:    0.00&#37;
+ Time  &#40;mean ± σ&#41;:   792.801 ms ±   5.172 ms  ┊ GC &#40;mean ± σ&#41;:  0.00&#37; ± 0.00&#37;
+
+  █                █ █           █       █                   ██
+  █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██ ▁
+  785 ms           Histogram: frequency by time          799 ms &lt;
+
+ Memory estimate: 16 bytes, allocs estimate: 1.
+
+
+# method3: use multi-thread version foldxt &#40;4 threads in test&#41;
+# time saving ~ 4 times
+Threads.nthreads&#40;&#41; # 4
+@benchmark foldxt&#40;&#43;, Map&#40;sin&#41;, xs&#41;
+
+
+BenchmarkTools.Trial: 24 samples with 1 evaluation.
+ Range &#40;min … max&#41;:  208.649 ms … 232.593 ms  ┊ GC &#40;min … max&#41;: 0.00&#37; … 0.00&#37;
+ Time  &#40;median&#41;:     216.597 ms               ┊ GC &#40;median&#41;:    0.00&#37;
+ Time  &#40;mean ± σ&#41;:   216.964 ms ±   5.479 ms  ┊ GC &#40;mean ± σ&#41;:  0.00&#37; ± 0.00&#37;
+
+        ▃          ▃          ▃█
+  ▇▁▇▇▁▁█▁▇▁▁▇▁▁▇▁▇█▁▇▇▁▁▁▇▁▁▇██▁▁▁▇▇▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇ ▁
+  209 ms           Histogram: frequency by time          233 ms &lt;
+
+ Memory estimate: 1.98 KiB, allocs estimate: 22.</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>可见, 合理应用Transducer进行函数式编程，可以有效减少内存占用、GC时间等, 提高效率。</p>
+<h2 id="概念"><a href="#概念" class="header-anchor">概念</a></h2>
+<fieldset class="code code-plain"><legend class="code-legend code-legend-plain">plain</legend></p>
+<pre><code class="language-plaintext">foldl&#40;step, xf, input, init&#61;...&#41;
+   |   |    |     |
+   |   |    |     &#96;-- reducible
+   |   |    |
+   |   |    &#96;-- transducer
+   |   |
+   |   &#96;-- &quot;bottom&quot; &#40;inner most&#41; reducing function
+   |
+   &#96;-- transducible process</code></pre>
+<p><div class="code-lag">plain</div></fieldset>
+<ul>
+<li><p><code>reducible</code>: 可以适用reduce操作的数据;</p>
+</li>
+<li><p><code>transducer</code>: reduce之前对数据进行处理的函数&#91;集合&#93;, 称为变换函数<code>xf</code>, 可以分为两种:</p>
+<ul>
+<li><p>iterator transformation: 使用<code>xf&#40;itr&#41;</code>方式的语法进行迭代器转换;</p>
+</li>
+<li><p>reducing function transformation: 使用<code>xf&#39;&#40;rf&#41;</code>方式的语法进行reducing转换;</p>
+</li>
+</ul>
+</li>
+<li><p><code>bottom</code>: reducing函数, 有时也叫<code>step</code>或<code>op</code>;</p>
+</li>
+<li><p><code>transducible process</code>: 组配整个过程的高阶函数;</p>
+</li>
+<li><p><code>eduction</code>: Transducer中的reducible对象, 适配foldl等函数从而提升效率;</p>
+</li>
+</ul>
+
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Clojure中狭义的Transducer</legend>
+  Rich Hickey最初提出的Transducer是对reducing步骤的变换, 因此, 在Clojure&#40;和很多其他语言中&#41;, \(xf\) 指代本库中的<code>xf&#39;</code>。 
+</fieldset>
+
+<ul>
+<li><p><code>xf&#39;</code>可以用函数组合函数<code>∘</code>来进行整合:</p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># 以下形式等价
+rf &#61; xf1&#39;&#40;xf2&#39;&#40;...&#40;xfn&#39;&#40;rf0&#41;&#41;&#41;&#41;
+rf &#61; &#40;xf1&#39; ∘ xf2&#39; ∘ ... ∘ xfn&#39;&#41;&#40;rf0&#41;
+rf &#61; &#40;xfn ∘ ... ∘ xf2 ∘ xf1&#41;&#39;&#40;rf0&#41; # 注意,&#39;反向
+rf &#61; &#40;xf1 ⨟ xf2 ⨟ ... ⨟ xfn&#41;&#40;rf0&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset> </div>
+<ul>
+<li><p><code>Inner transducer</code>: 给定<code>rf &#61; xf1&#39; ∘ xf2&#39;</code>, <code>xf2</code>是<code>rf</code>的内部transducer。</p>
+</li>
+<li><p><code>Executor</code>: 执行器, 指定transducer的执行机制, 如<code>SequentialEx, ThreadedEx, DistributedEx</code>等, 通常不需要手动配置。</p>
+</li>
+</ul>
+<h2 id="对比迭代器"><a href="#对比迭代器" class="header-anchor">对比迭代器</a></h2>
+<p>还是用一个例子来证明:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using Transducers
+xf &#61; opcompose&#40;Filter&#40;iseven&#41;, Map&#40;x -&gt; 2x&#41;&#41;
+
+collect&#40;xf, 1:6&#41; # 4, 8, 12
+foldl&#40;&#43;, xf, 1:6&#41; # 24
+
+# same operation in iterator:
+f&#40;x&#41; &#61; 2x
+imap &#61; Base.Iterators.Generator
+mapfoldl&#40;f, &#43;, filter&#40;iseven, input&#41;, init&#61;0&#41;
+foldl&#40;&#43;, imap&#40;f, filter&#40;iseven, input&#41;&#41;&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<p>二者最大的区别, 是transducer的xf组合发生在计算阶段, 而iterator的组合发生在输入阶段, 把二者的代码分别转换成更低级代码为:</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia"># iterator code can be lowered to:
+function map_filter_iterators&#40;xs, init&#41;
+    ret &#61; iterate&#40;xs&#41;
+    ret &#61;&#61;&#61; nothing &amp;&amp; return init
+    acc &#61; init
+    @goto filter
+    local state, x
+    while true
+        while true                                    # input
+            ret &#61; iterate&#40;xs, state&#41;                  #
+            ret &#61;&#61;&#61; nothing &amp;&amp; return acc             #
+            @label filter                             #
+            x, state &#61; ret                            #
+            iseven&#40;x&#41; &amp;&amp; break             # filter   :
+        end                                #          :
+        y &#61; 2x              # imap         :          :
+        acc &#43;&#61; y    # &#43;     :              :          :
+    end             # :     :              :          :
+    #                 &#43; &lt;-- imap &lt;-------- filter &lt;-- input
+end
+
+# On the other hand, the code using transducers is lowered to:
+function map_filter_transducers&#40;xs, init&#41;
+    acc &#61; init
+    #              input -&gt; Filter --&gt; Map --&gt; &#43;
+    for x in xs  # input    :          :       :
+        if iseven&#40;x&#41;  #     Filter     :       :
+            y &#61; 2x    #                Map     :
+            acc &#43;&#61; y  #                        &#43;
+        end
+    end
+    return acc
+end
+
+xs &#61; &#91;6, 8, 1, 4, 5, 6, 6, 7, 9, 9, 7, 8, 6, 8, 2, 5, 2, 4, 3, 7&#93;
+@assert map_filter_iterators&#40;xs, 0&#41; &#61;&#61; map_filter_transducers&#40;xs, 0&#41;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
 <h1 id="floopsjl"><a href="#floopsjl" class="header-anchor">FLoops.jl</a></h1>
 <h1 id="bangbangjl"><a href="#bangbangjl" class="header-anchor">Bangbang.jl</a></h1>
 
@@ -238,7 +438,7 @@
                 href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
             Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
             Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
-            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 08, 2024.
           </p>
     </footer>
     
@@ -256,8 +456,29 @@
 
 
 <!-- CONTENT ENDS HERE -->
-
-
+ <!-- seperate katex.js so that I can control it with 'hasmath=true' in the md file -->
+<script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+<script>
+    const options = {
+        delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\begin{equation}", right: "\\end{equation}", display: true },
+            { left: "\\begin{align}", right: "\\end{align}", display: true },
+            { left: "\\begin{alignat}", right: "\\end{alignat}", display: true },
+            { left: "\\begin{gather}", right: "\\end{gather}", display: true },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
+        ]
+    };
+    renderMathInElement(document.body, options);
+</script> 
+ <!-- seperate highlight.js so that I can control it with 'hascode=true' in the md file -->
+<script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
 
 <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
