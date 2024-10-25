@@ -1,0 +1,810 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="2.3.0 基于R语言的数据可视化实践">
+    <title>2.3.0 基于R语言的数据可视化实践</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 2.3 基于R语言的数据可视化实践 </span> <br><br> <hr> <br> <img src="https://www.r-project.org/Rlogo.png" style="margin: 0 auto;" height=100px /> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R的历史和特点</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> S语言 => R语言</legend>
+</p>
+<ul>
+<li><p>1976年, S语言诞生于贝尔实验室 &#40;与C语言, Unix系统同宗&#41;;</p>
+</li>
+<li><p>与Unix命运类似, S语言的商业版S-PLUS不方便进行教学;</p>
+</li>
+<li><p>1997年, Robert Gentleman和Ross Ihaka等开发了R语言用于教学;</p>
+</li>
+<li><p>R官网: <a href="http://www.r-project.org/" target="_blank" rel="noopener noreferrer"> http://www.r-project.org/</a></p>
+</li>
+</ul>
+<p><img src="/courses/SDAUBIM2023/data/Rinventor.png" style="margin: 0 auto; height: 300px" /> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> R的特点</legend>
+</p>
+<ul>
+<li><p>强交互, 支持复杂算法描述, 图形功能强;</p>
+</li>
+<li><p>集成现代统计方法的实现;</p>
+</li>
+<li><p>统计和科研工作者经常用R开发新算法 &#61;&gt; <span class="cadmon sadmon-note">滚雪球了属于是</span>;</p>
+</li>
+<li><p>函数式编程, 支持对象类和类方法;</p>
+</li>
+<li><p>动态类型语言, 解释执行, 运行速度较慢;</p>
+</li>
+</ul>
+<p><img src="/courses/SDAUBIM2023/data/poplang2016.jpg" style="margin: 0 auto;height: 300px" /> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言学习参考资料</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+</p>
+<ul>
+<li><p>Hadley Wickham and Garrett Grolemund&#40;2022&#41;. <a href="https://r4ds.hadley.nz/">R for Data Science</a>，2nd ed. 讲基本的数据整理、汇总。</p>
+</li>
+<li><p>Hadley Wickham&#40;2019&#41;. <a href="https://adv-r.hadley.nz/">Advanced R</a>, 2nd ed., Chapman &amp; Hall/CRC The R Series. 高级R编程，属于对R高级编程技术的讲解。</p>
+</li>
+<li><p>Hadley Wickham&#40;2016&#41;. <a href="https://ggplot2-book.org/">ggplot2 Elegant Graphics for Data Analysis</a>, 2nd ed., Springer. 优雅易用的R作图功能。</p>
+</li>
+<li><p>Susan Holmes, Wolfgang Huber&#40;2020&#41;. <a href="https://www.huber.embl.de/msmb/index.html">Modern Statistics for Modern Biology</a>, R的统计功能在生物学中的应用。</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">李东风 &#40;2023&#41;. <a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html">R语言教程</a>, 北京大学. 全面、专业且实时的R语言教程</span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn">王敏杰 &#40;2023&#41;. <a href="https://bookdown.org/wangminjie/R4DS/">数据科学中的R语言</a>, 四川师范大学. 教程形象生动, 适合快速入门</span></p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> <img src="/courses/SDAUBIM2023/data/hadley-wickham.jpg" style="margin: 0 auto;width: 650px" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言基本语法速递</h1>
+<p><br> <div style="font-size: 40px; margin-left:4em; margin-right: 4em"></p>
+<pre><code class="language-julia"># &lt;-, &#61;
+
+# &#43;, -, *, /, ^
+
+# sqrt, exp, log, log10, log2
+
+# round, floor, ceiling
+
+# 自定义函数
+my_add &lt;- function&#40;x,y&#41;&#123;x&#43;y&#125;
+
+# I/O:
+# I: read.table, read.csv, read.delim
+# O: print, cat, write
+
+# 向量
+v1 &lt;- 1:10
+v1 &#43; 100  # 四则运算自动广播
+v1 * 2
+
+v2 &lt;- 21:30
+v2 - v1   # 等长向量可进行四则运算
+
+# 数据类型: 逻辑型, 字符串, 数字 ...
+
+# 数据结构: 向量, 矩阵, 列表, 数据框 ...
+
+# 向量的下标和子集
+v1&#91;2&#93;
+v1&#91;c&#40;1,3&#41;&#93;
+v1&#91;3:5&#93;
+v1&#91;c&#40;-1,-10&#41;&#93;
+v1&#91;v1&gt;5&#93; # 逻辑下标
+
+# 数据框 dataframe
+d &lt;- data.frame&#40;
+    name&#61;c&#40;&quot;李明&quot;, &quot;张聪&quot;, &quot;王建&quot;&#41;, 
+    age&#61;c&#40;30, 35, 28&#41;, 
+    height&#61;c&#40;180, 162, 175&#41;,
+    stringsAsFactors&#61;FALSE
+&#41;
+##   name age height
+## 1 李明  30    180
+## 2 张聪  35    162
+## 3 王建  28    175
+
+# 流程控制
+## 判断
+if&#40;CONDITION1&#41;&#123;
+    EXPR1
+&#125;else if&#40;CONDITION2&#41;&#123;
+    EXPR2
+&#125;else&#123;
+    EXPR3
+&#125;
+
+ifelse&#40;CONDITION, EXPR-TRUE, EXPR-FALSE&#41; # ? : 
+
+## 循环
+for&#40;i in 1:5&#41;&#123;
+    # do sth...
+&#125;
+
+while&#40;CONDITION&#41;&#123;
+    # do sth...
+&#125;
+
+repeat&#123;
+    # do sth...
+    if&#40;CONDITION&#41;&#123;break&#125;
+&#125;
+
+# 基本统计函数
+min, max, median, sd, quantile
+
+# 基本统计检验
+t.test
+wilcox.test
+cor.test
+chisq.test
+
+# 聚类分析
+kmeans
+hclust, dist</code></pre>
+<p></div> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言绘图</h1>
+<p><br> <div > <span class="sadmon sadmon-note">科学需要可视化</span><br><br> </div> <img src="https://bookdown.org/wangminjie/R4DS/images/HotlineDrake1.jpg" style="margin-left: 7em" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言绘图</h1>
+<p><br> <div > <span class="sadmon sadmon-warn">大批量数据需要基于编程语言绘图</span><br><br> </div> <img src="https://bookdown.org/wangminjie/R4DS/images/meme.png" style="margin-left: 0em; height: 500px" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言绘图</h1>
+<p><br> <div > <span class="sadmon sadmon-hack">R的基本绘图语法: 略, 课下自学</span><span class="fragment  " data-fragment-index="1"> <span class="Sadmon Sadmon-tip">基于ggplot2的R语言绘图√</span><br><br> </span> </div> <div class="fragment  " data-fragment-index="2"> <span class="Sadmon Sadmon-note">Grammar of Graphics</span><br> <img src="https://bookdown.org/wangminjie/R4DS/images/how_to_plot.png" style="margin: 0 auto;" /> </div> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言绘图: ggplot2语法</h1>
+<p><br> <div > <span class="Sadmon Sadmon-note">Grammar of Graphics</span><br><br> </div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> ggplot2中的图形部件</legend>
+ <div style="font-size: 20px;  height:400px;"> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+</p>
+<ol>
+<li><p><span class="sadmon sadmon-note">data</span>: data.frame</p>
+</li>
+<li><p><span class="sadmon sadmon-note">aes</span>: 数据到图形的映射属性</p>
+<ul>
+<li><p>坐标轴 x, y</p>
+</li>
+<li><p>颜色 color</p>
+</li>
+<li><p>元素大小 size</p>
+</li>
+<li><p>形状 shape</p>
+</li>
+<li><p>透明度 alpha</p>
+</li>
+</ul>
+</li>
+<li><p><span class="sadmon sadmon-note">geoms</span>: 几何形状</p>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/" target="_blank" rel="noopener noreferrer"> geoms汇总</a></p>
+</li>
+</ul>
+</li>
+</ol>
+
+</td>
+<td id="lov" width="50%" height=90% align="left">
+
+<ol start="4">
+<li><p><span class="sadmon sadmon-note">stats</span>: 统计变换</p>
+</li>
+<li><p><span class="sadmon sadmon-note">scales</span>: 标度设置</p>
+</li>
+<li><p><span class="sadmon sadmon-note">coord</span>: 坐标系统</p>
+</li>
+<li><p><span class="sadmon sadmon-note">facet</span>: 分面/切片</p>
+</li>
+<li><p><span class="sadmon sadmon-note">layer</span>: 图层</p>
+</li>
+<li><p><span class="sadmon sadmon-note">theme</span>: 主题风格</p>
+</li>
+<li><p><span class="sadmon sadmon-note">save</span>: 保存/输出</p>
+</li>
+</ol>
+<p>
+</td>
+</tr></table>
+ </div> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img src="https://bookdown.org/wangminjie/R4DS/images/making_a_ggplot.jpeg" style="margin: 0 auto; height: 500px" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言绘图: Geoms</h1>
+<p><div style="height:600px; overflow:auto;"> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 折线图: geom<em>line, geom</em>abline, geom<em>hline, geom</em>vline</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_abline.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 柱形图: geom<em>bar, geom</em>col, stat_count</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_bar.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 热图: geom<em>bin</em>2d, geom<em>tile, geom</em>hex, geom_raster</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_bin2d.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 箱线图: geom_boxplot</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_boxplot.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 轮廓图: geom<em>contour, geom</em>contour_filled</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_contour.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 密度图: geom<em>density, geom</em>density<em>2d, geom</em>density<em>2d</em>filled</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_density.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 散点图: geom<em>point, geom</em>dotplot, geom_jitter</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_jitter.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 区间图: geom<em>crossbar, geom</em>errorbar, geom<em>linerange, geom</em>pointrange</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_crossbar.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 地图: geom_map</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_map.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 路径图: geom<em>path, geom</em>step</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_path.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 多边形图: geom<em>rect, geom</em>polygon</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_polygon.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 条带和范围: geom<em>ribbon, geom</em>area, geom_smooth</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_ribbon.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 线段和曲线: geom<em>segment, geom</em>curve</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_segment.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-info"> 文字: geom<em>text, geom</em>label</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_text.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div class="aadmon aadmon-note"> 小提琴图: geom_violin</div> 
+</td>
+<td id="lov" width="20%" height=90% align="left">
+ <img src="https://ggplot2.tidyverse.org/reference/icons/geom_violin.png" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ </div> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>复杂图是简单元素的组合</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIM2023/data/panz-vis1.png" style="margin: 0 auto;" /> <br> <div class="aadmon aadmon-hack"> <span style="font-size:20px"> Gui, S., Wei, W., et al. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02742-7" target="_blank" rel="noopener noreferrer"> A pan-Zea genome map for enhancing maize improvement</a>. Genome Biol 23, 178 &#40;2022&#41;. </span></div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img src="/courses/SDAUBIM2023/data/panz-vis2.png" style="margin: 0 auto;height: 550px" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>作图的一般原则</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:500px">
+ <hr> <div style="width:490px"> <div class="aadmon aadmon-note"> 好的数据, 好的展现形式, 好的审美</div> </div> <div style="width:490px"> <div class="aadmon aadmon-info"> 用尽可能少的元素表示尽可能多的数据</div> </div> <hr></p>
+<p>
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 分类变量的作图优先级</legend>
+</p>
+<ul>
+<li><p><span style="color: rgba(77,0,75,1.0)"> 不同分组 </span></p>
+</li>
+<li><p><span style="color: rgba(77,0,75,0.8)"> 不同颜色 </span></p>
+</li>
+<li><p><span style="color: rgba(77,0,75,0.6)"> 三维动态 </span></p>
+</li>
+<li><p><span style="color: rgba(77,0,75,0.4)"> 不同符号 </span></p>
+</li>
+</ul>
+<p><div style="width:420px"> <div class="aadmon aadmon-warn"> 使用区分度强的颜色而不是渐变色</div> </div> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="500px" height=90% align="left">
+ 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 数值型变量的作图优先级</legend>
+</p>
+<ul>
+<li><p><span style="color: rgba(0,0,0,1.0)"> 同一坐标轴上的不同位置 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.9)"> 不同轴上的位置 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.8)"> 不同长度 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.7)"> 不同角度或者斜率 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.6)"> 不同面积 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.5)"> 三维空间中的不同位置 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.4)"> 颜色的不同明暗度 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.3)"> 不同颜色饱和度 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.2)"> 曲线的不同曲率 </span></p>
+</li>
+<li><p><span style="color: rgba(0,0,0,0.1)"> 三维体积 </span></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>ggplot2作图实践</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:900px">
+ <div style="font-size: 35px;width: 900px;"> <span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span></p>
+<pre><code class="language-R">&gt; library&#40;ggplot2&#41;
+&gt; library&#40;palmerpenguins&#41;
+
+&gt; head&#40;penguins&#41;
+n | species island    | bill_length_mm | bill_depth_mm | flipper_length_mm | body_mass_g |
+t | &lt;fct&gt;   &lt;fct&gt;     |          &lt;dbl&gt; |         &lt;dbl&gt; |             &lt;int&gt; |       &lt;int&gt; |
+1 | Adelie  Torgersen |           39.1 |          18.7 |               181 |        3750 |
+2 | Adelie  Torgersen |           39.5 |          17.4 |               186 |        3800 |
+3 | Adelie  Torgersen |           40.3 |          18   |               195 |        3250 |
+4 | Adelie  Torgersen |           NA   |          NA   |                NA |          NA |
+5 | Adelie  Torgersen |           36.7 |          19.3 |               193 |        3450 |
+6 | Adelie  Torgersen |           39.3 |          20.6 |               190 |        3650 |
+
+&gt; str&#40;penguins&#41;
+&#36; species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+&#36; island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+&#36; bill_length_mm   : num &#91;1:344&#93; 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+&#36; bill_depth_mm    : num &#91;1:344&#93; 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+&#36; flipper_length_mm: int &#91;1:344&#93; 181 186 195 NA 193 190 181 195 193 190 ...
+&#36; body_mass_g      : int &#91;1:344&#93; 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+&#36; sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
+&#36; year             : int &#91;1:344&#93; 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+<p></div> 
+</td>
+<td id="lov" width="500px" height=90% align="left">
+ <img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" style="margin: 0 auto;height: 250px" /> <img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png" style="margin: 0 auto;height: 250px" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>ggplot2作图实践</h1>
+<p><span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIM2023/data/penguins-wrong.png" style="margin: 0 auto; height: 550px" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br> <div class="aadmon aadmon-warn"> 学生A: &quot;破案了&#33; 喙厚度和喙长度成反比, 说明嘴短的企鹅, 嘴更厚, 与原假设相反&#33; 毕业&#33; 能毕业了~&#33;&quot;</div> <br> <div class="aadmon aadmon-todo"> 学生B: &quot;发表&#33; 必须马上发表&#33; 我昨天帮你带饭了, 给我个共一不过份吧?&quot;</div> <br><br> </div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> 老师: &quot;你俩再延一年吧🙂&quot;</div> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>ggplot2作图实践</h1>
+<p><span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span> <img src="/courses/SDAUBIM2023/data/penguins.png" style="margin: 0 auto; height: 550px" /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>ggplot2作图实践</h1>
+<span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span>
+<p><div style="font-size: 35px;width: 1200px;margin-left:4em"> <br></p>
+<pre><code class="language-R"># 感觉有点不对劲, 但又说不上来:
+ggplot&#40;penguins,aes&#40;x &#61; bill_depth_mm, y &#61; bill_length_mm&#41;&#41; &#43;
+    geom_point&#40;&#41; &#43; 
+    geom_smooth&#40;method&#61;&quot;lm&quot;&#41; &#43; 
+    theme_bw&#40;base_size&#61;18&#41;
+
+# 这下舒服了:
+ggplot&#40;penguins,aes&#40;x &#61; bill_depth_mm, y &#61; bill_length_mm, color &#61; species&#41;&#41; &#43; 
+    geom_point&#40;&#41; &#43; 
+    geom_smooth&#40;method&#61;&quot;lm&quot;&#41; &#43; 
+    theme_bw&#40;base_size&#61;18&#41;
+
+# 加亿点点细节
+ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
+            aes&#40;x &#61; bill_depth_mm,
+                y &#61; bill_length_mm,
+                color &#61; species&#41;&#41; &#43; 
+    geom_point&#40;size&#61;4,alpha&#61;0.7&#41; &#43; # 点的大小和透明度
+    geom_smooth&#40;method&#61;&quot;lm&quot;&#41; &#43; # 线性回归拟合
+    scale_color_brewer&#40;palette&#61;&quot;Dark2&quot;&#41; &#43; # 配色方案
+    labs&#40;x &#61; &quot;Bill depth &#40;mm&#41;&quot;,   # x轴标题
+         y &#61; &quot;Bill length &#40;mm&#41;&quot;,  # y轴标题
+         title &#61; &quot;Flipper and bill length correlation&quot; # 总标题
+         &#41; &#43; 
+    theme_bw&#40;base_size&#61;18&#41; &#43; # 纯白主题, 总字体大小
+    theme&#40;legend.position&#61;c&#40;0.1, 0.15&#41;&#41; # 图列位置</code></pre>
+<p></div> </section>
+<section style="font-size: 20px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>拓展学习资料推荐</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:53%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Friends Don't Let Friends Make Bad Graphs</legend>
+ <div style="margin-right: 0.5em"></p>
+<ol>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#1-friends-dont-let-friends-make-bar-plots-for-means-separation" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Bar Plots For Mean Separation</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends 1.  \refblank{Friends Don't Let Friends Make Bar Plots For Mean Separation}{https://github.com/cxli233/FriendsDontLetFriends#1-friends-dont-let-friends-make-bar-plots-for-means-separation}
+2.  \refblank{Friends Don't Let Friends Make Violin Plots for Small Sample Sizes}{https://github.com/cxli233/FriendsDontLetFriends https://github.com/cxli233/FriendsDontLetFriends 1.  \refblank{Friends Don't Let Friends Make Bar Plots For Mean Separation}{https://github.com/cxli233/FriendsDontLetFriends#1-friends-dont-let-friends-make-bar-plots-for-means-separation}
+2.  \refblank{Friends Don't Let Friends Make Violin Plots for Small Sample Sizes}{https://github.com/cxli233/FriendsDontLetFriends#2-friends-dont-let-friends-make-violin-plots-for-small-sample-sizes}
+3.  \refblank{Friends Don't Let Friends Use Bidirectional Color Scales for Unidirectional Data}{https://github.com/cxli233/FriendsDontLetFriends#3-friends-dont-let-friends-use-bidirectional-color-scales-for-unidirectional-data}
+4.  \refblank{Friends Don't Let Friends Make Bar Plot Meadow}{https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
+- \refblank{Color Hunt}{https://colorhunt.co/}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+}
+
+- \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+}
+}-friends-dont-let-friends-make-bar-plot-meadow}
+5.  \refblank{Friends Don't Let Friends Make Heatmap without Reordering Rows & Columns}{https://github.com/cxli233/FriendsDontLetFriends#5-friends-dont-let-friends-make-heatmap-without-considering-reordering-rows--columns}
+6.  \refblank{Friends Don't Let Friends Make Heatmap without Checking Outliers}{https://github.com/cxli233/FriendsDontLetFriends#6-friends-dont-let-friends-make-heatmap-without-checking-outliers}
+7.  \refblank{Friends Don't Let Friends Forget to Check Data Range at Each Factor Level}{https://github.com/cxli233/FriendsDontLetFriends#7-friends-dont-let-friends-forget-to-check-data-range-at-each-factor-level}
+8.  \refblank{Friends Don't Let Friends Make Network Graphs without Trying Different Layouts}{https://github.com/cxli233/FriendsDontLetFriends#8-friends-dont-let-friends-make-network-graphs-without-trying-different-layouts}
+9.  \refblank{Friends Don't Let Friends Confuse Position and Length Based Visualizations}{https://github.com/cxli233/FriendsDontLetFriends#9-friends-dont-let-friends-confuse-position-based-visualizations-with-length-based-visualizations}
+10. \refblank{Friends Don't Let Friends Make Pie Charts}{https://github.com/cxli233/FriendsDontLetFriends#10-friends-dont-let-friends-make-pie-chart}
+11. \refblank{Friends Don't Let Friends Make Concentric Donuts}{https://github.com/cxli233/FriendsDontLetFriends#11-friends-dont-let-friends-make-concentric-donuts}
+12. \refblank{Friends Don't Let Friends Use Red/green and Rainbow for Color Scales}{https://github.com/cxli233/FriendsDontLetFriends#12-friends-dont-let-friends-use-redgreen-and-rainbow-color-scales}-friends-dont-let-friends-make-violin-plots-for-small-sample-sizes-friends-dont-let-friends-make-violin-plots-for-small-sample-sizes}
+3.  \refblank{Friends Don't Let Friends Use Bidirectional Color Scales for Unidirectional Data}{https://github.com/cxli233/FriendsDontLetFriends#3-friends-dont-let-friends-use-bidirectional-color-scales-for-unidirectional-data}
+4.  \refblank{Friends Don't Let Friends Make Bar Plot Meadow}{https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
+- \refblank{Color Hunt}{https://colorhunt.co/}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+}
+
+- \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+}
+}-friends-dont-let-friends-make-bar-plot-meadow}
+5.  \refblank{Friends Don't Let Friends Make Heatmap without Reordering Rows & Columns}{https://github.com/cxli233/FriendsDontLetFriends#5-friends-dont-let-friends-make-heatmap-without-considering-reordering-rows--columns}
+6.  \refblank{Friends Don't Let Friends Make Heatmap without Checking Outliers}{https://github.com/cxli233/FriendsDontLetFriends#6-friends-dont-let-friends-make-heatmap-without-checking-outliers}
+7.  \refblank{Friends Don't Let Friends Forget to Check Data Range at Each Factor Level}{https://github.com/cxli233/FriendsDontLetFriends#7-friends-dont-let-friends-forget-to-check-data-range-at-each-factor-level}
+8.  \refblank{Friends Don't Let Friends Make Network Graphs without Trying Different Layouts}{https://github.com/cxli233/FriendsDontLetFriends#8-friends-dont-let-friends-make-network-graphs-without-trying-different-layouts}
+9.  \refblank{Friends Don't Let Friends Confuse Position and Length Based Visualizations}{https://github.com/cxli233/FriendsDontLetFriends#9-friends-dont-let-friends-confuse-position-based-visualizations-with-length-based-visualizations}
+10. \refblank{Friends Don't Let Friends Make Pie Charts}{https://github.com/cxli233/FriendsDontLetFriends#10-friends-dont-let-friends-make-pie-chart}
+11. \refblank{Friends Don't Let Friends Make Concentric Donuts}{https://github.com/cxli233/FriendsDontLetFriends#11-friends-dont-let-friends-make-concentric-donuts}
+12. \refblank{Friends Don't Let Friends Use Red/green and Rainbow for Color Scales}{https://github.com/cxli233/FriendsDontLetFriends#12-friends-dont-let-friends-use-redgreen-and-rainbow-color-scales}-friends-dont-let-friends-make-violin-plots-for-small-sample-sizes" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Violin Plots for Small Sample Sizes</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#3-friends-dont-let-friends-use-bidirectional-color-scales-for-unidirectional-data" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Use Bidirectional Color Scales for Unidirectional Data</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
+- \refblank{Color Hunt}{https://colorhunt.co/}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+}
+
+- \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
+\indent{2em}{
+\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+}
+}-friends-dont-let-friends-make-bar-plot-meadow" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Bar Plot Meadow</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#5-friends-dont-let-friends-make-heatmap-without-considering-reordering-rows--columns" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Heatmap without Reordering Rows & Columns</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#6-friends-dont-let-friends-make-heatmap-without-checking-outliers" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Heatmap without Checking Outliers</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#7-friends-dont-let-friends-forget-to-check-data-range-at-each-factor-level" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Forget to Check Data Range at Each Factor Level</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#8-friends-dont-let-friends-make-network-graphs-without-trying-different-layouts" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Network Graphs without Trying Different Layouts</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#9-friends-dont-let-friends-confuse-position-based-visualizations-with-length-based-visualizations" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Confuse Position and Length Based Visualizations</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#10-friends-dont-let-friends-make-pie-chart" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Pie Charts</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#11-friends-dont-let-friends-make-concentric-donuts" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Concentric Donuts</a></p>
+</li>
+<li><p><a href="https://github.com/cxli233/FriendsDontLetFriends#12-friends-dont-let-friends-use-redgreen-and-rainbow-color-scales" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Use Red/green and Rainbow for Color Scales</a></p>
+</li>
+</ol>
+<p></div> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="47%" height=90% align="left">
+ 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 配色方案网站推荐</legend>
+</p>
+<ul>
+<li><p><a href="https://colorhunt.co/" target="_blank" rel="noopener noreferrer"> Color Hunt</a></p>
+</li>
+</ul>
+<div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIM2023/data/colorhunt.png" style="margin: 0 auto;width: 440px" /> </div>
+<ul>
+<li><p><a href="https://mycolor.space/?hex=%23845EC2&sub=1" target="_blank" rel="noopener noreferrer"> Color Space</a></p>
+</li>
+</ul>
+<p><div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIM2023/data/colorspace.png" style="margin: 0 auto;width: 440px" /> </div> 
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+
+</div>
+
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        // controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 

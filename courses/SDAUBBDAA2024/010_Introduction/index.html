@@ -1,0 +1,423 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="010 生物大数据分析导论">
+    <title>010 生物大数据分析导论</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 1.0 生物大数据分析导论 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>大数据的时代</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="70%" height=90%>
+ <div class="indent-block" style="margin-left: 15% !important"> <img src="/assets/course/SDAUBBDAA/110_AI_profile.png" height=650px, align="centered" /> </div> 
+</td>
+<td id="lov" width="30%" height=90%>
+ <br><br><br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 数据体量大</legend>
+  T &#61;&gt; P &#61;&gt; E &#61;&gt; Z 
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 处理速度快</legend>
+  速度、时效性 &#61;&gt; 计算性能、算法优化 
+</fieldset>
+ </div></p>
+<p><br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 种类多样</legend>
+  网络日志、音频、视频、图片、位置信息、用户习惯... 
+</fieldset>
+ </div></p>
+<p><br> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 价值密度低</legend>
+  提纯: 需要从大量无用数据中提取关键信息 
+</fieldset>
+ </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>信息爆炸时代如何保持持续的洞察力?</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="70%" height=90%>
+ <img src="/assets/course/SDAUBBDAA/110_KeepWake.png" height=600px, align="centered" /> 
+</td>
+<td id="lov" width="30%" height=90%>
+ <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px">  智慧 &#33;&#61; 聪明 </li> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px">  智慧 ~ 洞察力 </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px">  感知、价值观 </li> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <br> <img src="/assets/course/SDAUBBDAA/110_book.jpg" height=400px, align="centered" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>对数据的分析无处不在</h1>
+<p><img src="/assets/course/SDAUBBDAA/111_DancingMan.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>对数据的分析无处不在</h1>
+<p><br><br> <img src="/assets/course/SDAUBBDAA/112_SadMan.png" height=500px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 体量</h1>
+<p><img src="/assets/course/SDAUBBDAA/120_HumanGenome.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 维度</h1>
+<p><img src="/assets/course/SDAUBBDAA/121_CentroDogma.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 维度</h1>
+<p><br><br> <img src="/assets/course/SDAUBBDAA/121_Zeamap.png" height=450px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 分析</h1>
+<p><img src="/assets/course/SDAUBBDAA/122_ProteinAnalysis.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 爆炸</h1>
+<p><img src="/assets/course/SDAUBBDAA/123_SocialGenome.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据: 爆炸</h1>
+<p><img src="/assets/course/SDAUBBDAA/124_Growth.png" height=700px, align="centered" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物大数据分析</h1>
+<p><br><br> <section > 
+<div style="text-align:left">
+</p>
+<h1>Biological Big Data Analysis &#61; <span class="Cadmon Sadmon-error">Bioinformatics</span> &#43; <span class="Cadmon Sadmon-hack">Data Science</span></h1>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <br> <img src="/assets/course/SDAUBBDAA/130_DataScience.png" style="margin: 0 auto;" height=550px /> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <br><br><br> <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-warn">学科交叉</span>: 计算机、数学、统计、信息学、生物学 </li> <br> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-warn">数据类型丰富</span>: 表型、气候、分子性状、实验处理 ... </li> <br> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-warn">上限高下限低</span>: <span class="sadmon sadmon-hack">🙃 𝄜 ✖️➗➕➖</span>; <span class="sadmon sadmon-warn">🤔 📐e &#61; ∑∞ⁿ⁼⁰ ¹ₙ🤓</span> </li> <br><br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> 编程是工具, 统计是灵魂, 专业是核心</div> </span> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>科研范式的转变</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <br><br> <img src="/assets/course/SDAUBBDAA/131_2024NobelChem.png" style="margin: 0 auto;" height=550px /> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <br> <span class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<h2 id="1950s"><a href="#1950s" class="header-anchor">&lt; 1950s</a></h2>
+<p></span> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-hack">第一范式</span>: 基于观察和归纳的实验研究 </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-hack">第二范式</span>: 基于科学假设和逻辑演绎的理论研究 </li> <br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"></p>
+<h2 id="1950s_2000s"><a href="#1950s_2000s" class="header-anchor">1950s ~ 2000s &#40;💻&#43;🌐&#41;</a></h2>
+<p></span> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-warn">第三范式</span>: 基于计算机对复杂现象的仿真研究 </li> <li class="fragment" data-fragment-index="6" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-warn">第四范式</span>: 密集数据驱动的科学研究 </li> <br> <span class="fragment" data-fragment-index="7" align="left" style="margin:0px"></p>
+<h2 id="2000s_now"><a href="#2000s_now" class="header-anchor">2000s ~ now &#40;💻💻💻&#43;🌐🌐🌐&#41;</a></h2>
+<p></span> <li class="fragment" data-fragment-index="8" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-error">第五范式</span>: 智能化科研 AI for Science </li> <br><br> <div class="fragment" data-fragment-index="9" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> 整体性、复杂性、学科交叉</div> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>要把大象装冰箱，拢共分几步?</h1>
+<div class="aadmon aadmon-note"> 在作物驯化过程中，什么样的基因更容易丢失?</div>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="35%" height=90%>
+ <br> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px">  选研究对象: 玉米 &lt;&#61;&gt; 大刍草 </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px">  获得数据: 收集群体、种材料、测序 </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px"> <span class="cadmon sadmon-warn">分析数据: 测序数据清洗、比对</span> </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px"> <span class="cadmon sadmon-error">分析数据: 基因PAV鉴定、基因特征鉴定</span> </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px"> <span class="cadmon sadmon-error">分析数据: 统计检验</span> </li> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px">  展示数据: 绘图、撰写结果 </li> 
+</td>
+<td id="lov" width="65%" height=90%>
+ <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/140_GPAV.png" style="margin: 0 auto;" height=450px /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Can &amp; Cannot</h1>
+<p><div class="indent-block" style="margin-left: 7% !important"> <br><br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> What you can learn</legend>
+</p>
+<ul>
+<li><p>我想系统地做数据科学，我应该怎么入门?</p>
+</li>
+<li><p>我偶尔用一下数据分析，应该学什么工具?</p>
+</li>
+<li><p>我拿到了一些实验数据，应该用什么检验方法进行分析?</p>
+</li>
+<li><p>我结果都分析完了，怎么进行数据可视化?</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br><br> 
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> What you can NOT learn</legend>
+</p>
+<ul>
+<li><p><del> 老师有没有脚本能一键生成文章并自动投稿?</del></p>
+</li>
+<li><p><del> 老师我太想进步了，您文章能挂我一作么?</del></p>
+</li>
+<li><p><del> 老师我这有一套RNA-Seq数据您帮我分析一下吧!</del></p>
+</li>
+<li><p><del> 哎呀! 跑了一个月的实验没有条带，刚好课上学了Photoshop，P一个P一个!</del></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> </div> </section>
+<section ><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>课程安排和专题讨论</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:600px">
+ 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 理论基础</legend>
+ <li > 生物大数据分析导论 </li> <li > 常用分析平台和编程语言介绍 </li> <li > 统计基础和常用方法 </li> <li > 数据可视化介绍和应用 </li> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="600px" height=90% align="left">
+ 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 分析应用专题</legend>
+ <li > 高通量测序和基因组分析 </li> <li > 群体遗传分析 </li> <li > 多组学整合分析 </li> <li > 数据驱动的基因功能解析 </li> 
+</fieldset>
+ 
+</td>
+</tr></table>
+ <br> <div style="width: 500px; margin-left: 400px" class="fragment" data-fragment-index="1"> <p><div class="aadmon aadmon-info"> <span style="font-size:40px"> 绝知须躬行 </span></p>
+<ul>
+<li><p>课上内容以框架、大纲为主;</p>
+</li>
+<li><p>提供自学资源、资料;</p>
+</li>
+<li><p>90&#37;以上的内容需要课下<strong>自学</strong>掌握;</div></p>
+</li>
+</ul>
+ </div></p>
+<p><div style="width: 500px; margin-left: 400px" class="fragment" data-fragment-index="2"> <div class="aadmon aadmon-hack"> 考查方式: 文献分析方法解析</div> </div> </section>
+
+</div>
+
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        // controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
