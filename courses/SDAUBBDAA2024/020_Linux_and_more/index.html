@@ -86,7 +86,7 @@
  </div> 
 </td>
 <td id="lov" width="40%" height=90% align="left">
- <img src="https://raw.githubusercontent.com/songtaogui/imgbed/master/computer_mk.png" style="width:500px;" /> 
+ <img src="/assets/course/SDAUBBDAA/201_computer_mk.png" style="width:500px;" /> 
 </td>
 </tr></table>
  </section>
@@ -168,7 +168,7 @@
 </ul>
 <p>
 </fieldset>
- <br><br></p>
+ <br><br> <div style="font-size:30px"></p>
 <pre><code class="language-julia">/────
     ├── bin     # binaries&#40;二进制文件&#41;，存放着最常用的程序和指令
     ├── boot    # 系统启动相关文件，如内核，initrd，以及grub（BootLoader）
@@ -185,10 +185,10 @@
     ├── tmp     # temporary，临时文件，所有用户都可以操作，但只能删自己的，不能删别人的
     ├── usr     # unix shared resources，存放只能读的命令和其他文件
     └── var     # variable，存放运行时需要改变数据的文件，如日志等</code></pre>
-<p>
+<p></div> 
 </td>
 <td id="lov" width="40%" height=90% align="left">
-  Linux系统结构: <img src="/assets/slides/SDAUBIM/Linux_sys.jpg" style="margin: 0 auto;" /> 
+  Linux系统结构: <img src="/assets/course/SDAUBBDAA/202_linux_sys.jpg" style="margin: 0 auto;" /> 
 </td>
 </tr></table>
  </section>
@@ -455,9 +455,9 @@ cut -f 1 file.txt &gt; tmp1.txt
 sort tmp1.txt &gt; tmp2.txt
 uniq tmp2.txt &gt; final.txt
 rm -f tmp1.txt tmp2.txt</code></pre>
-<p></div> <br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span class="cadmon sadmon-todo">临时文件, IO负载</span> </span><span class="fragment" data-fragment-index="5" align="left" style="margin:0px"> → 管道操作符<span class="Cadmon Sadmon-info"><code>|</code></span><br> </span> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br></p>
+<p></div> <br> <span class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span class="cadmon sadmon-todo">临时文件, IO负载</span> </span><span class="fragment" data-fragment-index="5" align="left" style="margin:0px"> → 管道操作符<span class="Cadmon Sadmon-info"><code>|</code></span><br> </span> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br> <div style="font-size:30px"></p>
 <pre><code class="language-sh">cut -f 1 file.txt | sort | uniq &gt; fianl.txt</code></pre>
-<p><br> </div> 
+<p><br> </div> </div> 
 </fieldset>
  </div> 
 </td>
@@ -494,10 +494,10 @@ rm -f tmp1.txt tmp2.txt</code></pre>
 <h1>Linux终端基本操作: 资源管理器</h1>
 <p><br> 
 <table id="lov"><tr>
-<td id="lov" height=90% style="width:600px">
+<td id="lov" height=90% style="width:650px">
  <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 系统状态/资源占用</legend>
- <br></p>
+ <br> <div style="font-size:30px"></p>
 <pre><code class="language-sh">## 查看系统版本信息
 cat /proc/version
 uname -a
@@ -518,7 +518,7 @@ df -h
 ## 查看内存信息
 cat /proc/meminfo
 free</code></pre>
-<p><br> 
+<p></div> <br> 
 </fieldset>
  </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 任务监控top/htop</legend>
@@ -536,7 +536,7 @@ free</code></pre>
 <td id="lov" width="50%" height=90% align="left">
  <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 作业管理ps/kill</legend>
- <span class="Sadmon Sadmon-info">ps &#43; kill</span>: <a href="https://blog.csdn.net/u010142437/article/details/52122789" target="_blank" rel="noopener noreferrer"> linux中ps配合kill结束进程的N种方法</a> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_1.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_2.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_3.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_4.png" style="margin: 0 auto;" /> </div> 
+ <span class="Sadmon Sadmon-info">ps &#43; kill</span>: <a href="https://blog.csdn.net/u010142437/article/details/52122789" target="_blank" rel="noopener noreferrer"> linux中ps配合kill结束进程的N种方法</a> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/211_job_ctrl_1.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/212_job_ctrl_2.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/213_job_ctrl_3.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/214_job_ctrl_4.png" style="margin: 0 auto;" /> </div> 
 </fieldset>
  </div> <br> <div class="fragment" data-fragment-index="8" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 作业提交到后台</legend>
@@ -560,32 +560,36 @@ free</code></pre>
 <td id="lov" height=90% style="width:600px">
  <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用rm命令的`-f`指令</legend>
- <br></p>
+ <br> <div style="font-size:30px"></p>
 <pre><code class="language-sh"># boom&#33;
 rm -rf /
 
 # 你意识不到的错误
 export dirtoremove&#61;&quot;/path/to/my/unused/dir&quot;
-rm -rf /path/to/some/parent/&#36;Dirtoremove # will remove all parent things&#33;</code></pre>
-<p><br> 
+rm -rf /path/to/some/parent/&#36;Dirtoremove 
+# will remove all parent things&#33;</code></pre>
+<p></div> <br> 
 </fieldset>
  </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用mv命令</legend>
-</p>
+ <div style="font-size:30px"></p>
 <pre><code class="language-sh">mv fileA fileB</code></pre>
-<p><br> <p class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/danger-mv.png" style="margin: 0 auto;" /> </p> 
+<p></div> <br> <p class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/215_danger-mv.png" style="margin: 0 auto;" /> </p> 
 </fieldset>
  </div> 
 </td>
 <td id="lov" width="500px" height=90% align="left">
  <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用tar命令</legend>
- <br></p>
-<pre><code class="language-sh">tar zcvf 新产生的文件.tgz 要压缩的文件 #压缩
-tar zxvf 待解压的文件.tgz /指定/目录/子文件.txt #解压指定文件</code></pre>
-<p><br> <p class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/danger-tar.png" style="margin: 0 auto;" /> </p> 
+ <br> <div style="font-size:30px"></p>
+<pre><code class="language-sh">#压缩
+tar zcvf 新产生的文件.tgz 要压缩的文件
+#解压指定文件
+tar zxvf 待解压的文件.tgz /指定/目录/子文件.txt</code></pre>
+<p></div> <br> <p class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/216_danger-tar.png" style="margin: 0 auto;" /> </p> 
 </fieldset>
- </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br> 
+</p>
+<p><div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br> 
 <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 一些安全配置</legend>
  
 <table id="lov"><tr>
@@ -603,17 +607,17 @@ alias rm&#61;&#39;rm -i&#39;</code></pre>
 </tr></table>
  
 </fieldset>
- </div> 
+ </div> </div> 
 </td>
 </tr></table>
  </section>
 <section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 2.2 编程语言基础概览 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>适用于生物数据分析的编程语言</h1>
-<p><div class="aadmon aadmon-hack"> 两语言问题</div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/two-lang-p1.png" style="margin: 0 auto;" /> </div> </section>
+<p><div class="aadmon aadmon-hack"> 两语言问题</div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/221_two-lang-p1.png" style="margin: 0 auto;" /> </div> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>适用于生物数据分析的编程语言</h1>
-<p><div class="aadmon aadmon-hack"> 两语言问题</div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/two-lang-p2.png" style="margin-left: 10em" /> </div> </section>
+<p><div class="aadmon aadmon-hack"> 两语言问题</div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/222_two-lang-p2.png" style="margin-left: 10em" /> </div> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>适用于生物数据分析的编程语言</h1>
 <p><br> 
@@ -630,7 +634,7 @@ alias rm&#61;&#39;rm -i&#39;</code></pre>
 </li>
 <li><p><span class="cadmon sadmon-note">Rust/C/C&#43;&#43;/GO/Java...:</span> 系统编程、开发性能优化的工具;</p>
 </li>
-<li><p><span class="cadmon sadmon-warn">Julia:</span> 我无脑推, 理念先进, 两语言问题的现行解决方案, 但没有金主, 用爱发电, 生态不够, 中文资料等于没有😔;</p>
+<li><p><span class="cadmon sadmon-warn">Julia:</span> 理念先进, 两语言问题的现行解决方案, 但没有金主, 用爱发电, 生态不够, 中文资料等于没有😔;</p>
 </li>
 </ul>
 <p>
@@ -936,10 +940,10 @@ iris&#91;iris.SepalLength .&gt; 4, :&#93;</code></pre>
 <p><div style="margin-left:4em; margin-right:4em" class="fragment  " data-fragment-index="2"> <div class="aadmon aadmon-hack"> &quot;Split-Apply-Combine&quot;策略</div> </div> 
 <table id="lov"><tr>
 <td id="lov" height=90% style="width:300px">
- <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/split_apply_combine_p.png" style="margin-top: 3em; margin-left: 2em; width: 200px" /> </div> 
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/223_split_apply_combine_p.png" style="margin-top: 5.5em; margin-left: 4em; width: 120px" /> </div> 
 </td>
 <td id="lov" width="1100px" height=90% align="left">
- <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/split_apply_combine.png" style="margin-top: 1emX; width: 1000px" /> </div> 
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/224_split_apply_combine.png" style="margin-top: 1emX; width: 1000px" /> </div> 
 </td>
 </tr></table>
  </section>
@@ -1002,7 +1006,7 @@ end
 <li><p>R官网: <a href="http://www.r-project.org/" target="_blank" rel="noopener noreferrer"> http://www.r-project.org/</a></p>
 </li>
 </ul>
-<p><img src="/courses/SDAUBIM2023/data/Rinventor.png" style="margin: 0 auto; height: 300px" /> 
+<p><img src="/assets/course/SDAUBBDAA/231_Rinventor.png" style="margin: 0 auto; height: 300px" /> 
 </fieldset>
  
 </td>
@@ -1022,7 +1026,7 @@ end
 <li><p>动态类型语言, 解释执行, 运行速度较慢;</p>
 </li>
 </ul>
-<p><img src="/courses/SDAUBIM2023/data/poplang2016.jpg" style="margin: 0 auto;height: 300px" /> 
+<p><img src="/assets/course/SDAUBBDAA/232_poplang2016.jpg" style="margin: 0 auto;height: 300px" /> 
 </fieldset>
  </div> 
 </td>
@@ -1031,33 +1035,6 @@ end
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>一己之力，引领全球信息时代–-贝尔实验室</h1>
 <p><iframe src="https://www.bilibili.com/video/BV1ii4y1P7ss/?share_source=copy_web&vd_source=0af2dc86cc12d4e049c581bcf13ab671" loading="lazy" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=1200px height=700px> </iframe> </section>
-<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
-<h1>R语言学习参考资料</h1>
-<p><br> 
-<table id="lov"><tr>
-<td id="lov" height=90% style="width:50%">
-</p>
-<ul>
-<li><p>Hadley Wickham and Garrett Grolemund&#40;2022&#41;. <a href="https://r4ds.hadley.nz/">R for Data Science</a>，2nd ed. 讲基本的数据整理、汇总。</p>
-</li>
-<li><p>Hadley Wickham&#40;2019&#41;. <a href="https://adv-r.hadley.nz/">Advanced R</a>, 2nd ed., Chapman &amp; Hall/CRC The R Series. 高级R编程，属于对R高级编程技术的讲解。</p>
-</li>
-<li><p>Hadley Wickham&#40;2016&#41;. <a href="https://ggplot2-book.org/">ggplot2 Elegant Graphics for Data Analysis</a>, 2nd ed., Springer. 优雅易用的R作图功能。</p>
-</li>
-<li><p>Susan Holmes, Wolfgang Huber&#40;2020&#41;. <a href="https://www.huber.embl.de/msmb/index.html">Modern Statistics for Modern Biology</a>, R的统计功能在生物学中的应用。</p>
-</li>
-<li><p><span class="sadmon sadmon-tip">李东风 &#40;2023&#41;. <a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html">R语言教程</a>, 北京大学. 全面、专业且实时的R语言教程</span></p>
-</li>
-<li><p><span class="sadmon sadmon-warn">王敏杰 &#40;2023&#41;. <a href="https://bookdown.org/wangminjie/R4DS/">数据科学中的R语言</a>, 四川师范大学. 教程形象生动, 适合快速入门</span></p>
-</li>
-</ul>
-<p>
-</td>
-<td id="lov" width="50%" height=90% align="left">
- <br><br> <img src="/courses/SDAUBIM2023/data/hadley-wickham.jpg" style="margin: 0 auto;width: 650px" /> 
-</td>
-</tr></table>
- </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>R语言基本语法速递</h1>
 <p><br> <div style="font-size: 40px; margin-left:4em; margin-right: 4em"></p>
@@ -1158,6 +1135,33 @@ chisq.test
 kmeans
 hclust, dist</code></pre>
 <p></div> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言学习参考资料</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+</p>
+<ul>
+<li><p>Hadley Wickham and Garrett Grolemund&#40;2022&#41;. <a href="https://r4ds.hadley.nz/">R for Data Science</a>，2nd ed. 讲基本的数据整理、汇总。</p>
+</li>
+<li><p>Hadley Wickham&#40;2019&#41;. <a href="https://adv-r.hadley.nz/">Advanced R</a>, 2nd ed., Chapman &amp; Hall/CRC The R Series. 高级R编程，属于对R高级编程技术的讲解。</p>
+</li>
+<li><p>Hadley Wickham&#40;2016&#41;. <a href="https://ggplot2-book.org/">ggplot2 Elegant Graphics for Data Analysis</a>, 2nd ed., Springer. 优雅易用的R作图功能。</p>
+</li>
+<li><p>Susan Holmes, Wolfgang Huber&#40;2020&#41;. <a href="https://www.huber.embl.de/msmb/index.html">Modern Statistics for Modern Biology</a>, R的统计功能在生物学中的应用。</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">李东风 &#40;2023&#41;. <a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html">R语言教程</a>, 北京大学. 全面、专业且实时的R语言教程</span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn">王敏杰 &#40;2023&#41;. <a href="https://bookdown.org/wangminjie/R4DS/">数据科学中的R语言</a>, 四川师范大学. 教程形象生动, 适合快速入门</span></p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> <img src="/assets/course/SDAUBBDAA/233_hadley-wickham.jpg" style="margin: 0 auto;width: 650px" /> 
+</td>
+</tr></table>
+ </section>
 
 </div>
 

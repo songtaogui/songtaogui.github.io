@@ -122,12 +122,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\private\swj-lm\index.html</loc>
-    <lastmod>2023-08-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\index.html</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -267,7 +261,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBBDAA2024\020_Linux_and_more\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -339,7 +333,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBBDAA2024\040_Visualization\index.html</loc>
-    <lastmod>2024-10-22</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -430,6 +424,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\private\TODO\index.html</loc>
     <lastmod>2023-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/notebooks\private\Wlab_Bioinfo\index.html</loc>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -621,7 +621,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBBDAA2024\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -651,7 +651,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBBDAA2024\030_Stats_base\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -1143,31 +1143,25 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\Lecture04\index\</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\Lecture03\index\</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\Lecture01\index\</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\Lecture02\index\</loc>
-    <lastmod>2022-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\misc\MZST\Lecture01\Preprint\index\</loc>
-    <lastmod>2022-08-07</lastmod>
+    <lastmod>2024-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
