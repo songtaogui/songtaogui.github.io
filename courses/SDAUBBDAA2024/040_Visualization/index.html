@@ -56,12 +56,163 @@
 
 <div class="slides">
 
-<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"></p>
-<ol start="4">
-<li><p>数据可视化介绍和应用</p>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 4 . 基于R的数据可视化介绍和应用 </span> <hr> <br> <img src="https://www.r-project.org/Rlogo.png" style="margin: 0 auto;" height=100px /></p>
+<ul>
+<li><p>4.1 R语言基础</p>
 </li>
-</ol>
-<p></span> <hr> <br> <img src="https://www.r-project.org/Rlogo.png" style="margin: 0 auto;" height=100px /> </section>
+<li><p>4.2 基于ggplot2的数据可视化</p>
+</li>
+</ul>
+<p></section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 4.1 R语言基础 </span> <hr> <br> <img src="https://www.r-project.org/Rlogo.png" style="margin: 0 auto;" height=100px /> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R的历史和特点</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> S语言 => R语言</legend>
+</p>
+<ul>
+<li><p>1976年, S语言诞生于贝尔实验室 &#40;与C语言, Unix系统同宗&#41;;</p>
+</li>
+<li><p>与Unix命运类似, S语言的商业版S-PLUS不方便进行教学;</p>
+</li>
+<li><p>1997年, Robert Gentleman和Ross Ihaka等开发了R语言用于教学;</p>
+</li>
+<li><p>R官网: <a href="http://www.r-project.org/" target="_blank" rel="noopener noreferrer"> http://www.r-project.org/</a></p>
+</li>
+</ul>
+<p><img src="/assets/course/SDAUBBDAA/231_Rinventor.png" style="margin: 0 auto; height: 300px" /> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> R的特点</legend>
+</p>
+<ul>
+<li><p>强交互, 支持复杂算法描述, 图形功能强;</p>
+</li>
+<li><p>集成现代统计方法的实现;</p>
+</li>
+<li><p>统计和科研工作者经常用R开发新算法 &#61;&gt; <span class="cadmon sadmon-note">滚雪球了属于是</span>;</p>
+</li>
+<li><p>函数式编程, 支持对象类和类方法;</p>
+</li>
+<li><p>动态类型语言, 解释执行, 运行速度较慢;</p>
+</li>
+</ul>
+<p><img src="/assets/course/SDAUBBDAA/232_poplang2016.jpg" style="margin: 0 auto;height: 300px" /> 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>一己之力，引领全球信息时代–-贝尔实验室</h1>
+<p><iframe src="https://www.bilibili.com/video/BV1ii4y1P7ss/?share_source=copy_web&vd_source=0af2dc86cc12d4e049c581bcf13ab671" loading="lazy" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=1200px height=700px> </iframe> </section>
+<section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>R语言基本语法速递</h1>
+<p><br> <div style="font-size: 40px; margin-left:4em; margin-right: 4em"></p>
+<pre><code class="language-julia"># 安装: https://cloud.r-project.org/
+
+# 对象 object
+x &lt;- 1
+name &lt;- &quot;小明&quot;
+y &#61; 2
+
+# 运算符
+&#43;, -, *, /, ^
+
+# 常用函数
+sqrt, exp, log, log10, log2
+round, floor, ceiling
+
+# 自定义函数
+my_add &lt;- function&#40;x,y&#41;&#123;x&#43;y&#125;
+
+# 读写 I/O:
+# I: read.table, read.csv, read.delim
+# O: print, cat, write
+
+# 数据类型: 逻辑型, 字符串, 数字 ...
+TRUE, FALS, T, F
+&quot;abc&quot;, &quot;123&quot;, &quot;@&#33;@#&#36;#&#36;&#37;#&#36;^#&#36;&#37;&amp;&#36;&#37;^&amp;&quot;
+123, 1e-5, 3.1415926
+
+# 数据结构: 向量, 矩阵, 列表, 数据框 ...
+# 向量
+v1 &lt;- 1:10
+v1 &#43; 100  # 四则运算自动广播
+v1 * 2
+
+v2 &lt;- 21:30
+v2 - v1   # 等长向量可进行四则运算
+
+# 向量的下标和子集
+v1&#91;2&#93;
+v1&#91;c&#40;1,3&#41;&#93;
+v1&#91;3:5&#93;
+v1&#91;c&#40;-1,-10&#41;&#93;
+v1&#91;v1&gt;5&#93; # 逻辑下标
+
+# 矩阵: 二维向量
+
+# 列表: 火车
+
+# 数据框 dataframe
+d &lt;- data.frame&#40;
+    name&#61;c&#40;&quot;李明&quot;, &quot;张聪&quot;, &quot;王建&quot;&#41;, 
+    age&#61;c&#40;30, 35, 28&#41;, 
+    height&#61;c&#40;180, 162, 175&#41;,
+    stringsAsFactors&#61;FALSE
+&#41;
+##   name age height
+## 1 李明  30    180
+## 2 张聪  35    162
+## 3 王建  28    175
+
+# 流程控制
+## 判断
+if&#40;CONDITION1&#41;&#123;
+    EXPR1
+&#125;else if&#40;CONDITION2&#41;&#123;
+    EXPR2
+&#125;else&#123;
+    EXPR3
+&#125;
+
+ifelse&#40;CONDITION, EXPR-TRUE, EXPR-FALSE&#41; # ? : 
+
+## 循环
+for&#40;i in 1:5&#41;&#123;
+    # do sth...
+&#125;
+
+while&#40;CONDITION&#41;&#123;
+    # do sth...
+&#125;
+
+repeat&#123;
+    # do sth...
+    if&#40;CONDITION&#41;&#123;break&#125;
+&#125;
+
+# 基本统计函数
+min, max, median, sd, quantile
+
+# 基本统计检验
+t.test
+wilcox.test
+cor.test
+chisq.test
+
+# 聚类分析
+kmeans
+hclust, dist</code></pre>
+<p></div> </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 4.2 基于ggplot2的数据可视化 </span> <hr> <br> <img src="https://www.r-project.org/Rlogo.png" style="margin: 0 auto;" height=100px /> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>R语言绘图</h1>
 <p><br> <div > <span class="sadmon sadmon-note">科学需要可视化</span><br><br> </div> <img src="https://bookdown.org/wangminjie/R4DS/images/HotlineDrake1.jpg" style="margin-left: 7em" /> </section>
@@ -281,10 +432,10 @@
 <p><br><br> 
 <table id="lov"><tr>
 <td id="lov" height=90% style="width:50%">
- <img src="/courses/SDAUBIM2023/data/panz-vis1.png" style="margin: 0 auto;" /> <br> <div class="aadmon aadmon-hack"> <span style="font-size:20px"> Gui, S., Wei, W., et al. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02742-7" target="_blank" rel="noopener noreferrer"> A pan-Zea genome map for enhancing maize improvement</a>. Genome Biol 23, 178 &#40;2022&#41;. </span></div> 
+ <img src="/assets/course/SDAUBBDAA/400_panz-vis1.png" style="margin: 0 auto;" /> <br> <div class="aadmon aadmon-hack"> <span style="font-size:20px"> Gui, S., Wei, W., et al. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02742-7" target="_blank" rel="noopener noreferrer"> A pan-Zea genome map for enhancing maize improvement</a>. Genome Biol 23, 178 &#40;2022&#41;. </span></div> 
 </td>
 <td id="lov" width="50%" height=90% align="left">
- <img src="/courses/SDAUBIM2023/data/panz-vis2.png" style="margin: 0 auto;height: 550px" /> 
+ <img src="/assets/course/SDAUBBDAA/401_panz-vis2.png" style="margin: 0 auto;height: 550px" /> 
 </td>
 </tr></table>
  </section>
@@ -383,7 +534,7 @@ t | &lt;fct&gt;   &lt;fct&gt;     |          &lt;dbl&gt; |         &lt;dbl&gt; |
 <p><span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span> 
 <table id="lov"><tr>
 <td id="lov" height=90% style="width:50%">
- <img src="/courses/SDAUBIM2023/data/penguins-wrong.png" style="margin: 0 auto; height: 550px" /> 
+ <img src="/assets/course/SDAUBBDAA/403_penguins-wrong.png" style="margin: 0 auto; height: 550px" /> 
 </td>
 <td id="lov" width="50%" height=90% align="left">
  <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br> <div class="aadmon aadmon-warn"> 学生A: &quot;破案了&#33; 喙厚度和喙长度成反比, 说明嘴短的企鹅, 嘴更厚, 与原假设相反&#33; 毕业&#33; 能毕业了~&#33;&quot;</div> <br> <div class="aadmon aadmon-todo"> 学生B: &quot;发表&#33; 必须马上发表&#33; 我昨天帮你带饭了, 给我个共一不过份吧?&quot;</div> <br><br> </div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> 老师: &quot;你俩再延一年吧🙂&quot;</div> </div> 
@@ -392,7 +543,7 @@ t | &lt;fct&gt;   &lt;fct&gt;     |          &lt;dbl&gt; |         &lt;dbl&gt; |
  </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>ggplot2作图实践</h1>
-<p><span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span> <img src="/courses/SDAUBIM2023/data/penguins.png" style="margin: 0 auto; height: 550px" /> </section>
+<p><span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span> <img src="/assets/course/SDAUBBDAA/404_penguins.png" style="margin: 0 auto; height: 550px" /> </section>
 <section style="font-size: 25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>ggplot2作图实践</h1>
 <span style="font-size:25px"> <div class="aadmon aadmon-note"> <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank" rel="noopener noreferrer"> 帕尔默企鹅数据集</a>: 嘴巴越长的企鹅，嘴巴也会越厚么？</div> </span>
@@ -442,12 +593,12 @@ ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
 4.  \refblank{Friends Don't Let Friends Make Bar Plot Meadow}{https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
 - \refblank{Color Hunt}{https://colorhunt.co/}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/405_colorhunt.png}{style="margin: 0 auto;width: 440px"}
 }
 
 - \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/406_colorspace.png}{style="margin: 0 auto;width: 440px"}
 }
 }-friends-dont-let-friends-make-bar-plot-meadow}
 5.  \refblank{Friends Don't Let Friends Make Heatmap without Reordering Rows & Columns}{https://github.com/cxli233/FriendsDontLetFriends#5-friends-dont-let-friends-make-heatmap-without-considering-reordering-rows--columns}
@@ -462,12 +613,12 @@ ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
 4.  \refblank{Friends Don't Let Friends Make Bar Plot Meadow}{https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
 - \refblank{Color Hunt}{https://colorhunt.co/}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/405_colorhunt.png}{style="margin: 0 auto;width: 440px"}
 }
 
 - \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/406_colorspace.png}{style="margin: 0 auto;width: 440px"}
 }
 }-friends-dont-let-friends-make-bar-plot-meadow}
 5.  \refblank{Friends Don't Let Friends Make Heatmap without Reordering Rows & Columns}{https://github.com/cxli233/FriendsDontLetFriends#5-friends-dont-let-friends-make-heatmap-without-considering-reordering-rows--columns}
@@ -484,12 +635,12 @@ ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
 <li><p><a href="https://github.com/cxli233/FriendsDontLetFriends \hwarn{配色方案网站推荐}{
 - \refblank{Color Hunt}{https://colorhunt.co/}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorhunt.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/405_colorhunt.png}{style="margin: 0 auto;width: 440px"}
 }
 
 - \refblank{Color Space}{https://mycolor.space/?hex=%23845EC2&sub=1}
 \indent{2em}{
-\imgdiy{/courses/SDAUBIM2023/data/colorspace.png}{style="margin: 0 auto;width: 440px"}
+\imgdiy{/assets/course/SDAUBBDAA/406_colorspace.png}{style="margin: 0 auto;width: 440px"}
 }
 }-friends-dont-let-friends-make-bar-plot-meadow" target="_blank" rel="noopener noreferrer"> Friends Don't Let Friends Make Bar Plot Meadow</a></p>
 </li>
@@ -522,12 +673,12 @@ ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
 <li><p><a href="https://colorhunt.co/" target="_blank" rel="noopener noreferrer"> Color Hunt</a></p>
 </li>
 </ul>
-<div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIM2023/data/colorhunt.png" style="margin: 0 auto;width: 440px" /> </div>
+<div class="indent-block" style="margin-left: 2em !important"> <img src="/assets/course/SDAUBBDAA/405_colorhunt.png" style="margin: 0 auto;width: 440px" /> </div>
 <ul>
 <li><p><a href="https://mycolor.space/?hex=%23845EC2&sub=1" target="_blank" rel="noopener noreferrer"> Color Space</a></p>
 </li>
 </ul>
-<p><div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIM2023/data/colorspace.png" style="margin: 0 auto;width: 440px" /> </div> 
+<p><div class="indent-block" style="margin-left: 2em !important"> <img src="/assets/course/SDAUBBDAA/406_colorspace.png" style="margin: 0 auto;width: 440px" /> </div> 
 </fieldset>
  
 </td>
@@ -566,7 +717,7 @@ ggplot&#40;penguins, # 选择x轴,y轴数据映射, 以及颜色映射
         height: 700,
         margin: 0.04,
         center: false,
-        // controls: true,
+        controls: false,
         // controlsTutorial: true,
         disableLayout: false,
         slideNumber: 'c/t',

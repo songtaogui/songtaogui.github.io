@@ -188,7 +188,7 @@
 <p>
 </td>
 <td id="lov" width="40%" height=90% align="left">
-  Linux系统结构: <img src="/assets/slides/SDAUBIM/Linux_sys.jpg" style="margin: 0 auto;" /> 
+  Linux系统结构: <img src="/assets/course/SDAUBBDAA/202_linux_sys.jpg" style="margin: 0 auto;" /> 
 </td>
 </tr></table>
  </section>
@@ -536,7 +536,7 @@ free</code></pre>
 <td id="lov" width="50%" height=90% align="left">
  <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 作业管理ps/kill</legend>
- <span class="Sadmon Sadmon-info">ps &#43; kill</span>: <a href="https://blog.csdn.net/u010142437/article/details/52122789" target="_blank" rel="noopener noreferrer"> linux中ps配合kill结束进程的N种方法</a> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_1.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_2.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_3.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/job_ctrl_4.png" style="margin: 0 auto;" /> </div> 
+ <span class="Sadmon Sadmon-info">ps &#43; kill</span>: <a href="https://blog.csdn.net/u010142437/article/details/52122789" target="_blank" rel="noopener noreferrer"> linux中ps配合kill结束进程的N种方法</a> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/211_job_ctrl_1.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/212_job_ctrl_2.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/213_job_ctrl_3.png" style="margin: 0 auto;" /> </div> <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/214_job_ctrl_4.png" style="margin: 0 auto;" /> </div> 
 </fieldset>
  </div> <br> <div class="fragment" data-fragment-index="8" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 作业提交到后台</legend>
@@ -560,32 +560,36 @@ free</code></pre>
 <td id="lov" height=90% style="width:600px">
  <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用rm命令的`-f`指令</legend>
- <br></p>
+ <br> <div style="font-size:30px"></p>
 <pre><code class="language-sh"># boom&#33;
 rm -rf /
 
 # 你意识不到的错误
 export dirtoremove&#61;&quot;/path/to/my/unused/dir&quot;
-rm -rf /path/to/some/parent/&#36;Dirtoremove # will remove all parent things&#33;</code></pre>
-<p><br> 
+rm -rf /path/to/some/parent/&#36;Dirtoremove 
+# will remove all parent things&#33;</code></pre>
+<p></div> <br> 
 </fieldset>
  </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用mv命令</legend>
-</p>
+ <div style="font-size:30px"></p>
 <pre><code class="language-sh">mv fileA fileB</code></pre>
-<p><br> <p class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/danger-mv.png" style="margin: 0 auto;" /> </p> 
+<p></div> <br> <p class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/215_danger-mv.png" style="margin: 0 auto;" /> </p> 
 </fieldset>
  </div> 
 </td>
 <td id="lov" width="500px" height=90% align="left">
  <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 
 <fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> 慎用tar命令</legend>
- <br></p>
-<pre><code class="language-sh">tar zcvf 新产生的文件.tgz 要压缩的文件 #压缩
-tar zxvf 待解压的文件.tgz /指定/目录/子文件.txt #解压指定文件</code></pre>
-<p><br> <p class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/courses/SDAUBIM2023/data/danger-tar.png" style="margin: 0 auto;" /> </p> 
+ <br> <div style="font-size:30px"></p>
+<pre><code class="language-sh">#压缩
+tar zcvf 新产生的文件.tgz 要压缩的文件
+#解压指定文件
+tar zxvf 待解压的文件.tgz /指定/目录/子文件.txt</code></pre>
+<p></div> <br> <p class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <img src="/assets/course/SDAUBBDAA/216_danger-tar.png" style="margin: 0 auto;" /> </p> 
 </fieldset>
- </div> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br> 
+</p>
+<p><div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <br> 
 <fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 一些安全配置</legend>
  
 <table id="lov"><tr>
@@ -603,7 +607,7 @@ alias rm&#61;&#39;rm -i&#39;</code></pre>
 </tr></table>
  
 </fieldset>
- </div> 
+ </div> </div> 
 </td>
 </tr></table>
  </section>
@@ -640,7 +644,7 @@ alias rm&#61;&#39;rm -i&#39;</code></pre>
         height: 700,
         margin: 0.04,
         center: false,
-        // controls: true,
+        controls: false,
         // controlsTutorial: true,
         disableLayout: false,
         slideNumber: 'c/t',
