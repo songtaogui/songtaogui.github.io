@@ -611,6 +611,88 @@ alias rm&#61;&#39;rm -i&#39;</code></pre>
 </td>
 </tr></table>
  </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux使用习惯: 1. 错误退出检查</h1>
+<p><br> <span class="sadmon sadmon-warn">exit status</span> -&gt; <code>&#36;?</code> and <span class="sadmon sadmon-error">set -o pipefail</span> <br><br> <div style="font-size:40px"></p>
+<pre><code class="language-sh"># allergic to seven counter 
+function algc7&#40;&#41;&#123;
+    # I eat numbers in pipe, I died if I see seven
+    while read num;do
+        &#91;&#91; &quot;&#36;num&quot; &#61;&#61; *&quot;7&quot;* &#93;&#93; &amp;&amp; exit 1
+        echo &#36;num
+    done
+&#125;</code></pre>
+<p></div> <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div style="font-size:40px"></p>
+<pre><code class="language-sh">seq 10 | wc -l; echo &#36;?           # expect 10 and normal exit, get 10 and exit0
+seq 10 | algc7 | wc -l; echo &#36;?   # expect  6 and error exit,  get 6  and exit0, quack&#33;</code></pre>
+<p></div> </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div style="font-size:40px"></p>
+<pre><code class="language-sh">set -o pipefail
+seq 10 | algc7 | wc -l; echo &#36;?   # expect  6 and error exit,  get 6  and exit1, good doctor&#33;</code></pre>
+<p></div> </div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux使用习惯: 1. 错误退出检查</h1>
+<br>
+<ul>
+<li><p><span class="sadmon sadmon-warn">set -o nounset</span> and <span class="sadmon sadmon-warn">set -o errexit</span></p>
+</li>
+</ul>
+<br>
+<ul>
+<li><p>或者显式地进行错误退出检查:</p>
+</li>
+</ul>
+<p><div style="font-size:40px"></p>
+<pre><code class="language-sh"># blah blah blah
+# some woring code before
+if &#91; &#36;? ne 0 &#93;;then
+    echo &quot;&#91;ERROR&#93;: Some error msg&quot; &gt;&amp;2
+    exit 1
+fi</code></pre>
+<p></div> <br></p>
+<ul>
+<li><p>检查输出结果合法性</p>
+</li>
+</ul>
+<p><div style="font-size:40px"></p>
+<pre><code class="language-sh"># 文件是否有输出
+if &#91; -s file &#93;; then ... fi
+
+# 变量是否为空
+if &#91; -z var &#93;; then ... fi
+if &#91; &#33; -n var &#93;; then ... fi</code></pre>
+<p></div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux使用习惯: 2. 目录结构规范</h1>
+<p><img src="/assets/course/SDAUBBDAA/113_better_path.png" style="margin: 0 auto;" height=650px /><br> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux使用习惯: 3. 及时备份、清理文件</h1>
+<br><br>
+<ul>
+<li><p>绝大多数生信数据格式都是可压缩的, 尽量存储为压缩格式:</p>
+<ul>
+<li><p>sam –&gt; <span class="cadmon sadmon-tip">bam/cram &amp; index</span></p>
+</li>
+<li><p>fasta/fastq –&gt; <span class="cadmon sadmon-tip">bgzip &amp; tabix</span></p>
+</li>
+<li><p>bed/gff/gtf/vcf –&gt; <span class="cadmon sadmon-tip">bgzip &amp; tabix</span></p>
+</li>
+<li><p>txt –&gt; gzip </p>
+</li>
+</ul>
+</li>
+</ul>
+<br><br>
+<ul>
+<li><p>中间文件在流程中就要处理掉</p>
+</li>
+</ul>
+<br><br>
+<ul>
+<li><p>定时备份数据</p>
+</li>
+</ul>
+<p></section>
+<section data-background-color="#ffffff"> <hr> <br><br><br><br><br><br><br><br> <span style="font-size:60px; color:#4393C3"> Bye ~ </span> <br><br><br><br><br><br><br><br><br><br><br><br> <hr> </section>
 
 </div>
 
