@@ -53,24 +53,1250 @@
     <noscript><iframe src="*.htm"></iframe> </noscript>
     
     <div class="reveal"> <div class="franklin-content">
-<p>Fastq</p>
-<ol start="6">
-<li><p>数据质控</p>
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #D5AFE0"> 生物大数据分析 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 6 . 转录组测序和分析 </span> <hr> <br> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2024年11月</span> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>RNA和转录组</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="30%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div style="height:280px"> <strong>RNA的分类</strong> <span class="sadmon sadmon-note"><a href="https://zh.wikipedia.org/wiki/%E6%A0%B8%E7%B3%96%E6%A0%B8%E9%85%B8#%E5%88%86%E9%A1%9E" target="_blank" rel="noopener noreferrer"> 维基百科</a></span> <section > 
+<div style="text-align:left">
+</p>
+
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+
+<ul>
+<li><p>mRNA</p>
 </li>
-<li><p>序列比对</p>
+<li><p>tRNA</p>
 </li>
-<li><p>Read counts</p>
+<li><p>rRNA</p>
 </li>
-<li><p>标准化</p>
+<li><p>snRNA</p>
 </li>
-<li><p>差异分析</p>
+<li><p>snoRNA</p>
 </li>
-<li><p>后续其他分析</p>
+</ul>
+
+</td>
+<td id="lov" width="50%" height=90%>
+
+<ul>
+<li><p>miRNA</p>
 </li>
-<li><p>自学资料</p>
+<li><p>siRNA</p>
+</li>
+<li><p>lncRNA</p>
+</li>
+<li><p>circosRNA</p>
+</li>
+</ul>
+<p>...... 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </div> </div> <br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 转录组</legend>
+</p>
+<ul>
+<li><p>某个物种或特定细胞在某一生理功能状态下，细胞内所有转录的RNA产物的集合</p>
+</li>
+<li><p><span class="sadmon sadmon-note">时间限定</span>和<span class="sadmon sadmon-warn">空间限定</span></p>
+</li>
+<li><p>DNA &#61;&gt; <span class="sadmon sadmon-error">RNA</span> &#61;&gt; Protein</p>
+</li>
+<li><p>转录调控是目前研究最多的调控方式</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="70%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/600_RNA_types.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录组研究</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 为什么要研究转录组?</legend>
+</p>
+<ul>
+<li><p>转录调控</p>
+</li>
+<li><p>发育过程</p>
+</li>
+<li><p>疾病、胁迫、表型</p>
+</li>
+<li><p>新基因</p>
+</li>
+<li><p>......</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> 转录组研究方法</legend>
+</p>
+<ul>
+<li><p>cDNA</p>
+</li>
+<li><p>EST: Expressed Sequence Tag</p>
+</li>
+<li><p>SAGE: serial analysis of gene expression &#40;3&#39;&#41;</p>
+</li>
+<li><p>CAGE: cap analysis of gene expression &#40;5&#39;&#41;</p>
+</li>
+<li><p>MPSS: massively parallel signature sequencing</p>
+</li>
+<li><p><span class="cadmon sadmon-warn">RNA-Seq</span>: RNA sequencing</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> RNA-SEQ的优势</legend>
+</p>
+<ul>
+<li><p><span class="cadmon sadmon-note">灵敏</span>: Enlarge expression level changes in 10,000 times</p>
+</li>
+<li><p><span class="cadmon sadmon-note">高覆盖度</span>: Can cover unknown genes/transcripts</p>
+</li>
+<li><p><span class="cadmon sadmon-note">高准确度</span>: 单碱基水平解析</p>
+</li>
+<li><p><span class="cadmon sadmon-note">高通量</span>: NGS</p>
+</li>
+<li><p>用途广泛:</p>
+<ul>
+<li><p>定量RNA的表达</p>
+</li>
+<li><p>鉴定新的转录本</p>
+</li>
+<li><p>鉴定<a href="https://en.wikipedia.org/wiki/Fusion_gene" target="_blank" rel="noopener noreferrer"> 融合基因</a></p>
+</li>
+<li><p>鉴定可变剪切</p>
+</li>
+<li><p>鉴定RNA editing</p>
+</li>
+<li><p>... ...</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>RNA-SEQ的挑战</h1>
+<p><br> <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-error">序列比对的挑战</span>:可变剪切，短exon长intron; </li> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-todo">表达量变化大</span>: \(10^5\) ~ \(10^7\)级别的差别; 随机抽样–高表达的基因读段占优; </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-error">RNA长度变化大</span>: 短RNA要单独检测; PolyA富集方法造成的3&#39; end bias; </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-todo">RNA容易降解</span>: 提取、存储、测序、质控; </li> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-error">转录组变化迅速</span>: 取样、实验设计、质控、统计分析; </li> <br><br> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> RNA-Seq分析要解决的问题</legend>
+</p>
+<ul>
+<li><p>如何准确地将测序Reads比对到参考序列上? –&gt; <span class="sadmon sadmon-tip">alignment, alignment-free</span></p>
+</li>
+<li><p>如果没有参考序列，如何进行分析? –&gt; <span class="sadmon sadmon-tip"><em>de novo</em> assembly, nearby species</span></p>
+</li>
+<li><p>如何从比对结果准确获得转录丰度的评估? –&gt; <span class="sadmon sadmon-tip">normalization</span></p>
+</li>
+<li><p>如何进行组间数据的差异比较? –&gt; <span class="sadmon sadmon-tip">Differential Expression Analysis</span></p>
+</li>
+<li><p>......</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>RNA-SEQ分析内容和技术路线</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 有参考基因组的转录组分析路线</legend>
+</p>
+<ol>
+<li><p><span class="sadmon sadmon-note">原始数据统计和质控</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">序列比对到基因组</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">基因组注释整理和表达辆分析</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">基因表达差异分析</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">差异表达基因GO聚类分析</span></p>
+</li>
+<li><p>基因覆盖分析</p>
+</li>
+<li><p>遗传变异分析</p>
+</li>
+<li><p>可变剪切分析</p>
+</li>
+<li><p>基因结构分析、新基因发现</p>
+</li>
+<li><p>融合基因分析</p>
+</li>
+<li><p>RNA编辑分析</p>
 </li>
 </ol>
-<p>–&gt;</p>
+<p>...... 
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 无参考基因组的转录组分析路线</legend>
+</p>
+<ol>
+<li><p><span class="sadmon sadmon-note">原始数据统计和质控</span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn"><em>de novo</em> 转录本组装; genome-guide 转录本组装</span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn">contig和Unigene统计分析</span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn">unigene功能注释</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">基因组注释整理和表达辆分析</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">基因表达差异分析</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">差异表达基因GO聚类分析</span></p>
+</li>
+<li><p>基因覆盖分析</p>
+</li>
+<li><p>遗传变异分析</p>
+</li>
+<li><p>可变剪切分析</p>
+</li>
+<li><p>基因结构分析、新基因发现</p>
+</li>
+</ol>
+<p>...... 
+</fieldset>
+ </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>测序前的步骤</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="30%" height=90%>
+ <br> <div class="indent-block" style="margin-left: 5em !important"></p>
+<ul>
+<li><p>总RNA提取</p>
+</li>
+<li><p>RNA富集</p>
+</li>
+<li><p>RNA片段化</p>
+</li>
+<li><p>随机引物cDNA合成</p>
+</li>
+<li><p>测序接头</p>
+</li>
+</ul>
+<p></div> 
+</td>
+<td id="lov" width="70%" height=90%>
+ <img style="margin: 0 auto; height: 500px" src="/assets/course/SDAUBBDAA/601_rna_seq_lib_cons.png" /> <img style="margin: 0 auto;height: 150px" src="/assets/course/SDAUBBDAA/602_sequencing.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>测序公司代劳</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="30%" height=90%>
+ <br> <div class="indent-block" style="margin-left: 5em !important"></p>
+<ul>
+<li><p>Sequencing</p>
+</li>
+<li><p>Base calling</p>
+</li>
+</ul>
+<p><br><br><br><br><br><br><br> <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-note">Q Score</span> </li> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br> \( Q = -10 * log_{10}(P)\) <br><br> P: Base calling error probability </div> </div> 
+</td>
+<td id="lov" width="70%" height=90%>
+ <br> <img style="margin: 0 auto;height: 280px" src="/assets/course/SDAUBBDAA/504_cx1.jpg" /> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br> <img style="margin: 0 auto;height: 315px" src="/assets/course/SDAUBBDAA/603_q_score.png" /> <img style="margin: 0 auto;height: 315px" src="/assets/course/SDAUBBDAA/603_phred.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>测序公司代劳</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="30%" height=90%>
+ <br> <div class="indent-block" style="margin-left: 5em !important"></p>
+<ul>
+<li><p>Sequencing</p>
+</li>
+<li><p>Base calling</p>
+</li>
+<li><p>De-multiplexing</p>
+</li>
+</ul>
+<p></div> 
+</td>
+<td id="lov" width="70%" height=90%>
+ <img style="margin: 0 auto; height: 200px" src="/assets/course/SDAUBBDAA/604_barcode.png" /><br> <img style="margin: 0 auto;height: 480px" src="/assets/course/SDAUBBDAA/605_illumina-demultiplexing.jpg" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>测序数据质量控制: FastQC</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="70%" height=90%>
+ <div style="font-size: 20px"> 
+<table>
+<thead>
+<tr>
+<th style="text-align:left">统计指标</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Number of Reads</td>
+<td style="text-align:left">reads数目</td>
+</tr>
+<tr>
+<td style="text-align:left">Data Size</td>
+<td style="text-align:left">碱基数量</td>
+</tr>
+<tr>
+<td style="text-align:left">N of fq1</td>
+<td style="text-align:left">reads1中N碱基数目</td>
+</tr>
+<tr>
+<td style="text-align:left">N of fq2</td>
+<td style="text-align:left">reads2中N碱基数目</td>
+</tr>
+<tr>
+<td style="text-align:left">Low qual base of fq1(&lt;=15)</td>
+<td style="text-align:left">reads1中低质量的碱基数目</td>
+</tr>
+<tr>
+<td style="text-align:left">Low qual base of fq2(&lt;=15)</td>
+<td style="text-align:left">reads2中低质量的碱基数目</td>
+</tr>
+<tr>
+<td style="text-align:left">Q20 of fq1</td>
+<td style="text-align:left">reads1中质量值&gt;=20的碱基所占的比例</td>
+</tr>
+<tr>
+<td style="text-align:left">Q20 of fq2</td>
+<td style="text-align:left">reads2中质量值&gt;=20的碱基所占的比例</td>
+</tr>
+<tr>
+<td style="text-align:left">Q30 of fq1</td>
+<td style="text-align:left">reads1中质量值&gt;=30的碱基所占的比例</td>
+</tr>
+<tr>
+<td style="text-align:left">Q30 of fq2</td>
+<td style="text-align:left">reads2中质量值&gt;=30的碱基所占的比例</td>
+</tr>
+<tr>
+<td style="text-align:left">GC of fq1</td>
+<td style="text-align:left">reads1的GC含量</td>
+</tr>
+<tr>
+<td style="text-align:left">GC of fq2</td>
+<td style="text-align:left">reads2的GC含量</td>
+</tr>
+<tr>
+<td style="text-align:left">Error of fq1</td>
+<td style="text-align:left">reads1的错误率</td>
+</tr>
+<tr>
+<td style="text-align:left">Error of fq2</td>
+<td style="text-align:left">reads2的错误率</td>
+</tr>
+<tr>
+<td style="text-align:left">Discard Reads related to N and low qual</td>
+<td style="text-align:left">N碱基和低质量的reads所占比例</td>
+</tr>
+<tr>
+<td style="text-align:left">Discard Reads related to Adapter</td>
+<td style="text-align:left">带接头的reads比例</td>
+</tr>
+</tbody>
+</table>
+ </div> 
+</td>
+<td id="lov" width="30%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/606_fastqc.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 质量值统计</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/607_q_distr.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br><br></p>
+<ul>
+<li><p>Boxplot</p>
+</li>
+<li><p><strong>X</strong>: Base pair</p>
+</li>
+<li><p><strong>Y</strong>: Q score</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">GOOD</span>: 下四分卫数 &gt; 30</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: 下四分卫数 &lt; 10 <em>or</em> Median &lt; 25</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: 下四分卫数 &lt; 5 <em>or</em> Median &lt; 20</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 质量值统计 per sequence</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/608_q_pers.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br><br></p>
+<ul>
+<li><p>Density Plot</p>
+</li>
+<li><p><strong>X</strong>: Mean Q score per reads</p>
+</li>
+<li><p><strong>Y</strong>: Number of reads</p>
+</li>
+<li><p><span class="sadmon sadmon-tip">GOOD</span>: 90&#37; reads has Q &gt; 35</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: Peak &lt; 27 &#40;error rate &gt; 0.2&#37;&#41;</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: Peak &lt; 20 &#40;error rate &gt; 1&#37;&#41;</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 序列组成统计 per sequence</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/609_seq_content.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br><br></p>
+<ul>
+<li><p>Line Plot</p>
+</li>
+<li><p><strong>X</strong>: Base pair</p>
+</li>
+<li><p><strong>Y</strong>: Percentage</p>
+</li>
+<li><p>随机文库中，<span class="cadmon sadmon-warn">理论上</span>四种碱基出现概率相当</p>
+</li>
+<li><p><span class="cadmon sadmon-info">平行但分开的线</span>: 文库bias或测序系统误差</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: 任一位置的A/T vs G/C相差 &gt; 10&#37;</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: 任一位置的A/T vs G/C相差 &gt; 20&#37;</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: GC含量分布 per sequence</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/610_gc.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br></p>
+<ul>
+<li><p>Line Plot</p>
+</li>
+<li><p><strong>X</strong>: Mean GC Content &#40;&#37;&#41;</p>
+</li>
+<li><p><strong>Y</strong>: Reads count</p>
+</li>
+<li><p>cnote&#123;蓝线&#125;: 理论分布&#40;正态分布&#41;</p>
+</li>
+<li><p>cerror&#123;红线&#125;: 实际分布</p>
+</li>
+<li><p>形状偏离正态分布: 文库污染、reads代表性有偏...</p>
+</li>
+<li><p>形状接近正态，但偏离理论分布: 系统误差</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: 偏离理论分布的reads &gt; 15&#37;</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: 偏离理论分布的reads &gt; 30&#37;</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: N碱基分布 per sequence</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/611_n_content.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br></p>
+<ul>
+<li><p>Line Plot</p>
+</li>
+<li><p><strong>X</strong>: BP</p>
+</li>
+<li><p><strong>Y</strong>: Percentage of N</p>
+</li>
+<li><p>正常情况下N的比例很小: <span class="cadmon sadmon-error">紧贴X轴的水平线</span></p>
+</li>
+<li><p><span class="cadmon sadmon-error">&quot;鼓包&quot;</span>: 测序系统问题</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: 当任意位置的N的比例超过5&#37;</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: 当任意位置的N的比例超过20&#37;</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 重复序列比例</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/612_dup.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br></p>
+<ul>
+<li><p>Line Plot</p>
+</li>
+<li><p><strong>X</strong>: Sequence Duplication Level</p>
+</li>
+<li><p><strong>Y</strong>: Reads percentage</p>
+</li>
+<li><p>建库过程会产生重复, 测序本身也会产生重复;</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: 当非unique的reads占总数的比例大于20&#37;时，报&quot;WARN&quot;；</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: 当非unique的reads占总数的比例大于50&#37;时，报&quot;FAIL“。</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 完全一样的reads频率</h1>
+<p><br><br> <img style="margin: 0 auto;height: 300px" src="/assets/course/SDAUBBDAA/613_overrep.png" /></p>
+<br>
+<ul>
+<li><p>输出在总reads中出现次数超过0.1&#37;的reads;</p>
+</li>
+<li><p>大量高比例的reads可能表示测序污染;</p>
+</li>
+</ul>
+<p></section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>FastQC: 接头序列含量</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;height: 600px" src="/assets/course/SDAUBBDAA/614_adapter.png" /> 
+</td>
+<td id="lov" width="40%" height=90%>
+ <br><br><br></p>
+<ul>
+<li><p>Adapter序列在reads中出现的概率</p>
+</li>
+<li><p>WGS测序中不太会测到接头&#40;片段长&#41;</p>
+</li>
+<li><p>RNA-Seq中有短序列，有可能测到接头</p>
+</li>
+<li><p><span class="cadmon sadmon-error">&quot;鼓包&quot;</span>: 测序系统问题</p>
+</li>
+<li><p><span class="sadmon sadmon-todo">WARN</span>: &gt; 5&#37;</p>
+</li>
+<li><p><span class="sadmon sadmon-error">FAIL</span>: &gt; 10&#37;</p>
+</li>
+</ul>
+
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据清洗: Trimming</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="40%" height=90%>
+ <br><br><br></p>
+<ul>
+<li><p>去除Adapter序列</p>
+</li>
+<li><p>去除序列两端低质量碱基</p>
+</li>
+<li><p>删除低质量的reads</p>
+</li>
+<li><p>删除长度过短的reads</p>
+</li>
+</ul>
+<br><br>
+<ul>
+<li><p><a href="http://www.usadellab.org/cms/index.php?page=trimmomatic" target="_blank" rel="noopener noreferrer"> trimmomatic</a></p>
+</li>
+<li><p><a href="https://cutadapt.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer"> cutadapt</a></p>
+</li>
+<li><p><a href="https://github.com/OpenGene/fastp" target="_blank" rel="noopener noreferrer"> fastp</a></p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="60%" height=90%>
+ <img style="margin: 0 auto;width:600px"; src="/assets/course/SDAUBBDAA/615_trim_adapter.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>序列比对: WGS Mapping</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="20%" height=90%>
+ <br><br></p>
+<ul>
+<li><p>序列联配</p>
+</li>
+<li><p>计分矩阵</p>
+</li>
+<li><p>Gap罚分</p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>序列索引&#40;FM-index&#41;</p>
+</li>
+<li><p>...</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="80%" height=90%>
+ <br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="40%" height=90%>
+ <div class="aadmon aadmon-note"> WGS mapping</div> <br> <img style="margin: 0 auto;width:450px"; src="/assets/course/SDAUBBDAA/616_mapping.png" /> 
+</td>
+<td id="lov" width="60%" height=90%>
+ <div class="aadmon aadmon-warn"> SAM/BAM Format</div> <img style="margin: 0 auto;width:550px"; src="/assets/course/SDAUBBDAA/618_bam.webp" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>序列比对: RNA-Seq Mapping</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="30%" height=90%>
+ <br><br><br> 常用的RNA-Seq比对软件:</p>
+<ul>
+<li><p><span class="sadmon sadmon-note"><a href="https://bowtie-bio.sourceforge.net/index.shtml" target="_blank" rel="noopener noreferrer"> Bowtie</a>/<a href="https://ccb.jhu.edu/software/tophat/index.shtml" target="_blank" rel="noopener noreferrer"> Tophat</a></span></p>
+</li>
+<li><p><span class="sadmon sadmon-note"><a href="https://github.com/lh3/bwa" target="_blank" rel="noopener noreferrer"> BWA</a></span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn"><a href="https://github.com/alexdobin/STAR" target="_blank" rel="noopener noreferrer"> STAR</a></span></p>
+</li>
+<li><p><span class="sadmon sadmon-warn"><a href="https://daehwankimlab.github.io/hisat2/" target="_blank" rel="noopener noreferrer"> HISAT2</a></span></p>
+</li>
+<li><p><span class="sadmon sadmon-note"><a href="https://github.com/lh3/minimap2" target="_blank" rel="noopener noreferrer"> minimap2</a></span></p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="70%" height=90%>
+ <div class="aadmon aadmon-todo"> RNA-Seq序列比对与DNA比对的区别</div> <img style="margin: 0 auto;width:600px;height:500px"; src="/assets/course/SDAUBBDAA/617_RNA_mapping.jpg" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Alignment Free quantification</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+
+<ul>
+<li><p>Kmer based</p>
+</li>
+<li><p>Ultra Fast</p>
+</li>
+</ul>
+<br>
+<ul>
+<li><p><a href="https://github.com/pachterlab/kallisto" target="_blank" rel="noopener noreferrer"> kallisto</a></p>
+</li>
+<li><p><a href="https://github.com/COMBINE-lab/salmon" target="_blank" rel="noopener noreferrer"> Salmon</a></p>
+</li>
+</ul>
+<p>
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Trade-off</legend>
+</p>
+<ul>
+<li><p>对mRNA等长序列，与比对方法结果相当</p>
+</li>
+<li><p>对短序列&#40;miRNA等&#41;, 效果较差</p>
+</li>
+</ul>
+<p><div class="aadmon aadmon-hack"> Wu, D., Yao, J., Ho, K. et al. Limitations of alignment-free tools in total RNA-seq quantification. BMC Genomics 19, 510 &#40;2018&#41;.</div> 
+</fieldset>
+ 
+</td>
+<td id="lov" width="50%" height=90%>
+ <img style="margin: 0 auto;width:600px;height:500px"; src="/assets/course/SDAUBBDAA/619_alnfree.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>无参转录本分析: 转录本组装</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="aadmon aadmon-note"> Genome-Guide assembly</div> <img style="margin: 0 auto;width:550px;"; src="/assets/course/SDAUBBDAA/621_gg_asm.webp" /> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="aadmon aadmon-warn"> De novo assembly</div> <img style="margin: 0 auto;height:600px;"; src="/assets/course/SDAUBBDAA/622_dnv_asm.webp" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+ <div class="aadmon aadmon-hack"> Martin, J., Wang, Z. Next-generation transcriptome assembly. Nat Rev Genet 12, 671–682 &#40;2011&#41;.</div> 
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 计数</h1>
+<p><br> <img style="margin: 0 auto;height:700px"; src="/assets/course/SDAUBBDAA/620_quan.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 标准化</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <span class="Sadmon Sadmon-note">RNA-Seq Reads Count的标准化</span> <br><br> <figure><img src="/assets/course/SDAUBBDAA/305_rna-norm.png" features append to img tag: "align:right" /></figure> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-warn">A:</span> 比对到<span class="cadmon sadmon-warn">基因A</span>的reads数</p>
+</li>
+<li><p><span class="sadmon sadmon-warn">G:</span> 比对到<span class="cadmon sadmon-warn">全基因组</span>的reads数</p>
+</li>
+<li><p><span class="sadmon sadmon-warn">\(L_A\):</span> 基因A的长度</p>
+</li>
+</ul>
+<p></div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> \( CPM = \frac{A * 1E6}{G} \)</div><br> </div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-info"> \( RPKM/FPKM = \frac{A * 1E6}{G * L_A / 1000} \)</div><br> </div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-note"> \( TPM = \frac{RPK_A * 1E6}{\sum{(RPK_A)}} \quad where \quad RPK_A = \frac{A}{L_A / 1000}\)</div><br> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 过滤低表达基因</h1>
+<p><br> <img style="margin: 0 auto;height:700px"; src="/assets/course/SDAUBBDAA/623_low_exp.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 其他标准化方法</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+
+<ul>
+<li><p>管家基因</p>
+</li>
+</ul>
+<p><img style="margin: 0 auto;height:150px"; src="/assets/course/SDAUBBDAA/624_housekeeping.jpg" /> <br></p>
+<ul>
+<li><p>Spike-in: 建库时添加绝对定量内参</p>
+</li>
+</ul>
+<p><div class="aadmon aadmon-hack"> <a href="https://www.nist.gov/programs-projects/external-rna-controls-consortium" target="_blank" rel="noopener noreferrer"> External RNA Controls Consortium</a> <img style="margin: 0 auto;height:200px"; src="/assets/course/SDAUBBDAA/625_ERCC.png" /></div> 
+</td>
+<td id="lov" width="50%" height=90%>
+</p>
+<ul>
+<li><p>TCS &#40;Total Count Scaling&#41;</p>
+</li>
+</ul>
+<p><div class="indent-block" style="margin-left: 2em !important"> <span style="font-size: 40px"> \( d_i = \frac{S_{baseline}}{S_i} \) </span> </p>
+<p><span style="font-size: 40px"> \( x^p_i = d_i x_i \) </span> </div> <br><br></p>
+<ul>
+<li><p>Quantile: 排序后求平均再回序</p>
+</li>
+</ul>
+<p><div class="aadmon aadmon-hack"> Quantile normalization: <a href="https://en.wikipedia.org/wiki/Quantile_normalization" target="_blank" rel="noopener noreferrer"> WIKIPEDIA</a></div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 其他标准化方法</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <br></p>
+<ul>
+<li><p><span class="sadmon sadmon-note">Median of Ratio &#40;DESeq2&#41;</span></p>
+</li>
+</ul>
+<p><p><div class="aadmon aadmon-note"> 大多数基因的表达是<span class="Sadmon Sadmon-warn">不存在差异</span>的，将稳定的部分找出来，作为标准化的内参，依据内参算出各个样本的标准化因子:</p>
+<ul>
+<li><p>对每个基因计算几何平均数</p>
+</li>
+<li><p>比较每个样本每个基因和参考样本的Fold Change</p>
+</li>
+<li><p>用Fold Change 中位数基因代表内参基因进行标准化</div></p>
+</li>
+</ul>
+ 
+</td>
+<td id="lov" width="50%" height=90%>
+ <br></p>
+<ul>
+<li><p><span class="sadmon sadmon-warn">TMM: Trimmed Mean of M value &#40;EdgeR&#41;</span></p>
+</li>
+</ul>
+<p><p><div class="aadmon aadmon-warn"> 基本思想与DESeq2相似, 区别在于内参的选择: TMM选择<span class="Sadmon Sadmon-note">一组内参基因集合</span>, 进行加权平均</p>
+<ul>
+<li><p>移除未表达的基因</p>
+</li>
+<li><p>找数据趋势较为平均的样本当参考样本&#40;依据Q3值&#41;</p>
+</li>
+<li><p>计算基因偏倚度：LFC &#40;log fold change&#41;和read的几何平均数 &#40;read geometric mean, RGM&#41;</p>
+</li>
+<li><p>依据LFC和RGM挑选代表基因集, 计算标准化因子</div></p>
+</li>
+</ul>
+ 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 统计分布</h1>
+<p><br> 传统数据的差异分析: <div class="aadmon aadmon-hack"> 两组数据的<span class="Sadmon Sadmon-note">组间方差</span>大于<span class="Sadmon Sadmon-warn">组内方差</span>, 且统计上显著， 则认为组间处理可以引起差异。</div> <br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-error"><legend class="hadmon-legend admon-legend-error"> RNA-Seq为何不适用传统的统计分析?</legend>
+ <br> 不符合正态分布:</p>
+<ul>
+<li><p>生物学重复少&#40;n &lt; 10&#41;</p>
+</li>
+<li><p>基因表达不能为负数</p>
+</li>
+<li><p>Reads count是非连续的</p>
+</li>
+<li><p>基因表达量数据离散程度高度扭曲: <span class="sadmon sadmon-error">方差&gt;&gt;均值</span></p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 两个核心问题</legend>
+</p>
+<ul>
+<li><p>基因表达数据适合用什么分布进行差异显著性检验？</p>
+</li>
+<li><p>如何利用少量生物学重复数据估算基因表达的标准差？</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <div class="aadmon aadmon-info"> 泊松分布? <span class="Sadmon Sadmon-info">负二项分布&#33;</span></div> <br> Reads count是离散的非零整数, 对应的分布也是离散分布。 <br><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+  泊松分布: <span class="sadmon sadmon-error">均值和方差相等</span> <br> <img style="margin: 0 auto;height:250px"; src="/assets/course/SDAUBBDAA/626_poisson.png" /> 
+</td>
+<td id="lov" width="50%" height=90%>
+  负二项分布: <span class="sadmon sadmon-tip">契合数据特征</span> <img style="margin: 0 auto;height:220px"; src="/assets/course/SDAUBBDAA/627_negbi_distr.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 方差估计</h1>
+<p></section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 多重假设检验校正</h1>
+<p></section>
+
+</div>
+
 </div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
 
 
