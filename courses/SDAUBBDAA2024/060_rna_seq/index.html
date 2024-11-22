@@ -276,7 +276,7 @@
 </li>
 <li><p><span class="sadmon sadmon-note">序列比对到基因组</span></p>
 </li>
-<li><p><span class="sadmon sadmon-note">基因组注释整理和表达辆分析</span></p>
+<li><p><span class="sadmon sadmon-note">基因组注释整理和表达量分析</span></p>
 </li>
 <li><p><span class="sadmon sadmon-note">基因表达差异分析</span></p>
 </li>
@@ -312,7 +312,7 @@
 </li>
 <li><p><span class="sadmon sadmon-warn">unigene功能注释</span></p>
 </li>
-<li><p><span class="sadmon sadmon-note">基因组注释整理和表达辆分析</span></p>
+<li><p><span class="sadmon sadmon-note">基因组注释整理和表达量分析</span></p>
 </li>
 <li><p><span class="sadmon sadmon-note">基因表达差异分析</span></p>
 </li>
@@ -1085,6 +1085,26 @@
  </section> </section>
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>转录本定量: 计数</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:30%">
+</p>
+<ul>
+<li><p>构象水平/转录本水平</p>
+</li>
+<li><p>基因水平</p>
+</li>
+</ul>
+
+</td>
+<td id="lov" width="70%" height=90% align="left">
+
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>转录本定量: 计数</h1>
 <p><br> <img style="margin: 0 auto;height:700px"; src="/assets/course/SDAUBBDAA/620_quan.png" /> </section>
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>转录本定量: 标准化</h1>
@@ -1214,8 +1234,140 @@
 </table>
  </section> </section>
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: 数据整体分布的相似性</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="40%" height=90%>
+ <img style="margin: 0 auto;height:650px"; src="/assets/course/SDAUBBDAA/633_heatmap_reps.png" /> 
+</td>
+<td id="lov" width="60%" height=90%>
+ <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px">  如何快速评估高维数据的特征? –&gt; 降维分析 –&gt; 主成份分析&#40;PCA&#41; <img style="margin: 0 auto;height:550px"; src="/assets/course/SDAUBBDAA/634_pca.jpg" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: 主成份分析</h1>
+<p><br> 主成份分析&#40;Principal components analysis, PCA&#41;是很经典的降维算法，可用来降噪、消除冗余信息等。</p>
+<p><div class="aadmon aadmon-hack"> 目的: 把N维数据映射到k维, k &lt; N</div> <br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px">  极端例子:Y轴数据提供信息量少，可以直接舍弃 <img style="margin: 0 auto;height:400px"; src="/assets/course/SDAUBBDAA/635_2_dim_data.png" /> </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px">  一般情况: X&amp;Y信息变化大，需要通过降维算法进行计算<br> <img style="margin: 0 auto;height:400px"; src="/assets/course/SDAUBBDAA/636_2_dim_2.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: 主成份分析</h1>
+<p><br> <div class="aadmon aadmon-hack"> 主成份分析降维的通俗理解: 更换观察数据的角度，变换坐标系对数据进行重新映射。</div></p>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img style="margin: 0 auto;height:400px"; src="/assets/course/SDAUBBDAA/637_convert_axis.png" /> </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <br></p>
+<ul>
+<li><p>在新坐标系下，Y轴数据可以进行舍弃;</p>
+</li>
+<li><p>数据的具体数值不重要，重要的是分布&#40;数据之间的关系&#41;;</p>
+</li>
+<li><p>降维的原理: 更改坐标轴&#40;正交变换&#41;, 取新坐标轴上前K个变化最大的轴上的数据，实现N-&gt;K的降维;</p>
+</li>
+<li><p>深入理解的数学概念: 正交变换、正交矩阵、协方差、特征值分解、奇异值分解...</p>
+</li>
+</ul>
+<p></div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: PCA分析案例</h1>
+<p><br> <img style="margin: 0 auto;height:600px"; src="/assets/course/SDAUBBDAA/639_pca_case1.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: PCA分析案例</h1>
+<p><br> <img style="margin: 0 auto;height:600px"; src="/assets/course/SDAUBBDAA/640_pca_case2.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>样本质控: PCA分析案例</h1>
+<p><br> <img style="margin: 0 auto;height:600px"; src="/assets/course/SDAUBBDAA/641_pca_case3.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 重复</h1>
+<p><br> 生物学重复 vs 技术重复</p>
+<p><img style="margin: 0 auto;height:550px"; src="/assets/course/SDAUBBDAA/630_noise.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 重复</h1>
+<br>
+<p>重复越多，对总体均值和方差的估计越准确，越能得到更多DEG。</p>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <img style="margin: 0 auto;height:450px"; src="/assets/course/SDAUBBDAA/631_distr.png" /> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <img style="margin: 0 auto;height:450px"; src="/assets/course/SDAUBBDAA/632_reps.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>差异分析: 统计分布</h1>
-<p><br> 传统数据的差异分析: <div class="aadmon aadmon-hack"> 两组数据的<span class="Sadmon Sadmon-note">组间方差</span>大于<span class="Sadmon Sadmon-warn">组内方差</span>, 且统计上显著， 则认为组间处理可以引起差异。</div> <br> <section > 
+<p><br> 传统数据的差异分析&#40;多组: ANOVA&#41;: <div class="aadmon aadmon-hack"> 两组数据的<span class="Sadmon Sadmon-note">组间方差</span>大于<span class="Sadmon Sadmon-warn">组内方差</span>, 且统计上显著， 则认为组间处理可以引起差异。</div> <br> <section > 
 <div style="text-align:left">
 </p>
 <p>
@@ -1290,10 +1442,284 @@
  </section> </section>
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>差异分析: 方差估计</h1>
-<p></section>
+<p><br> <div class="aadmon aadmon-error"> 当生物学重复很少时，难以准确计算每个基因表达的标准差&#40;数据离散程度&#41; &#61;&#61;&gt; 低估数据的离散程度</div></p>
+<p><br> <div class="aadmon aadmon-warn"> 一个无奈的假设: 表达丰度相似的基因，其总体标准差也应该相似。</div> 不同生物学重复中表达丰度相同基因的标准差取平均值，低于该值的都用该值进行替换: <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <img style="margin: 0 auto;height:420px"; src="/assets/course/SDAUBBDAA/628_se_real.png" /> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <img style="margin: 0 auto;height:420px"; src="/assets/course/SDAUBBDAA/629_se_approx.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
 <section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
 <h1>差异分析: 多重假设检验校正</h1>
+<p><div class="aadmon aadmon-hack"> 一类错误&#40;假阴性&#41;和二类错误&#40;假阳性&#41;</div> <br> <span class="Sadmon Sadmon-note">\( H_0 \): You are not pregnant;</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="Sadmon Sadmon-warn">\( H_1 \): You are pregnant</span> <br><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="45%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img style="margin: 0 auto;height:420px"; src="/assets/course/SDAUBBDAA/642_preg_1.png" /> </div> 
+</td>
+<td id="lov" width="55%" height=90%>
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img style="margin: 0 auto;height:420px"; src="/assets/course/SDAUBBDAA/643_tpnp.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 多重假设检验校正</h1>
+<p><br> <div class="aadmon aadmon-hack"> 多次检验使得犯I类错误概率增大</div></p>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <br><br> <span class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 差异基因分析: </span> <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px">  判断单个基因为差异基因的Cutoff: <span class="sadmon sadmon-note">P &lt; 0.05</span> </li> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px">  100个基因中，约有5个基因可能是假阳性结果 </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px">  10000个基因 –&gt; 500个假阳性结果 –&gt; 整体错误增多 </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px">  需要对P值进行矫正，从而控制<span class="sadmon sadmon-warn">整体错误率</span> </li> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img style="margin: 0 auto;height:520px"; src="/assets/course/SDAUBBDAA/644_at_least_one_error.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 多重假设检验校正</h1>
+<p><br><br> <div class="aadmon aadmon-hack"> 是否需要进行p值校正？</div> <br></p>
+<ul>
+<li><p>如果多次假设检验的<span class="sadmon sadmon-note">结果之间有影响</span>，或需要将多次假设检验的结果<span class="sadmon sadmon-note">合并分析</span>，则需要校正。</p>
+<ul>
+<li><p>例：寻找两种条件下具有差异表达的基因，我们会对每个基因在两组样本里的表达量分别进行检验（多重假设检验），但最后获得所有差异表达基因时需要将上述各结果合并，若不进行校正，则差异表达基因中假阳性结果就较多，故需要校正。</p>
+</li>
+</ul>
+</li>
+</ul>
+<br><br>
+<ul>
+<li><p>反之，如果多次假设检验的结果仅用来<span class="sadmon sadmon-note">单独分析</span>，不会将结果合并，则无需校正。</p>
+<ul>
+<li><p>例：将基因分成几个基因集，比较这几个基因集之间某特征是否有显著差异，因两两之间的比较与其他基因集并无关联，故不需要校正。</p>
+</li>
+</ul>
+</li>
+</ul>
 <p></section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 多重假设检验校正常用方法</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="aadmon aadmon-hack"> Family Wise Error Rate: 控制假阳性率为0</div></p>
+<p><div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> Bonferroni校正</legend>
+ <br> 如果要控制<span class="sadmon sadmon-note">m</span>次检测的假阳性率 &lt; 0.05, 则将P cutoff 设置为 <span class="sadmon sadmon-note">0.05/m</span>即可 <br><br> 
+</fieldset>
+ </div> <br><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> Holm 校正</legend>
+ <br> 假设针对10000个基因进行了统计检验，对所有的原始P-value进行由小到大的排序分别为<span class="sadmon sadmon-warn">p1, p2, ..., p10000</span>，校正后的p为：<span class="sadmon sadmon-warn">p1 x 10000, p2 x 9999, ..., p10000 x 1</span> <br><br> 
+</fieldset>
+ </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <div class="aadmon aadmon-todo"> FDR矫正: 允许一定的假阳性率</div></p>
+<p>
+<fieldset class="hadmon admon-todo"><legend class="hadmon-legend admon-legend-todo"> Benjamini and Hochberg FDR (BH)</legend>
+ <br> 假设针对10000个基因进行了统计检验，对所有的原始P-value进行由小到大的排序分别为<span class="sadmon sadmon-todo">p1, p2, ..., p10000</span>，校正后的FDR为：<span class="sadmon sadmon-todo">p1x10000/1, p2x10000/2, ..., p10000x/10000/10000</span>。 <br><br></p>
+<ul>
+<li><p>与Bonferroni correction一致的地方是: 都乘以了检测总数</p>
+</li>
+<li><p>不一致的地方是: BH算法在此基础上除去了各个原始p-value的排序值</p>
+</li>
+</ul>
+<p><br><br> 
+</fieldset>
+ </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析: 结果解读</h1>
+<p><span class="sadmon sadmon-note">Fold Change</span>; <span class="sadmon sadmon-hack">P-value</span>; <span class="sadmon sadmon-error">P_adj/FDR/Q-value</span></p>
+<p><div class="indent-block" style="margin-left: 6em !important"> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img style="margin: 0 auto;height:720px"; src="/assets/course/SDAUBBDAA/645_deg_demo.png" /> </div> </div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异分析结果展示</h1>
+<p><br> <section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-note"> 火山图</div> <img style="margin: 0 auto;height:550px" src="/assets/course/SDAUBBDAA/646_vocano_demo.png" /> </div> 
+</td>
+<td id="lov" width="50%" height=90%>
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="aadmon aadmon-info"> 聚类热图</div> <img style="margin: 0 auto;height:550px" src="/assets/course/SDAUBBDAA/647_heatmap_demo.png" /> </div> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异基因下游分析: 富集分析</h1>
+<p><br> <div class="aadmon aadmon-hack"> 什么是富集分析? –&gt; 广义: 分类数据的分布检验</div> <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 14em !important"> <img style="margin: 0 auto;height: 200px" src="/assets/course/SDAUBBDAA/648_enrich_smoke.png" /> </div> </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 22em !important"> <span class="sadmon sadmon-warn">吸烟和性别有关系么?</span> </div> </div> <br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 24em !important"></p>
+<ul>
+<li><p>卡方检验</p>
+</li>
+<li><p>Fisher精确性检验</p>
+</li>
+<li><p>KS检验</p>
+</li>
+</ul>
+<p></div> </div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异基因下游分析: 富集分析</h1>
+<p><br> <div class="aadmon aadmon-tip"> 生物领域的富集分析</div> <br> 在 <span class="sadmon sadmon-tip">背景基因集&#40;N&#41;</span> 下获得 <span class="sadmon sadmon-info">一组特定基因集&#40;S&#41;</span>，</p>
+<p>S可能是基因列表，表达图谱，基因芯片等形式。</p>
+<p>用预先构建好<span class="sadmon sadmon-error">基因注释数据库</span>&#40;例如GO,KEGG等&#41;已对背景基因集&#40;N&#41;根据生物功能或过程进行<strong>分类</strong></p>
+<p>通过统计学算法找出有那些显著区别于背景基因集&#40;N&#41;的类别&#40;生物组成/功能/过程&#41;</p>
+<p>或者找出这组特定基因集间在生物组成/功能/过程的共性</p>
+<p>经过聚类后去除冗余得到基因富集结果的过程，即为富集分析。 </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异基因下游分析: 富集分析</h1>
+<p><div class="aadmon aadmon-hack"> 生物数据富集分析算法</div> <img style="margin: 0 auto;height:880px" src="/assets/course/SDAUBBDAA/649_enrich_algo.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>差异基因下游分析: 富集分析 -&gt; 基因本体论&#40;Gene ontology, GO&#41;</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="aadmon aadmon-hack"> 分子功能（Molecular Function，MF ）</div></p>
+<ul>
+<li><p>单个的基因产物（包括蛋白质和RNA）或多个基因产物的复合物在分子水平上的活动，比如“催化”，“转运”</p>
+</li>
+<li><p>需要注意，这里的描述只表示活动，而不指定执行功能的实体（分子或复合物），动作发生的地点，时间或背景</p>
+</li>
+</ul>
+<div class="aadmon aadmon-note"> 细胞组分（Cellular Component ，CC）</div>
+<ul>
+<li><p>基因产物在执行功能时所处的细胞结构位置，比如在线粒体，核糖体</p>
+</li>
+<li><p>需要注意：细胞组分是细胞解刨结构，不指代过程</p>
+</li>
+</ul>
+<div class="aadmon aadmon-warn"> 生物过程（Biological Process ，BP）</div>
+<ul>
+<li><p>通过多种分子活动完成的生物学过程</p>
+</li>
+<li><p>需要注意：生物学过程不等同于通路。目前，GO没有表示完整的通路信息所需的动力学或依赖性的描述信息</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90%>
+ <br><br><br> <img style="margin: 0 auto;" src="/assets/course/SDAUBBDAA/650_go_class.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>GO 富集结果示例</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="45%" height=90%>
+ <img style="margin: 0 auto;height:600px" src="/assets/course/SDAUBBDAA/651_go_demo1.png" /> 
+</td>
+<td id="lov" width="55%" height=90%>
+ <img style="margin: 0 auto;height:600px" src="/assets/course/SDAUBBDAA/652_go_demo2.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>RNA-Seq分析实操流程</h1>
+<p>nf-core/rnaseq: <span class="sadmon sadmon-hack">https://github.com/nf-core/rnaseq</span></p>
+<p>
+<img src="/assets/course/SDAUBBDAA/653_nfcore_rnaseq.svg" alt="nf-core/rnaseq metro map" style="max-width: 100%;">
+ </section>
 
 </div>
 
