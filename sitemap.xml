@@ -183,7 +183,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -249,7 +249,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2025-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -322,6 +322,12 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\SubstitutionModels\index.html</loc>
     <lastmod>2023-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://songtaogui.github.io/courses\SDAUCEU2025\index.html</loc>
+    <lastmod>2025-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -963,7 +969,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/cv\Zh\index.html</loc>
-    <lastmod>2024-10-23</lastmod>
+    <lastmod>2024-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
