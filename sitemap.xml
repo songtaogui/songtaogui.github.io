@@ -122,12 +122,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\340_Variant_and_Pop\index.html</loc>
-    <lastmod>2023-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/courses\misc\MZST\index.html</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,12 +130,6 @@
 <url>
     <loc>https://songtaogui.github.io/posts\2017\11\r_note\index.html</loc>
     <lastmod>2024-06-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\330_Multi_omics_Integration\index.html</loc>
-    <lastmod>2023-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -206,20 +194,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\122_HPC_Intro\index.html</loc>
-    <lastmod>2023-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\09\CitationsInFranklin\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\010_Introduction\index.html</loc>
-    <lastmod>2024-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -338,20 +314,14 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\230_Visualization_in_Bioinfo\index.html</loc>
-    <lastmod>2023-10-25</lastmod>
+    <loc>https://songtaogui.github.io/posts\2024\07\Learn_to_DIY_AOG\index.html</loc>
+    <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/posts\2022\08\Franklin%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/posts\2024\07\Learn_to_DIY_AOG\index.html</loc>
-    <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -458,12 +428,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\130_Shell_BioTools\index.html</loc>
-    <lastmod>2023-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Tidier\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -472,12 +436,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Kmers\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\360_Metagenomics\index.html</loc>
-    <lastmod>2023-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -568,12 +526,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\FASTX\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\350_Genetic_Mapping\index.html</loc>
-    <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -770,12 +722,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\220_DataMining_brief\index.html</loc>
-    <lastmod>2023-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/posts\2022\09\filepaths_in_julia_with_FilePathsBase\index.html</loc>
     <lastmod>2023-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -898,12 +844,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Distributions\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\210_Statistics_in_Bioinfo\index.html</loc>
-    <lastmod>2023-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -1142,8 +1082,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\000_Overview\index.html</loc>
-    <lastmod>2024-09-02</lastmod>
+    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\02_database\index.html</loc>
+    <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>

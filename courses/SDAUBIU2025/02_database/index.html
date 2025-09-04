@@ -1,0 +1,496 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="02_database">
+    <title>02_database</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 生物学数据库及其检索 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>什么是数据库</h1>
+<p><br> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 数据库（database）</legend>
+ <br> <span class="sadmon sadmon-note">一类用于存储和管理数据的计算机文档，是统一管理的相关数据 的集合，其存储形式有利于数据信息的检索与调用。</span> <br><br> 
+</fieldset>
+ <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:70%">
+ <img src="https://assets-global.website-files.com/6130fa1501794e37c21867cf/632de93bd93aa902866fae35_Database%20Components.png" style="margin: 0 auto;" height=500px /> 
+</td>
+<td id="lov" width="30%" height=90% align="left">
+ <br><br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 2em !important"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 数据库的主要任务</legend>
+ <br></p>
+<ul>
+<li><p><span class="sadmon sadmon-note">存储数据</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">检索数据</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">维护数据</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">数据共享</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">数据安全</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">数据备份</span></p>
+</li>
+</ul>
+<p><br> 
+</fieldset>
+ </div> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据库的分类</h1>
+<span style="font-size: 35px; text-align: center"> <span class="sadmon sadmon-hack">平面文件数据库</span>, <span class="sadmon sadmon-note">关系型数据库</span>, <span class="sadmon sadmon-todo">面向对象数据库</span>, <span class="sadmon sadmon-warn">基于Internet的XML数据库</span> </span>
+<p><div style="align: center" class="fragment" data-fragment-index="1"> <div class="aadmon aadmon-hack"> 平面文件数据库</div></p>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIU2025/data/02_database/001.jpg" style="margin: 0 auto; height: 500px;" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px">  字段&#43;内容, 不包含计算机指令 </li> <li class="fragment" data-fragment-index="3" align="left" style="margin-bottom:5px">  单个长文本文件 </li> <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px">  增加或删除记录困难 </li> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px">  检索困难 </li> <li class="fragment" data-fragment-index="6" align="left" style="margin-bottom:5px">  维护困难 </li> 
+</td>
+</tr></table>
+ </div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据库的分类</h1>
+<p><span style="font-size: 35px; text-align: center"> <span class="sadmon sadmon-hack">平面文件数据库</span>, <span class="sadmon sadmon-note">关系型数据库</span>, <span class="sadmon sadmon-todo">面向对象数据库</span>, <span class="sadmon sadmon-warn">基于Internet的XML数据库</span> </span> <div class="aadmon aadmon-note"> 关系型数据库</div> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <br> <img src="/courses/SDAUBIU2025/data/02_database/002.png" style="margin: 0 auto; height: 480px;" /> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/02_database/003.png" style="margin: 0 auto; height: 520px;" /> </div> 
+</td>
+</tr></table>
+ </div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据库的分类</h1>
+<span style="font-size: 35px; text-align: center"> <span class="sadmon sadmon-hack">平面文件数据库</span>, <span class="sadmon sadmon-note">关系型数据库</span>, <span class="sadmon sadmon-todo">面向对象数据库</span>, <span class="sadmon sadmon-warn">基于Internet的XML数据库</span> </span>
+<p><div class="aadmon aadmon-note"> 关系型数据库</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <img src="/courses/SDAUBIU2025/data/02_database/004.png" style="margin: 0 auto; height: 520px;" /> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 关系型数据库(Relational Database)</legend>
+  使用<span class="sadmon sadmon-note">表格（tables）</span>来存储和组织数据。每个表格由<span class="sadmon sadmon-note">行（records）和列（fields）</span>组成，类似于Excel中的工作表。关系型数据库的设计基于“关系模型”, 这种数据库模型的核心思想是将数据存储在多个表中，这些表通过<span class="sadmon sadmon-note">关键字段（keys）</span>相互关联。 <span class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <br><span class="sadmon sadmon-info">关系型数据库的特点:</span> </span> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px">  数据结构化 </li> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px">  支持SQL语言 </li> <li class="fragment" data-fragment-index="6" align="left" style="margin-bottom:5px">  数据冗余度小 </li> <li class="fragment" data-fragment-index="7" align="left" style="margin-bottom:5px">  数据独立性高 </li> <li class="fragment" data-fragment-index="8" align="left" style="margin-bottom:5px">  易于扩展维护 </li> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="9" align="left" style="margin:0px">  SQL入门指南 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114501110207271&bvid=BV16CEwziEUw&cid=29944778674&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> </div> 
+</td>
+</tr></table>
+ 
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:33px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物学数据库</h1>
+<p><br> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 生物学数据库的分类: 存储内容</legend>
+ <br> 根据存储的具体内容,可以分为一级数据库和二级数据库:</p>
+<ul>
+<li><p><span class="sadmon sadmon-note">一级数据库</span>: 档案数据库&#40;archive&#41;, 库中的主要内容是来源于实验室操作所得到的原始数据结果（如测序得到的序列或蛋白三维结构数据等），同时包含基本的说明文档（如序列所属的物种、类型、参考文献等）。</p>
+<ul>
+<li><p><strong><span class="cadmon sadmon-info">特点</span></strong>: 数据的原始性和全面性，为后续的生物信息学分析和二级数据库的构建提供了基础</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><span class="Sadmon Sadmon-note">二级数据库</span>: 分析数据库&#40;analytical&#41;, 库中的主要内容是是在一级数据库的信息基础上经过生物信息学分析处理后的数据结果（如基因表达数据、蛋白质相互作用数据、基因组注释信息等），同时包含分析所用的方法、参数、结果解释等说明文档。</p>
+<ul>
+<li><p><strong><span class="cadmon sadmon-info">特点</span></strong>: 数据经过加工和注释; 具有特定用途; 数据量相对较小; 更新速度较慢; 便于使用</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>生物学数据库</h1>
+<p><br> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 生物学数据库的分类: 数据类型</legend>
+ <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:33%">
+ <span class="sadmon sadmon-tip">核酸数据库</span> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<ul>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank" rel="noopener noreferrer"> NCBI GenBank</a>: 世界上最大的公共核酸序列数据库, 由美国国家生物技术信息中心（NCBI）管理, 涵盖了广泛的物种和基因组数据和详细注释。</p>
+</li>
+<li><p><a href="https://www.ebi.ac.uk/ena/browser/home" target="_blank" rel="noopener noreferrer"> ENA</a>: 由欧洲生物信息学研究所（EMBL-EBI）管理。同样提供全面的核酸序列数据，包括原始测序数据、序列组装信息和功能注释。</p>
+</li>
+<li><p><a href="https://www.ddbj.nig.ac.jp/index-e.html" target="_blank" rel="noopener noreferrer"> DDBJ</a>: 日本DNA数据银行, 由日本国立遗传学研究所&#40;NIG&#41;管理, 主要收集和存储来自日本及亚洲地区的核苷酸序列数据，与GenBank和ENA共享数据。</p>
+</li>
+</ul>
+<p></div> 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <span class="sadmon sadmon-note">蛋白数据库</span> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"></p>
+<ul>
+<li><p><a href="https://www.uniprot.org/" target="_blank" rel="noopener noreferrer"> UniProt</a>: 是包含蛋白质序列，功能信息，研究论文索引的蛋白质数据库，整合了包括EBI，SIB，PIR三大数据库的资源。</p>
+</li>
+<li><p><a href="https://www.rcsb.org/" target="_blank" rel="noopener noreferrer"> PDB</a>: 全球最大的蛋白质三维结构数据库，存储蛋白质和核酸的三维结构信息。</p>
+</li>
+<li><p><a href="https://cn.string-db.org/" target="_blank" rel="noopener noreferrer"> STRING</a>: 提供已知和预测的蛋白质-蛋白质相互作用，广泛用于蛋白质功能预测和相互作用网络分析。</p>
+</li>
+<li><p><a href="https://www.ebi.ac.uk/interpro/" target="_blank" rel="noopener noreferrer"> InterPro</a>: 蛋白质家族和结构域数据库，存储蛋白质序列中的功能域和结构域注释信息。</p>
+</li>
+</ul>
+<p></div> 
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <span class="sadmon sadmon-error">功能数据库</span> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"></p>
+<ul>
+<li><p><a href="https://www.geneontology.org/" target="_blank" rel="noopener noreferrer"> GO</a>: 是全球最大的基因功能注释数据库, 其将基因和基因产物的功能进行标准化分类。广泛用于基因功能注释和富集分析。</p>
+</li>
+<li><p><a href="https://www.genome.jp/kegg/" target="_blank" rel="noopener noreferrer"> KEGG</a>: 调控网络注释数据库, 包含基因组、代谢途径、疾病和药物等信息。数据库分为多个层级，涵盖代谢途径、遗传信息处理、细胞过程等多个方面。</p>
+</li>
+<li><p><a href="https://jaspar.elixir.no/" target="_blank" rel="noopener noreferrer"> JASPAR</a>: 专门存储高质量的转录因子（TF）DNA 结合图谱。它以位置频率矩阵（PFMs）的形式存储这些图谱，并提供工具来研究基因转录调控。</p>
+</li>
+</ul>
+<p></div> 
+</td>
+</tr></table>
+ 
+</fieldset>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据安全和我国数据库</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br> <img src="/courses/SDAUBIU2025/data/02_database/005.png" style="margin: 0 auto; height: 550px" /> </div> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/02_database/006.png" style="margin: 0 auto; height: 300px" /> </div> <br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/02_database/007.png" style="margin: 0 auto; height: 300px" /> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:45px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>数据库使用案例</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:33%">
+ <span class="sadmon sadmon-note"><a href="https://www.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer"> NCBI</a></span></p>
+<ul>
+<li><p>PubMed</p>
+</li>
+<li><p>SRA</p>
+</li>
+<li><p>ENTREZ</p>
+</li>
+<li><p>BLAST</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <span class="sadmon sadmon-todo"><a href="https://www.ebi.ac.uk/interpro/" target="_blank" rel="noopener noreferrer"> InterPro</a></span></p>
+<ul>
+<li><p>Search </p>
+</li>
+<li><p>Browse</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="33%" height=90% align="center">
+ <span class="sadmon sadmon-warn"><a href="https://www.geneontology.org/" target="_blank" rel="noopener noreferrer"> GO</a></span></p>
+<ul>
+<li><p>Gene Ontology</p>
+</li>
+<li><p>GO terms</p>
+</li>
+<li><p>GO annotation</p>
+</li>
+<li><p>GO enrichment</p>
+</li>
+</ul>
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>拓展内容: 富集分析</h1>
+<p><br> <div class="aadmon aadmon-hack"> 什么是富集分析? –&gt; 广义: 分类数据的分布检验</div> <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 14em !important"> <img style="margin: 0 auto;height: 200px" src="/assets/course/SDAUBBDAA/648_enrich_smoke.png" /> </div> </div> <br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 22em !important"> <span class="sadmon sadmon-warn">吸烟和性别有关系么?</span> </div> </div> <br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 24em !important"></p>
+<ul>
+<li><p>卡方检验</p>
+</li>
+<li><p>Fisher精确性检验</p>
+</li>
+<li><p>KS检验</p>
+</li>
+</ul>
+<p></div> </div> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>拓展内容: 富集分析</h1>
+<p><br> <div class="aadmon aadmon-tip"> 生物领域的富集分析</div> <br> 在 <span class="sadmon sadmon-tip">背景基因集&#40;N&#41;</span> 下获得 <span class="sadmon sadmon-info">一组特定基因集&#40;S&#41;</span>，</p>
+<p>S可能是基因列表，表达图谱，基因芯片等形式。</p>
+<p>用预先构建好<span class="sadmon sadmon-error">基因注释数据库</span>&#40;例如GO,KEGG等&#41;已对背景基因集&#40;N&#41;根据生物功能或过程进行<strong>分类</strong></p>
+<p>通过统计学算法找出有那些显著区别于背景基因集&#40;N&#41;的类别&#40;生物组成/功能/过程&#41;</p>
+<p>或者找出这组特定基因集间在生物组成/功能/过程的共性</p>
+<p>经过聚类后去除冗余得到基因富集结果的过程，即为富集分析。 </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>拓展内容: 富集分析</h1>
+<p><div class="aadmon aadmon-hack"> 生物数据富集分析算法</div> <img style="margin: 0 auto;height:880px" src="/assets/course/SDAUBBDAA/649_enrich_algo.png" /> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>拓展内容: 富集分析 -&gt; 基因本体论&#40;Gene ontology, GO&#41;</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="50%" height=90%>
+ <div class="aadmon aadmon-hack"> 分子功能（Molecular Function，MF ）</div></p>
+<ul>
+<li><p>单个的基因产物（包括蛋白质和RNA）或多个基因产物的复合物在分子水平上的活动，比如“催化”，“转运”</p>
+</li>
+<li><p>需要注意，这里的描述只表示活动，而不指定执行功能的实体（分子或复合物），动作发生的地点，时间或背景</p>
+</li>
+</ul>
+<div class="aadmon aadmon-note"> 细胞组分（Cellular Component ，CC）</div>
+<ul>
+<li><p>基因产物在执行功能时所处的细胞结构位置，比如在线粒体，核糖体</p>
+</li>
+<li><p>需要注意：细胞组分是细胞解刨结构，不指代过程</p>
+</li>
+</ul>
+<div class="aadmon aadmon-warn"> 生物过程（Biological Process ，BP）</div>
+<ul>
+<li><p>通过多种分子活动完成的生物学过程</p>
+</li>
+<li><p>需要注意：生物学过程不等同于通路。目前，GO没有表示完整的通路信息所需的动力学或依赖性的描述信息</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90%>
+ <br><br><br> <img style="margin: 0 auto;" src="/assets/course/SDAUBBDAA/650_go_class.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>GO 富集结果示例</h1>
+<p><section > 
+<div style="text-align:left">
+</p>
+<p>
+</div>
+<table id="lov" width="100%" height="650px" border="0">
+<tr>
+<td id="lov" width="45%" height=90%>
+ <img style="margin: 0 auto;height:600px" src="/assets/course/SDAUBBDAA/651_go_demo1.png" /> 
+</td>
+<td id="lov" width="55%" height=90%>
+ <img style="margin: 0 auto;height:600px" src="/assets/course/SDAUBBDAA/652_go_demo2.png" /> 
+</td>
+</tr>
+<tr>
+<td id="lov" colspan="1" height=5% >
+<div style="font-size:18px;padding-bottom:-1em">
+</p>
+<p>
+</div>
+</td>
+</tr>
+</table>
+ </section> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>下次课预热</h1>
+<p><div class="aadmon aadmon-error"> 拉马努金: 神一样的男人</div> 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1652746121&bvid=BV1UE421g7gv&cid=1493661113&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="1000px" height="550px"></iframe>
+ </section>
+
+</div>
+
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
