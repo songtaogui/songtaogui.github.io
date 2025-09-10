@@ -8,8 +8,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\index.html</loc>
-    <lastmod>2024-08-05</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\Aqua\index.html</loc>
+    <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -500,7 +500,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\index.html</loc>
+    <loc>https://songtaogui.github.io/posts\2016\12\misa_primer3_pipeline\index.html</loc>
     <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -644,6 +644,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/notebooks\private\gst_group_20250523\index.html</loc>
+    <lastmod>2025-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/courses\misc\HZAU-JC\index.html</loc>
     <lastmod>2023-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -704,14 +710,14 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\Aqua\index.html</loc>
+    <loc>https://songtaogui.github.io/posts\2017\06\busco-usage\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2017\06\busco-usage\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\work\MaizeMethylML_note\index.html</loc>
+    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -728,8 +734,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Bootstrap\index.html</loc>
+    <lastmod>2024-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -776,20 +782,14 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\Bootstrap\index.html</loc>
-    <lastmod>2024-07-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaDataScience\TimeSeries\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
+    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
+    <lastmod>2023-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -802,18 +802,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\BioSequences\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\Automa\index.html</loc>
-    <lastmod>2023-08-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/notebooks\private\gst_group_20250523\index.html</loc>
-    <lastmod>2025-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -860,7 +848,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\index.html</loc>
+    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\ADMIXTURE\index.html</loc>
     <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -885,19 +873,13 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBIU2025\index.html</loc>
-    <lastmod>2025-09-04</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://songtaogui.github.io/notebooks\BioJuliaPkgs\PhyloNetworks\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/posts\2016\12\misa_primer3_pipeline\index.html</loc>
-    <lastmod>2024-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -968,6 +950,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://songtaogui.github.io/courses\SDAUBIU2025\03_alignment\index.html</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://songtaogui.github.io/courses\SDAUBIG2024\230_Visualization_in_Bioinfo\index.html</loc>
     <lastmod>2024-11-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -982,12 +970,6 @@
 <url>
     <loc>https://songtaogui.github.io/notebooks\VegaLite\index.html</loc>
     <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://songtaogui.github.io/notebooks\work\MaizeMethylML_note\index.html</loc>
-    <lastmod>2023-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -1010,8 +992,8 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/index.html</loc>
-    <lastmod>2024-08-06</lastmod>
+    <loc>https://songtaogui.github.io/posts\2022\09\intervaltrees_and_genomicfeatures_usage\index.html</loc>
+    <lastmod>2023-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -1052,12 +1034,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/posts\2022\09\intervaltrees_and_genomicfeatures_usage\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/notebooks\JuliaProgramingSkills\Clang\index.html</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1070,12 +1046,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://songtaogui.github.io/notebooks\OpenMendelPkgs\ADMIXTURE\index.html</loc>
-    <lastmod>2023-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://songtaogui.github.io/courses\SDAUBIG2024\340_Variant_and_Pop\index.html</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1083,7 +1053,7 @@
 </url>
 <url>
     <loc>https://songtaogui.github.io/courses\SDAUBIU2025\02_database\index.html</loc>
-    <lastmod>2025-09-04</lastmod>
+    <lastmod>2025-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>

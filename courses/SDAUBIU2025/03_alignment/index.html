@@ -1,0 +1,683 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="03_alignment">
+    <title>03_alignment</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 序列比对 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:40px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>框架</h1>
+<br><br>
+<ul>
+<li><p>序列比对相关概念</p>
+</li>
+<li><p>序列比对打分方法</p>
+</li>
+<li><p>序列比对算法</p>
+</li>
+<li><p>双序列比对应用</p>
+</li>
+<li><p>多序列比对</p>
+</li>
+</ul>
+<p></section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:50px; color:#4393C3"> 序列比对: 1. 相关概念 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 序列比对（sequence alignment）</legend>
+  运用某种特定的数学模型或算法，找出两个或多个序列之间的最大匹配碱基或残基数，比对的结果反映了算法在多大程度上提供序列之间的相似性关系及它们的生物学特征。 
+</fieldset>
+ <br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <span style="font-size:60px; font-family:monospace; text-align: center; margin: 400px;"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span> vs <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> </div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:30%">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <br><span style="font-size:60px;font-family:monospace"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span> <br><span class="cadmon sadmon-hack">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span><br> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> </div> 
+</td>
+<td id="lov" width="35%" height=90% align="center">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <br><span style="font-size:60px;font-family:monospace"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span>-<span class="cadmon sadmon-note">A</span> <br><span class="cadmon sadmon-hack">|&nbsp;|||||&nbsp;|</span><br> <span class="cadmon sadmon-note">A</span>-<span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> </div> 
+</td>
+<td id="lov" width="35%" height=90% align="center">
+ <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <br><span style="font-size:60px;font-family:monospace"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span>--- <br><span class="cadmon sadmon-hack">&nbsp;&nbsp;&nbsp;|||||&nbsp;&nbsp;&nbsp;</span><br> ---<span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> </div> 
+</td>
+</tr></table>
+ <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> <span style="font-size:40px; font-family:monospace; text-align: center; margin: 400px;"> <span class="sadmon sadmon-error">Which one is better? Why? How?</span> </span> </div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> &quot;简单&#33; 我可以穷举&#33;&quot;</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIU2025/data/03_alignment/001_exhaustive_test.jpg" style="margin: 0 auto; height:600px" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px">  两条长度为\(n\)的序列比对的排列组合:<br> <span class="sadmon sadmon-info">\( (2n)!/(n!)^2 \)</span><br> </div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px">  设n&#61;300, \((2*300)!/(300!)^2 \approx 7*10^{88} \) </div> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <br><img src="/courses/SDAUBIU2025/data/03_alignment/002_universe.jfif" style="margin: 0 auto;height:300px" /> <br><span class="Sadmon Sadmon-error">目前可见宇宙中所有原子的一亿倍&#33;</span> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p>
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 点阵图(dot plot)</legend>
+  用于直观比较和可视化两个（或多个）生物序列相似性的工具。它通过二维矩阵的形式展示序列之间的匹配关系，帮助研究人员快速识别序列中的重复、倒置、插入、删除等结构特征。 
+</fieldset>
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <span style="font-size:30px;font-family:monospace"> ATGACTGGA<br> |||||||||<br> ATGACTGGA </span> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <span style="font-size:30px;font-family:monospace"> ATGA<span class="cadmon sadmon-warn">--</span>CT<span class="cadmon sadmon-error">G</span>GA<br> ||||&nbsp;&nbsp;||.||<br> ATGATGCT<span class="cadmon sadmon-todo">C</span>GA </span> </div> 
+</td>
+</tr></table>
+</p>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/03_alignment/003_dotplot_exp_self.svg" style="margin: 0 auto; height:400px" /> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/03_alignment/004_dotplot_exp_diff.svg" style="margin: 0 auto; height:400px" /> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 点阵图及其应用</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+</p>
+<ul>
+<li><p>点阵图是一种<span class="cadmon sadmon-note">二维矩阵图</span>，用于比较两个序列的相似性。本质是碱基之间的<span class="cadmon sadmon-note">两两比对</span>。</p>
+</li>
+<li><p><strong>X轴和Y轴：</strong>分别代表两条序列的碱基或氨基酸位置。</p>
+</li>
+<li><p><strong>点的绘制：</strong>如果两条序列在某个位置有相同的碱基或氨基酸，或者在一定窗口大小内匹配度足够高，则在该位置绘制一个点。</p>
+</li>
+<li><p><strong>窗口大小和错配限制：</strong>为了提高比对的灵活性，点阵图通常会设置一个<span class="cadmon sadmon-note">窗口</span>大小（例如10个碱基），并在该窗口内允许一定数量的<span class="cadmon sadmon-note">错配</span>（例如0个或1个错配）。</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 点阵图的优点</legend>
+</p>
+<ol>
+<li><p><strong>直观性：</strong>点阵图以图形化的方式展示序列之间的相似性，比传统的文本比对结果更直观。</p>
+</li>
+<li><p><strong>全局视角：</strong>能够快速识别序列中的重复、倒置、插入、删除等结构变化，而这些在传统比对中可能被掩盖。</p>
+</li>
+<li><p><strong>参数可调：</strong>通过调整窗口大小和错配限制，可以改变比对的严格性，从而适应不同的分析需求。</p>
+</li>
+<li><p><strong>反向互补识别：</strong>对于核酸序列，点阵图还可以识别反向互补序列，这对于研究基因组结构和功能非常重要。</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+<p><section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 点阵图及其应用</div> <img src="/courses/SDAUBIU2025/data/03_alignment/005_dotplot_application.jpg" style="margin: 0 auto;height:400px" /> </section> <section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 点阵图及其应用</div> <img src="/courses/SDAUBIU2025/data/03_alignment/006_dotplot_application_diy.svg" style="margin: 0 auto; height:500px" /> </section> <section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 点阵图及其应用</div> <a href="https://dotlet.vital-it.ch/">DotLetJS</a><br> <img src="/courses/SDAUBIU2025/data/03_alignment/007_dotletjs.png" style="margin: 0 auto; height:500px" /> </section></p>
+<section style="font-size:28px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <span style="font-size:50px;font-family:monospace"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span> <br><span class="cadmon sadmon-hack">|........|</span><br> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <span style="font-size:50px;font-family:monospace"> <span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-todo">C</span>-<span class="cadmon sadmon-note">A</span> <br><span class="cadmon sadmon-hack">|&nbsp;|||.|.|&nbsp;|</span><br> <span class="cadmon sadmon-note">A</span>-<span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-error">G</span><span class="cadmon sadmon-note">A</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-todo">C</span><span class="cadmon sadmon-tip">T</span><span class="cadmon sadmon-note">A</span> </span> 
+</td>
+</tr></table>
+ <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-info">插入&#40;insertion&#41;</span>、<span class="sadmon sadmon-info">缺失&#40;deletion&#41;</span> <span class="sadmon sadmon-hack">gap: -</span></p>
+</li>
+<li><p><span class="sadmon sadmon-info">替换&#40;substitution&#41;</span>: </p>
+<ul>
+<li><p>针对DNA: <span class="sadmon sadmon-tip">转换&#40;transition&#41;</span>和<span class="sadmon sadmon-note">颠换&#40;transversion&#41;</span></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIU2025/data/03_alignment/008_transi_ver.jpg" style="margin: 0 auto;height:200px" /> </div> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <span class="sadmon sadmon-hack">汉明距离&#40;Hamming distance&#41;</span>: 两个 字符串对应位置的不同字符的个数。&#40;<span class="cadmon sadmon-error">没有gap</span>&#41; <br><br> <span class="sadmon sadmon-note">编辑距离&#40;Edit distance, &#41;</span>: 将一个字符 串通过插入、删除、替代等操作变为另一个字符串的最少操作次数。 </div> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <br> <span class="sadmon sadmon-info">针对上述序列:</span></p>
+<ul>
+<li><p>汉明距离 &#61; 8</p>
+</li>
+<li><p>编辑距离 &#61; 4</p>
+</li>
+</ul>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:32px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 相似性、同一性、同源性&#40;直系同源、旁系同源&#41;</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:60%">
+ <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-note">相似性（similarity）</span>: 是指两序列间直接的数量关系，如部分相同、相似的百分比或其他一些合适的度量。 </li> <li class="fragment" data-fragment-index="1" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-info">同一性（identity）</span>: 是指两序列在同一位点核苷酸或氨基酸残基完全相同的序列比例。 </li> <li class="fragment" data-fragment-index="2" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-todo">同源性（homology）</span>: 是指从某个共同祖先经趋异进化而形成的不同序列，也就是从一些数据中推断出的两个基因在进化上具有共同祖先的结论，它是质的判断。 </li></p>
+<p><div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> 相似性和同一性都是量的概念，一般用百分数表示; 同源性是质的判断, 要么同源要么不同源。</div> </div> 
+</td>
+<td id="lov" width="40%" height=90% align="left">
+ <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 直系同源基因(ortholog gene)</legend>
+  是在物种形成过程中形成的、在不同物种中有相同功能的同源基因 
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="5" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 旁系同源基因(paralogous gene)</legend>
+  是指一个物种内的同源基因。 
+</fieldset>
+ </div> <br> <div class="fragment" data-fragment-index="6" align="left" style="margin:0px"> <div class="aadmon aadmon-note"> 直系同源基因和旁系同源基因统称为<strong>同源基因（homolog）</strong></div> </div> 
+</td>
+</tr></table>
+ <div class="fragment" data-fragment-index="7" align="left" style="margin:0px"> <div class="aadmon aadmon-error"> &quot;基因A和基因B的相似度为90&#37;̌ <span class="Sadmon Sadmon-tip">√</span>&quot;, &quot;基因A和基因B的同源性为90&#37;̌ <span class="Sadmon Sadmon-error">x</span>&quot;</div> </div> </section>
+<section style="font-size:32px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>1. 序列比对相关概念</h1>
+<p><div class="aadmon aadmon-hack"> 同源性: 直系同源、旁系同源</div> <img src="/courses/SDAUBIU2025/data/03_alignment/009_homology.jpg" style="margin: 0 auto;height: 600px" /> </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:50px; color:#4393C3"> 序列比对: 2. 打分矩阵 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<p><div class="aadmon aadmon-hack"> 为什么要打分?</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:400px">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <span style="font-size:30px;font-family:monospace"> <span class="cadmon sadmon-todo">ATGA<span class="cadmon sadmon-warn">--</span>CT<span class="cadmon sadmon-error">G</span>GA<br> ||||&nbsp;&nbsp;||.||<br> ATGATGCT<span class="cadmon sadmon-todo">C</span>GA</span> </span> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"> <span style="font-size:30px;font-family:monospace"> <span class="cadmon sadmon-note">ATGACTG<span class="cadmon sadmon-warn">---</span>GA<br> ||||&nbsp;||&nbsp;&nbsp;&nbsp;||<br> ATGA<span class="cadmon sadmon-warn">-</span>TGCTCGA</span> </span> </div> 
+</td>
+</tr></table>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="indent-block" style="margin-left: 2em !important"> <img src="/courses/SDAUBIU2025/data/03_alignment/010_dotplot_opt.svg" style="margin: 0 auto;height: 420px" /> </div> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <li class="fragment" data-fragment-index="4" align="left" style="margin-bottom:5px">  DNA突变类型出现频率不一致: <span class="sadmon sadmon-note">SNP &gt; INDEL</span> </li> <li class="fragment" data-fragment-index="5" align="left" style="margin-bottom:5px">  DNA突变类型出现频率不一致: <span class="sadmon sadmon-note">转换 &gt; 颠换</span> </li> <li class="fragment" data-fragment-index="6" align="left" style="margin-bottom:5px">  氨基酸替换出现频率不一致: <span class="sadmon sadmon-note">极性、非极性</span> </li> <li class="fragment" data-fragment-index="7" align="left" style="margin-bottom:5px"> <span class="sadmon sadmon-note">空位起始 vs 空位延伸</span> </li> <div class="fragment" data-fragment-index="8" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 打分矩阵(Scoring Matrix)</legend>
+  碱基对/氨基酸之间两两转换的打分表, 反映同源序列进化过程中由于突变产生差异的生物学依据。</p>
+<ul>
+<li><p>DNA序列的打分矩阵通常只由错配罚分与插缺罚分定义</p>
+</li>
+<li><p>蛋白质序列比较的常用打分矩阵反映了在相关序列的进化中发生氨基酸替换的频率</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<p><div class="aadmon aadmon-hack"> 打分矩阵——DNA</div> <img src="/courses/SDAUBIU2025/data/03_alignment/011_dna_score_mtx.svg" style="margin: 0 auto;height: 400px" /> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<p><div class="aadmon aadmon-hack"> 打分矩阵——蛋白质: <span class="Sadmon Sadmon-note">PAM矩阵</span></div> <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> PAM矩阵</legend>
+  是基于进化原理，建立在<span class="sadmon sadmon-note">可接受点突变&#40;point accepted mutation, PAM&#41;</span>模型基础上的氨基酸序列打分矩阵。如果一种氨基酸替换在自然界中频繁出现，说明自然界更容易接受这种替换, 则这对氨基酸的替换得分就高。</p>
+<ul>
+<li><p>一个PAM &#40;PAM1&#41; 就是一个进化变异单位, 即1&#37;的氨基酸改变。</p>
+</li>
+<li><p>\(PAMN = PAM1 ^ N\)</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/03_alignment/012_PAM250.svg" style="margin: 0 auto;height: 400px" /> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<p><div class="aadmon aadmon-hack"> 打分矩阵——蛋白质: <span class="Sadmon Sadmon-tip">BLOSUM矩阵</span></div> <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <span style="font-size:30px;"> 
+<fieldset class="hadmon admon-tip"><legend class="hadmon-legend admon-legend-tip"> BLOSUM矩阵</legend>
+  模块替代矩阵（<span class="cadmon sadmon-tip">BLO</span>cks <span class="cadmon sadmon-tip">SU</span>bstitution <span class="cadmon sadmon-tip">M</span>atrix），是从蛋白质序列块&#40;短序列&#41;比对推导出来的矩阵，用于解决序列的远距离相关性。在构建矩阵过程中，通过设置最小相同残基数百分比将序列片段整合在一起，以避免由于同一个残基对被重复计数而引入的潜在偏差。</p>
+<ul>
+<li><p>通过设置不同的百分比，产生了不同矩阵: <span class="cadmon sadmon-tip">BLOSUM80</span> —— ≥ 80&#37; 相同残基的序列模块; <span class="cadmon sadmon-tip">BLOSUM62</span> —— ≥ 62&#37; 相同残基的序列模块; </p>
+</li>
+<li><p>在BLOSUM 矩阵中，BLOSUM 编号数字越大，序列间的进化关系就越近（与PAM 矩阵相反）。</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </span> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/03_alignment/013_BLOSUM62.png" style="margin: 0 auto;height: 550px" /> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<div class="aadmon aadmon-warn"> PAM vs BLOSUM</div>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="aadmon aadmon-note"> PAM</div></p>
+<ul>
+<li><p>对相关性未知的序列进行比对：只进行一次比对时常用PAM120矩阵。如想得到结果更全面更有效的结 果则应使用多个矩阵。用三个矩阵：PAM40、PAM120、 PAM250，可得出全面覆盖的结果。只用PAM80和PAM200 两个矩阵也可达到较好的覆盖面。</p>
+</li>
+<li><p>对两个同源序列进行比对：多用几个不同的PAM矩阵会得到较好的结果。如果只进行一次比对常用 PAM200矩阵。如果进行两次分析，那用PAM80和 PAM250，或者PAM120和PAM320可以得到较好的结果。</p>
+</li>
+<li><p>在进行比对时最好是根据序列对实际差异程度来选用相应的PAM矩阵。</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="aadmon aadmon-tip"> BLOSUM</div></p>
+<ul>
+<li><p>PAM矩阵从1到250PAM两极距离太远，可能引起不准确；而Blosum直接从最同源的序列的区间排比获取匹配率，不考虑进化距离。因此Blosum矩阵的<span class="cadmon sadmon-tip">优点是符合实际观测结果</span>，<span class="cadmon sadmon-error">不足之处是它不能提供进化信息</span>。</p>
+</li>
+<li><p>Blosum矩阵的突变数据来源于未加gaps的序列区间排比，相当于蛋白序列的保守区。大量试验表明， Blosum矩阵总体比PAM矩阵更适合于生物学关系的分析和局部相似性搜索。</p>
+</li>
+</ul>
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>2. 序列比对打分方法</h1>
+<div class="aadmon aadmon-hack"> 空位罚分&#40;Gap penalties&#41;</div>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <span style="font-size:40px;font-family:monospace; margin: 100px;"> <span class="cadmon sadmon-info">ATGA<span class="cadmon sadmon-error">--</span>CT<span class="cadmon sadmon-error">G</span>GA<br> ||||&nbsp;&nbsp;||.||<br> ATGATGCT<span class="cadmon sadmon-todo">C</span>GA</span> </span> <br></p>
+<ul>
+<li><p><span class="Sadmon Sadmon-note">线性罚分 &#40;Linear gap penalty&#41;</span></p>
+<ul>
+<li><p>空位起始 &#40;gap opening penalty&#41;</p>
+</li>
+<li><p>空位延伸 &#40;gap extension penalty&#41;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <img src="/courses/SDAUBIU2025/data/03_alignment/014_gap_penalties.jpg" style="margin: 0 auto; height: 500px" /> 
+</td>
+</tr></table>
+ </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:50px; color:#4393C3"> 序列比对: 3. 比对算法 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 比对算法</h1>
+<p><div class="aadmon aadmon-hack"> 序列比对的类型</div> <div class="indent-block" style="margin-left: 2em !important"> <div class="aadmon aadmon-note"> 按照比对序列数目: 双序列比对，多序列比对</div> <div class="aadmon aadmon-info"> 双序列比对的需求和算法: 全局比对、局部比对</div></p>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIU2025/data/03_alignment/015_MSA.png" style="margin: 0 auto;" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img src="/courses/SDAUBIU2025/data/03_alignment/016_global_and_local_aln.webp" style="margin: 0 auto;" /> 
+</td>
+</tr></table>
+ </div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<p><div class="aadmon aadmon-todo"> 全局比对和局部比对的求解目标</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img src="/courses/SDAUBIU2025/data/03_alignment/017_glob_vs_local_aln.svg" style="margin: 0 auto;height:500px" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 全局比对</legend>
+</p>
+<ul>
+<li><p><strong>目标:</strong> 寻找两个字符串之间的最佳比对</p>
+</li>
+<li><p><strong>数学问题:</strong> 求解编辑图中位于顶点\((0,0)\)和\((n,m)\)之间的最长路径</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div></p>
+<p><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 局部比对</legend>
+</p>
+<ul>
+<li><p><strong>目标:</strong> 找到两条序列中最好局部比对</p>
+</li>
+<li><p><strong>数学问题:</strong> 求解编辑图中任意顶点\((i,j)\)和\((i',j')\)之间的所有路径中寻找一条最长路径</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:35px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<div class="aadmon aadmon-hack"> 解题思路: 动态规划算法</div>
+<p>
+<fieldset class="hadmon admon-warn"><legend class="hadmon-legend admon-legend-warn"> 动态规划(Dynamic Programming, DP)</legend>
+ <br> 是一种在数学、管理科学、计算机科学、经济学和生物信息学等领域中使用的算法思想，它将复杂问题分解为更简单的子问题，通过解决子问题来逐步解决原问题。动态规划算法通常用于解决具有重叠子问题和最优子结构特性的问题，它通过存储子问题的解来避免重复计算，从而提高效率。 <br><br></p>
+<ul>
+<li><p><strong>核心概念</strong>: 最优子结构和重叠子问题</p>
+<ul>
+<li><p><span class="sadmon sadmon-warn">最优子结构</span>意味着问题的最优解包含其子问题的最优解。</p>
+</li>
+<li><p><span class="sadmon sadmon-warn">重叠子问题</span>则是指在递归过程中，许多子问题会被重复计算多次。</p>
+</li>
+<li><p>动态规划算法通过<span class="Sadmon Sadmon-warn">存储这些子问题的解</span>，避免重复计算，从而提高效率。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</fieldset>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<p><div class="aadmon aadmon-tip"> 理解动态规划: 分型、递归和斐波那契数列</div> 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1706097966&bvid=BV1QT421r7wk&cid=1617133499&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="1000px" height="550px"></iframe>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<p><div class="aadmon aadmon-tip"> 理解动态规划: 分型、递归和斐波那契数列</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> 无限繁殖的兔子</legend>
+ <span class="cadmon sadmon-info">有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第四个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子总数为多少</span> 
+</fieldset>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img src="/courses/SDAUBIU2025/data/03_alignment/018_fib_rabbits.png" style="margin: 0 auto; height:450px" /> </div> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <div class="aadmon aadmon-info"> 递归思路的解决方案:</div> </div> <div style="font-size: 40px; margin: 0 auto;" class="fragment fade-up" data-fragment-index="3"></p>
+<pre><code class="language-julia"># solution 1: normal recursion
+# n: number of months
+# k: number of offsprings
+function fib1&#40;n::Int, k::Int&#41;
+    if n &lt;&#61; 2
+        return 1
+    end
+    return fib1&#40;n - 1, k&#41; &#43; k * fib1&#40;n - 2, k&#41;
+end
+# test
+for i in 1:10
+    print&#40;&quot;&#36;&#40;fib1&#40;i,1&#41;&#41; &quot;&#41;
+end
+1 1 2 3 5 8 13 21 34 55</code></pre>
+<p></div> <br> <div class="fragment" data-fragment-index="4" align="left" style="margin:0px"> <div class="aadmon aadmon-error"> 递归会带来大量的重复计算</div> </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<p><div class="aadmon aadmon-tip"> 理解动态规划: 分型、递归和斐波那契数列</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:500px">
+ <div class="aadmon aadmon-info"> 递归思路的解决方案:</div> <div style="font-size: 30px; margin: 0 auto;"></p>
+<pre><code class="language-julia"># solution 1: normal recursion
+# n: number of months
+# k: number of offsprings
+function fib1&#40;n::Int, k::Int&#41;
+    if n &lt;&#61; 2
+        return 1
+    end
+    return fib1&#40;n - 1, k&#41; &#43; k * fib1&#40;n - 2, k&#41;
+end
+
+# test
+for i in 1:10
+    print&#40;&quot;&#36;&#40;fib1&#40;i,1&#41;&#41; &quot;&#41;
+end
+1 1 2 3 5 8 13 21 34 55</code></pre>
+<p></div> 
+</td>
+<td id="lov" width="700px" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-warn"> 动态规划的解决方案:</div> </div></p>
+<p><div style="font-size: 30px; margin: 0 auto;" class="fragment fade-up" data-fragment-index="2"></p>
+<pre><code class="language-julia"># solution 2: use memoization -&gt; dynamic programming
+# n: number of months
+# k: number of offsprings
+
+function fib2&#40;n::Int, k::Int&#41;
+    memo &#61; Dict&#123;Int, Int&#125;&#40;&#41;
+    memo&#91;1&#93; &#61; 1
+    memo&#91;2&#93; &#61; 1
+    return fib2&#40;n, k, memo&#41;
+end
+
+function fib2&#40;n::Int, k::Int, memo::Dict&#123;Int, Int&#125;&#41;
+    if haskey&#40;memo, n&#41;
+        return memo&#91;n&#93;
+    end
+    memo&#91;n&#93; &#61; fib2&#40;n - 1, k, memo&#41; &#43; k * fib2&#40;n - 2, k, memo&#41;
+    return memo&#91;n&#93;
+end
+
+# test
+for i in 1:10
+    print&#40;&quot;&#36;&#40;fib2&#40;i,1&#41;&#41; &quot;&#41;
+end
+1 1 2 3 5 8 13 21 34 55</code></pre>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>3. 双序列比对算法</h1>
+<p><br><div class="aadmon aadmon-hack"> Needleman Wunsch 算法</div></p>
+<p>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=319034263&bvid=BV1Ew41117Ap&cid=1281994839&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="1000px" height="550px"></iframe>
+ </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:50px; color:#4393C3"> 序列比对: 4. 双序列比对应用 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>4. 双序列比对应用</h1>
+<p><br><div class="aadmon aadmon-hack"> BLAST</div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>4. 双序列比对应用</h1>
+<p><br><div class="aadmon aadmon-hack"> BLAST</div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>4. 双序列比对应用</h1>
+<p><br><div class="aadmon aadmon-hack"> BLAST</div> </section>
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> 生物信息学 </span> <hr> <br> <span style="font-size:50px; color:#4393C3"> 序列比对: 5. 多序列比对 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> <span class="cadmon sadmon-hack">2025年09月</span> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>5. 多序列比对</h1>
+<p><br><div class="aadmon aadmon-hack"> Progressive Alignment</div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>5. 多序列比对</h1>
+<p><br><div class="aadmon aadmon-hack"> MAFFT</div> </section>
+<section style="font-size:30px"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>5. 多序列比对</h1>
+<p><br><div class="aadmon aadmon-hack"> CLUSTAL</div> </section>
+
+</div>
+
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
