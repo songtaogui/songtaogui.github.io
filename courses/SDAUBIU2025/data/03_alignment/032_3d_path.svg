@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 594 392">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+  <defs>
+    <style>
+      .st0, .st1 {
+        stroke: #000;
+      }
+
+      .st0, .st1, .st2 {
+        fill: none;
+        stroke-width: 2.58px;
+      }
+
+      .st0, .st2 {
+        stroke-linejoin: round;
+      }
+
+      .st3 {
+        fill: #00f900;
+        fill-rule: evenodd;
+      }
+
+      .st4 {
+        font-family: TimesNewRomanPS-ItalicMT, 'Times New Roman';
+        font-size: 18px;
+        font-style: italic;
+      }
+
+      .st1 {
+        stroke-miterlimit: 8;
+      }
+
+      .st2 {
+        stroke: #00f900;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="st1" x="128" y="26.13" width="287.85" height="287.85"/>
+    <line class="st2" x1="416" y1="26.13" x2="503.84" y2="324.78"/>
+  </g>
+  <g>
+    <polygon class="st3" points="506.56 316.32 506 332.12 496.97 319.15 506.56 316.32"/>
+    <line class="st2" x1="128" y1="26.13" x2="464.24" y2="326.97"/>
+    <polygon class="st3" points="462.16 318.4 470 332.12 455.49 325.85 462.16 318.4"/>
+    <line class="st2" x1="128" y1="314.12" x2="456.39" y2="355.17"/>
+    <polygon class="st3" points="449.74 349.3 464 356.13 448.5 359.23 449.74 349.3"/>
+    <rect class="st1" x="230" y="80.13" width="287.85" height="287.85"/>
+    <line class="st0" x1="416" y1="314.12" x2="517.95" y2="368.1"/>
+    <line class="st0" x1="128" y1="314.12" x2="229.95" y2="368.1"/>
+    <line class="st0" x1="416" y1="26.13" x2="517.95" y2="80.1"/>
+    <line class="st0" x1="128" y1="26.13" x2="229.95" y2="80.1"/>
+    <line class="st2" x1="416" y1="314.12" x2="469.26" y2="340.76"/>
+    <polygon class="st3" points="464.82 332.94 476 344.12 460.35 341.89 464.82 332.94"/>
+    <line class="st2" x1="230" y1="368.13" x2="468.38" y2="368.13"/>
+    <polygon class="st3" points="461 363.12 476 368.12 461 373.12 461 363.12"/>
+    <line class="st2" x1="518" y1="80.13" x2="518" y2="318.5"/>
+    <polygon class="st3" points="523 311.13 518 326.13 513 311.13 523 311.13"/>
+    <line class="st2" x1="230" y1="80.13" x2="488.56" y2="338.69"/>
+    <polygon class="st3" points="486.93 329.98 494 344.12 479.86 337.05 486.93 329.98"/>
+  </g>
+  <text class="st4" transform="translate(9.2 35.73)"><tspan x="0" y="0">(i-1,j-1,k-1) </tspan></text>
+  <text class="st4" transform="translate(39.21 329.72)"><tspan x="0" y="0">(i,j-1,k-1) </tspan></text>
+  <text class="st4" transform="translate(153.2 377.73)"><tspan x="0" y="0">(i,j-1,k) </tspan></text>
+  <text class="st4" transform="translate(231.19 71.73)"><tspan x="0" y="0">(i-1,j-1,k) </tspan></text>
+  <text class="st4" transform="translate(531.2 70.59)"><tspan x="0" y="0">(i-1,j,k) </tspan></text>
+  <text class="st4" transform="translate(531.2 370.6)"><tspan x="0" y="0">(i,j,k) </tspan></text>
+  <text class="st4" transform="translate(441.2 29.73)"><tspan x="0" y="0">(i-1,j,k-1) </tspan></text>
+  <text class="st4" transform="translate(351.2 305.72)"><tspan x="0" y="0">(i,j,k-1) </tspan></text>
+</svg>
