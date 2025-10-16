@@ -1,0 +1,699 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Sliding windows method for binning in genetic map construction
+">
+    
+
+    
+    
+    <meta name="keywords" content="snp_slidewin_to_bin">
+    <title>snp_slidewin_to_bin</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+    <link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css"> 
+
+
+
+
+ 
+<!-- end for isnotdef revealslide -->
+
+
+<!-- end for isdef revealslide -->
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>snp_slidewin_to_bin</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content"><p> <div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/bioinformatics/">bioinformatics</a>, <a href="/tag/genetics/">genetics</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div></p>
+<h2 id="基于黄学辉gr文章原理的实现"><a href="#基于黄学辉gr文章原理的实现" class="header-anchor"><ol>
+<li><p>基于黄学辉GR文章原理的实现：</p>
+</li>
+</ol>
+</a></h2>
+<ul>
+<li><p>snp –&gt; crosspoints</p>
+</li>
+</ul>
+<ul>
+<li><p>只能用15 win &#43; 0.8 ratio:    <a href="https://leanote.com/api/file/getAttach?fileId&#61;5ae91841ab6441232a0004db"><code>slide_by_snp4RIL_V3.pl</code></a></p>
+</li>
+</ul>
+<p>- 我修改版，可修改win大小，ratio大小，未测试：
+    &#91;<code>gst_slide_by_snp4RIL_V3.pl</code>&#93;&#40;https://leanote.com/api/file/getAttach?fileId&#61;5ae91841ab6441232a0004df&#41;</p>
+<ul>
+<li><p>根据长度过滤重组片段（自己DIY，未测试） <a href="https://leanote.com/api/file/getAttach?fileId&#61;5ae91841ab6441232a0004dc"><code>filter_breakpoint.pl</code></a></p>
+</li>
+<li><p>根据crosspoint划分bin（可设置最小bin长度）  <a href="https://leanote.com/api/file/getAttach?fileId&#61;5ae91841ab6441232a0004dd"><code>get_bin_num.pl</code></a></p>
+</li>
+<li><p>生成bin的genotype   <a href="https://leanote.com/api/file/getAttach?fileId&#61;5ae91841ab6441232a0004de"><code>get_geno_by_bin.pl</code></a></p>
+</li>
+</ul>
+<h2 id="ol_start2_一篇文章里的python脚本未测试"><a href="#ol_start2_一篇文章里的python脚本未测试" class="header-anchor"><ol start="2">
+<li><p>一篇文章里的python脚本（未测试）</p>
+</li>
+</ol>
+</a></h2>
+<blockquote>
+<p><a href="https://academic.oup.com/dnaresearch/article/23/2/81/1745287">An ultra-high-density bin map facilitates high-throughput QTL mapping of horticultural traits in pepper &#40;Capsicum annuum&#41;</a></p>
+</blockquote>
+<pre><code class="language-julia"># Make three directories: ‘in_csv’, ‘out_csv’, and ‘bin_maps’
+# Copy the python code and save the as ‘1.slid_wind.py’, ‘2.binmap.py’, and ‘3.binpic.py’
+
+# 1. make genotyped &quot;.csv&quot; files of each chromosome
+# 	&#40;there is example file in in_csv folder&#41;
+
+# 2. change in &#39;1.slid_wind.py&#39;
+#    - in/out directory: line 12 and line 13
+#    - individual number: line 18
+#    - breakpoint threshold: line 19
+#    - chromosome length: line 20
+#    - test different window length in line 109. 0.5e6 - 6e6 is recommended
+
+# 3. run &#39;1.slid_wind.py&#39; for every chromosome
+#    - output file will be made in &#39;out_csv&#39; folder
+
+# 4. change in &#39;2.binmap.py&#39;
+#    - in/out directory: line 17 and 18
+
+# 5. run &#39;2.binmap.py&#39; for every chromosome
+#    - output file will be made in &#39;bin_maps&#39; folder
+
+# 6. change in &#39;3.binpic.py&#39;
+#    - in/out directory: line 58 and 59
+
+# 7. run &#39;3.binpic.py&#39;
+#    - output file will be made in &#39;bin_maps&#39; folder
+ 
+&lt;1.slid_wind.py&gt;
+
+#&#33;/usr/bin/env python
+# this code ignore heterozygous genotype
+
+&#39;&#39;&#39;Instead of using SNPs as the basis for window length, this algorithm uses
+cM or bp units to count how many SNPs should go in a window. &#39;&#39;&#39;
+
+# Modules
+from __future__ import division
+import sys
+
+# Paths
+in_file &#61; &#39;in_csv/example.csv&#39;
+out_file &#61; &#39;out_csv/example_breakpoint.csv&#39;
+
+# Often-modified global variables len_unit_Mb &#61; True         # specifies if the length unit is cM or Mb
+genotype_case_upper &#61; True # specifies if genotype cases are upper or lower
+indi_number &#61; 120          # number of individuals in csv file
+break_consts &#61; &#40;0.3, 0.7&#41;  # breakpoint ratios
+chrom_len &#61; 9050551        # position of last chromosome in csv file
+het_toler &#61; 2              # constant multiplied to find transitional hets
+
+# Authorship information
+__author__ &#61; &#39;Sungmin Kang&#39;
+__date__ &#61; &#39;2015-05-16&#39;
+__version__ &#61; &#39;1.1&#39;
+__maintainer__ &#61; &#39;Koeun Han&#39;
+__email__ &#61; &#39;stuatlittle@kaist.ac.kr&#39;
+
+# Basic functions
+def csvRead&#40;filename, col_num&#41;:
+    &#39;&#39;&#39;Reads a certain column of a csv file, given column number and 
+    filename. The function currently ignores hetero and -s.&#39;&#39;&#39;
+    f &#61; open&#40;filename, &quot;r&quot;&#41;
+    snp_list &#61; &#91;&#93;
+    
+    for line in f:
+        if &#39;marker&#39; in line: continue #ignores first line
+        line &#61; line.strip&#40;&#41;
+        comps &#61; line.split&#40;&#39;,&#39;&#41;
+        #filter to ignore heteros or -s
+        if comps&#91;col_num&#93;.lower&#40;&#41; in &#39;h-&#39;: continue
+        snp_list.append&#40;&#40;float&#40;comps&#91;1&#93;&#41;, comps&#91;col_num&#93;&#41;&#41;
+    return snp_list
+
+def MakeCsv&#40;filename, ref, cross_list, chrom_len&#41;:
+    &#39;&#39;&#39;adds lines to the filename in csv format. The function was copied
+    and pasted directly from the previous movingwindow code.&#39;&#39;&#39;
+    f &#61; open&#40;filename, &quot;a&quot;&#41;
+    
+    for i in xrange&#40;len&#40;cross_list&#41;&#41;:
+        cross_list&#91;i&#93; &#61; str&#40;cross_list&#91;i&#93;&#41;
+    cross_list.append&#40;str&#40;chrom_len&#41;&#41;
+    f.write&#40;ref &#43; &#39;,0,&#39; &#43; &quot;,&quot;.join&#40;cross_list&#41; &#43; &#39;,\n&#39;&#41;
+    f.close&#40;&#41;
+
+# Definition of MovingWindow object
+class MovingWindow&#40;&#41;:
+    &#39;&#39;&#39;Moving window object. This object is needed because the length of the
+    window constantly changes, and therefore custom methods of the window 
+    have nice effect.&#39;&#39;&#39;
+    def __init__&#40;self, break_ref, genotype_names, window_len&#41;:
+        &#39;&#39;&#39;The function that makes a movingwindow object.
+        break_ref : genotype ratios from which to disern crosspoints
+        genotype_names : the genotype names, such as &#39;a&#39;, &#39;h&#39;, &#39;b&#39;
+        window_len : the amount of the chromosome we want to include in our
+        window. the length should be in bp or cM units, not SNP number units.&#39;&#39;&#39;
+        self._snp_list &#61; &#91;&#93;
+        self._break_ref &#61; break_ref
+        self._genotype_names &#61; genotype_names
+        self._point_dic &#61; dict&#40;zip&#40;genotype_names, &#40;0.0, 0.5, 1.0&#41;&#41;&#41;
+        self._window_len &#61; window_len
+    
+    def __len__&#40;self&#41;:
+        &#39;&#39;&#39;returns the number of SNPs that are currently in the window.&#39;&#39;&#39;
+        return len&#40;self._snp_list&#41;
+    
+    def insert&#40;self, element&#41;:
+        &#39;&#39;&#39;inserts a new SNP in the window. 
+        Upon inserting the new SNP to thewindow, the function will delete any 
+        SNPs that are more than self._window_len away from the SNP inserted 
+        just now. 
+        element : a tuple in the format of &#40;position, genotype&#41;&#39;&#39;&#39;
+        self._snp_list.append&#40;element&#41;
+        while self._snp_list&#91;0&#93;&#91;0&#93; &#43; self._window_len &lt; self._snp_list&#91;-1&#93;&#91;0&#93;:
+            self._snp_list.pop&#40;0&#41;
+	        
+    def genotype&#40;self&#41;:
+        &#39;&#39;&#39;calculates the current genotype of the window.
+        The calculation is based on the breakpoint reference given when
+        the MovingWindow is first made.&#39;&#39;&#39;
+        _current_score &#61; sum&#40;self._point_dic&#91;snp&#91;1&#93;&#93; for snp in self._snp_list&#41;
+        _res &#61; None
+        if _current_score/len&#40;self&#41; &gt; self._break_ref&#91;1&#93;:
+            _res &#61; self._genotype_names&#91;2&#93;
+        elif _current_score &lt; self._break_ref&#91;0&#93;:
+            _res &#61; self._genotype_names&#91;0&#93;
+        else:
+            _res &#61; self._genotype_names&#91;1&#93;
+        return _res
+    
+    def dump&#40;self&#41;:
+        &#39;&#39;&#39;dumps any previous SNP data for efficient use of the moving window.&#39;&#39;&#39;
+        self._snp_list &#61; &#91;&#93;
+
+# Matching setting variables on top
+if len_unit_Mb:
+    &#39;&#39;&#39; window length can be changed here&#39;&#39;&#39;
+    win_len &#61; 5e6
+else:
+    win_len &#61; 1 # Change this to window length when length unit is cM
+
+if genotype_case_upper:
+    gen_names &#61; &#40;&#39;A&#39;, &#39;H&#39;, &#39;B&#39;&#41;
+else:
+    gen_names &#61; &#40;&#39;a&#39;, &#39;h&#39;, &#39;b&#39;&#41;
+
+# Generates MovingWindow object for use
+window &#61; MovingWindow&#40;break_consts, gen_names, win_len&#41;
+
+# Refreshes out_file to empty
+f &#61; open&#40;out_file, &#39;w&#39;&#41;
+f.close&#40;&#41;
+
+# Where the actual work happens
+for column in xrange&#40;2, indi_number&#43;2&#41;:
+    # First, read the data from the column.
+    snp_list &#61; csvRead&#40;in_file, column&#41;
+
+    # Make a list to store the positions and genotypes.
+    genoty &#61; &#91;&#93;
+
+    snp &#61; &#91;snp_list&#91;0&#93;&#93;
+    for k in range&#40;1,len&#40;snp_list&#41;&#41;:
+	    if snp_list&#91;k&#93;&#91;0&#93; &gt;&#61; snp&#91;-1&#93;&#91;0&#93; &#43; 500000: # step size can be changed here
+		   snp.append&#40;snp_list&#91;k&#93;&#41;
+ 		   window.insert&#40;snp_list&#91;k&#93;&#41;
+        	   genoty.append&#40;&#40;snp_list&#91;k&#93;&#91;0&#93;, window.genotype&#40;&#41;&#41;&#41;
+	    else:
+		    continue
+
+
+    # Calculate the breakpoints.
+    prev_type &#61; genoty&#91;0&#93;&#91;1&#93;
+    cross_points &#61; &#91;genoty&#91;0&#93;&#91;1&#93;&#93;
+    for genotype_bit in genoty&#91;1:&#93;:
+        if prev_type &#33;&#61; genotype_bit&#91;1&#93;:
+            cross_points.append&#40;genotype_bit&#91;0&#93;&#41; # Append crosspoint position
+            cross_points.append&#40;genotype_bit&#91;1&#93;&#41; # Append genotype
+            prev_type &#61; genotype_bit&#91;1&#93;
+
+    # Exclude transition point heteros.
+    gen_name_list &#61; list&#40;gen_names&#41;
+    # gen_name_ref contains gen_names and its reverse for comparison
+    gen_name_ref &#61; &#40;gen_name_list, gen_name_list&#91;::-1&#93;&#41;
+
+
+    i &#61; 0
+    while i &lt; len&#40;cross_points&#41;-4:
+        if cross_points&#91;i:i&#43;5:2&#93; in gen_name_ref: # If genotype ahb/bha...
+            if cross_points&#91;i&#43;3&#93;-cross_points&#91;i&#43;1&#93; &lt; het_toler*win_len:
+                del cross_points&#91;i&#43;2:i&#43;4&#93; # Delete hetero data
+                print &#39;del&#39;
+        i &#43;&#61; 2
+
+    k &#61; 0
+    same_gen_list &#61; &#40; &#91;&#39;A&#39;,&#39;H&#39;,&#39;A&#39;&#93;,&#91;&#39;B&#39;,&#39;H&#39;,&#39;B&#39;&#93;&#41;
+    while k &lt; len&#40;cross_points&#41;-3:
+        if cross_points&#91;k:k&#43;5:2&#93; in same_gen_list: # If genotype aha/bhb...
+            if cross_points&#91;k&#43;3&#93;-cross_points&#91;k&#43;1&#93; &lt; het_toler*win_len:
+                del cross_points&#91;k&#43;1:k&#43;5&#93; # Delete hetero and following same genotype data
+                print &#39;del&#39;
+        k &#43;&#61; 2
+
+    # Export to out_file.
+    MakeCsv&#40;out_file, str&#40;column-1&#41;, cross_points, chrom_len&#41;
+    
+    # Dump the SNP data just used.
+    window.dump&#40;&#41;
+ 
+&lt;2.binmap.py&gt;
+
+#&#33;/usr/bin/python
+#makes bin maps
+
+import sys
+
+def csvRead&#40;filename&#41;:
+	&#39;&#39;&#39;reads csv files in a format that would be useful&#39;&#39;&#39;
+	f &#61; open&#40;filename, &#39;r&#39;&#41;
+	dat_list &#61; &#91;&#93;
+	for line in f:
+		line &#61; line.strip&#40;&#41;
+		temp &#61; line.split&#40;&#39;,&#39;&#41;
+		#reads only the crosspoints
+		dat_list.append&#40;temp&#91;:-1&#93;&#41;
+	return dat_list
+
+in_dir &#61; &#39;out_csv/example_breakpoint.csv&#39;
+out_dir &#61; &#39;bin_maps/example_binmap.csv&#39;
+
+dat_list &#61; csvRead&#40;in_dir&#41;
+chrom_len &#61; float&#40;dat_list&#91;-1&#93;&#91;-1&#93;&#41;
+f_out &#61; open&#40;out_dir, &#39;w&#39;&#41;
+
+#interval 1 for cM and 100000 for bp
+interval &#61; 100000
+
+#acc_thresh is individuals that should have crossover at that point
+acc_thresh &#61; 1
+
+#cross_list is array that saves crosspoints
+comb_cross_list &#61; &#91;&#93;
+
+for i in xrange&#40;0, int&#40;chrom_len&#41;-1, interval&#41;:
+	#searches for each point of chromosome
+    range_temp &#61; 0
+    for individual in dat_list:
+        for crosspoint in individual&#91;1::2&#93;:
+			#for all crosspoints in all individuals, 
+            if i&lt;&#61; float&#40;crosspoint&#41; &lt; i&#43;interval:
+				#if crosspoint is in appropriate range, add to temp variable
+                range_temp &#43;&#61; 1
+
+    if range_temp &gt;&#61; acc_thresh:
+		#if same or more than acc_thresh discovered, added to cross_list
+        comb_cross_list.append&#40;i&#43;&#40;interval/2&#41;&#41;
+
+#header information: on top is bin numbers compared with chromosome length;
+f_out.write&#40;&#39;##bin number &#37;d / &#37;d\n&#39; &#37; &#40;len&#40;comb_cross_list&#41;, int&#40;chrom_len&#41;&#41;&#41;
+
+#header information: 2nd row has crosspoint positions for each bin
+f_out.write&#40;&#39;,&#39;.join&#40;&#91;str&#40;crosspoint&#41; for crosspoint in comb_cross_list&#93;&#41;&#43;&#39;,&#39;&#43;str&#40;int&#40;chrom_len&#41;&#41;&#43;&#39;\n&#39;&#41;
+
+#finally writes meaningful data on folder.
+#the 1st thing in a line is the individual number
+
+for individual in dat_list:
+	f_out.write&#40;individual&#91;0&#93;&#43;&#39;,&#39;&#41;
+	for ref in comb_cross_list:
+		for cross_index in xrange&#40;1, len&#40;individual&#41;, 2&#41;:
+			if int&#40;float&#40;individual&#91;cross_index&#93;&#41;&#41; &gt; ref:
+				f_out.write&#40;individual&#91;cross_index-1&#93;&#43;&#39;,&#39;&#41;
+				break
+	f_out.write&#40;&#39;\n&#39;&#41;
+f_out.close&#40;&#41;
+ 
+&lt;3.binpic.py&gt;
+
+#&#33;/usr/bin/python
+#makes image files from csv file
+#you need &#39;Python Imaging Library &#40;PIL&#41;&#39;
+
+from PIL import Image
+import sys
+
+# if cM unit, set as True
+cM &#61; False
+# if small case in csv file, set as true
+small_case &#61; False
+
+if small_case:
+    colour &#61; &#123;&#39;a&#39;:&#40;255, 0, 0&#41;, &#39;h&#39;:&#40;255, 192, 0&#41;, &#39;b&#39;:&#40;20, 42, 178&#41;&#125;
+
+else:
+    colour &#61; &#123;&#39;A&#39;:&#40;255, 0, 0&#41;, &#39;H&#39;:&#40;255, 192, 0&#41;, &#39;B&#39;:&#40;20, 42, 178&#41;&#125;
+
+def csvRead&#40;filename&#41;:
+    f &#61; open&#40;filename, &#39;r&#39;&#41;
+    dat_list &#61; &#91;&#93;
+    for line in f:
+        line &#61; line.strip&#40;&#41;
+        temp &#61; line.split&#40;&#39;,&#39;&#41;
+        dat_list.append&#40;temp&#91;1:&#93;&#41;
+    return dat_list
+
+if cM &#61;&#61; True:
+    compress &#61; 1
+else:
+    compress &#61; 500000
+
+def drawpic&#40;picname, dat_list&#41;:
+    chrom_len &#61; int&#40;float&#40;dat_list&#91;-1&#93;&#91;-2&#93;&#41;&#41;
+    x_expand &#61; 1
+    y_expand &#61; 10
+    print chrom_len/compress
+    binmap &#61; Image.new&#40;&#39;RGB&#39;, &#40;chrom_len/compress, len&#40;dat_list&#41;&#41;&#41;
+    print &#39;image size :&#39;, binmap.size 
+    for y in xrange&#40;len&#40;dat_list&#41;&#41;:
+        for x in xrange&#40;chrom_len/compress&#41;:
+            in_low &#61; 0
+            in_high &#61; 0
+            
+            for i in xrange&#40;len&#40;dat_list&#91;y&#93;&#41;&#41;:
+                if i&#37;2 &#61;&#61; 0 and x &lt; float&#40;dat_list&#91;y&#93;&#91;i&#93;&#41;/compress:
+                    in_high &#61; &#40;i if x &#33;&#61; 0 else 2&#41;
+                    break
+            for i in xrange&#40;len&#40;dat_list&#91;y&#93;&#41;-1, 0, -1&#41;:
+                if i&#37;2 &#61;&#61; 0 and x &gt;&#61; float&#40;dat_list&#91;y&#93;&#91;i&#93;&#41;/compress:
+                    in_low &#61; i
+                    break
+            binmap.putpixel&#40;&#40;x, y&#41;, colour&#91;dat_list&#91;y&#93;&#91;in_low&#43;1&#93;&#93;&#41;
+            
+    binmap.resize&#40;&#40;x_expand*chrom_len/compress, y_expand*len&#40;dat_list&#41;&#41;&#41;
+    binmap.save&#40;picname&#41;
+
+dat_list &#61; csvRead&#40;&#39;out_csv/example_breakpoint.csv&#39;&#41;
+drawpic&#40;&#39;bin_maps/example_binmap.png&#39;, dat_list&#41;</code></pre>
+<h3 id="3_github_上一个基于hmm的python包似乎靠谱"><a href="#3_github_上一个基于hmm的python包似乎靠谱" class="header-anchor">3 Github 上一个基于HMM的python包（似乎靠谱）</a></h3>
+<p><a href="https://github.com/solgenomics/SNPbinner">snpbinner</a></p>
+
+
+</div>
+<!-- article style -->
+
+
+ <!-- add comments to page -->
+<hr>
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+
+
+
+</div>
+
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <!-- seperate highlight.js so that I can control it with 'hascode=true' in the md file -->
+<script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // show the button when the user scrolls past 100 pixels
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // when the user clicks on the button, scroll to the top of the document
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+</html>
+
+
+

@@ -1,0 +1,457 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Parse WGA chain file into dict of IntervalCollections
+">
+    
+
+    
+    
+    <meta name="keywords" content="Make my own bioinformatics parser with Automa.jl">
+    <title>Make my own bioinformatics parser with Automa.jl</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<!-- <link rel=stylesheet href="/css/font-awesome.css"> -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+    <script src="/libs/nutshell/nutshell.js"></script> 
+
+    <link rel=stylesheet href="/libs/highlight/styles/atom-one-light.min.css"> 
+
+
+
+
+ 
+<!-- end for isnotdef revealslide -->
+
+
+<!-- end for isdef revealslide -->
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>Make my own bioinformatics parser with Automa.jl</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<div class="tags"><a href="/tag/" id="tag-icon"><svg width="20" height="20" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#141f38}</style></defs><path class="cls-1" d="M215.8 512a76.1 76.1 0 0 1-54.17-22.44L22.44 350.37a76.59 76.59 0 0 1 0-108.32L242 22.44A76.11 76.11 0 0 1 296.2 0h139.2A76.69 76.69 0 0 1 512 76.6v139.19A76.08 76.08 0 0 1 489.56 270L270 489.56A76.09 76.09 0 0 1 215.8 512zm80.4-486.4a50.69 50.69 0 0 0-36.06 14.94l-219.6 219.6a51 51 0 0 0 0 72.13l139.19 139.19a51 51 0 0 0 72.13 0l219.6-219.61a50.67 50.67 0 0 0 14.94-36.06V76.6a51.06 51.06 0 0 0-51-51zm126.44 102.08A38.32 38.32 0 1 1 461 89.36a38.37 38.37 0 0 1-38.36 38.32zm0-51a12.72 12.72 0 1 0 12.72 12.72 12.73 12.73 0 0 0-12.72-12.76z"/><path class="cls-1" d="M217.56 422.4a44.61 44.61 0 0 1-31.76-13.16l-83-83a45 45 0 0 1 0-63.52L211.49 154a44.91 44.91 0 0 1 63.51 0l83 83a45 45 0 0 1 0 63.52L249.31 409.24a44.59 44.59 0 0 1-31.75 13.16zm-96.7-141.61a19.34 19.34 0 0 0 0 27.32l83 83a19.77 19.77 0 0 0 27.31 0l108.77-108.7a19.34 19.34 0 0 0 0-27.32l-83-83a19.77 19.77 0 0 0-27.31 0l-108.77 108.7z"/><path class="cls-1" d="M294.4 281.6a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85zM256 320a12.75 12.75 0 0 1-9.05-3.75l-51.2-51.2a12.8 12.8 0 0 1 18.1-18.1l51.2 51.2A12.8 12.8 0 0 1 256 320zM217.6 358.4a12.75 12.75 0 0 1-9-3.75l-51.2-51.2a12.8 12.8 0 1 1 18.1-18.1l51.2 51.2a12.8 12.8 0 0 1-9.05 21.85z"/></svg></a><a href="/tag/bioinformatics/">bioinformatics</a>, <a href="/tag/idea/">idea</a>, <a href="/tag/julia/">julia</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="tag-icon"><svg width="20" height="20" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="3825" width="64" height="64"><path d="M512 416a96 96 0 1 0 0 192 96 96 0 0 0 0-192z m511.952 102.064c-0.016-0.448-0.064-0.864-0.096-1.296a8.16 8.16 0 0 0-0.08-0.656c0-0.32-0.064-0.624-0.128-0.928-0.032-0.368-0.064-0.736-0.128-1.088-0.032-0.048-0.032-0.096-0.032-0.144a39.488 39.488 0 0 0-10.704-21.536c-32.672-39.616-71.536-74.88-111.04-107.072-85.088-69.392-182.432-127.424-289.856-150.8-62.112-13.504-124.576-14.064-187.008-2.64-56.784 10.384-111.504 32-162.72 58.784-80.176 41.92-153.392 99.696-217.184 164.48-11.808 11.984-23.552 24.224-34.288 37.248-14.288 17.328-14.288 37.872 0 55.216 32.672 39.616 71.52 74.848 111.04 107.056 85.12 69.392 182.448 127.408 289.888 150.784 62.096 13.504 124.608 14.096 187.008 2.656 56.768-10.4 111.488-32 162.736-58.768 80.176-41.936 153.376-99.696 217.184-164.48 11.792-12 23.536-24.224 34.288-37.248 5.712-5.872 9.456-13.44 10.704-21.568l0.032-0.128a12.592 12.592 0 0 0 0.128-1.088c0.064-0.304 0.096-0.624 0.128-0.928l0.08-0.656 0.096-1.28c0.032-0.656 0.048-1.296 0.048-1.952l-0.096-1.968zM512 704c-106.032 0-192-85.952-192-192s85.952-192 192-192 192 85.968 192 192c0 106.048-85.968 192-192 192z" p-id="3826"></path></svg></a><span id="busuanzi_value_page_pv"></span></div>
+<div class="franklin-toc"><ol><li><a href="#design">Design</a></li><li><a href="#implementation">Implementation</a><ol><li><a href="#define_structure">Define Structure</a><ol><li><a href="#the_final_storage_structure_chainmap_intervalcollection">The final storage structure: <code>ChainMap &lt;: IntervalCollection</code></a></li></ol></li><li><a href="#the_intermediate_structure_chainrecord">The intermediate structure: <code>ChainRecord</code></a></li></ol></li></ol></div>
+
+<fieldset class="admon admon-hack">
+<legend class="admon-legend admon-legend-hack"> 💻 Problems to solve</legend>
+  Parse <a href="https://genome.ucsc.edu/goldenPath/help/chain.html">UCSC chain format</a>, and return a IntervalCollections with the query intervals as the values of the ref intervals.</p>
+<p><fieldset class="code code-plain"><legend class="code-legend code-legend-plain">plain</legend></p>
+<pre><code class="language-plaintext"># UCSC chain format: a demo
+chain 4900 chrY 58368225 &#43; 25985406 25985566 chr5 151006098 - 43549808 43549970 2
+16      0       2
+60      4       0
+10      0       4
+70</code></pre>
+<p><div class="code-lag">plain</div></fieldset> 
+</fieldset>
+
+<h2 id="design"><a href="#design" class="header-anchor">Design</a></h2>
+<p>⇾The <span class="Sadmon Sadmon-note">chain</span> format for each record could be briefly part into three:</p>
+<ol>
+<li><p>The <strong>header</strong> line of <span class="cadmon sadmon-note">chain score tName tSize tStrand tStart tEnd qName qSize qStrand qEnd id</span>;</p>
+</li>
+<li><p>The <strong>alignment</strong> body of <span class="cadmon sadmon-info">size dt dq</span>;</p>
+</li>
+<li><p>The <strong>alignment</strong> last line of <span class="cadmon sadmon-info">size</span>, and a blank line.</p>
+</li>
+</ol>
+<p>⇾The <span class="sadmon sadmon-note">parser</span> thus could be devided into four part:</p>
+<ol>
+<li><p>The <span class="sadmon sadmon-tip">header</span> parsing step: add actions for each cell in header line, return the whole <em>header</em> var</p>
+</li>
+<li><p>The <span class="sadmon sadmon-tip">alignment</span> parsing step: add actions for each alignment body, push each alignment record to <em>alignment</em> var</p>
+</li>
+<li><p>The <span class="sadmon sadmon-tip">alignment end</span> parsing step: detect the alignment end, return the <em>alignment</em> var</p>
+</li>
+<li><p>The <span class="sadmon sadmon-tip">record</span> parsing step: detect the end of the record, return the whole <em>record</em> var,  maybe convert during this step</p>
+</li>
+</ol>
+
+<fieldset class="admon admon-tip">
+<legend class="admon-legend admon-legend-tip"> Tip</legend>
+  To speed up the file IO and parsing step &#40;or to simplify the coding&#41;, we <strong>may not do string convertion</strong> during parsing, instead, we will convert the UInt8 IOstream to the format we required after the whole parsing step is done. 
+</fieldset>
+
+
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Dependencies</legend>
+</p>
+<ul>
+<li><p><a href="https://biojulia.net/Automa.jl/latest/index.html">Automa</a>: for parser</p>
+</li>
+<li><p><a href="https://biojulia.net/GenomicFeatures.jl/stable">GenomicFeatures</a>: for converter</p>
+</li>
+<li><p><a href="https://juliaio.github.io/TranscodingStreams.jl/stable/">TranscodingStreams</a>: for IOStream</p>
+</li>
+</ul>
+<p>
+</fieldset>
+
+<h2 id="implementation"><a href="#implementation" class="header-anchor">Implementation</a></h2>
+<h3 id="define_structure"><a href="#define_structure" class="header-anchor">Define Structure</a></h3>
+<h4 id="the_final_storage_structure_chainmap_intervalcollection"><a href="#the_final_storage_structure_chainmap_intervalcollection" class="header-anchor">The final storage structure: <code>ChainMap &lt;: IntervalCollection</code></a></h4>
+<p>The <span class="sadmon sadmon-note">chain</span> format needs to be parsed as a set of <code>IntervalCollection</code> &#40;<span class="sadmon sadmon-hack">&#91; chr:start-end:strand:value, ... &#93;</span>&#41;, with the ability to pair each target interval to its query interval matched. In a similar implementation &#40;<code>CrossMap</code>&#41; in python, the query regions was passed as the values of the target regions &#40;as Strings&#41; <a href="#CrossMapUtilL331L334">:How CrossMap.py store chain maps</a>. In julia, I think we could do it more effectively, by nesting the <code>IntervalTree</code> of query as the value of the <code>IntervaTree</code> of target.</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">using GenomicFeatures
+using Formatting
+
+julia&gt; demo_array &#61; &#91;
+    Interval&#40;
+        &quot;tchr1&quot;,
+        j,
+        j&#43;100,
+        &#39;&#43;&#39;,
+        Interval&#40;&quot;qchr1&quot;, j&#43;5, j&#43;105, &#39;&#43;&#39;, sprintf1&#40;&quot;QID&#37;02d&quot;, i&#41;&#41;
+    &#41; for &#40;i, j&#41; in enumerate&#40;1:10&#41;
+&#93;
+
+julia&gt; typeof&#40;demo_array&#41;
+Vector&#123;Interval&#123;Interval&#123;String&#125;&#125;&#125; &#40;alias for Array&#123;Interval&#123;Interval&#123;String&#125;&#125;, 1&#125;&#41; 
+
+julia&gt; demo_map &#61; IntervalCollection&#40;demo_array&#41;;
+julia&gt; typeof&#40;demo_map&#41;
+IntervalCollection&#123;Interval&#123;String&#125;&#125;</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+<h4 id="the_intermediate_structure_chainrecord"><a href="#the_intermediate_structure_chainrecord" class="header-anchor">The intermediate structure: <code>ChainRecord</code></a></h4>
+<p>Like those in <a href="/posts/2022/09/automa_basic_usage#ways_used_in_the_biojulia_pkgs_automastream">Bed.jl</a>, we would define a structure that stores all <code>IOStreams</code> related to one chain record, and the positions of each item in the <code>IOStream</code>, and define a function to convert it to the <code>ChainMap</code> format.</p>
+<fieldset class="code code-julia"><legend class="code-legend code-legend-julia">julia</legend></p>
+<pre><code class="language-julia">mutable struct Record
+    # ChainRecord, data and filled range
+    data   ::Vector&#123;UInt8&#125;
+    filled ::UnitRange&#123;Int&#125;
+    # number of align subintervals
+    naln   ::Int
+    # indexes for header line
+    score  ::UnitRange&#123;Int&#125;
+    tname  ::UnitRange&#123;Int&#125;
+    tsize  ::UnitRange&#123;Int&#125;
+    tstrand::UnitRange&#123;Int&#125;
+    tstart ::UnitRange&#123;Int&#125;
+    tend   ::UnitRange&#123;Int&#125;
+    qname  ::UnitRange&#123;Int&#125;
+    qsize  ::UnitRange&#123;Int&#125;
+    qstrand::UnitRange&#123;Int&#125;
+    qstart ::UnitRange&#123;Int&#125;
+    qend   ::UnitRange&#123;Int&#125;
+    id     ::UnitRange&#123;Int&#125;
+    # indexes for aligns
+    alndata::Vector&#123;UnitRange&#123;Int&#125;&#125;
+    alnend ::UnitRange&#123;Int&#125;
+end</code></pre>
+<p><div class="code-lag">julia</div></fieldset>
+
+<fieldset class="admon admon-todo">
+<legend class="admon-legend admon-legend-todo"> Todo</legend>
+  TO BE CONTINUE... 
+</fieldset>
+
+<h1 id="x_crossmaputill331l334"><a href="#x_crossmaputill331l334" class="header-anchor">:x CrossMapUtilL331L334</a></h1>
+<blockquote>
+<p>Find the source <a href="https://github.com/liguowang/CrossMap/blob/8935dbe2f0530d21953c2241d720d320ad408c84/lib/cmmodule/utils.py#L331-L334">here</a></p>
+</blockquote>
+<fieldset class="code code-python"><legend class="code-legend code-legend-python">python</legend></p>
+<pre><code class="language-python">if target_strand &#61;&#61; &#39;&#43;&#39;:
+    maps&#91;source_name&#93;.add_interval&#40; Interval&#40;sfrom, sfrom&#43;size,&#40;target_name,
+    tfrom, tfrom&#43;size,target_strand&#41;&#41;&#41;
+elif  target_strand &#61;&#61; &#39;-&#39;:
+    maps&#91;source_name&#93;.add_interval&#40; Interval&#40;sfrom, sfrom&#43;size,&#40;target_name,
+    target_size - &#40;tfrom&#43;size&#41;, target_size - tfrom, target_strand&#41;&#41;&#41;</code></pre>
+<p><div class="code-lag">python</div></fieldset>
+
+
+</div>
+<!-- article style -->
+
+
+ <!-- add comments to page -->
+<hr>
+<script src="https://utteranc.es/client.js"
+    repo="songtaogui/blog_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<hr> 
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: August 16, 2023.
+          </p>
+    </footer>
+    
+</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+
+
+
+</div>
+
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+ <!-- seperate highlight.js so that I can control it with 'hascode=true' in the md file -->
+<script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // show the button when the user scrolls past 100 pixels
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // when the user clicks on the button, scroll to the top of the document
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+</html>
+
+
+
