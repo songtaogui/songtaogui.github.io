@@ -1,0 +1,346 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Songtao Gui">
+
+    
+    <meta name="description" content="Bioinformatics 2024, College of Life Science, Shandong Agriculture University
+">
+    
+
+    
+    
+    <meta name="keywords" content="SDAUBIU">
+    <title>SDAUBIU</title>
+    
+
+    <link rel="icon" href="/assets/favicon.svg">
+
+    <!-- Dark mode -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget()
+        {
+            const options = {
+                top: 'unset',
+                bottom: 'unset', /* default: '32px' */
+                right: 'unset', /* default: '32px' */
+                left: '50px', /* default: 'unset' */
+                time: '.0s', /* default: '0.3s' */
+                mixColor: '#fff', /* default: '#fff' */
+                backgroundColor: '#fff', /* default: '#fff' */
+                buttonColorDark: '#100f2c', /* default: '#100f2c' */
+                buttonColorLight: '#fff', /* default: '#fff' */
+                saveInCookies: true, /* default: true, */
+                label: '🌓', /* default: '' */
+                autoMatchOsTheme: true /* default: true */
+            };
+            new Darkmode(options).showWidget();
+        };
+        window.addEventListener('DOMContentLoaded', addDarkmodeWidget);
+    </script> -->
+    
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    crossorigin=anonymous>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" crossorigin=anonymous>
+<link rel=stylesheet
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    crossorigin=anonymous>
+<!-- locally served -->
+<link rel="stylesheet" href="/css/pure.css">
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/extra.css">
+<link rel=stylesheet href="/css/codeset.css">
+<link rel=stylesheet href="/css/admonition.css">
+<link rel=stylesheet href="/css/cv.css">
+<link rel=stylesheet href="/css/search-box.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel=stylesheet href="/css/vega.css">
+<link rel=stylesheet href="/css/font-awesome.css">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- nutshell + highlight + katex + plotly -->
+
+
+
+
+
+
+ 
+<!-- end for isnotdef revealslide -->
+
+
+<!-- end for isdef revealslide -->
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+        integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+    <!-- Swiftype -->
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+        
+        _st('install','J57vdqtTa8oYL-ikpKNG','2.0.0');
+    </script>
+    
+     <!-- control the navbar of my blog -->
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+    <div class=container>
+        <!-- Main name -->
+        <div class="d-none d-lg-inline-flex">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Button for narrow mode -->
+        <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar
+            aria-expanded=false aria-label="Toggle navigation">
+            <span><i class="fas fa-bars"></i></span>
+        </button>
+        <!-- Main name for mobile mode -->
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+            <a class=navbar-brand href="/"><span class="cv-contact">
+                <img class="cv-img" src="/assets/personal/namesign.svg">
+            </span></a>
+        </div>
+        <!-- Menu items -->
+        <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+            <ul class="navbar-nav d-md-inline-flex">
+                <li class=nav-item><a class=nav-link href="/posts/"><span>Posts</span></a></li>
+                <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+                <li class=nav-item><a class=nav-link href="/notebooks/"><span>Notebooks</span></a></li>
+                <li class=nav-item><a class=nav-link href="/cv/"><span>CurriculumVitae</span></a></li>
+                <li class=nav-item><a class=nav-link href="/tag/"><span>Tags</span></a></li>
+            </ul>
+        </div>
+        <!-- <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+                <input type="text" class="st-default-search-input" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div> -->
+        <!-- 基于bing site搜索: -->
+        <div class="nav-linksmall d-none d-lg-inline-flex inputBox">
+            <form action="https://bing.com/search" id="searchForm">
+                <input type="text" name="q" value="" placeholder="Input then press ENTER" value="" required>
+                <div class="search"></div>
+            </form>
+            <script>
+                var searchForm = document.getElementById('searchForm');
+                searchForm.onsubmit = function () {
+                    var url = this.action;
+                    var q = this.children['q'].value;
+                    var q = 'site:songtaogui.github.io+' + q
+                    // var site = this.children['site'].value;
+                    var url = url + '?q=' + q;
+                    window.open(url,'__blank');
+                    return false;
+                };
+            </script>
+        </div>
+        <!-- <div class="nav-icon d-none d-lg-inline-flex"> -->
+        <div class="nav-icon">
+            <a class=nav-linksmall href="/giants" target="_blank"><span><img class="nav-img"
+                src="/assets/img/giant.svg"></span></a>
+            <a class=nav-linksmall href="/achievements/" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/achievement.svg"></span></a>
+            <a class=nav-linksmall href="/feed.xml" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/rss.svg"></span></a>
+            <a class=nav-linksmall href="/musics" target="_blank"><span><img class="nav-img"
+                        src="/assets/img/music.svg"></span></a>
+        </div>
+
+    </div>
+</nav> 
+
+    <span class="js-widget-page d-none"></span>
+
+    
+    <article class=article>
+        <div class="article-container pt-3">
+             <h1>SDAUBIU</h1> 
+        </div>
+        
+        <div class="article-container">
+            <!-- 关闭article-style, 不然跟nutshell不兼容 -->
+            <!-- <div class="gst-style"> -->
+            <div class="layout-main">
+                <!-- <div class="article-style"> -->
+                
+                
+                <div class="franklin-content">
+<p><br> <div class="aadmon aadmon-hack"><strong>Bioinformatics</strong> for undergraduated students students<br> <span class="cadmon sadmon-note">College of Life Science, Shandong Agriculture University</span></div> <br></p>
+<h2 id="课程目录"><a href="#课程目录" class="header-anchor">课程目录</a></h2>
+<h3 id="理论课"><a href="#理论课" class="header-anchor">理论课</a></h3>
+<ol>
+<li><p><a href="/courses/Bioinfo_slides/data/001_Intro/SDAUBIU-01-Introduction.pdf" target="_blank" rel="noopener noreferrer"> 🏷</a> <span class="sadmon sadmon-note">&#91;01-02&#93;</span> 生物信息学导论 </p>
+</li>
+<li><p><a href="/courses/Bioinfo_slides/002_Database" target="_blank" rel="noopener noreferrer"> 🏷</a> <span class="sadmon sadmon-note">&#91;03-04&#93;</span> 生物数据库 </p>
+</li>
+<li><p><a href="/courses/Bioinfo_slides/003_Align" target="_blank" rel="noopener noreferrer"> 🏷</a> <span class="sadmon sadmon-note">&#91;05-08&#93;</span> 序列比对  </p>
+</li>
+<li><p>🏷 <span class="sadmon sadmon-note">&#91;09-12&#93;</span> 分子进化 </p>
+</li>
+<li><p><a href="/courses/Bioinfo_slides/005_Sequencing" target="_blank" rel="noopener noreferrer"> 🏷</a> <span class="sadmon sadmon-note">&#91;13-16&#93;</span> 核酸序列分析 </p>
+</li>
+</ol>
+<blockquote>
+<p>参考书：<a href="/courses/Bioinfo_slides/data/999_MISC/Bioinfo_Ed4_Chenming.pdf" target="_blank" rel="noopener noreferrer"> 生物信息学（第四版）-陈铭</a></p>
+</blockquote>
+<h3 id="实验课"><a href="#实验课" class="header-anchor">实验课</a></h3>
+<ol>
+<li><p>🏷 <span class="sadmon sadmon-info">&#91;01-02&#93;</span> 生物数据库介绍和基本使用</p>
+</li>
+<li><p>🏷 <span class="sadmon sadmon-info">&#91;03-06&#93;</span> 适用于生物信息学的Linux操作系统</p>
+</li>
+<li><p>🏷 <span class="sadmon sadmon-info">&#91;07-08&#93;</span> 多序列比对工具的应用</p>
+</li>
+<li><p>🏷 <span class="sadmon sadmon-info">&#91;09-12&#93;</span> 系统发生树的构建</p>
+</li>
+<li><p>🏷 <span class="sadmon sadmon-info">&#91;13-16&#93;</span> RNA-Seq分析</p>
+</li>
+</ol>
+
+
+</div>
+<!-- article style -->
+
+
+
+
+<div class="container">
+    
+    <footer class="site-footer">
+        <p class="powered-by">
+          <script type="text/javascript" src="//rf.revolvermaps.com/0/0/4.js?i=5jnkqismgmy&amp;m=5&amp;h=128&amp;c=baff00&amp;r=0" async="async"></script><br>
+            Total visits: <span id="busuanzi_value_site_pv"></span>.<br>
+            Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and <a
+                href="https://julialang.org" target="_blank" rel="noopener">Julia</a>.<br>
+            Texts are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>
+            Codes are licensed under the <a href="https://mit-license.org/">MIT License</a>.<br>
+            <strong>&copy; Songtao Gui</strong>. Last modified: October 28, 2025.
+          </p>
+    </footer>
+    
+</div>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+
+
+
+</div>
+
+<!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+
+
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js
+    integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js
+    integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
+    integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src="/libs/academic/academic.min.js"></script>
+<script src="/libs/pure/ui.js"></script>
+
+</body>
+
+ <!-- add back to top button to the end of the page -->
+<a class="js-back-to-top back-to-top-button" href="#">
+    <img src="/assets/img/up.svg" style="width: 100px;">
+</a>
+<!-- <button class="js-back-to-top back-to-top-button" title="BackToTop">︽</button> -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window);
+        var $backToTop = $('.js-back-to-top');
+        // show the button when the user scrolls past 100 pixels
+        $win.scroll(function () {
+            if ($win.scrollTop() > 100) {
+                $backToTop.show();
+            } else {
+                $backToTop.hide();
+            }
+        });
+        // when the user clicks on the button, scroll to the top of the document
+        $backToTop.click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 200);
+        });
+    });
+</script>
+<style>
+    /* back to top button */
+    .back-to-top-button {
+        display: none;
+        position: fixed;
+        width: 50px;
+        bottom: 3%;
+        right: 3%;
+        z-index: 99;
+        font-size: 15px;
+        border: 0px solid #696969;
+        background-color: #fff;
+        color: #222222;
+        outline: none;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 40px;
+    }
+
+    .back-to-top-button:hover {
+        background-color: #c0dbf5;
+        color: #fff;
+    }
+</style> 
+
+
+</html>
+
+
+
