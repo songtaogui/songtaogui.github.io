@@ -1,0 +1,730 @@
+
+                 <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sKCEBeALSs13uui0cWMviq9hlm0rPByKQKNHnOdq-d0" />
+    <meta name="baidu-site-verification" content="code-MBwKQgVpns" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="整洁数据分析">
+    <title>整洁数据分析</title>
+     
+<!-- end for isnotdef revealslide -->
+
+
+<!-- reveal.js related -->
+<link rel=stylesheet href="/css/admonition-reveal.css">
+<link rel="icon" href="/assets/favicon-bright.svg">
+<link rel="stylesheet" href="/libs/reveal/dist/reset.css">
+<link rel="stylesheet" href="/libs/reveal/dist/reveal.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/chalkboard/style.css">
+<link rel="stylesheet" href="/libs/reveal/plugin/customcontrols/style.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/libs/reveal/dist/theme/SDAU.css"> 
+<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="/libs/reveal/plugin/highlight/atom-one.css">
+<!-- end reveal.js related -->
+
+<link rel="stylesheet" href="/css/darkmode.css">
+
+
+<!-- end for isdef revealslide -->
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- end Vega -->
+</head>
+
+<!-- <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false"> -->
+
+<body oncontextmenu="event.returnValue=false">
+    <noscript><iframe src="*.htm"></iframe> </noscript>
+    
+    <div class="reveal"> <div class="franklin-content">
+
+<div class="slides">
+
+<section data-background-color="#ffffff"> <br><br><br> <span style="font-size:40px; color: #66C2A5"> Gst Group Training </span> <hr> <br> <span style="font-size:60px; color:#4393C3"> 001 整洁数据分析 </span> <br><br> <hr> <br><br> <span class="cadmon sadmon-hack"><strong>桂松涛</strong></span> <a href="https://songtaogui.github.io/" target="_blank" rel="noopener noreferrer"> Blog</a><br> <span class="cadmon sadmon-hack">songtaogui@163.com</span><br> <img src="/assets/personal/my-github-QR.png" style="margin: 0 auto;" height=100px /><br> <br> 2025-12-18 </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>什么是数据分析</h1>
+<p><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:800px">
+ <img style="margin: 0 auto;height:400px" src="/courses/Lab_training/data/001_TIDY/gamble.png" /> <div class="aadmon aadmon-error"> &quot;已经连续开了十次大了，这次压小绝对一波回本&#33;</div> 
+</td>
+<td id="lov" width="45%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-hack"> &quot;数据分析，就是通过收集、整理、加工和解释数据，从中提取有用的信息和规律，帮助我们做出更好的决策&quot;</div> </div> <br><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"> <span class="Sadmon Sadmon-note">明确问题</span> &gt; <span class="sadmon sadmon-note">收集数据</span> &gt; 数据清洗 &gt; 数据挖掘 &gt; 结果呈现 </div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>如何做数据分析</h1>
+<p><br> <div class="aadmon aadmon-info"> if the only tool you have is a hammer, to treat everything as if it were a nail. <br> – Abraham Maslow</div></p>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <img style="margin: 0 auto;height:500px" src="/courses/Lab_training/data/001_TIDY/excel_game.jpg" /> </div> 
+</td>
+<td id="lov" width="20%" height=90% align="center">
+ <br><br> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"></p>
+<ul>
+<li><p>常用公式</p>
+</li>
+<li><p>数据透视表</p>
+</li>
+<li><p>条件格式</p>
+</li>
+<li><p>分析工具包</p>
+</li>
+<li><p>宏与VBA编程</p>
+</li>
+<li><p>...</p>
+</li>
+</ul>
+<p></div> 
+</td>
+<td id="lov" width="30%" height=90% align="center">
+ <br><br> <div class="fragment" data-fragment-index="3" align="left" style="margin:0px"></p>
+<ul>
+<li><p><span class="sadmon sadmon-tip">直观</span></p>
+</li>
+<li><p><span class="sadmon sadmon-tip">强交互</span></p>
+</li>
+<li><p><span class="sadmon sadmon-error">&lt;几十万行</span></p>
+</li>
+<li><p><span class="sadmon sadmon-error">重复操作</span></p>
+</li>
+<li><p><span class="sadmon sadmon-info"><del> 学习曲线平缓?</del>, <strong>学习曲线陡峭&#33;</strong></span></p>
+</li>
+</ul>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>如何做数据分析</h1>
+<p><br> <div class="aadmon aadmon-note"> 基于编程语言的数据分析工具</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:70%">
+ <img style="margin: 0 auto;height:500px" src="/courses/Lab_training/data/001_TIDY/tidyverse.png" /> 
+</td>
+<td id="lov" width="30%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <br><br></p>
+<ul>
+<li><p><span class="sadmon sadmon-error">不直观, 弱交互</span></p>
+</li>
+<li><p><span class="sadmon sadmon-error">高性能:大量数据</span></p>
+</li>
+<li><p><span class="sadmon sadmon-tip">数据类型丰富</span></p>
+</li>
+<li><p><span class="sadmon sadmon-tip">批量操作</span></p>
+</li>
+<li><p><span class="sadmon sadmon-tip">复杂操作</span></p>
+</li>
+<li><p><span class="sadmon sadmon-tip">代码复用</span></p>
+</li>
+<li><p><span class="sadmon sadmon-info"><strong>学习曲线 <del> 陡峭</del> 平缓</strong></span></p>
+</li>
+</ul>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>向量化</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:400px">
+ <img style="margin: 0 auto;height:500px" src="/courses/Lab_training/data/001_TIDY/computer_mk.png" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> <img style="margin: 0 auto;height:300px" src="/courses/Lab_training/data/001_TIDY/vectorized.png" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>函数式</h1>
+<p><div class="aadmon aadmon-note"> 常见编程范式: 命令式、面向对象、函数式</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <img style="margin: 0 auto;height:610px" src="/courses/Lab_training/data/001_TIDY/program_pattern.gif" /> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"> <div class="aadmon aadmon-error"> 任务: 给定一个数字列表，计算其中所有“偶数”的“平方”之“和”: <br> \([1, 2, 3, 4, 5, 6] => 2^2 + 4^2 + 6^2 = 56\)</div> </div> <div class="fragment" data-fragment-index="2" align="left" style="margin:0px"></p>
+<pre><code class="language-julia"># 命令式: 强调怎么做&#40;HOW&#41;
+
+    data &#61; &#91;1, 2, 3, 4, 5, 6&#93;
+
+    result &#61; 0
+    for x in data
+        if x &#37; 2 &#61;&#61; 0
+            result &#43;&#61; x^2
+        end
+    end
+
+    println&#40;result&#41;</code></pre>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>函数式</h1>
+<p><div class="aadmon aadmon-note"> 常见编程范式: 命令式、面向对象、函数式</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <img style="margin: 0 auto;height:610px" src="/courses/Lab_training/data/001_TIDY/program_pattern.gif" /> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="aadmon aadmon-error"> 任务: 给定一个数字列表，计算其中所有“偶数”的“平方”之“和”: <br> \([1, 2, 3, 4, 5, 6] => 2^2 + 4^2 + 6^2 = 56\)</div></p>
+<pre><code class="language-python"># 面向对象&#40;python&#41;: 对象 &#61; 数据&#40;属性&#41; &#43; 方法&#40;行为&#41;
+# 1. 定义对象 &#40;Class&#41;
+class NumberContainer:
+    def __init__&#40;self, numbers&#41;:
+        self.numbers &#61; numbers  # 将数据保存在对象的属性中
+    def calculate_score&#40;self&#41;:  # 定义实例方法
+        total &#61; 0
+        for x in self.numbers:  # 通过self.numbers 访问数据
+            if x &#37; 2 &#61;&#61; 0:
+                total &#43;&#61; x ** 2
+        return total
+
+# --- 主程序 ---
+data &#61; &#91;1, 2, 3, 4, 5, 6&#93; # 准备数据
+# 2. 实例化对象
+container &#61; NumberContainer&#40;data&#41;
+# 3. 调用方法
+result &#61; container.calculate_score&#40;&#41;
+print&#40;result&#41;</code></pre>
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>函数式</h1>
+<p><div class="aadmon aadmon-note"> 常见编程范式: 命令式、面向对象、函数式</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ <img style="margin: 0 auto;height:610px" src="/courses/Lab_training/data/001_TIDY/program_pattern.gif" /> 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ <div class="aadmon aadmon-error"> 任务: 给定一个数字列表，计算其中所有“偶数”的“平方”之“和”: <br> \([1, 2, 3, 4, 5, 6] => 2^2 + 4^2 + 6^2 = 56\)</div></p>
+<pre><code class="language-julia"># 函数式: 分离数据和方法，关注做什么&#40;What&#41;, 而非怎么做
+function square&#40;x&#41; &#61; x^2
+function filter_even&#40;x&#41; &#61; filter&#40;iseven, x&#41;
+
+# 定义组合函数:
+function functional_calc&#40;x&#41; &#61; sum&#40;square&#40;filter_even&#40;x&#41;&#41;&#41;
+# OR:
+function functional_calc&#40;x&#41; &#61; x |&gt; filter_even |&gt; square |&gt; sum
+# OR:
+function functional_calc&#40;x&#41; &#61; sum∘square∘filter_even&#40;x&#41;
+
+# 执行
+data &#61; &#91;1, 2, 3, 4, 5, 6&#93;
+functional_calc&#40;data&#41;</code></pre>
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>函数式</h1>
+<p><div class="aadmon aadmon-note"> 常见编程范式: 命令式、面向对象、函数式</div> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img style="height:610px" src="/courses/Lab_training/data/001_TIDY/program_pattern.gif" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> 函数式编程的好处</legend>
+</p>
+<ol>
+<li><p><strong>降低认知负担</strong>: 确定了输入和函数，输出就确定了，代码结果是可预测的</p>
+</li>
+<li><p><strong>关注做什么</strong>: 代码核心业务逻辑更清晰</p>
+</li>
+<li><p><strong>并发友好</strong>: 数据是不可变的，避免死锁</p>
+</li>
+<li><p><strong>像搭积木一样组合代码</strong>: 高内聚、低耦合 &#40;复用性、易组合&#41;</p>
+</li>
+<li><p><strong>开发简单</strong>: 易于测试、调试</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Dataframe数据结构</h1>
+<p><div class="aadmon aadmon-error"> Dataframe: 基于向量化 &#43; 函数式的数据分析</div> <br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <img style="height:410px" src="/courses/Lab_training/data/001_TIDY/dataframe.png" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img style="height:510px" src="/courses/Lab_training/data/001_TIDY/df_penguins.png" /> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Dataframe的基本操作</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <div class="aadmon aadmon-note"> 构建、导入</div></p>
+<pre><code class="language-Julia"># 手动构造: 单个元素的列会广播
+DataFrame&#40;A&#61;1:3, B&#61;5:7, fied&#61;1&#41;
+# 用 &#61;&gt; 进行复杂列名DF的构造:
+DataFrame&#40;&quot;customer age&quot; &#61;&gt; &#91;15, 20, 25&#93;,
+          &quot;first name&quot; &#61;&gt; &#91;&quot;A&quot;, &quot;B&quot;, &quot;C&quot;&#93;&#41;
+
+# 从矩阵构造DF:
+DataFrame&#40;matrix, names&#41;
+
+# 按列构造:
+df &#61; DataFrame&#40;&#41;
+df.A &#61; 1:8
+df.B &#61; &#91;&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;&#93;
+
+# 按行构造:
+df &#61; DataFrame&#40;A&#61;Int&#91;&#93;, B&#61;String&#91;&#93;&#41;
+push&#33;&#40;df, &#40;1, &quot;M&quot;&#41;&#41;
+push&#33;&#40;df, &#40;2, &quot;N&quot;&#41;&#41;
+
+# 从其他&#96;Table.jl&#96;的具象格式中转成DF:
+df &#61; sqltable |&gt; DataFrame
+df &#61; &#91;&#40;a&#61;1, b&#61;2&#41;, &#40;a&#61;3, b&#61;4&#41;&#93; |&gt; DataFrame
+
+# 从CSV文件中读取DF:
+using CSV
+data &#61; CSV.read&#40;path, DataFrame&#41;</code></pre>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <div class="aadmon aadmon-hack"> 基本操作: 选择、过滤、基本信息</div></p>
+<pre><code class="language-julia"># 行列选择
+german.Sex
+german.&quot;Sex&quot;
+german&#91;&#33;, :Sex&#93;
+german&#91;&#33;, &quot;Sex&quot;&#93;
+names&#40;german&#41;
+names&#40;german, AbstractString&#41; # 获取指定类型列的名字
+propertynames&#40;german&#41; # 获取Symbols格式的名字
+eachcol&#40;german&#41; # 按列迭代
+empty, empty&#33;   # 删除行, 但保留列数&#40;维度&#41;
+
+mapcols&#40;func, df&#41; # 按列应用func, 返回新df
+mapcols&#40;id -&gt; id .^ 2, german&#41;
+
+first&#40;df, n&#41;, last&#40;df, n&#41; # n默认是1
+
+# 基本过滤
+df&#91;1:3, :&#93;
+df&#91;:, &#91;:A, :B&#93;&#93;
+df&#91;&#33;, &#91;:A&#93;&#93; # 返回一个df
+df&#91;&#33;, :A&#93; # 返回一个Vector
+
+# 正则; Not; Between; All; Cols
+df&#91;&#33;, r&quot;x&quot;&#93; # 取出列名包含x的列
+df&#91;&#33;, Not&#40;:x1&#41;&#93; # 取出除了&#96;x1&#96;之外的列
+df&#91;&#33;, Between&#40;:x1, :x4&#41;&#93;
+df&#91;:, All&#40;&#41;&#93;
+df&#91;:, Cols&#40;x -&gt; startswith&#40;x, &quot;x&quot;&#41;&#41;&#93;
+# Cols 还可用于给列重排序:
+df&#91;:, Cols&#40;r&quot;x&quot;, :&#41;&#93; # 把所有包含x的列排在前面, 其他列排在后边
+df&#91;:, Cols&#40;Not&#40;r&quot;x&quot;&#41;, :&#41;&#93; # 把所有包含x的列排在后面, 其他列排在前边
+
+# 按照数值过滤
+df&#91;df.A .&gt; 500, :&#93; #取出所有A列数值大于 500 的行
+df&#91;&#40;df.A .&gt; 500&#41; .&amp; &#40;300 .&lt; df.C .&lt; 400&#41;, :&#93;
+df&#91;in.&#40;df.A, Ref&#40;&#91;1, 5, 601&#93;&#41;&#41;, :&#93;
+
+# DataFrame基本信息
+size&#40;df&#41;   # &#40;行, 列&#41;
+size&#40;df,1&#41; # 第一维的大小&#40;行数&#41;
+size&#40;df,2&#41; # 第二维的大小&#40;列数&#41;
+nrow&#40;df&#41;, ncol&#40;df&#41;
+describe&#40;df&#41; # 基本统计信息mean, min, max, median, nmissing, elementType
+describe&#40;df, cols&#61;1:3&#41; # 只统计前三列
+show&#40;df, allcols&#61;true&#41;
+show&#40;df, allrows&#61;true&#41;</code></pre>
+<p>
+</td>
+</tr></table>
+ </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Dataframe的进阶操作</h1>
+<p><br><br> <div class="indent-block" style="margin-left: 2em !important"> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> Dataframes的进阶操作: 数据思维</legend>
+ <div class="aadmon aadmon-note"> 操作分解: 连接、重塑、筛选、排序、修改</div> <div class="aadmon aadmon-info"> 管道、向量化、函数式</div> <div class="aadmon aadmon-warn"> Split-apply-combine</div> 
+</fieldset>
+ </div> </section>
+<section style="font-size:35px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>连接: join</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <br><br></p>
+<ul>
+<li><p>innerjoin</p>
+</li>
+<li><p>leftjoin</p>
+</li>
+<li><p>rightjoin</p>
+</li>
+<li><p>crossjoin</p>
+</li>
+<li><p>antijoin</p>
+</li>
+</ul>
+<p>
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <img style="margin: 0 auto;" src="/courses/Lab_training/data/001_TIDY/join_inner.png" /> 
+</td>
+</tr></table>
+ <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<pre><code class="language-julia">innerjoin&#40;df1, df2, on &#61; :ID&#41; # 大部分join都用同一种语法
+innerjoin&#40;df1, df2, on &#61; :ID_df1 &#61;&gt; :ID_df2&#41; # 如果要合并的列名字不一样, 用&#96;&#61;&gt;&#96;指示对应关系
+crossjoin&#40;df1, df2, makeunique &#61; true&#41; # crossjoin不使用&#96;on&#96;关键词</code></pre>
+<p></div> </section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>重塑: 长宽表转换 –&gt; 整洁数据</h1>
+<p>
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:50%">
+ <br><br> <img style="margin: 0 auto;" src="/courses/Lab_training/data/001_TIDY/long_wide_table.png" /> 
+</td>
+<td id="lov" width="50%" height=90% align="left">
+ <br><br> <div class="fragment" data-fragment-index="1" align="left" style="margin:0px"></p>
+<pre><code class="language-Julia"># stack: 宽表变长表, 会自动进行类型提升
+stack&#40;iris, 1:4&#41; # 把1-4列当成variable
+stack&#40;iris, &#91;:SepalLength, :SepalWidth, :PetalLength, :PetalWidth&#93;&#41;
+stack&#40;iris, Not&#40;:Species&#41;&#41;
+# stack的第三个参数指定需要重复的列&#40;指示列&#41;
+stack&#40;iris, &#91;:SepalLength, :SepalWidth&#93;, :Species&#41;
+
+# unstack: 长表变宽表
+unstack&#40;df::AbstractDataFrame, rowkeys, colkey, value; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;
+unstack&#40;df::AbstractDataFrame, colkey, value; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;
+unstack&#40;df::AbstractDataFrame; renamecols::Function&#61;identity,
+        allowmissing::Bool&#61;false, allowduplicates::Bool&#61;false, fill&#61;missing&#41;
+
+iris.id &#61; 1:size&#40;iris, 1&#41;
+longdf &#61; stack&#40;iris, Not&#40;&#91;:Species, :id&#93;&#41;&#41;
+unstack&#40;longdf, :id, :variable, :value&#41;
+# 如果剩下的col是unique的, 可以不提供id variable:
+unstack&#40;longdf, :variable, :value&#41;
+# 甚至可以不提供variable和value:
+unstack&#40;longdf&#41;
+# 添加view&#61;true, 不copy新数据, 而是创建原数据的view, 会节省内存
+stack&#40;iris, view&#61;true&#41;</code></pre>
+<p></div> 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:25px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>重塑: 长宽表转换 –&gt; 整洁数据</h1>
+<p><br><br> 
+<fieldset class="hadmon admon-hack"><legend class="hadmon-legend admon-legend-hack"> 整洁数据</legend>
+</p>
+<ul>
+<li><p>每个变量构成一列</p>
+</li>
+<li><p>每个观测构成一行</p>
+</li>
+<li><p>每个观测的每个变量值构成一个单元格</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ <img style="margin: 0 auto;" src="/courses/Lab_training/data/001_TIDY/tidy-1.png" /> </section>
+<section style="font-size:45px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>筛选</h1>
+<div class="aadmon aadmon-note"> <code>Select</code>: 复杂的按列过滤</div>
+<pre><code class="language-julia">select&#40;df, Not&#40;:x1&#41;&#41;
+select&#40;df, r&quot;x&quot;&#41;
+select&#40;df, :x1 &#61;&gt; :a1, :x2 &#61;&gt; :a2&#41; # 重命名列
+select&#40;df, :x1, :x2 &#61;&gt; &#40;x -&gt; x .- minimum&#40;x&#41;&#41; &#61;&gt; :x2&#41; # 更改x2的数值
+select&#40;df, :x2, :x2 &#61;&gt; ByRow&#40;sqrt&#41;&#41; # 生成新的名为:x2_sqrt的列, 存放x2列的开平方值
+select&#40;df, AsTable&#40;:&#41; &#61;&gt; ByRow&#40;extrema&#41; &#61;&gt;  &#91;:lo, :hi&#93;&#41; # 逐行计算所有列的极值, 存到:lo :hi两列中</code></pre>
+<p></section>
+<section style="font-size:35px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>修改</h1>
+<div class="aadmon aadmon-warn"> <code>transform</code>: 变换</div>
+<pre><code class="language-julia">julia&gt; df &#61; DataFrame&#40;x1&#61;&#91;1, 2&#93;, x2&#61;&#91;3, 4&#93;, y&#61;&#91;5, 6&#93;&#41;
+2×3 DataFrame
+ Row │ x1     x2     y
+     │ Int64  Int64  Int64
+─────┼─────────────────────
+   1 │     1      3      5
+   2 │     2      4      6
+
+julia&gt; transform&#40;df, All&#40;&#41; &#61;&gt; &#43;&#41;
+2×4 DataFrame
+ Row │ x1     x2     y      x1_x2_y_&#43;
+     │ Int64  Int64  Int64  Int64
+─────┼────────────────────────────────
+   1 │     1      3      5          9
+   2 │     2      4      6         12</code></pre>
+<p></section>
+<section style="font-size:35px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>修改</h1>
+<div class="aadmon aadmon-warn"> <code>transform</code>: 变换</div>
+<pre><code class="language-julia">julia&gt; using Statistics
+
+julia&gt; df &#61; DataFrame&#40;x&#61;&#91;1, 2, missing&#93;, y&#61;&#91;1, missing, missing&#93;&#41;
+3×2 DataFrame
+ Row │ x        y
+     │ Int64    Int64 
+─────┼──────────────────
+   1 │       1        1
+   2 │       2  missing
+   3 │ missing  missing
+
+julia&gt; transform&#40;df, AsTable&#40;:&#41; .&#61;&gt;
+                    ByRow.&#40;&#91;sum∘skipmissing,
+                            x -&gt; count&#40;&#33;ismissing, x&#41;,
+                            mean∘skipmissing&#93;&#41; .&#61;&gt;
+                    &#91;:sum, :n, :mean&#93;&#41;
+3×5 DataFrame
+ Row │ x        y        sum    n      mean
+     │ Int64    Int64    Int64  Int64  Float64
+─────┼─────────────────────────────────────────
+   1 │       1        1      2      2      1.0
+   2 │       2  missing      2      1      2.0
+   3 │ missing  missing      0      0      NaN</code></pre>
+<p></section>
+<section style="font-size:45px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>排序</h1>
+<p><div class="aadmon aadmon-info"> sort 和 order</div> <br><br></p>
+<pre><code class="language-julia">sort&#33;&#40;iris&#41; # 每列都逐级参与排序
+sort&#33;&#40;iris, rev &#61; true&#41;
+sort&#33;&#40;iris, &#91;:Species, :SepalWidth&#93;&#41; # 指定排序的列
+sort&#33;&#40;iris, &#91;order&#40;:Species, by&#61;length&#41;, order&#40;:SepalLength, rev&#61;true&#41;&#93;&#41; # 指定排序方式
+sort&#33;&#40;iris, &#91;:Species, :PetalLength&#93;, rev&#61;&#91;true, false&#93;&#41; # 另一种指定排序方式的语法</code></pre>
+<p></section>
+<section style="font-size:35px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>管道、向量化、函数式</h1>
+<br><br><br>
+<pre><code class="language-julia">using Statistics 
+
+df &#61; DataFrame&#40;a &#61; repeat&#40;1:5, outer &#61; 20&#41;,
+               b &#61; repeat&#40;&#91;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;&#93;, inner &#61; 25&#41;,
+               x &#61; repeat&#40;1:20, inner &#61; 5&#41;&#41;
+# df
+# Row │ a      b       x
+#     │ Int64  String  Int64
+#─────┼──────────────────────
+#   1 │     1  a           1
+#   2 │     2  a           1
+#   3 │     3  a           1
+#   4 │     4  a           1
+#   5 │     5  a           1
+#   6 │     1  a           2
+
+x_thread &#61; @chain df begin
+    @transform&#40;:y &#61; 10 * :x&#41;
+    @subset&#40;:a .&gt; 2&#41;
+    @by&#40;:b, :meanX &#61; mean&#40;:x&#41;, :meanY &#61; mean&#40;:y&#41;&#41;
+    @orderby&#40;:meanX&#41;
+    @select&#40;:meanX, :meanY, :var &#61; :b&#41;
+end</code></pre>
+<p></section>
+<section style="font-size:30px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Split-Apply-Combine</h1>
+<p><br><br> 
+<table id="lov"><tr>
+<td id="lov" height=90% style="width:40%">
+ 
+<fieldset class="hadmon admon-note"><legend class="hadmon-legend admon-legend-note"> `Split-Apply-Combine`</legend>
+  数据分析中的经典策略:</p>
+<ol>
+<li><p>把数据集拆分成不同的分组;</p>
+</li>
+<li><p>对某些分组应用特定的方法;</p>
+</li>
+<li><p>合并结果成新的数据集;</p>
+</li>
+</ol>
+<p>
+</fieldset>
+ 
+</td>
+<td id="lov" width="60%" height=90% align="left">
+ 
+<fieldset class="hadmon admon-info"><legend class="hadmon-legend admon-legend-info"> `Split-Apply-Combine`实现</legend>
+  DataFrame中实现的方式是利用<code>groupby</code>创建<code>GroupedDataFrame</code>数据类型, 然后结合<code>combine</code>, <code>select</code>, <code>transform</code>等操作对齐进行数据处理。</p>
+<ul>
+<li><p><code>groupby</code>: 对DataFrame进行分组</p>
+</li>
+<li><p><code>combine</code>: 不限制返回行数, 行的顺序取决于group的顺序, 很适合分组计算统计信息</p>
+</li>
+<li><p><code>select</code>: 返回跟原始df一样的行数和顺序的新列</p>
+</li>
+<li><p><code>transform</code>: 返回原始df以及追加的新的列</p>
+</li>
+</ul>
+<p>
+</fieldset>
+ 
+</td>
+</tr></table>
+ </section>
+<section style="font-size:35px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>不同编程语言的Dataframe实现</h1>
+<br><br><br>
+<ul>
+<li><p>Python/Rust: polar &gt;&gt; pandas</p>
+</li>
+<li><p>R: data.table &gt;&gt; dataframe</p>
+</li>
+<li><p>Julia: Dataframes.jl</p>
+</li>
+</ul>
+<p><br><br> <a href="https://h2oai.github.io/db-benchmark/">https://h2oai.github.io/db-benchmark/</a> </section>
+<section style="font-size:45px" data-transition="none"><img src="/assets/slides/SDAU/SDAU-logo-black.svg" height=35px style="margin: 0 auto;position: absolute;top:-1em;right:0"><hr id="sdauh1"></p>
+<h1>Linux命令行下类似Dataframe的操作</h1>
+<br><br><br>
+<ul>
+<li><p><span class="sadmon sadmon-note">awk</span> or <span class="sadmon sadmon-note">perl one-liner</span></p>
+</li>
+<li><p><span class="sadmon sadmon-note">groupby</span> of bedtools</p>
+</li>
+<li><p><span class="sadmon sadmon-note">csvtk</span></p>
+</li>
+</ul>
+<p></section>
+</div><!-- control the foot of the page, dynamic load related scripts based on variables in md head -->
+
+
+ <!-- seperate reveal.js scripts so that I can control it with 'revealslide=true' in the md file -->
+
+</div>
+
+<script src="/libs/reveal/dist/reveal.js"></script>
+<script src="/libs/reveal/plugin/notes/notes.js"></script>
+<script src="/libs/reveal/plugin/markdown/markdown.js"></script>
+<script src="/libs/reveal/plugin/highlight/highlight.js"></script>
+<script src="/libs/reveal/plugin/search/search.js"></script>
+<script src="/libs/reveal/plugin/math/math.js"></script>
+<script src="/libs/reveal/plugin/animate/plugin.js"></script>
+<script src="/libs/reveal/plugin/animate/svg.min.js"></script>
+<script src="/libs/reveal/plugin/chalkboard/plugin.js"></script>
+<script src="/libs/reveal/plugin/customcontrols/plugin.js"></script>
+<script src="/libs/reveal/plugin/chart/chart.min.js"></script>
+<script src="/libs/reveal/plugin/chart/plugin.js"></script>
+<!-- <script src="/libs/reveal/plugin/reveald3/plugin.js"></script> -->
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        width: 1400,
+        height: 700,
+        margin: 0.04,
+        center: false,
+        controls: true,
+        // controlsTutorial: true,
+        disableLayout: false,
+        slideNumber: 'c/t',
+        showSlideNumber: 'all', // all | print | speaker
+        touch: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ 
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath.KaTeX,
+            RevealSearch,
+            RevealAnimate,
+            RevealCustomControls,
+            RevealChalkboard,
+            RevealChart,
+            // Reveald3
+        ],
+        animate: {
+            autoplay: true
+        },
+        chalkboard: {
+            boardmarkerWidth: 3,
+            chalkWidth: 7,
+            chalkEffect: 1.0,
+            storage: null,
+            src: null,
+            readOnly: undefined,
+            transition: 800,
+            theme: "whiteboard", // whiteboard, chalkboard
+            // background: ['rgba(127,127,127,.1)', path + 'img/blackboard.png'],
+            // background: ['rgba(127,127,127,.1)', path + 'img/whiteboard.png'],
+            grid: { color: '#F0F0F0', distance: 80, width: 1 },
+            eraser: { src: path + 'img/sponge.png', radius: 20 },
+            boardmarkers : [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+            ],
+            chalks: [
+                { color: 'rgba(50,50,50,1)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)',   cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(50,205,50,1)',   cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(255,140,0,1)',   cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)',   cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+            ]
+        },
+        customcontrols: {
+            controls: [
+                {
+                    icon: '<i class="fa fa-file"></i>',
+                    title: 'Blackboard (B)',
+                    action: 'RevealChalkboard.toggleChalkboard();'
+                },
+                {
+                    icon: '<i class="fa fa-pencil"></i>',
+                    title: 'Canvas (C)',
+                    action: 'RevealChalkboard.toggleNotesCanvas();'
+                }
+            ]
+        },
+        chart: {
+            defaults: {
+                color: '#090909', // color of labels
+                scale: {
+                    // beginAtZero: true,
+                    // ticks: { stepSize: 5 },
+                    grid: { color: "#dfdfdf" }, // color of grid lines
+                },
+            },
+            line: {
+                borderColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"],
+            },
+            bar: { backgroundColor: ["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"] },
+            pie: { backgroundColor: [["#377EB8", "#9E0142", "#4DAF4A", "#984EA3", "#FF7F00", "#E6AB02", "#F781BF", "#999999"]] },
+        },
+    });
+</script>
+</body>
+</html>
+ 
